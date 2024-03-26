@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horários de Trabalho</title>
+    <!-- Link para um arquivo CSS externo (opcional) -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Horários de Trabalho</h2>
+        <form id="horariosForm" action="#" method="POST">
+            <div class="input-group">
+                <label for="DiaSemana">Dia da Semana:</label>
+                <input type="text" id="DiaSemana" name="DiaSemana" required>
+            </div>
+            <div class="input-group">
+                <label for="HorarioInicio">Horário de Início:</label>
+                <input type="time" id="HorarioInicio" name="HorarioInicio" required>
+            </div>
+            <div class="input-group">
+                <label for="HorarioFim">Horário de Fim:</label>
+                <input type="time" id="HorarioFim" name="HorarioFim" required>
+            </div>
+            <!-- Adicione outros campos conforme necessário -->
+            <button type="submit" class="button">Salvar Horário</button>
+        </form>
+    </div>
+
+    <script src="horarios.js"></script>
+</body>
+</html>

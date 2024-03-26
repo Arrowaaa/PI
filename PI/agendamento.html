@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Consultas</title>
+    <!-- Link para um arquivo CSS externo (opcional) -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Agendamento de Consultas</h2>
+        <form id="agendamentoForm" action="#" method="POST">
+            <div class="input-group">
+                <label for="DataAgendamento">Data do Agendamento:</label>
+                <input type="date" id="DataAgendamento" name="DataAgendamento" required>
+            </div>
+            <div class="input-group">
+                <label for="HoraAgendamento">Hora do Agendamento:</label>
+                <input type="time" id="HoraAgendamento" name="HoraAgendamento" required>
+            </div>
+            <!-- Adicione outros campos conforme necessário -->
+            <button type="submit" class="button">Agendar Consulta</button>
+            
+            <p><a href="index.html" class="button">Voltar para a página de login</a></p>
+        </form>
+    </div>
+
+    <script src="agendamento.js"></script>
+</body>
+</html>
