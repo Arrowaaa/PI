@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cliente & Pet</title>
+    <!-- Link para um arquivo CSS externo (opcional) -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cadastro de Cliente & Pet</h2>
+        <form id="cadastroForm" action="processar_cadastro.php" method="POST">
+            <div class="input-group">
+                <label for="NomeTutor">Nome do Tutor:</label>
+                <input type="text" id="NomeTutor" name="Tutor" required>
+            </div>
+            <div class="input-group">
+                <label for="CPF">CPF:</label>
+                <input type="text" id="CPF" name="CPF" required>
+            </div>
+            <div class="input-group">
+                <label for="Email">E-mail:</label>
+                <input type="email" id="Email" name="Email" required>
+            </div>
+            <div class="input-group">
+                <label for="Telefone">Telefone:</label>
+                <input type="text" id="Telefone" name="Telefone" required>
+            </div>
+            <div class="input-group">
+                <label for="Sexo">Sexo do Tutor:</label>
+                <select id="Sexo" name="Sexo" required>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                    <option value="O">Outro</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="NomePet">Nome do Pet:</label>
+                <input type="text" id="NomePet" name="Paciente" required>
+            </div>
+            <div class="input-group">
+                <label for="Idade">Idade do Pet:</label>
+                <input type="date" id="Idade" name="Idade" required>
+            </div>
+            <div class="input-group">
+                <label for="Especie">Espécie do Pet:</label>
+                <input type="text" id="Especie" name="Especie" required>
+            </div>
+            <div class="input-group">
+                <label for="Raça">Raça do Pet:</label>
+                <input type="text" id="Raça" name="Raça" required>
+            </div>
+            <div class="input-group">
+                <label for="Peso">Peso do Pet:</label>
+                <input type="number" id="Peso" name="Peso" step="0.01" required>
+            </div>
+            <div class="input-group">
+                <label for="SexoPet">Sexo do Pet:</label>
+                <select id="SexoPet" name="SexoPet" required>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                    <option value="O">Outro</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="Porte">Porte do Pet:</label>
+                <select id="Porte" name="Porte" required>
+                    <option value="Pequeno">Pequeno</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Grande">Grande</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="Contato">Contato do Tutor:</label>
+                <input type="text" id="Contato" name="Contato" required>
+            </div>
+            <div class="input-group">
+                <label for="CEP">CEP:</label>
+                <input type="text" id="CEP" name="CEP" required>
+            </div>
+            <div class="input-group">
+                <label for="Endereço">Endereço:</label>
+                <input type="text" id="Endereço" name="Endereço" required>
+            </div>
+            <div class="input-group">
+                <label for="Complemento">Complemento:</label>
+                <input type="text" id="Complemento" name="Complemento">
+            </div>
+            <div class="input-group">
+                <label for="Numero">Número:</label>
+                <input type="number" id="Numero" name="Numero" required>
+            </div>
+            <div class="input-group">
+                <label for="Senha">Senha:</label>
+                <input type="password" id="Senha" name="Senha" required>
+            </div>
+            <button type="submit" class="button">Cadastrar</button>
+        </form>
+        <!-- Botão de volta para a página de login -->
+        <a href="login.html" class="button">Voltar para Login</a>
+    </div>
+
+    <script src="cadastro.js"></script>
+</body>
+</html>
