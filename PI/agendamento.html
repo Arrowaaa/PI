@@ -10,6 +10,22 @@
 <body>
     <div class="container">
         <h2>Agendamento de Consultas</h2>
+        
+        <div class="input-group">
+            <label for="CEP">CEP:</label>
+            <input type="text" id="CEP" name="CEP" required>
+        </div>
+        
+        <div class="input-group">
+            <label for="Especialização">Especialização:</label>
+            <select id="VeterinarioID" name="Veterinario" required>
+                <option></option>
+                <option value="clinico">Clínico</option>
+                <option value="cirurgião">Cirurgião</option>
+                <option value="oftalmologia">Oftalmologista</option>
+                <option value="cardiologia">Cardiologista</option>
+            </select>
+        </div>
         <form id="agendamentoForm" action="#" method="POST">
             <div class="input-group">
                 <label for="DataAgendamento">Data do Agendamento:</label>
