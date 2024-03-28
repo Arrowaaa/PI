@@ -10,22 +10,22 @@
 <body>
     <div class="container">
         <h2>Agendamento de Consultas</h2>
-        
+
         <div class="input-group">
             <label for="CEP">CEP:</label>
             <input type="text" id="CEP" name="CEP" required>
         </div>
-        
         <div class="input-group">
             <label for="Especialização">Especialização:</label>
-            <select id="VeterinarioID" name="Veterinario" required>
+            <select id="Especializacao" name="Especializacao" required>
                 <option></option>
                 <option value="clinico">Clínico</option>
-                <option value="cirurgião">Cirurgião</option>
+                <option value="cirurgiao">Cirurgião</option>
                 <option value="oftalmologia">Oftalmologista</option>
                 <option value="cardiologia">Cardiologista</option>
             </select>
         </div>
+
         <form id="agendamentoForm" action="#" method="POST">
             <div class="input-group">
                 <label for="DataAgendamento">Data do Agendamento:</label>
@@ -35,6 +35,11 @@
                 <label for="HoraAgendamento">Hora do Agendamento:</label>
                 <input type="time" id="HoraAgendamento" name="HoraAgendamento" required>
             </div>
+            <!-- Lista de médicos -->
+            <div class="input-group" id="listaMedicos">
+                <label for="listaMedicos">Médicos Disponíveis:</label>
+                <ul id="medicosListview"></ul>
+            </div>
             <!-- Adicione outros campos conforme necessário -->
             <button type="submit" class="button">Agendar Consulta</button>
             
@@ -42,6 +47,50 @@
         </form>
     </div>
 
-    <script src="agendamento.js"></script>
+    <script>
+        // Fonte de dados simulada para médicos, especialidades e CRMs
+        const medicosData = {
+            clinico: [
+                { nome: "Dr. João", crm: "12345" },
+                { nome: "Dra. Maria", crm: "54321" }
+            ],
+            cirurgiao: [
+                { nome: "Dr. Carlos", crm: "67890" },
+                { nome: "Dra. Ana", crm: "09876" }
+            ],
+            oftalmologia: [
+                { nome: "Dr. Pedro", crm: "45678" },
+                { nome: "Dra. Sofia", crm: "98765" }
+            ],
+            cardiologia: [
+                { nome: "Dr. Rafael", crm: "23456" },
+                { nome: "Dra. Laura", crm: "65432" }
+            ]
+        };
+
+        // Função para atualizar a lista de médicos com base na especialização selecionada
+        function atualizarListaMedicos(especializacao) {
+            const medicosListview = document.getElementById("medicosListview");
+            medicosListview.innerHTML = "";
+            if (especializacao && medicosData[especializacao]) {
+                medicosData[especializacao].forEach(medico => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = `${medico.nome} - CRM: ${medico.crm}`;
+                    medicosListview.appendChild(listItem);
+                });
+            } else {
+                const listItem = document.createElement("li");
+                listItem.textContent = "Por favor, selecione uma especialização.";
+                medicosListview.appendChild(listItem);
+            }
+        }
+
+        // Event listener para atualizar a lista de médicos quando a especialização é alterada
+        const selectEspecializacao = document.getElementById("Especializacao");
+        selectEspecializacao.addEventListener("change", function() {
+            const especializacaoSelecionada = this.value;
+            atualizarListaMedicos(especializacaoSelecionada);
+        });
+    </script>
 </body>
 </html>
