@@ -1,0 +1,57 @@
+
+body {
+    display: flex;
+    background-color: #f0f0f0;  
+    font-family: Arial, sans-serif; 
+    color: #555; 
+}
+
+.container {
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    width: 300px; 
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+
+.input-group {
+    margin-bottom: 10px; 
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555; 
+    text-align: left; 
+}
+
+.input-group input {
+    width: 90%; 
+    padding: 10px;
+    margin-bottom: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px; 
+    margin-right: 10px; 
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button.cadastrar {
+    background-color: #007bff; 
+    color: #fff; 
+    border: 1px solid #000; 
+}
+
+.button:hover {
+    background-color: #0056b3;
+}

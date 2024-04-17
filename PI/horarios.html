@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horários de Trabalho</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
     <div class="container">
         <h2>Horários de Trabalho</h2>
         <form id="horariosForm" action="#" method="POST">
             <div class="input-group">
-                <label for="DiaSemana">Dia da Semana:</label>
-                <input type="text" id="DiaSemana" name="DiaSemana" required>
+                <label for="diasemana">Dia da Semana:</label>
+                <select type="text" id="diasemana" name="diasemana" required>
+                    <option></option>
+                    <option value="segunda">Segunda-Feira</option>
+                    <option value="terca">Terça-Feira</option>
+                    <option value="quarta">Quarta-Feira</option>
+                    <option value="quita">Quinta-Feira</option>
+                    <option value="sexta">Sexta-Feira</option>
+                    <option value="sabado">Sábado</option>
+                    <option value="domingo">Domingo</option>
+                </select>
             </div>
             <div class="input-group">
-                <label for="HorarioInicio">Horário de Início:</label>
-                <input type="time" id="HorarioInicio" name="HorarioInicio" required>
+                <label for="horarioinicio">Horário de Início:</label>
+                <input type="time" id="horarioinicio" name="horarioinicio" required>
             </div>
             <div class="input-group">
-                <label for="HorarioFim">Horário de Fim:</label>
-                <input type="time" id="HorarioFim" name="HorarioFim" required>
+                <label for="horariofim">Horário de Fim:</label>
+                <input type="time" id="horariofim" name="horariofim" required>
             </div>
             <!-- Botão -->
             <button type="submit" class="button">Salvar Horário</button>

@@ -1,0 +1,66 @@
+/* Estilos para ocupar a tela inteira */
+body,
+html {
+    display: flex;
+    height: 90%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+.container {
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    width: 300px; 
+    margin: 0 auto; 
+    text-align: left; 
+}
+.container2 {
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    width: 300px; 
+    margin:auto; 
+    text-align: left; 
+}
+
+/* Estilos para o conteúdo */
+.content {
+    text-align: left;
+    width: 90%;
+    max-width: 500px; /* Defina a largura máxima do conteúdo */
+}
+
+/* Estilos para o botão com a seta para baixo */
+.dropdown-button {
+    cursor: pointer;
+    position: absolute;
+    top: 10px; /* Distância do topo da página */
+    right: 10px; /* Distância da borda direita da página */
+    background-color: #969494;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Estilos para os botões ocultos */
+.hidden-buttons {
+    display: none;
+    position: absolute;
+    top: 50px; /* Distância do topo da página */
+    right: 10px; /* Distância da borda direita da página */
+    background-color: #969494;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.hidden-buttons a {
+    display: block;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #ffffff;
+}
