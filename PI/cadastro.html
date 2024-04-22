@@ -30,12 +30,12 @@
             <div class="input-group">
                 <label for="telefone">Telefone:</label>
                 <input type="text" id="telefone" placeholder="(00) 0000-0000" name="telefone" required>
-                <script src="mascara_telefone.js"></script>
+                <script src="mascaras.js"></script>
             </div>
             <div class="input-group">
                 <label for="contato">Outro contato:</label>
                 <input type="text" id="contato" placeholder="(00) 0000-0000" name="contato" required>
-                <script src="mascara_telefone.js"></script>
+                <script src="mascaras.js"></script>
             </div>
             <div class="input-group">
                 <label for="sexo">Sexo do Tutor:</label>
@@ -57,7 +57,17 @@
             </div>
             <div class="input-group">
                 <label for="especie">Espécie do Pet:</label>
-                <input type="text" id="especie" name="especie" required>
+                <select type="text" id="especie" name="especie" required>
+                    <option></option>
+                    <option value="m">Mamíferos</option>
+                    <option value="c">Canidaes(Cães)</option>
+                    <option value="f">Felídeos(Gatos)</option>
+                    <option value="n">Neornithes(Aves)</option>
+                    <option value="p">Peixes</option>
+                    <option value="i">Invertebrados</option>
+                    <option value="r">Répteis</option>
+                    <option value="a">Anfíbios</option>
+                </select>
             </div>
             <div class="input-group">
                 <label for="raca">Raça do Pet:</label>
@@ -118,7 +128,7 @@
         </div>
     </div>
 
-    <script src="cadastro.js"></script>
+    <script src="js/mascaras.js"></script>
    
 </body>
 </html>

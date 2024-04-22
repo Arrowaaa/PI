@@ -5,11 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horários de Trabalho</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./js/mascaras.js">
 </head>
 <body>
     <div class="container">
         <h2>Horários de Trabalho</h2>
         <form id="horariosForm" action="#" method="POST">
+            <div class="input-group">
+                <label for="medico">Médico:</label>
+                <input type="text" id="medico" name="dr" required>
+                <script src="mascaras.js"></script>
+            </div>
+            <div class="input-group">
+                <label for="especialização">Especialização:</label>
+                <select id="especializacao" name="especializacao" required>
+                    <option></option>
+                    <option value="clinico">Clínico</option>
+                    <option value="cirurgiao">Cirurgião</option>
+                    <option value="oftalmologia">Oftalmologista</option>
+                    <option value="cardiologia">Cardiologista</option>
+                </select>
+            </div>
             <div class="input-group">
                 <label for="diasemana">Dia da Semana:</label>
                 <select type="text" id="diasemana" name="diasemana" required>
@@ -36,6 +52,6 @@
         </form>
     </div>
      <!-- conecção com outro formulário -->
-    <script src="horarios.js"></script>
+    <script src="js/mascaras.js"></script>
 </body>
 </html>
