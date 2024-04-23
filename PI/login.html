@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm" action="#">
+            <div class="input-group">
+                <label for="usuario">CPF:</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
+            <div class="input-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="Senha" name="senha" required>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="button">Entrar</button>
+            </div>
+            <div class= "button-group">
+            <p></p><a href="cadastro.html" class="button">Cadastrar</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- solicitar referencias de outro formulário -->
+    <script src="login.js"></script>
+</body>
+</html>
