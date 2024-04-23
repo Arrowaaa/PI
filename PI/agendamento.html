@@ -13,16 +13,23 @@
         <div class="input-group">
             <label for="cpf">CPF:</label>
             <input type="text" id="cpf" name="cpf" required>
-            <script src="mascaras.js"></script>
+            <script src="./js/mascaras.js"></script>
         </div>
         <div class="input-group">
             <label for="especialização">Especialização:</label>
             <select id="especializacao" name="especializacao" required>
                 <option></option>
-                <option value="clinico">Clínico</option>
-                <option value="cirurgiao">Cirurgião</option>
-                <option value="oftalmologia">Oftalmologista</option>
-                <option value="cardiologia">Cardiologista</option>
+                    <option value="clinico">Veterinário Clinico</option>
+                    <option value="cirurgiao">Cirurgião</option>
+                    <option value="oftalmologia">Oftalmologia</option>
+                    <option value="cardiologia">Cardiologia</option>
+                    <option value="ortopedista">Ortopedia</option>
+                    <option value="neurologista">Neurologia</option>
+                    <option value="patologia">Patologia</option>
+                    <option value="medicina">Medicina Intensiva Veterinária</option>
+                    <option value="oncologia">Oncologia</option>
+                    <option value="dermatologia">Dermatologia</option>
+                    <option value="nutricao">Nutricionista</option>
             </select>
         </div>
 
@@ -43,13 +50,13 @@
             <!-- Botões -->
             <button type="submit" class="button">Agendar Consulta</button>
             
-            <p><a href="nova_pagina.html" class="button">Seu Perfil</a></p>
+            <p><a href="perfil.html" class="button">Seu Perfil</a></p>
         </form>
     </div>
 
     <script>
         // Fonte de dados simulada para médicos, especialidades e CRMs
-        const medicosData = {
+        const medicosListview = {
             clinico: [
                 { nome: "Dr. Arrow", crm: "12345" },
                 { nome: "Dra. Kara", crm: "54321" }
