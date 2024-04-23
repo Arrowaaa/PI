@@ -6,11 +6,13 @@
 
 .logo{
     width: 100px;
+    padding: 5px;
 }
 
 .menu ul{
     list-style: none;
     display: flex;
+    margin: 30px;
     gap: 15px;
 }
 
@@ -50,6 +52,7 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0.5px;
+    margin-left: 50px;
 
 }
 .home main{
