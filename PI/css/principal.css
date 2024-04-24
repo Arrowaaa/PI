@@ -26,7 +26,7 @@
     display: inline-block;
 }
 .home{
-    background:linear-gradient(rgba(44,40,40,0.514), rgba(48,42,42,0.5)), url(../img/rodapé\ cachorro.png);
+    background:linear-gradient(rgba(44,40,40,0.3), rgba(48,42,42,0.5)),url(../img/rodapé\ cachorro.png);
     background-size:cover;
     background-position: center;
     height: 100vh;
@@ -54,6 +54,13 @@ header{
     padding: 0.5px;
     margin-left: 50px;
 
+}
+.home p{
+    font-family: "Croissant One","serif";
+    font-size: 25px;
+    align-items: center;
+    margin-left: 100px;
+    color:azure;
 }
 .home main{
     display: flex;

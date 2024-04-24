@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
 
 body {
     display: flex;
     background-color: #f0f0f0;  
-    font-family: Arial, sans-serif; 
+    font-family: "Croissant One","serif";
     color: #555; 
 }
 
@@ -14,6 +15,7 @@ body {
     width: 300px; 
     margin: 0 auto; 
     text-align: center; 
+    
 }
 
 
@@ -44,6 +46,8 @@ body {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    font-family: "Croissant One","serif";
+    
 }
 
 .button.cadastrar {
