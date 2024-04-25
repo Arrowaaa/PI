@@ -10,6 +10,16 @@
 }
 .menu .linha{
     background-color:rgba(255, 255, 255, 0.5);
+
+}
+.body{
+    background-color: #FF9239;
+    background-size: cover;
+    background-position: center;
+    font-family: "Croissant One","serif";
+    justify-items:center;
+    justify-content: center;
+    align-items: center;
 }
 .menu ul{
     list-style: none;
@@ -58,9 +68,10 @@ header{
 
 }
 .home p{
+    display: flex;
     font-family: "Croissant One","serif";
     font-size: 25px;
-    align-items: center;
+    align-items: right;
     margin-left: 100px;
     color:azure;
 }

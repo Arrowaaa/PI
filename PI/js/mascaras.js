@@ -62,14 +62,5 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// document.addEventListener("DOMContentLoaded", function() {
-//     var crmInput = document.getElementById('crm');
-    
-//     crmInput.addEventListener('input', function(e) {
-//         var crm = e.target.value;
-//         crm = crm.replace(/(\d{3})(\d)/, '$1.$2'); 
-//         crm = crm.replace(/[^a-zA-Z\sç]/g, ''); 
-//         e.target.value = cpf;
-//     });
-// });
+
 
