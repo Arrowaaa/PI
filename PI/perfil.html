@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2 style="text-align: center;">Bem-vindo à Seu Perfil</h2>
+        <h2> Dados pessoais </h2>
+        <!-- Exibir as informações do cadastro -->
+        <div id="cadastroInfo" class="content" style="text-align: left;">
+            <h3>Informações:</h3>
+            <p>CPF: 000.000.000-00</p>
+            <p>Nome: Arrow</p>
+            <p>Email: arrow@exemplo.com</p>
+            <p>Telefone: (00) 0 0000-0000</p>
+            <p>Endereço:  Rua: Sol - Americana-SP</p>
+        </div>
+        <!-- Exibir as informações do agendamento -->
+        <div id="agendamentoInfo" class="content" style="text-align: left;">
+            <h3>Informações do Agendamento:</h3>
+
+            <p>Médico: Arrow</p>
+            <p>Período: Manhã</p>
+            <p>Data: 2024-03-28</p>
+            <p>Hora: 09:00</p>
+        </div>
+
+        <!-- Botão com a seta para baixo -->
+        <button class="dropdown-button" onclick="toggleDropdown()">Opções ▼</button>
+
+        <!-- Botões ocultos -->
+        <div id="hiddenButtons" class="hidden-buttons">
+            <!-- Botão de editar informação do usuario -->
+            <p><a href="cadastro.html">Editar</a></p>
+            <!-- Botão de agendamento de consulta -->
+            <p><a href="agendamento.html">Agendar Consulta</a></p>
+            <!-- Botão de volta para a página de login/Sair -->
+            <p><a href="index.html">Sair</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var hiddenButtons = document.getElementById("hiddenButtons");
+            if (hiddenButtons.style.display === "none") {
+                hiddenButtons.style.display = "block";
+            } else {
+                hiddenButtons.style.display = "none";
+            }
+        }
+    </script>
+    <style>
+        /* Estilos para ocupar a tela inteira */
+        body,
+        html {
+            height: 90%;
+            margin: 15px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            padding: 40px;
+            height: 100%;
+            display:block ;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilos para o conteúdo */
+        .content {
+            text-align: left;
+            width: 90%;
+            max-width: 500px; /* Defina a largura máxima do conteúdo */
+        }
+
+        /* Estilos para o botão com a seta para baixo */
+        .dropdown-button {
+            cursor: pointer;
+            position: absolute;
+            top: 10px; /* Distância do topo da página */
+            right: 10px; /* Distância da borda direita da página */
+            background-color: #969494;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        /* Estilos para os botões ocultos */
+        .hidden-buttons {
+            display: none;
+            position: absolute;
+            top: 50px; /* Distância do topo da página */
+            right: 10px; /* Distância da borda direita da página */
+            background-color: #969494;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .hidden-buttons a {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #ffffff;
+        }
+    </style>
+</body>
+
+</html>

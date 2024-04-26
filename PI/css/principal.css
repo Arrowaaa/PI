@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
+
+*{ 
+    margin: 0;
+}
+
+.logo{
+    width: 100px;
+    padding: 5px;
+}
+.menu .linha{
+    background-color:rgba(255, 255, 255, 0.5);
+}
+.menu ul{
+    list-style: none;
+    display: flex;
+    margin: 30px;
+    gap: 15px;
+}
+
+.menu ul li a:hover {
+    background-color: white; 
+    color: black; 
+}
+
+
+.menu ul li{
+    display: inline-block;
+}
+.home{
+    background:linear-gradient(rgba(44,40,40,0.3), rgba(48,42,42,0.5)),url(../img/rodapé\ cachorro.png);
+    background-size:cover;
+    background-position: center;
+    height: 100vh;
+}
+
+
+.menu ul li a{
+    /* border: tamanho do traçado, tipo e a cor */
+    border: 1px solid white;
+    /* padding: altura, largura */
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    color: whitesmoke;
+    text-decoration: none;
+    font-family: "Croissant One","serif";
+    
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5px;
+    margin-left: 50px;
+
+}
+.home p{
+    font-family: "Croissant One","serif";
+    font-size: 25px;
+    align-items: center;
+    margin-left: 25px;
+    padding: 15px;
+    color:azure;
+}
+.home main{
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    height: 80vh;
+}
+.home h1{
+    font-family: "Croissant One","serif";
+    font-size: 150px;
+    color:#FF9239;
+
+}
+/* Estilo para o rodapé */
+footer {
+    background: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5));
+    background-color: #FF9239;
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+}
+.rodape {
+    display: flex;
+    justify-content: space-around; /* Distribui os elementos uniformemente */
+    align-items: center;
+}
+
+.logo-rodape {
+    width: 100px;
+    margin: -55px;
+}
+
+.informacoes {
+    color: white;
+    text-align: justify;
+    font-family: "Croissant One","serif";
+}
+.informacoes .visita{
+    color:black;
+    font-size: 25px;
+    font-family: "Croissant One","serif";
+}
+.redes-sociais {
+    list-style: none;
+    margin: 3px;
+    padding: 2px;
+    display: flex; /* meche com o tipo de visibidade das redes */
+
+}
+.redes-sociais p{
+    color: white;
+    font-family: "Croissant One","serif";
+}
+.redes-sociais li {
+    margin: 50px;
+    margin-left: 10px; /* Adiciona um espaçamento entre os ícones das redes sociais */
+    margin-right: 10px;
+}
