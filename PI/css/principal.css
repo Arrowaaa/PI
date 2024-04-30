@@ -58,7 +58,7 @@ header{
 
 }
 .home p{
-    font-family: "Croissant One","serif";
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     align-items: center;
     margin-left: 25px;
@@ -99,7 +99,7 @@ footer {
 .informacoes {
     color: white;
     text-align: justify;
-    font-family: "Croissant One","serif";
+    font-family: Arial, Helvetica, sans-serif;
 }
 .informacoes .visita{
     color:black;
@@ -110,12 +110,12 @@ footer {
     list-style: none;
     margin: 3px;
     padding: 2px;
-    display: flex; /* meche com o tipo de visibidade das redes */
+    display: flex; 
 
 }
 .redes-sociais p{
     color: white;
-    font-family: "Croissant One","serif";
+    font-family: Arial, Helvetica, sans-serif;
 }
 .redes-sociais li {
     margin: 50px;
