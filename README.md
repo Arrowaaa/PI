@@ -25,7 +25,7 @@ Para agendar uma consulta ou obter mais informações sobre nossos serviços, en
 
 - **Telefone:** (19) 9 99999-9999
 - **Email:** ventqui@gmail.com
-- **Endereço:** Rua: Dr. Angelino Sanches, 800 - Vila Sao Pedro, Americana - SP, 13466-490
+- **Endereço:** Rua: ...
 
 Siga-nos nas redes sociais:
 
