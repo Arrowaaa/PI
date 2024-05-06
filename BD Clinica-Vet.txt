@@ -1,0 +1,65 @@
+
+ **Criar o Banco de Dados**: Use o comando `CREATE DATABASE` para criar o banco de dados principal `vet_clinic`.
+
+   ```sql
+   CREATE DATABASE vet_clinic;
+   ```
+
+ **Selecionar o Banco de Dados**: Depois de criar o banco de dados, você precisa selecioná-lo para executar operações dentro dele.
+
+   ```sql
+   USE vet_clinic;
+   ```
+
+ **Criar as Tabelas**: Em seguida, você pode criar as tabelas necessárias, como `usuarios`, `clientes`, `agendamentos`, `pets`, conforme discutido anteriormente. Você pode usar os comandos `CREATE TABLE` para isso.
+
+ **Criar as tabelas de acordo com a estrutura discutida**: Você pode usar os comandos `CREATE TABLE` conforme discutido anteriormente para criar as tabelas `usuarios`, `clientes`, `agendamentos`, `pets`.
+
+   ```sql
+   CREATE TABLE usuarios (
+       id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+       nome VARCHAR(100) NOT NULL,
+       usuario VARCHAR(50) UNIQUE NOT NULL,
+       senha VARCHAR(255) NOT NULL,
+       lembrar BOOLEAN
+   );
+
+   CREATE TABLE clientes (
+       id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+       nome VARCHAR(100) NOT NULL,
+       email VARCHAR(100) NOT NULL,
+       telefone VARCHAR(20)
+   );
+
+   CREATE TABLE agendamentos (
+       id_agendamento INT AUTO_INCREMENT PRIMARY KEY,
+       id_cliente INT,
+       data_agendamento DATE,
+       hora_agendamento TIME,
+       FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+   );
+
+CREATE TABLE horarios_medicos (
+    id_horario INT AUTO_INCREMENT PRIMARY KEY,
+    id_medico INT,
+    dia_semana ENUM('Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo') NOT NULL,
+    hora_inicio TIME NOT NULL,
+    hora_fim TIME NOT NULL,
+    disponivel BOOLEAN NOT NULL DEFAULT true,
+    FOREIGN KEY (id_medico) REFERENCES usuarios(id_usuario)
+);
+
+
+   CREATE TABLE pets (
+       id_pet INT AUTO_INCREMENT PRIMARY KEY,
+       id_cliente INT,
+       nome VARCHAR(100) NOT NULL,
+       especie VARCHAR(50),
+       idade INT,
+       FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+   );
+   ```
+
+ **Verifique se as tabelas foram criadas com sucesso**: Você pode verificar se as tabelas foram criadas com sucesso usando o comando `SHOW TABLES;`. Isso deve retornar a lista de tabelas no banco de dados `vet_clinic`.
+
+ **Verifique a estrutura das tabelas**: Você pode verificar a estrutura de cada tabela usando o comando `DESCRIBE nome_da_tabela;`. Isso fornecerá informações sobre os campos e tipos de dados em cada tabela.
