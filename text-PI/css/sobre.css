@@ -14,11 +14,28 @@
     font-family: Arial, Helvetica, sans-serif;
 } */
 
+.menu .linha{
+    background-color:rgba(255, 255, 255, 0.5);
+}
+.icon{
+    font-size: 15px;
+    padding: 0 0 -4 15px;
+}
+
+
 .logo{
     width: 10%;
     padding: 5px;
 }
-
+body{
+    background-color: #FF9239
+}
+.home{
+    background:linear-gradient(rgba(44,40,40,0.3), rgba(48,42,42,0.5)),url(../img/rodapé\ cachorro.png);
+    background-size:cover;
+    background-position: center;
+    height: 100%;
+}
 
 .container {
     background-color:rgba(255, 255, 255, 0.5);
@@ -30,10 +47,11 @@
     padding: 50px; /* Adicionar padding para espaçamento */
 }
 
-.menu-perfil ul {
+.menu-perfil ul .menu {
     list-style: none;
     display: flex;
     gap: 5px;
+    display: inline-block;
 }
 
 .menu-perfil li {
@@ -43,6 +61,7 @@
 .menu-perfil li a {
     padding: 8px;
     border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.5);;
     color: whitesmoke;
     text-decoration: none;
     font-family: "Croissant One","serif";
@@ -68,8 +87,8 @@ header nav {
 }
 
 
-.home{
-    background:linear-gradient(rgba(44,40,40,0.3), rgba(48,42,42,0.5)),url(../img/rodapé\ cachorro.png);
+#footer {
+    background-image:linear-gradient(rgba(44,40,40,0.3), rgba(48,42,42,0.5)),url(../img/rodapé\ cachorro.png);
     background-size:cover;
     background-position: center;
     height: 100%;
@@ -113,9 +132,9 @@ body main .home main h1{
 #produtos figure{
     background-color: #d9d9d9;
     text-align: center;
-    padding: 10px 20px 10px 10px;
+    padding: 10px 20px 0px 10px;
     border-radius: 20px;
-    width: 110% ;
+    width: 105% ;
     max-width: 100vw;
 }
 
@@ -149,6 +168,7 @@ body main .home main h1{
     background-size: cover;
     background-position: center;
     padding: 50px 0;
+    margin-top: 250px;
 }
 
 .rodape {

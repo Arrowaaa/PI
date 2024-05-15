@@ -23,14 +23,30 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
-    width: 300px; 
+    width: 30vw; 
     margin: auto; 
     text-align: center; 
     color: white;
     
 }
 
+/* Ícone de olho aberto */
+#mostrarSenha::before {
+    content: "\1F441"; /* Unicode para ícone de olho aberto */
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 5px;
+}
 
+/* Ícone de olho fechado */
+#mostrarSenha.oculto::before {
+    content: "\1F440"; /* Unicode para ícone de olho fechado */
+}
+
+.forgot-password{
+    color: #0056b3;
+    margin-left: 13px;
+}
 .input-group {
     margin-bottom: 20px; 
 }
@@ -58,6 +74,7 @@ body {
     text-decoration: none;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
     
 }
 
@@ -66,6 +83,7 @@ body {
     background-color: #007bff; 
     color: #fff; 
     border: 1px solid #000; 
+
 }
 
 .button:hover {

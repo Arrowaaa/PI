@@ -13,3 +13,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const senhaInput = document.getElementById('senha');
+    const mostrarSenhaBtn = document.getElementById('mostrarSenha');
+
+    mostrarSenhaBtn.addEventListener('click', function () {
+        senhaInput.type = senhaInput.type === 'password' ? 'text' : 'password';
+        mostrarSenhaBtn.textContent = senhaInput.type === 'password' ? 'Mostrar Senha' : 'Ocultar Senha';
+    });
+});
