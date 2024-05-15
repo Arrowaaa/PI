@@ -1,92 +1,171 @@
 @import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
-
-*{ 
+* {
     margin: 0;
-}
-
-.logo{
-    width: 100px;
-    padding: 5px;
+    font-family: "Croissant One","serif"f;;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+        
 }
 .menu .linha{
     background-color:rgba(255, 255, 255, 0.5);
+    color: #000;
 }
-.menu ul{
+.icon{
+    font-size: 15px;
+    padding: 0 0 -4 15px;
+}
+
+
+.logo{
+    width: 10%;
+    padding: 5px;
+}
+body{
+    background-color: #0e0c0c
+    
+}
+/*Animação do banner principal*/
+@keyframes moveBackground {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 100% center;
+    }
+}
+
+.home {
+    background: linear-gradient(rgba(44, 40, 40, 0.3), rgba(48, 42, 42, 0.5)), url(../img/rodapé\ cachorro.png);
+    background-size: cover;
+    background-position: 0% center;
+    height: 100%;
+    padding: 0 0 1px 0;
+    animation: moveBackground 10s linear infinite; /* Aplica a animação */
+}
+
+/* Função de esconde os botões do rai-x e internação  */
+.dropdown-content a {
+    padding: 8px 12px; /* Adiciona espaçamento interno aos botões */
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:not(:last-child) {
+    margin-bottom: 8px; /* Adiciona espaçamento entre os botões */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.menu ul .menu {
     list-style: none;
     display: flex;
-    margin: 30px;
     gap: 5px;
-}
-
-.menu ul li a:hover {
-    background-color: white; 
-    color: black; 
-}
-
-
-.menu ul li{
     display: inline-block;
 }
-.home{
-    background:linear-gradient(rgba(44,40,40,0.3), rgba(48,42,42,0.5)),url(../img/rodapé\ cachorro.png);
-    background-size:cover;
-    background-position: center;
-    height: 100vh;
+
+.menu li {
+    display: inline-block;
 }
 
-
-.menu ul li a{
-    /* border: tamanho do traçado, tipo e a cor */
-    border: 1px solid white;
-    /* padding: altura, largura */
-    padding: 5px 20px;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-
+.menu li a {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.5);;
     color: whitesmoke;
     text-decoration: none;
     font-family: "Croissant One","serif";
-    
+
 }
 
-header{
+.menu .selecionado,
+.menu li a:hover 
+{
+    background-color: whitesmoke;
+    color: black;
+    border: 1px solid blue;
+}
+
+header nav {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 0 15px;
+    padding: 30px 30px;
+    width: 100%;
+    font-size: 15px;
+    
+}
 
+/*Animação no h1*/
+@keyframes rotate3D {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    75% {
+        transform: rotateX(180deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
 }
-.home p{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    align-items: center;
-    margin-left: 25px;
-    padding: 15px;
-    color:azure;
-}
-.home main{
-    display: flex;
-    align-items: center ;
-    justify-content: center;
-    height: 80vh;
-}
-.home h1{
-    font-family: "Croissant One","serif";
+
+body main .home main h1 {
+    font-family: "Croissant One", "serif";
     font-size: 150px;
-    color:#FF9239;
+    color: #FF9239;
+    display: flex;
+    justify-content: center;
+    animation: rotate3D 5s infinite;
+    transform-style: preserve-3d;
+    background: linear-gradient(45deg, #ff9239, #ff3d00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 0 #000, 2px 2px 0 #ff9239, 3px 3px 0 #ff9239, 4px 4px 0 #ff9239, 5px 5px 0 #ff9239;
+}
 
+/* Estilo para o rodapé */ /*Animação do banner rodapé*/
+@keyframes moveBackgroundRight {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 100% center;
+    }
 }
-/* Estilo para o rodapé */
+
 footer {
-    background: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5));
+    background-image: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5)), url(../img/5.png);
     background-color: #FF9239;
-    background-size: cover;
-    background-position: center;
-    padding: 50px 0;
+    background-size: auto 100%; /* Ajusta a altura para 100% e a largura automaticamente */
+    background-position: 0% center; /* Posiciona a imagem no lado esquerdo central do elemento */
+    background-repeat: repeat; /* Permite a repetição da imagem */
+    padding: 0 0 55px 0;
+    animation: moveBackgroundRight 40s linear infinite; /* Aplica a animação */
 }
+
+
+
 .rodape {
     display: flex;
-    justify-content: space-around; /* Distribui os elementos uniformemente */
+    justify-content: space-evenly; /* Distribui os elementos uniformemente */
     align-items: center;
 }
 
@@ -96,7 +175,7 @@ footer {
 }
 
 .informacoes {
-    color: white;
+    color: black;
     text-align: justify;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -113,7 +192,7 @@ footer {
 
 }
 .redes-sociais p{
-    color: white;
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
 }
 .redes-sociais li {

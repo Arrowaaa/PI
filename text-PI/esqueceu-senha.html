@@ -12,6 +12,10 @@
 </head>
 
 <body>
+    <div class="imagens">
+        <img src="./img/2.png" alt="Imagem 1" class="imagem-esquerda">
+        <img src="./img/cachorro.png" alt="Imagem 2" class="imagem-direita">
+    </div>
     <div class="container">
         <h2>Redefinir Senha</h2>
         <form id="loginForm" action="login.html">
@@ -19,15 +23,15 @@
                 <label for="usuario">Usúario:</label>
                 <input type="text" id="usuario" name="usuario" required>
             </div>
-            <div class="input-group">
+            <div class="input-group password-group">
                 <label for="senha">Nova Senha:</label>
                 <input type="password" id="senha" name="senha" required>
-                <button type="button" id="mostrarSenha"></i></button>
+                <button type="button" id="mostrarSenha"></button>
             </div>
-            <div class="input-group">
-                <label for="senha">Confirme a Senha:</label>
-                <input type="password" id="senha" name="senha" required> 
-                <button type="button" id="mostrarSenha"></i></button>
+            <div class="input-group password-group">
+                <label for="confirmSenha">Confirme a Senha:</label>
+                <input type="password" id="confirmSenha" name="confirmSenha" required>
+                <button type="button" id="mostrarConfirmSenha"></button>
             </div>
             <div class="button-group">
                 <button type="submit" class="button">Enviar</button>
@@ -39,7 +43,6 @@
     </div>
 
     <script src="js/login.js"></script>
-
 </body>
 
 </html>

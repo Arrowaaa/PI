@@ -14,12 +14,22 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const senhaInput = document.getElementById('senha');
-    const mostrarSenhaBtn = document.getElementById('mostrarSenha');
+document.addEventListener('DOMContentLoaded', function() {
+    const togglePassword = document.querySelector('#mostrarSenha');
+    const password = document.querySelector('#senha');
 
-    mostrarSenhaBtn.addEventListener('click', function () {
-        senhaInput.type = senhaInput.type === 'password' ? 'text' : 'password';
-        mostrarSenhaBtn.textContent = senhaInput.type === 'password' ? 'Mostrar Senha' : 'Ocultar Senha';
+    togglePassword.addEventListener('click', function() {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.classList.toggle('oculto');
+    });
+
+    const toggleConfirmPassword = document.querySelector('#mostrarConfirmSenha');
+    const confirmPassword = document.querySelector('#confirmSenha');
+
+    toggleConfirmPassword.addEventListener('click', function() {
+        const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        confirmPassword.setAttribute('type', type);
+        this.classList.toggle('oculto');
     });
 });
