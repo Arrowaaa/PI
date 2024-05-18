@@ -17,17 +17,24 @@ host: 62.72.62.1
 
    CREATE TABLE usuarios (
        id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-       nome VARCHAR(100) NOT NULL,
+       nome VARCHAR(100),
        usuario VARCHAR(50) UNIQUE NOT NULL,
-       senha VARCHAR(255) NOT NULL,
+       senha VARCHAR(255),
        lembrar BOOLEAN
    );
 
    CREATE TABLE clientes (
        id_cliente INT AUTO_INCREMENT PRIMARY KEY,
-       nome VARCHAR(100) NOT NULL,
-       email VARCHAR(100) NOT NULL,
-       telefone VARCHAR(20)
+       nome VARCHAR(100),
+       cpf CHAR(11),
+       email VARCHAR(100),
+       telefone VARCHAR(20),
+       contato VARCHAR(100),
+       sexo ENUM,
+       CEP CHAR(8),
+       cidade VARCHAR(50),
+       complemento VARCHAR(50),
+       numero-residencia INT
    );
 
    CREATE TABLE agendamentos (
@@ -41,7 +48,7 @@ host: 62.72.62.1
 CREATE TABLE horarios_medicos (
     id_horario INT AUTO_INCREMENT PRIMARY KEY,
     id_medico INT,
-    dia_semana ENUM('Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo') NOT NULL,
+    dia_semana ENUM('Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'),
     hora_inicio TIME NOT NULL,
     hora_fim TIME NOT NULL,
     disponivel BOOLEAN NOT NULL DEFAULT true,
@@ -52,9 +59,8 @@ CREATE TABLE horarios_medicos (
    CREATE TABLE pets (
        id_pet INT AUTO_INCREMENT PRIMARY KEY,
        id_cliente INT,
-       nome VARCHAR(100) NOT NULL,
+       nome VARCHAR(100),
        especie VARCHAR(50),
        idade INT,
        FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
    );
-
