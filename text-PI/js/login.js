@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var username = document.getElementById("usuario").value;
         var password = document.getElementById("senha").value;
 
-        if (username === "usuario" && password === "senha123") {
+        if (username === "arrow" && password === "Aluno123") {
             alert("Login bem-sucedido!");
             window.location.href = "perfil.html"; // Redireciona para a nova página após o login
         } else {

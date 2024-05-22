@@ -168,11 +168,11 @@ body main .home main h1 {
 
 
 
-#produtos {
+#fotos {
     /* background-color: gray; */
     height: 100vh;
 }
-#produtos .titulo{
+#fotos .titulo{
     display:flex;
     justify-content: center;
     font-family:"Croissant One","serif";
@@ -192,16 +192,16 @@ body main .home main h1 {
     object-fit: cover;
     object-position: top;
 }
-#produtos figure{
+#fotos figure{
     background-color: #d9d9d9;
     text-align: center;
-    padding: 10px 20px 0px 10px;
-    border-radius: 20px;
+    padding: 10px 19px ;
+    border-radius: 10px;
     width: 105% ;
     max-width: 100vw;
 }
 
-#produtos figure figcaption{
+#fotos figure figcaption{
     padding: 0 10%;
     display: flex;
     flex-direction: column;
@@ -209,13 +209,13 @@ body main .home main h1 {
     height: 100px;
 }
 
-#produtos figure figcaption h4{
+#fotos figure figcaption h4{
     font-size: auto;
     margin-bottom: 0;
     font-weight: 700;
     text-align: center;
 }
-#produtos figure figcaption span.avaliacao{
+#fotos figure figcaption span.avaliacao{
     color: #d48c00;
     font-size: 1.3rem;
     display: flex;

@@ -43,9 +43,12 @@ body {
     color: white;
 }
 
+
+
+
 .input-group {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .input-group label {
@@ -56,11 +59,11 @@ body {
 }
 
 .input-group input {
+    display: inline;
     width: 100%; 
     padding: 10px;
     margin-bottom: 10px; 
     border: 1px solid #ccc;
-    border-radius: 5px;
     padding-right: 40px; /* Espaço para o botão */
 }
 
@@ -88,7 +91,7 @@ body {
 }
 
 .button {
-    display: inline-block;
+    display: inline-flex;
     padding: 10px 20px; 
     margin-right: 10px; 
     background-color: #007bff;
@@ -123,61 +126,3 @@ body {
 #mostrarConfirmSenha.oculto::before {
     content: "\1F440"; /* Unicode para ícone de olho fechado */
 }
-
-
-       
-
-        /* Estilos para ocupar a tela inteira */
-
-        .container {
-            padding: 40px;
-            height: 100%;
-            display: block;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Estilos para o conteúdo */
-        .content {
-            text-align: left;
-            width: 90%;
-            max-width: 500px;
-            /* Defina a largura máxima do conteúdo */
-        }
-
-        /* Estilos para o botão com a seta para baixo */
-        .dropdown-button {
-            cursor: pointer;
-            position: absolute;
-            top: 10px;
-            /* Distância do topo da página */
-            right: 10px;
-            /* Distância da borda direita da página */
-            background-color: #969494;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            border: none;
-        }
-
-        /* Estilos para os botões ocultos */
-        .hidden-buttons {
-            display: none;
-            position: absolute;
-            top: 50px;
-            /* Distância do topo da página */
-            right: 10px;
-            /* Distância da borda direita da página */
-            background-color: #969494;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-        }
-
-        .hidden-buttons a {
-            display: block;
-            margin-bottom: 5px;
-            text-decoration: none;
-            color: #ffffff;
-        }
