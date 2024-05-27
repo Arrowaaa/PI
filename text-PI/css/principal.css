@@ -1,60 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
+
 * {
     margin: 0;
-    font-family: "Croissant One","serif"f;;
+    font-family: "Croissant One", "serif" f;
+    ;
     font-optical-sizing: auto;
     font-weight: 900;
     font-style: normal;
     font-variation-settings:
         "slnt" 0;
-        
+
 }
-.menu .linha{
-    background-color:rgba(255, 255, 255, 0.5);
+
+.menu .linha {
+    background-color: rgba(255, 255, 255, 0.5);
     color: #000;
 }
-.icon{
+
+.icon {
     font-size: 15px;
     padding: 0 0 -4 15px;
 }
 
 
-.logo{
+.logo {
     width: 10%;
     padding: 5px;
 }
-body{
-    background-color: #0e0c0c
-    
+
+body {
+    background-color: #0e0c0c;
+
 }
+
+
+
 /*Animação do banner principal*/
 @keyframes moveBackground {
     0% {
         background-position: 0% center;
     }
+
     100% {
         background-position: 100% center;
     }
 }
 
 .home {
+
     background: linear-gradient(rgba(44, 40, 40, 0.3), rgba(48, 42, 42, 0.5)), url(../img/rodapé\ cachorro.png);
     background-size: cover;
     background-position: 0% center;
     height: 100%;
     padding: 0 0 1px 0;
-    animation: moveBackground 10s linear infinite; /* Aplica a animação */
+    animation: moveBackground 40s linear infinite;
+    /* Aplica a animação */
+
 }
 
 /* Função de esconde os botões do rai-x e internação  */
 .dropdown-content a {
-    padding: 8px 12px; /* Adiciona espaçamento interno aos botões */
+    padding: 8px 12px;
+    /* Adiciona espaçamento interno aos botões */
     text-decoration: none;
     display: block;
 }
 
 .dropdown-content a:not(:last-child) {
-    margin-bottom: 8px; /* Adiciona espaçamento entre os botões */
+    margin-bottom: 8px;
+    /* Adiciona espaçamento entre os botões */
 }
 
 .dropdown-content {
@@ -73,7 +87,9 @@ body{
 .hidden {
     display: none;
 }
-
+.menu .menu-perfil{
+    width: 100vw;
+}
 
 .menu ul .menu {
     list-style: none;
@@ -89,19 +105,21 @@ body{
 .menu li a {
     padding: 8px;
     border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.5);;
+    background-color: rgba(0, 0, 0, 0.5);
     color: whitesmoke;
     text-decoration: none;
-    font-family: "Croissant One","serif";
+    font-family: "Croissant One", "serif";
+    transition: 0.5s;
 
 }
 
 .menu .selecionado,
-.menu li a:hover 
-{
+.menu li a:hover {
+    padding: 8px 50px;
     background-color: whitesmoke;
     color: black;
     border: 1px solid blue;
+    transition: 1s;
 }
 
 header nav {
@@ -111,7 +129,7 @@ header nav {
     padding: 30px 30px;
     width: 100%;
     font-size: 15px;
-    
+
 }
 
 /*Animação no h1*/
@@ -119,21 +137,33 @@ header nav {
     0% {
         transform: rotateX(0deg) rotateY(0deg);
     }
+
     75% {
         transform: rotateX(180deg) rotateY(0deg);
     }
+
     100% {
         transform: rotateX(0deg) rotateY(0deg);
     }
 }
 
+.home main {
+    display: flex;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+    
+}
+
 body main .home main h1 {
+    margin: auto 0;
     font-family: "Croissant One", "serif";
     font-size: 150px;
     color: #FF9239;
     display: flex;
     justify-content: center;
-    animation: rotate3D 5s infinite;
+    align-items: center;
+    animation: rotate3D 10s infinite;
     transform-style: preserve-3d;
     background: linear-gradient(45deg, #ff9239, #ff3d00);
     -webkit-background-clip: text;
@@ -141,11 +171,13 @@ body main .home main h1 {
     text-shadow: 1px 1px 0 #000, 2px 2px 0 #ff9239, 3px 3px 0 #ff9239, 4px 4px 0 #ff9239, 5px 5px 0 #ff9239;
 }
 
-/* Estilo para o rodapé */ /*Animação do banner rodapé*/
+/* Estilo para o rodapé */
+/*Animação do banner rodapé*/
 @keyframes moveBackgroundRight {
     0% {
         background-position: 0% center;
     }
+
     100% {
         background-position: 100% center;
     }
@@ -154,49 +186,22 @@ body main .home main h1 {
 footer {
     background-image: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5)), url(../img/5.png);
     background-color: #FF9239;
-    background-size: auto 100%; /* Ajusta a altura para 100% e a largura automaticamente */
-    background-position: 0% center; /* Posiciona a imagem no lado esquerdo central do elemento */
-    background-repeat: repeat; /* Permite a repetição da imagem */
+    background-size: auto 100%;
+    /* Ajusta a altura para 100% e a largura automaticamente */
+    background-position: 0% center;
+    /* Posiciona a imagem no lado esquerdo central do elemento */
+    background-repeat: repeat;
+    /* Permite a repetição da imagem */
     padding: 0 0 55px 0;
-    animation: moveBackgroundRight 40s linear infinite; /* Aplica a animação */
+    animation: moveBackgroundRight 100s linear infinite;
+    /* Aplica a animação */
 }
 
 
 
-.rodape {
+footer .rodape {
     display: flex;
-    justify-content: space-evenly; /* Distribui os elementos uniformemente */
+    justify-content: space-evenly;
+    /* Distribui os elementos uniformemente */
     align-items: center;
-}
-
-.logo-rodape {
-    width: 100px;
-    margin: -55px;
-}
-
-.informacoes {
-    color: black;
-    text-align: justify;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.informacoes .visita{
-    color:black;
-    font-size: 25px;
-    font-family: "Croissant One","serif";
-}
-.redes-sociais {
-    list-style: none;
-    margin: 3px;
-    padding: 2px;
-    display: flex; 
-
-}
-.redes-sociais p{
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.redes-sociais li {
-    margin: 50px;
-    margin-left: 10px; /* Adiciona um espaçamento entre os ícones das redes sociais */
-    margin-right: 10px;
 }

@@ -105,22 +105,24 @@ body{
     display: inline-block;
 }
 
-.menu-perfil li a {
+.menu li a {
     padding: 8px;
     border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.5);;
+    background-color: rgba(0, 0, 0, 0.5);
     color: whitesmoke;
     text-decoration: none;
-    font-family: "Croissant One","serif";
+    font-family: "Croissant One", "serif";
+    transition: 0.5s;
 
 }
 
-.menu-perfil .selecionado,
-.menu-perfil li a:hover 
-{
+.menu .selecionado,
+.menu li a:hover {
+    padding: 8px 50px;
     background-color: whitesmoke;
     color: black;
     border: 1px solid blue;
+    transition: 1s;
 }
 
 header nav {
@@ -164,7 +166,7 @@ body main .home main h1 {
 
 #produtos {
     /* background-color: gray; */
-    height: 100vh;
+    /* height: 100vh; */
 }
 #produtos .titulo{
     display:flex;
@@ -186,22 +188,13 @@ body main .home main h1 {
     object-fit: cover;
     object-position: top;
 }
-#produtos figure{
-    background-color: #d9d9d9;
-    text-align: center;
-    padding: 10px 19px ;
-    border-radius: 10px;
-    width: 105% ;
-    max-width: 100vw;
+
+#produtos main {
+    width: 100%;
+    margin: 0 auto;
 }
 
-#produtos figure figcaption{
-    padding: 0 10%;
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    height: 100px;
-}
+
 
 #produtos figure figcaption h4{
     font-size: auto;
@@ -232,55 +225,13 @@ body main .home main h1 {
 footer {
     background-image: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5)), url(../img/5.png);
     background-color: #FF9239;
-    background-size: auto 100%; /* Ajusta a altura para 100% e a largura automaticamente */
-    background-position: 0% center; /* Posiciona a imagem no lado esquerdo central do elemento */
-    background-repeat: repeat; /* Permite a repetição da imagem */
+    background-size: auto 100%;
+    /* Ajusta a altura para 100% e a largura automaticamente */
+    background-position: 0% center;
+    /* Posiciona a imagem no lado esquerdo central do elemento */
+    background-repeat: repeat;
+    /* Permite a repetição da imagem */
     padding: 0 0 55px 0;
-    animation: moveBackgroundRight 40s linear infinite; /* Aplica a animação */
-    margin-top: 440px;
+    animation: moveBackgroundRight 40s linear infinite;
+    /* Aplica a animação */
 }
-
-.rodape {
-    display: flex;
-    justify-content: space-evenly; /* Distribui os elementos uniformemente */
-    align-items: center;
-}
-
-.logo-rodape {
-    width: 100px;
-    margin: -55px;
-}
-
-.informacoes {
-    color: rgb(10, 10, 10);
-    text-align: justify;
-}
-.informacoes .visita{
-    color:black;
-    font-size: 25px;
-    font-family: "Croissant One","serif";
-}
-.redes-sociais {
-    list-style: none;
-    margin: 3px;
-    padding: 2px;
-    display: flex; 
-}
-.redes-sociais p{
-    color: black;
-}
-
-.redes-sociais li {
-    margin: 50px;
-    margin-left: 10px; /* Adiciona um espaçamento entre os ícones das redes sociais */
-    margin-right: 10px;
-}
-
-
-.redes-sociais li a {
-    color: black;
-    text-decoration: none;
-}
-
-
-
