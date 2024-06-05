@@ -8,10 +8,7 @@
     font-variation-settings:
         "slnt" 0;
 }
-/* *{ 
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-} */
+
 
 .menu .linha{
     background-color:rgba(255, 255, 255, 0.5);
@@ -169,7 +166,6 @@ body main .home main h1 {
 }
 
 
-
 #fotos {
     /* background-color: gray; */
     height: 100vh;
@@ -226,8 +222,8 @@ body main .home main h1 {
   
 }
 
-
-/* Estilo para o rodapé */ /*Animação do banner rodapé*/
+/* Estilo para o rodapé */
+ /*Animação do banner rodapé*/
 @keyframes moveBackgroundRight {
     0% {
         background-position: 0% center;
@@ -237,21 +233,21 @@ body main .home main h1 {
     }
 }
 
+
 footer {
-    background-image: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5)), url(../img/5.png);
+    background-image: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5)), url(../img/cachorros/5.png);
     background-color: #FF9239;
-    background-size: auto 100%; /* Ajusta a altura para 100% e a largura automaticamente */
-    background-position: 0% center; /* Posiciona a imagem no lado esquerdo central do elemento */
-    background-repeat: repeat; /* Permite a repetição da imagem */
+    background-size: auto 100%; 
+    background-position: 0% center; 
+    background-repeat: repeat; 
     padding: 0 0 55px 0;
-    animation: moveBackgroundRight 40s linear infinite; /* Aplica a animação */
+    animation: moveBackgroundRight 40s linear infinite; 
     margin-top: 440px;
 }
 
 footer .rodape {
     display: flex;
     justify-content: space-evenly;
-    /* Distribui os elementos uniformemente */
     align-items: center;
 }
 

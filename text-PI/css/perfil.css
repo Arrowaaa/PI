@@ -8,27 +8,27 @@ body {
     padding: 0.20px;
     border: none;
     margin: 0;
-    background-image: url(../img/6.png);
+    background-image: url(../img/cachorros/6.png);
     background-size:contain; 
     background-position: left center;  
     background-repeat: no-repeat;
     height: 100vh;
 }
-/*Imagens no login*/
+
 .imagem-esquerda {
     position: fixed;
-    top: 50%; /* Define a posição verticalmente no centro da tela */
+    top: 50%; 
     left: 0;
-    transform: translateY(-50%); /* Ajusta a posição verticalmente */
-    width: 500px; /* Define a largura da imagem */
+    transform: translateY(-50%);
+    width: 500px; 
 }
 
 .imagem-direita {
     position: fixed;
-    top: 50%; /* Define a posição verticalmente no centro da tela */
+    top: 50%; 
     right: 0;
-    transform: translateY(-50%); /* Ajusta a posição verticalmente */
-    width: 500px; /* Define a largura da imagem */
+    transform: translateY(-50%); 
+    width: 500px;
 }
 
 
@@ -61,7 +61,7 @@ body {
     margin-bottom: 10px; 
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding-right: 40px; /* Espaço para o botão */
+    padding-right: 40px; 
 }
 
 .forgot-password{
@@ -112,13 +112,13 @@ body {
     
 }
 
-/* Ícone de olho aberto */
+
 #mostrarSenha::before,
 #mostrarConfirmSenha::before {
-    content: "\1F441"; /* Unicode para ícone de olho aberto */
+    content: "\1F441"; 
 }
 
-/* Ícone de olho fechado */
+
 #mostrarSenha.oculto::before,
 #mostrarConfirmSenha.oculto::before {
     content: "\1F440"; /* Unicode para ícone de olho fechado */

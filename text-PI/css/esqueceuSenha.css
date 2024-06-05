@@ -13,21 +13,21 @@ body {
     background-repeat: no-repeat;
     height: 100vh;
 }
-/*Imagens no login*/
+
 .imagem-esquerda {
     position: fixed;
-    top: 50%; /* Define a posição verticalmente no centro da tela */
+    top: 50%; 
     left: 0;
-    transform: translateY(-50%); /* Ajusta a posição verticalmente */
-    width: 500px; /* Define a largura da imagem */
+    transform: translateY(-50%); 
+    width: 500px; 
 }
 
 .imagem-direita {
     position: fixed;
-    top: 50%; /* Define a posição verticalmente no centro da tela */
+    top: 50%; 
     right: 0;
-    transform: translateY(-50%); /* Ajusta a posição verticalmente */
-    width: 500px; /* Define a largura da imagem */
+    transform: translateY(-50%); 
+    width: 500px;
 }
 
 

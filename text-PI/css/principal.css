@@ -29,10 +29,14 @@
 }
 
 body {
-    background-color: #0e0c0c;
+    background-color: #9c6131;
 
 }
 
+h1{
+    display: flex;
+    justify-content: center;
+}
 
 
 /*Animação do banner principal*/
@@ -184,17 +188,13 @@ body main .home main h1 {
 }
 
 footer {
-    background-image: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5)), url(../img/5.png);
+    background-image: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5)), url(../img/cachorros/5.png);
     background-color: #FF9239;
     background-size: auto 100%;
-    /* Ajusta a altura para 100% e a largura automaticamente */
     background-position: 0% center;
-    /* Posiciona a imagem no lado esquerdo central do elemento */
     background-repeat: repeat;
-    /* Permite a repetição da imagem */
     padding: 0 0 55px 0;
     animation: moveBackgroundRight 100s linear infinite;
-    /* Aplica a animação */
 }
 
 
