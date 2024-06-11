@@ -1,6 +1,6 @@
 body {
     display: flex;
-    background-color: #f0f0f0;  
+    background-color: #FF9239;  
     font-family: "Croissant One", "serif";
     justify-content: center;
     align-items: center;
@@ -67,8 +67,15 @@ body {
     padding-right: 40px; /* Espaço para o botão */
 }
 
+.button-group-voltar{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+
+
 .forgot-password{
-    color: #0056b3;
+    color: #007bff;
     margin-left: 160px;
 }
 
