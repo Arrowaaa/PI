@@ -1,0 +1,135 @@
+body {
+    display: flex;
+    background-color: #FF9239;  
+    font-family: "Croissant One", "serif";
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0.20px;
+    border: none;
+    margin: 0;
+    background-image: url(../img/cachorros/6.png);
+    background-size:contain; 
+    background-position: left center;  
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.imagem-esquerda {
+    position: fixed;
+    top: 50%; 
+    left: 0;
+    transform: translateY(-50%); 
+    width: 500px; 
+}
+
+.imagem-direita {
+    position: fixed;
+    top: 50%; 
+    right: 0;
+    transform: translateY(-50%); 
+    width: 500px; 
+}
+
+
+.container {
+    background-color: rgba(3, 3, 3, 0.7); 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
+    width: 32vw; 
+    margin: auto; 
+    text-align: center; 
+    color: white;
+}
+
+
+
+
+.input-group {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: rgb(252, 248, 248); 
+    text-align: left; 
+}
+
+.input-group input {
+    display: inline;
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 10px; 
+    border: 1px solid #ccc;
+    padding-right: 40px; /* Espaço para o botão */
+}
+
+.button-group-voltar{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+
+
+.forgot-password{
+    color: #007bff;
+    margin-left: 160px;
+}
+
+.forgot-password:hover{
+    color: #0056b3;
+    margin-left: 160px;
+    color: #fff;
+
+}
+
+.input-group button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.button {
+    display: inline-flex;
+    padding: 10px 20px; 
+    margin-right: 10px; 
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+}
+
+.button.cadastrar {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #007bff; 
+    color: #fff; 
+    border: 1px solid #000; 
+}
+
+.button:hover {
+    background-color: #f9f9fa;
+    color: #000;
+    
+}
+
+
+#mostrarSenha::before,
+#mostrarConfirmSenha::before {
+    content: "\1F441"; 
+}
+
+
+#mostrarSenha.oculto::before,
+#mostrarConfirmSenha.oculto::before {
+    content: "\1F440"; 
+}
