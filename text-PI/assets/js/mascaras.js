@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     medicoInput.addEventListener('input', function(e) {
         var medico = e.target.value;
-        medico = medico.replace(/[^a-zA-Z\sç]/g, ''); // Remove caracteres não alfabéticos exceto espaços
+        medico = medico.replace(/[^a-zA-Z\sç]/g, ''); 
         e.target.value = medico;
     });
 });
