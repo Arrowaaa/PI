@@ -38,7 +38,7 @@ body{
     background-color: #9c6131;
 }
 
-/*Animação do banner principal*/
+/* Animação do banner principal */
 @keyframes moveBackground {
     0% {
         background-position: 0% center;
