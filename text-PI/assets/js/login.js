@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (username === "arrow" && password === "Aluno123") {
             alert("Login bem-sucedido!");
-            window.location.href = "perfil.html"; // Redireciona para a nova página após o login
+            window.location.href = "perfil.html"; // Faz a Referencia para a nova página após o login
         } else {
             alert("Credenciais inválidas. Tente novamente.");
         }
