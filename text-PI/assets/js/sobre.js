@@ -3,7 +3,7 @@ const prevButton = carousel.querySelector('.prev');
 const nextButton = carousel.querySelector('.next');
 const imagesContainer = carousel.querySelector('.imagens-estrutura');
 const totalImages = imagesContainer.querySelectorAll('img').length;
-const imageWidth = 430; // Largura de cada imagem
+const imageWidth = 430;  //Variavel para alterar a Largura de cada imagem
 const visibleImages = 2; // Número de imagens visíveis
 let currentIndex = 0;
 
