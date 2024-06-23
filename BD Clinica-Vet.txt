@@ -1,13 +1,12 @@
 banco: u687609827_edilson
 user: u687609827_edilson
-senha: >2Ana=]b
+senha: ####
 host: 62.72.62.1
 
  **Criar as Tabelas**: 
 
    CREATE TABLE usuarios (
        id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-       nome VARCHAR(100),
        usuario VARCHAR(50) UNIQUE NOT NULL,
        senha VARCHAR(255),
        lembrar BOOLEAN
