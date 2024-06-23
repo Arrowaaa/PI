@@ -67,7 +67,7 @@ h1{
     padding: 8px 12px;
     /* Adiciona espaçamento interno aos botões */
     text-decoration: none;
-    display: block;
+    display: block; /*Faz com que ele não movar de lugar*/
 }
 
 .dropdown-content a:not(:last-child) {
