@@ -26,7 +26,7 @@ body { /*Alterar o tamanho dos imput*/
 .imagem-direita {
     position: fixed;
     top: 50%; 
-    right: 0;
+    right: -20px;
     transform: translateY(-50%); 
     width: 500px; 
 }
@@ -34,15 +34,14 @@ body { /*Alterar o tamanho dos imput*/
 
 .container {
     background-color: rgba(3, 3, 3, 0.7); 
-    padding: 20px;
-    border-radius: 8px;
+    padding: 50px;
+    border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
     width: 32vw; 
     margin: auto; 
     text-align: center; 
     color: white;
 }
-
 
 
 
@@ -55,13 +54,13 @@ body { /*Alterar o tamanho dos imput*/
     display: block;
     margin-bottom: 5px;
     color: rgb(252, 248, 248); 
-    text-align: left; 
+    text-align: end; 
 }
 
 .input-group input {
     display: inline;
     width: 100%; 
-    padding: 10px;
+    padding: 5px 0 2px 0;
     margin-bottom: 10px; 
     border: 1px solid #ccc;
     padding-right: 40px; /* Espaço para o botão */
@@ -76,12 +75,12 @@ body { /*Alterar o tamanho dos imput*/
 
 .forgot-password{
     color: #007bff;
-    margin-left: 160px;
+    margin-left: 110px;
 }
 
 .forgot-password:hover{
     color: #0056b3;
-    margin-left: 160px;
+    margin-left: 110px;
     color: #fff;
 
 }
@@ -96,6 +95,24 @@ body { /*Alterar o tamanho dos imput*/
     cursor: pointer;
     font-size: 20px;
 }
+
+.botaoVoltar {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    padding: 10px 20px;   
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 500px;
+}
+.botaoVoltar:hover {
+    background-color: #f9f9fa;
+    color: #000; 
+}
+
 
 .button {
     display: inline-flex;
@@ -118,8 +135,7 @@ body { /*Alterar o tamanho dos imput*/
 
 .button:hover {
     background-color: #f9f9fa;
-    color: #000;
-    
+    color: #000; 
 }
 
 

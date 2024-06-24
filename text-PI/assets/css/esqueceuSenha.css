@@ -1,6 +1,6 @@
 body {
     display: flex;
-    background-color: #f0f0f0;  
+    background-color: #FF9239; ;  
     font-family: "Croissant One", "serif";
     justify-content: center;
     align-items: center;
@@ -33,8 +33,8 @@ body {
 
 .container {
     background-color: rgba(3, 3, 3, 0.7); 
-    padding: 20px;
-    border-radius: 8px;
+    padding: 50px;
+    border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
     width: 32vw; 
     margin: auto; 
@@ -56,10 +56,9 @@ body {
 
 .input-group input {
     width: 100%; 
-    padding: 10px;
+    padding: 5px 0 2px 0;
     margin-bottom: 10px; 
     border: 1px solid #ccc;
-    border-radius: 5px;
     padding-right: 40px; /* Espaço para o botão */
 }
 
@@ -93,7 +92,7 @@ body {
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 7px;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
 }

@@ -1,6 +1,7 @@
-body { /*Alterar o tamanho dos imput*/ 
+body {
+    /*Alterar o tamanho dos imput*/
     display: flex;
-    background-color: #FF9239;  
+    background-color: #FF9239;
     font-family: "Croissant One", "serif";
     justify-content: center;
     align-items: center;
@@ -8,37 +9,44 @@ body { /*Alterar o tamanho dos imput*/
     padding: 0.20px;
     border: none;
     margin: 0;
-    background-size:contain; 
-    background-position: left center;  
+    background-size: contain;
+    background-position: left center;
     background-repeat: no-repeat;
     height: 100vh;
 }
+
 /*Imagens no login*/
 .imagem-esquerda {
     position: fixed;
-    top: 50%; /* Define a posição verticalmente no centro da tela */
+    top: 50%;
+    /* Define a posição verticalmente no centro da tela */
     left: 0;
-    transform: translateY(-50%); /* Ajusta a posição verticalmente */
-    width: 500px; /* Define a largura da imagem */
+    transform: translateY(-50%);
+    /* Ajusta a posição verticalmente */
+    width: 500px;
+    /* Define a largura da imagem */
 }
 
 .imagem-direita {
     position: fixed;
-    top: 50%; /* Define a posição verticalmente no centro da tela */
+    top: 50%;
+    /* Define a posição verticalmente no centro da tela */
     right: 0;
-    transform: translateY(-50%); /* Ajusta a posição verticalmente */
-    width: 500px; /* Define a largura da imagem */
+    transform: translateY(-50%);
+    /* Ajusta a posição verticalmente */
+    width: 500px;
+    /* Define a largura da imagem */
 }
 
 
 .container {
-    background-color: rgba(3, 3, 3, 0.7); 
+    background-color: rgba(3, 3, 3, 0.7);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
-    width: 32vw; 
-    margin: auto; 
-    text-align: center; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+    width: 32vw;
+    margin: auto;
+    text-align: center;
     color: white;
 }
 
@@ -50,25 +58,26 @@ body { /*Alterar o tamanho dos imput*/
 .input-group label {
     display: block;
     margin-bottom: 5px;
-    color: rgb(252, 248, 248); 
-    text-align: left; 
+    color: rgb(252, 248, 248);
+    text-align: left;
 }
 
 .input-group input {
-    width: 100%; 
-    padding: 10px;
-    margin-bottom: 10px; 
+    width: 100%;
+    padding: 5px 0 2px 0;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding-right: 40px; /* Espaço para o botão */
+    padding-right: 40px;
+    /* Espaço para o botão */
 }
 
-.forgot-password{
+.forgot-password {
     color: #0056b3;
     margin-left: 160px;
 }
 
-.forgot-password:hover{
+.forgot-password:hover {
     color: #0056b3;
     margin-left: 160px;
     color: #fff;
@@ -88,8 +97,8 @@ body { /*Alterar o tamanho dos imput*/
 
 .button {
     display: inline-block;
-    padding: 10px 20px; 
-    margin-right: 10px; 
+    padding: 10px 20px;
+    margin-right: 10px;
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
@@ -100,25 +109,69 @@ body { /*Alterar o tamanho dos imput*/
 
 .button.cadastrar {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #007bff; 
-    color: #fff; 
-    border: 1px solid #000; 
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #000;
 }
 
 .button:hover {
     background-color: #f9f9fa;
     color: #000;
-    
+
 }
 
 /* Ícone de olho aberto */
 #mostrarSenha::before,
 #mostrarConfirmSenha::before {
-    content: "\1F441"; /* Unicode para ícone de olho aberto */
+    content: "\1F441";
+    /* Unicode para ícone de olho aberto */
 }
 
 /* Ícone de olho fechado */
 #mostrarSenha.oculto::before,
 #mostrarConfirmSenha.oculto::before {
-    content: "\1F440"; /* Unicode para ícone de olho fechado */
+    content: "\1F440";
+    /* Unicode para ícone de olho fechado */
+}
+
+/* Estilo para o grupo .dados */
+
+
+.dados {
+    margin-bottom: 20px;
+}
+
+.dados label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff; /* Cor do texto das labels */
+    text-align: left;
+}
+
+.dados input,
+.dados select {
+    width: 2px; /* Largura total */
+    padding: 2px 1px 2px 0;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; 
+    color: #333; 
+}
+
+.dados input[type="date"],
+.dados input[type="time"],
+.dados select {
+    width: 120px; 
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 600px; 
+    }
+
+    .dados input,
+    .dados select {
+        width: calc(100% - 16px); 
+    }
 }
