@@ -36,7 +36,7 @@ body {
     padding: 50px;
     border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
-    width: 32vw; 
+    width: 26vw; 
     margin: auto; 
     text-align: center; 
     color: white;
@@ -59,6 +59,7 @@ body {
     padding: 5px 0 2px 0;
     margin-bottom: 10px; 
     border: 1px solid #ccc;
+    border-radius: 10px !important;
     padding-right: 40px; /* Espaço para o botão */
 }
 
@@ -92,7 +93,7 @@ body {
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
-    border-radius: 7px;
+    border-radius: 15px;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
 }
@@ -108,6 +109,14 @@ body {
     background-color: #f9f9fa;
     color: #000;
     
+}
+
+#mostrarSenha {
+    padding-top: 20px;
+}
+
+#mostrarConfirmSenha {
+    padding-top: 20px;
 }
 
 /* Ícone de olho aberto */

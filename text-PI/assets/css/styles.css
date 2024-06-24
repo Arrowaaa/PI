@@ -1,50 +1,49 @@
+*{
+    margin: 0;
+}
+
 body {
-    /*Alterar o tamanho dos imput*/
+    
     display: flex;
     background-color: #FF9239;
     font-family: "Croissant One", "serif";
     justify-content: center;
     align-items: center;
     height: 100vh;
-    padding: 0.20px;
+    padding: 10px;
     border: none;
-    margin: 0;
+    margin: 20px;
     background-size: contain;
     background-position: left center;
     background-repeat: no-repeat;
     height: 100vh;
 }
 
-/*Imagens no login*/
+
 .imagem-esquerda {
     position: fixed;
-    top: 50%;
-    /* Define a posição verticalmente no centro da tela */
+    top: 50%; 
     left: 0;
     transform: translateY(-50%);
-    /* Ajusta a posição verticalmente */
     width: 500px;
-    /* Define a largura da imagem */
 }
 
 .imagem-direita {
     position: fixed;
     top: 50%;
-    /* Define a posição verticalmente no centro da tela */
     right: 0;
     transform: translateY(-50%);
-    /* Ajusta a posição verticalmente */
     width: 500px;
-    /* Define a largura da imagem */
+
 }
 
 
 .container {
     background-color: rgba(3, 3, 3, 0.7);
-    padding: 20px;
-    border-radius: 8px;
+    padding: 60px ;
+    border-radius: 30px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
-    width: 32vw;
+    width: 29vw;
     margin: auto;
     text-align: center;
     color: white;
@@ -53,6 +52,11 @@ body {
 .input-group {
     position: relative;
     margin-bottom: 20px;
+    border-radius: 30px;
+}
+
+input[type = 'submit']{
+    margin-bottom: 0;
 }
 
 .input-group label {
@@ -67,9 +71,9 @@ body {
     padding: 5px 0 2px 0;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px !important;
     padding-right: 40px;
-    /* Espaço para o botão */
+    
 }
 
 .forgot-password {
@@ -102,7 +106,7 @@ body {
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 15px;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
 }
@@ -120,22 +124,29 @@ body {
 
 }
 
-/* Ícone de olho aberto */
+#mostrarSenha {
+    padding-top: 20px;
+}
+
+#mostrarConfirmSenha {
+    padding-top: 20px;
+}
+
+
 #mostrarSenha::before,
 #mostrarConfirmSenha::before {
     content: "\1F441";
-    /* Unicode para ícone de olho aberto */
+
 }
 
-/* Ícone de olho fechado */
+
 #mostrarSenha.oculto::before,
 #mostrarConfirmSenha.oculto::before {
     content: "\1F440";
-    /* Unicode para ícone de olho fechado */
+    
 }
 
 /* Estilo para o grupo .dados */
-
 
 .dados {
     margin-bottom: 20px;

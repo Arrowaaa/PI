@@ -15,14 +15,6 @@ body { /*Alterar o tamanho dos imput*/
     height: 100vh;
 }
 
-.imagem-esquerda {
-    position: fixed;
-    top: 50%; 
-    left: 0;
-    transform: translateY(-50%); 
-    width: 500px; 
-}
-
 .imagem-direita {
     position: fixed;
     top: 50%; 
@@ -35,9 +27,9 @@ body { /*Alterar o tamanho dos imput*/
 .container {
     background-color: rgba(3, 3, 3, 0.7); 
     padding: 50px;
-    border-radius: 20px;
+    border-radius: 40px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
-    width: 32vw; 
+    width: 26vw; 
     margin: auto; 
     text-align: center; 
     color: white;
@@ -48,6 +40,7 @@ body { /*Alterar o tamanho dos imput*/
 .input-group {
     position: relative;
     margin-bottom: 10px;
+    
 }
 
 .input-group label {
@@ -55,6 +48,7 @@ body { /*Alterar o tamanho dos imput*/
     margin-bottom: 5px;
     color: rgb(252, 248, 248); 
     text-align: end; 
+    
 }
 
 .input-group input {
@@ -63,24 +57,19 @@ body { /*Alterar o tamanho dos imput*/
     padding: 5px 0 2px 0;
     margin-bottom: 10px; 
     border: 1px solid #ccc;
+    border-radius: 10px !important;
     padding-right: 40px; /* Espaço para o botão */
-}
-
-.button-group-voltar{
-    display: flex;
-    align-items: start;
-    justify-content: start;
 }
 
 
 .forgot-password{
     color: #007bff;
-    margin-left: 110px;
+    margin-left: 100px;
 }
 
 .forgot-password:hover{
     color: #0056b3;
-    margin-left: 110px;
+    margin-left: 100px;
     color: #fff;
 
 }
@@ -100,13 +89,14 @@ body { /*Alterar o tamanho dos imput*/
     display: flex;
     justify-content: start;
     align-items: start;
-    padding: 10px 20px;   
+    padding: 10px 20px;  
+    margin: 10px; 
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 500px;
+    margin-bottom: 700px;
 }
 .botaoVoltar:hover {
     background-color: #f9f9fa;
@@ -121,7 +111,7 @@ body { /*Alterar o tamanho dos imput*/
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 15px;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
 }
@@ -139,13 +129,19 @@ body { /*Alterar o tamanho dos imput*/
 }
 
 
+#mostrarSenha {
+    padding-top: 20px;
+}
+
 #mostrarSenha::before,
 #mostrarConfirmSenha::before {
     content: "\1F441"; 
+    
 }
 
 
 #mostrarSenha.oculto::before,
 #mostrarConfirmSenha.oculto::before {
     content: "\1F440"; 
+   
 }
