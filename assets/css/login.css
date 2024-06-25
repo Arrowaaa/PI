@@ -18,7 +18,7 @@ body {
  .imagem-direita {
     position: fixed;
     top: 50%; 
-    right: -2px;
+    right: 0;
     transform: translateY(-50%); 
     width: 500px; 
 }  
