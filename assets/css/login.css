@@ -20,7 +20,7 @@ body { /*Alterar o tamanho dos imput*/
     top: 50%; 
     right: -20px;
     transform: translateY(-50%); 
-    width: 500px; 
+    width: 100%; 
 } 
 
 
