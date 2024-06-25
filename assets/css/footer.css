@@ -1,0 +1,39 @@
+footer {
+    color: white;
+    padding: 40px 40px ;
+}
+
+
+footer h5{
+    font-weight: bold;
+    color: goldenrod;
+
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+    color: goldenrod;
+}
+
+.social-icons a{
+    color: whitesmoke;
+    font-size: 24px;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.footer-bottom{
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+.footer-bottom p{
+    font-weight: 300;
+}
