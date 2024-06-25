@@ -20,7 +20,7 @@ body {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 100%;
+    width: 100px;
 }
 
 .imagem-direita {
