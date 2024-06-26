@@ -14,20 +14,20 @@ body {
     height: 100vh;
 }
 
-.imagem-esquerda {
+#esquerda {
     position: fixed;
     top: 50%; 
     left: 0;
     transform: translateY(-50%); 
-    width: 500px; 
+    width: 700px; 
 }
 
-.imagem-direita {
+#direita {
     position: fixed;
     top: 50%; 
     right: 0;
     transform: translateY(-50%); 
-    width: 500px;
+    width: 600px;
 }
 
 
