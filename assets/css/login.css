@@ -15,13 +15,13 @@ body {
     height: 100vh;
 }
 
- .imagem-direita {
+.imagem-direita {
     position: fixed;
     top: 50%; 
     right: 0;
     transform: translateY(-50%); 
-    width: 500px; 
-}  
+    width: 600px; 
+} 
 
 
 .container {
