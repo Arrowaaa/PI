@@ -2,22 +2,7 @@
     margin: 0;
 }
 
-body {
-    
-    display: flex;
-    background-color: #FF9239;
-    font-family: "Croissant One", "serif";
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 10px;
-    border: none;
-    margin: 20px;
-    background-size: contain;
-    background-position: left center;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
+
 
 
 .imagem-esquerda {

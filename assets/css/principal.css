@@ -12,6 +12,23 @@
 
 }
 
+body {
+
+    display: flex;
+    background-color: #FF9239;
+    font-family: "Croissant One", "serif";
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 10px;
+    border: none;
+    margin: 20px;
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
 .menu .linha {
     background-color: rgba(255, 255, 255, 0.5);
     color: #000;
@@ -33,7 +50,7 @@ body {
 
 }
 
-h1{
+h1 {
     display: flex;
     justify-content: center;
 }
@@ -67,7 +84,8 @@ h1{
     padding: 8px 12px;
     /* Adiciona espaçamento interno aos botões */
     text-decoration: none;
-    display: block; /*Faz com que ele não movar de lugar*/
+    display: block;
+    /*Faz com que ele não movar de lugar*/
 }
 
 .dropdown-content a:not(:last-child) {
@@ -91,7 +109,8 @@ h1{
 .hidden {
     display: none;
 }
-.menu .menu-perfil{
+
+.menu .menu-perfil {
     width: 100vw;
 }
 
@@ -156,7 +175,7 @@ header nav {
     height: 80%;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 body main .home main h1 {
