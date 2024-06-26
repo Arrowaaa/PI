@@ -15,7 +15,7 @@
         <a href="index.php" class="botaoVoltar">Voltar</a>
     </div>
     <div class="imagens">
-        <img src="assets/img/cachorros/cachorro.png" alt="Imagem 2" class="imagem-direita">
+        <img src="assets/img/cachorros/cachorro.png" id="imagem-direita" alt="Imagem 2" class="imagem-direita">
     </div>
     <div class="container">
         <h2>Login</h2>
