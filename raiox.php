@@ -1,10 +1,20 @@
 <?php include './includes/header.php' ?>
-
+<style>
+    .box{
+    width: 500px;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #a86833;
+    
+}
+</style>
     <main style="display:flex; align-items: center;">
         <section class="container mt-5">
-            <div class="box">
+            <div class="boxx">
                 <form>
-                    <a href="index.php" class="btn btn-secondary mb-3">Voltar</a>
                     <h1>Preencha Seus Dados Do Raio-X</h1>
                     <br>
 

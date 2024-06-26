@@ -1,6 +1,6 @@
 <?php include './includes/header.php' ?>
 
-<div class="container body">
+<main class="container body">
     <h1>Nossos Serviços</h1><br>
 
     <p>Na Ven't Qui, estamos aqui para cuidar e apoiar você e seu animal de estimação em todas as fases da
@@ -92,7 +92,6 @@
             </div>
         </main>
     </section>
-</div>
 </main>
 
 <?php include './includes/footer.php' ?>

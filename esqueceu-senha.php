@@ -13,8 +13,8 @@
 
 <body>
     <div class="imagens">
-        <img src="assets/img/cachorros/2.png" alt="Imagem 1" class="imagem-esquerda">
-        <img src="assets/img/cachorros/cachorro.png" alt="Imagem 2" class="imagem-direita">
+        <img src="assets/img/cachorros/2.png" id="esquerda" alt="Imagem 1" class="imagem-esquerda">
+        <img src="assets/img/cachorros/cachorro.png" id="direita" alt="Imagem 2" class="imagem-direita">
     </div>
     <div class="container">
         <h2>Redefinir Senha</h2>

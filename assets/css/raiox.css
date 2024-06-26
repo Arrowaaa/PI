@@ -1,21 +1,12 @@
-*{
-    margin: 0; 
-    padding: 0;
-    background-color: white;
-}
 
-body {
+.box{
+    width: 500px;
+    border: 5px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #a86833;
-}
-
-.box{
-    width: 500px;
-    height: 500px;
-    border: 5px solid black;
     
 }
 

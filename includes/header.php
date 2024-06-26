@@ -12,7 +12,6 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/principal.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/servico.css">
     <link rel="stylesheet" href="assets/css/raiox.css">
     <link rel="stylesheet" href="assets/css/sobre.css">
@@ -27,7 +26,7 @@
                     <img src="assets/img/logo principal.png" alt="logo da empresa" class="logo">
                     <p>“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</p>
                     <ul class="menu">
-                        <li> <a class="linha" href="index.php">Início</a></li>
+                        <li><a href="index.php">Início</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropbtn">Requisições &#9660;</a>
                             <div class="dropdown-content">

@@ -1,6 +1,6 @@
 body {
     display: flex;
-    background-color: #FF9239; ;  
+    background-color: #9c6131; ;  
     font-family: "Croissant One", "serif";
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@ body {
     top: 50%; 
     left: 0;
     transform: translateY(-50%); 
-    width: 700px; 
+    width: 600px; 
 }
 
 #direita {
@@ -27,7 +27,7 @@ body {
     top: 50%; 
     right: 0;
     transform: translateY(-50%); 
-    width: 600px;
+    width: 500px;
 }
 
 

@@ -1,10 +1,10 @@
 </body>
 
 
-<footer class=" rodape">
-    <main class="container ">
+<footer>
+    <main>
         <div class="row ">
-            <div class="col md-4 text-center">
+            <div class="col md-2 text-center">
                 <h5 class="font-weight-bold">Menu</h5>
                 <ul class="list-unstyled mt-3">
                     <li><a href="./index.php">Inicio</a></li>
@@ -14,16 +14,16 @@
             </div>
 
 
-            <div class="col-md-4 text-center">
+            <div class="col-md-2 text-center">
                 <h5 class="font-weight-bold">Sobre a Gente</h5>
                 <ul class="list-unstyled mt-3">
                     <li><a href="#">Rua: Germano Giusti, 26 - Jd. Paulista - Americana - SP</a></li>
-                    <li><a href="#">Contato</a></li>
+                    <li><a href="#"> Contato</a></li>
 
                 </ul>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3 text-center">
                 <h5>Parceiros</h5>
                 <ul class="list-unstyled mt-3">
                     <li><a href="#" target="_blank">IDrink</a></li>
@@ -33,13 +33,13 @@
                     <li><a href="https://policebox.paulowh.com/" target="_blank">Police box</a></li>
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3 text-center">
                 <h5>Siga nos</h5>
                 <ul class="list-unstyled mt-3" id="icones">
-                    <a href="https://www.instagram.com"><i id="estilo" class="bi bi-instagram text-light"></i></a>
-                    <a href="https://www.youtube.com"><i id="estilo" class="bi bi-youtube text-light"></i></a>
-                    <a href="https://www.twitter.com"><i id="estilo" class="bi bi-twitter text-light"></i></a>
-                    <a href="https://github.com/Guilhlm"  target="_blank"><i id="estilo" class="bi bi-github"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i id="estilo" class="bi bi-instagram text-light"></i></a>
+                    <a href="https://www.youtube.com" target="_blank"><i id="estilo" class="bi bi-youtube text-light"></i></a>
+                    <a href="https://www.twitter.com" target="_blank"><i id="estilo" class="bi bi-twitter text-light"></i></a>
+                    <a href="https://github.com/Arrowaaa"  target="_blank"><i id="estilo" class="bi bi-github"></i></a>
                 </ul>
             </div>
         </div>
