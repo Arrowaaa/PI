@@ -18,7 +18,8 @@ body {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
 }
 
 #direita {
@@ -26,7 +27,8 @@ body {
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .container {
@@ -34,7 +36,8 @@ body {
     padding: 50px;
     border-radius: 40px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
-    width: 26vw; 
+    width: 100%; 
+    max-width: 26vw;
     margin: 10px auto; 
     text-align: center; 
     color: white;
@@ -64,19 +67,6 @@ body {
     padding-right: 40px; /* Espaço para o botão */
 }
 
-.forgot-password {
-    display: flex;
-    left: 135px;
-    color: #007bff;
-    cursor: pointer;
-}
-
-.forgot-password:hover {
-    color: #0056b3;
-    left: 135px;
-    color: #fff;
-}
-
 
 .input-group button {
     position: absolute;
@@ -89,24 +79,6 @@ body {
     font-size: 20px;
 }
 
-.botaoVoltar {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    padding: 10px 20px;  
-    margin: 10px; 
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 700px;
-}
-.botaoVoltar:hover {
-    background-color: #f9f9fa;
-    color: #000; 
-}
-
 
 .button {
     display: inline-flex;
@@ -117,17 +89,6 @@ body {
     border-radius: 15px;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
-}
-
-.button.cadastrar {
-    font-family: Arial, Helvetica, sans-serif; 
-    color: #fff; 
-    border: 1px solid #000; 
-}
-
-.button:hover {
-    background-color: #f9f9fa;
-    color: #000; 
 }
 
 
@@ -152,7 +113,6 @@ body {
 }
 
 
-
 .login-box form a {
     font-family: "Croissant One", "serif";
     position: relative;
@@ -169,13 +129,13 @@ body {
   }
   
   .login-box a:hover {
-    background: #007bff;
+    background: #FF9239;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #007bff,
-                0 0 25px #007bff,
-                0 0 50px #007bff,
-                0 0 100px #007bff;
+    box-shadow: 0 0 5px #FF9239,
+                0 0 25px #FF9239,
+                0 0 50px #FF9239,
+                0 0 100px #FF9239;
   }
   
   .login-box span {
@@ -198,6 +158,6 @@ body {
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #007bff);
+    background: linear-gradient(90deg, transparent, #FF9239);
     animation: btn-anim1 2s linear infinite;
   }

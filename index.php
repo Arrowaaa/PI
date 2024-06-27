@@ -27,7 +27,7 @@
     background-size: cover;
     background-position: 0% center;
     width: 100%;
-    height: 83.5vh;
+    height: 85vh;
     padding: 0 0 1px 0;
     animation: moveBackground 50s linear infinite;
    
@@ -67,8 +67,8 @@ body main .home main h1 {
     text-shadow: 1px 1px 0 #000, 2px 2px 0 #ff9239, 3px 3px 0 #ff9239, 4px 4px 0 #ff9239, 5px 5px 0 #ff9239;
 }
 </style>
-<body>
-    <main style="height: 80vh;">
+<body  style="height: 100%;">
+    <main>
         <section class="home">
             <header>
                 <nav class="menu-perfil">

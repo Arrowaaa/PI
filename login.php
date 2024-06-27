@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,11 +10,12 @@
 </head>
 
 <body>
-    <div class="button-group-voltar">
-        <a href="index.php" class="botaoVoltar">Voltar</a>
+    <div>
+        <a href="index.php" id="botaoVoltar" class="botaoVoltar">Voltar</a>
     </div>
     <div class="imagens">
         <img src="assets/img/cachorros/cachorro.png" id="imagem-direita" alt="Imagem 2" class="imagem-direita">
+        <img src="assets/img/cachorros/6.png" id="imagem-esquerda" alt="Imagem 6" class="imagem-esquerda">
     </div>
     <div class="container">
         <h2>Login</h2>
@@ -26,10 +26,9 @@
 
             try {
                 $conn = 'mysql:host=62.72.62.1;dbname=u687609827_edilson';
-                $UsuarioSenha = new PDO ($conn, 'u687609827_edilson', '>2Ana=]b');
+                $UsuarioSenha = new PDO($conn, 'u687609827_edilson', '>2Ana=]b');
                 $UsuarioSenha->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                
                 $select = "SELECT * FROM usuarios WHERE usuario = :usuario";
                 $paramentro = $UsuarioSenha->prepare($select);
                 $paramentro->bindParam(':usuario', $usuario, PDO::PARAM_STR);
@@ -40,7 +39,6 @@
 
                     if (password_verify($senha, $linha['senha'])) {
                         echo "<p>Login bem-sucedido!</p>";
-
                         header("Location: perfil.php");
                         exit();
                     } else {
@@ -54,27 +52,34 @@
             }
         }
         ?>
-
-        <form id="loginForm" method="POST" action="perfil.php">
-            <div class="input-group">
-                <label for="usuario">Usuário:</label>
-                <input type="text" id="usuario" name="usuario" required>
-            </div>
-            <div class="input-group">
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" required>
-                <button type="button" id="mostrarSenha"></button>
-            </div>
-            <input type="checkbox" id="lembrar" name="lembrar">
-            <label for="lembrar">Lembre-me</label>
-
-            <a class="forgot-password" href="esqueceu-senha.php"> Esqueceu a senha? </a>
-            <br><br>
-            <button type="submit" class="button">Entrar</button>
-            <div class="button-group">
-                <a href="cadastro.php" class="button">Cadastrar</a>
-            </div>
-        </form>
+        <div class="login-box">
+            <form id="loginForm" method="POST" action="">
+                <div class="input-group">
+                    <label for="usuario">Usuário:</label>
+                    <input type="text" id="usuario" name="usuario" required>
+                </div>
+                <div class="input-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required>
+                    <button type="button" id="mostrarSenha"></button>
+                </div>
+                <div class="input-group">
+                    <div>
+                        <input type="checkbox" id="lembrar" name="lembrar">
+                        <label for="lembrar">Lembre-me</label>
+                    </div>
+                    <span class="forgot-password" onclick="location.href='esqueceu-senha.php'">Esqueceu a senha?</span>
+                </div>
+                <div class="button-group">
+                    <center>
+                    <button type="submit" class="button-link">Entrar <span></span></button>
+                    </center>
+                </div>
+                <div class="button-group">
+                    <a href="cadastro.php" class="button">Cadastrar <span></span></a>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="assets/js/login.js"></script>

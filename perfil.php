@@ -14,6 +14,7 @@
 <body>
     <div class="imagens">
         <img src="assets/img/cachorros/4.png" alt="Imagem 2" class="imagem-direita">
+        <img src="assets/img/cachorros/6.png" id="imagem-esquerda" alt="Imagem 6" class="imagem-esquerda">
     </div>
     <div class="container">
         <h2 style="text-align: center;">Bem-vindo à Seu Perfil</h2>

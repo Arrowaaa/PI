@@ -1,16 +1,4 @@
 <?php include './includes/header.php' ?>
-<style>
-    .box{
-    width: 500px;
-    border: 5px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #a86833;
-    
-}
-</style>
 
     <main style="display:flex; align-items: center;">
         <section class="container mt-5">
@@ -45,15 +33,15 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Gênero:</label><br>
+                        <label class="form-label">Gênero:</label>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="genero" value="M" id="m">
                             <label class="form-check-label" for="m">Masculino</label>
-                        </div>
+                        </div><br>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="genero" value="F" id="f">
                             <label class="form-check-label" for="f">Feminino</label>
-                        </div>
+                        </div><br>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="genero" value="O" id="o">
                             <label class="form-check-label" for="o">Outros</label>

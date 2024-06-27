@@ -1,6 +1,6 @@
 body {
     display: flex;
-    background-color: #FF9239;
+    background-color: #9c6131;
     font-family: "Croissant One", "serif";
     justify-content: center;
     align-items: center;
@@ -8,7 +8,6 @@ body {
     padding: 0.20px;
     border: none;
     margin: 0;
-    background-image: url(../img/cachorros/6.png);
     background-size: contain;
     background-position: left center;
     background-repeat: no-repeat;
@@ -18,17 +17,19 @@ body {
 .imagem-esquerda {
     position: fixed;
     top: 50%;
-    left: 0;
+    left: -10%;
     transform: translateY(-50%);
-    width: 100px;
+    width: 100%;
+    max-width: 600px;
 }
 
 .imagem-direita {
     position: fixed;
     top: 50%;
-    right: 0;
+    right: -5%;
     transform: translateY(-50%);
-    width: 500px;
+    width: 100%;
+    max-width: 700px;
 }
 
 
@@ -39,7 +40,8 @@ body {
     height: 100%;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
-    width: 32vw;
+    width: 100%;
+    max-width: 32vw;
     margin: auto;
     flex-direction: column;
     justify-content: center;

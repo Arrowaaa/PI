@@ -13,7 +13,8 @@ body {
     top: 60%; 
     left: -20px;
     transform: translateY(-50%);
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .imagem-direita {
@@ -21,19 +22,21 @@ body {
     top: 59%;
     right: -15px;
     transform: translateY(-50%);
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
 
 }
 
 
 .container {
-    background-color: rgba(3, 3, 3, 0.7);   
-    padding: 60px ;
-    border-radius: 30px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
-    width: 32%;
-    margin: 20px auto;
-    text-align: center;
+    background-color: rgba(3, 3, 3, 0.7); 
+    padding: 50px;
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
+    width: 32%; 
+    max-width: 26vw;
+    margin: 10px auto; 
+    text-align: center; 
     color: white;
 }
 
@@ -80,7 +83,6 @@ input[type = 'submit']{
     display: inline-block;
     padding: 10px 20px;
     margin-right: 10px;
- 
     color: #fff;
     text-decoration: none;
     border-radius: 15px;
@@ -90,7 +92,7 @@ input[type = 'submit']{
 
 .button.cadastrar {
     font-family: Arial, Helvetica, sans-serif;  
-    color: #fff;
+    
     border: 1px solid #000;
 }
 
@@ -103,25 +105,22 @@ input[type = 'submit']{
 #mostrarSenha {
     padding-top: 20px;
 }
-
 #mostrarConfirmSenha {
     padding-top: 20px;
 }
 
-
 #mostrarSenha::before,
 #mostrarConfirmSenha::before {
-    content: "\1F441";
-
+    content: "\1F441"; 
+    
 }
 
 
 #mostrarSenha.oculto::before,
 #mostrarConfirmSenha.oculto::before {
-    content: "\1F440";
-    
+    content: "\1F440"; 
+   
 }
-
 /* Estilo para o grupo .dados */
 
 .dados {
@@ -180,13 +179,13 @@ input[type = 'submit']{
   }
   
   .login-box a:hover {
-    background: #007bff;
+    background: #FF9239;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #007bff,
-                0 0 25px #007bff,
-                0 0 50px #007bff,
-                0 0 100px #007bff;
+    box-shadow: 0 0 5px #FF9239,
+                0 0 25px #FF9239,
+                0 0 50px #FF9239,
+                0 0 100px #FF9239;
   }
   
   .login-box span {
@@ -209,6 +208,6 @@ input[type = 'submit']{
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #007bff);
+    background: linear-gradient(90deg, transparent, #FF9239);
     animation: btn-anim1 2s linear infinite;
   }

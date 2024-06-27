@@ -1,36 +1,45 @@
-body { 
+body {
     display: flex;
-    background-color: #9c6131;  
+    background-color: #9c6131;
     font-family: "Croissant One", "serif";
     justify-content: left;
     align-items: left;
     padding: 0.20px;
     border: none;
     margin: 0;
-    background-image: url(../img/cachorros/6.png);
-    background-size:contain; 
-    background-position: left;  
+    background-size: contain;
+    background-position: left;
     background-repeat: no-repeat;
-  
+
 }
 
 #imagem-direita {
     position: fixed;
-    top: 50%; 
+    top: 50%;
     right: 0;
-    transform: translateY(-50%); 
-    width: 500px; 
-} 
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 500px;
+}
+
+#imagem-esquerda {
+    position: fixed;
+    top: 50%;
+    left: -5%;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 600px;
+}
 
 
 .container {
-    background-color: rgba(3, 3, 3, 0.7); 
+    background-color: rgba(3, 3, 3, 0.7);
     padding: 50px;
     border-radius: 40px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
-    width: 26vw; 
-    margin: auto; 
-    text-align: center; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+    width: 26vw;
+    margin: auto;
+    text-align: center;
     color: white;
 }
 
@@ -42,33 +51,36 @@ body {
 }
 
 .input-group label {
-    flex: 1; /* Ocupa todo o espaço disponível */
+    flex: 1;
+    /* Ocupa todo o espaço disponível */
     margin-bottom: 5px;
-    color: rgb(252, 248, 248); 
-    text-align: start; 
+    color: rgb(252, 248, 248);
+    text-align: start;
 }
 
 .input-group input {
-    flex: 1; /* Ocupa todo o espaço disponível */
-    width: auto; 
+    flex: 1;
+    /* Ocupa todo o espaço disponível */
+    width: auto;
     padding: 5px 0 2px 0;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 10px !important;
-    padding-right: 40px; /* Espaço para o botão */
+    padding-right: 40px;
+    /* Espaço para o botão */
 }
 
 .forgot-password {
     display: flex;
     left: 135px;
-    color: #007bff;
+    color: #FF9239;
     cursor: pointer;
 }
 
 .forgot-password:hover {
-    color: #0056b3;
+    color: #f4f4f5;
     left: 135px;
-    color: #fff;
+
 }
 
 
@@ -83,45 +95,40 @@ body {
     font-size: 20px;
 }
 
-.botaoVoltar {
+#botaoVoltar {
     display: flex;
     justify-content: start;
     align-items: start;
-    padding: 10px 20px;  
-    margin: 10px; 
-    background-color: #007bff;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #FF9239;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 700px;
 }
-.botaoVoltar:hover {
+
+#botaoVoltar:hover {
     background-color: #f9f9fa;
-    color: #000; 
+    color: #000;
 }
 
 
 .button {
     display: inline-flex;
-    padding: 10px 20px; 
-    margin-right: 10px; 
-    color: #fff;
+    padding: 10px 20px;
+    margin-right: 10px;
     text-decoration: none;
     border-radius: 15px;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
 }
 
-.button.cadastrar {
-    font-family: Arial, Helvetica, sans-serif; 
-    color: #fff; 
-    border: 1px solid #000; 
-}
 
 .button:hover {
-    background-color: #f9f9fa;
-    color: #000; 
+    background-color: #FF9239;
+    color: #000;
 }
 
 
@@ -131,18 +138,41 @@ body {
 
 #mostrarSenha::before,
 #mostrarConfirmSenha::before {
-    content: "\1F441"; 
-    
+    content: "\1F441";
+
 }
 
 
 #mostrarSenha.oculto::before,
 #mostrarConfirmSenha.oculto::before {
-    content: "\1F440"; 
-   
+    content: "\1F440";
+
 }
 
-
+.button-link {
+    font-family: "Croissant One", "serif";
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FF9239;
+    font-size: 16px;
+    border: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+}
+.button-link:hover{
+    background: #FF9239;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #FF9239,
+                0 0 25px #FF9239,
+                0 0 50px #FF9239,
+                0 0 100px #FF9239;
+}
 
 .login-box form a {
     font-family: "Croissant One", "serif";
@@ -157,38 +187,48 @@ body {
     transition: .5s;
     margin-top: 40px;
     letter-spacing: 4px
-  }
-  
-  .login-box a:hover {
-    background: #007bff;
+}
+
+.login-box a:hover {
+    background: #FF9239;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #007bff,
-                0 0 25px #007bff,
-                0 0 50px #007bff,
-                0 0 100px #007bff;
-  }
-  
-  .login-box span {
+    box-shadow: 0 0 5px #FF9239,
+        0 0 25px #FF9239,
+        0 0 50px #FF9239,
+        0 0 100px #FF9239;
+}
+
+.login-box span {
     position: absolute;
     display: block;
-  }
-  
-  @keyframes btn-anim1 {
+}
+
+@keyframes btn-anim1 {
     0% {
-      left: -100%;
+        left: -100%;
     }
-  
-    50%,100% {
-      left: 100%;
+
+    50%,
+    100% {
+        left: 100%;
     }
-  }
-  
-  .login-box span:nth-child(1) {
+}
+
+.login-box span:nth-child(1) {
     bottom: 2px;
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #007bff);
+    background: linear-gradient(90deg, transparent, #FF9239);
     animation: btn-anim1 2s linear infinite;
-  }
+}
+
+.button-link span:nth-child(1) {
+    bottom: 2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #f6f6f7);
+    animation: btn-anim1 2s linear infinite;
+}

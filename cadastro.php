@@ -121,14 +121,14 @@
                     <label for="Numero">Número (Residência):</label>
                     <input type="number" id="Numero" name="Numero" required>
                 </div>
-                <div class="input-group">
-                    <label for="senha">Senha:</label>
+                <div class="input-group password-group">
+                    <label for="senha">Nova Senha:</label>
                     <input type="password" id="senha" name="senha" required>
                     <button type="button" id="mostrarSenha"></button>
                 </div>
-                <div class="input-group">
-                    <label for="inputsenha">Insira a senha novamente:</label>
-                    <input type="password" id="confirmSenha" name="inputsenha" required>
+                <div class="input-group password-group">
+                    <label for="confirmSenha">Confirme a Senha:</label>
+                    <input type="password" id="confirmSenha" name="confirmSenha" required>
                     <button type="button" id="mostrarConfirmSenha"></button>
                 </div>
                 <a type="submit" class="button">Cadastrar <span></span></a>

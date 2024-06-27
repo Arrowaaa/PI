@@ -1,6 +1,6 @@
 <?php include './includes/header.php' ?>
 
-<main class="container body">
+<main class="container body ">
     <div class="corpo">
         <h1 class="sobre-nos">Sobre-nós</h1>
         <br>
@@ -28,7 +28,7 @@
         <br><br>
         <h2 class="titulo">Nossa Estrutura:</h2>
         <section id="fotos">
-            <main class="container">
+            <main class="body">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <!-- criando o Card -->

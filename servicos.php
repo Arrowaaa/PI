@@ -20,7 +20,7 @@
     <li>Entre Outros</li> <br>
 
     <section id="produtos me-5">
-        <main class="container">
+        <main class="body">
             <div class="row">
                 <div class="col-lg-6 col-md-2 col-sm-12">
                     <!-- criando o Card -->

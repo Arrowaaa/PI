@@ -10,16 +10,22 @@
 }
 
 .box {
-    
+    display: flex;
     background-color: #9c6131;
     background-size: cover;
     background-position: center;
-    text-align: center; 
+    justify-content: start;
+    text-align: start; 
     font-family: "Croissant One","serif";
     padding: 50px; 
     
 }
 
+.form-label {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
 
 
 header nav {
@@ -31,44 +37,76 @@ header nav {
     font-size: 15px;
     
 }
-
-#produtos .titulo{
-    display:flex;
-    justify-content: center;
-    font-family:"Croissant One","serif";
-    font-weight:bold;
-    font-size: 50px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-transform:uppercase;
+#fotos {
+    margin-top: 20px;
 }
 
-.foto-produto{
-    width: 100%;
-    max-width: 280px;
-    height: 380px;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.col-lg-3, .col-md-6, .col-sm-12 {
+    flex: 0 0 23%;
+    max-width: 23%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+figure {
+    position: relative;
+    margin: 0;
+}
+
+.foto-produto {
+    width: 20vh;
+    height: 24vh;
     border-radius: 20px;
     object-fit: cover;
-    object-position: top;
+    object-position: center;
+    transition: transform 0.3s ease, z-index 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
-#produtos main {
-    width: 100%;
-    margin: 0 auto;
+figure:hover .foto-produto {
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    height: 52vh;
+    width: 42vh;
+
 }
 
-#produtos figure figcaption h4{
-    font-size: auto;
-    margin-bottom: 0;
-    font-weight: 700;
+figcaption {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
     text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 0 0 20px 20px;
 }
-#produtos figure figcaption span.avaliacao{
-    color: #d48c00;
-    font-size: 1.3rem;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-  
+
+figcaption h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .col-lg-3, .col-md-6, .col-sm-12 {
+        flex: 0 0 48%;
+        max-width: 48%;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-lg-3, .col-md-6, .col-sm-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }

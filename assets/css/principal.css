@@ -172,7 +172,8 @@ footer .rodape {
     padding: 60px ;
     border-radius: 30px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
-    width: 29vw;
+    width: 100%;
+    max-width: 150vh;
     margin: auto;
     text-align: center;
     color: white;

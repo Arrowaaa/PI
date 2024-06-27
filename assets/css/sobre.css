@@ -1,7 +1,8 @@
 
 #fotos {
+
     /* background-color: gray; */
-    height: 100vh;
+     height: 100%;
 }
 
 #fotos .titulo{
@@ -14,24 +15,25 @@
     margin-top: 10px;
     margin-bottom: 10px;
     text-transform:uppercase;
-}
+} 
 
-.foto-produto{
+ .foto-produto{
     width: 100%;
-    max-width: 280px;
-    height: 380px;
+    max-width: 200vw;
+    height: 100%;
+    max-height: 400vw;
     border-radius: 20px;
     object-fit: cover;
     object-position: top;
 }
-#fotos figure{
+/* #fotos figure{
     background-color: #d9d9d9;
     text-align: center;
     padding: 10px 19px ;
     border-radius: 10px;
     width: 105% ;
     max-width: 100vw;
-}
+} */
 
 #fotos figure figcaption{
     padding: 0 10%;
@@ -54,7 +56,7 @@
     justify-content: center;
     align-items: end;
   
-}
+} 
 
 
 
