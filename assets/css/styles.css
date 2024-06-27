@@ -64,17 +64,6 @@ input[type = 'submit']{
     
 }
 
-.forgot-password {
-    color: #0056b3;
-    margin-left: 160px;
-}
-
-.forgot-password:hover {
-    color: #0056b3;
-    margin-left: 160px;
-    color: #fff;
-
-}
 
 .input-group button {
     position: absolute;
@@ -91,7 +80,7 @@ input[type = 'submit']{
     display: inline-block;
     padding: 10px 20px;
     margin-right: 10px;
-    background-color: #007bff;
+ 
     color: #fff;
     text-decoration: none;
     border-radius: 15px;
@@ -100,8 +89,7 @@ input[type = 'submit']{
 }
 
 .button.cadastrar {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #007bff;
+    font-family: Arial, Helvetica, sans-serif;  
     color: #fff;
     border: 1px solid #000;
 }
@@ -174,3 +162,53 @@ input[type = 'submit']{
         width: calc(100% - 16px); 
     }
 }
+
+
+.login-box form a {
+    font-family: "Croissant One", "serif";
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  
+  .login-box a:hover {
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #007bff,
+                0 0 25px #007bff,
+                0 0 50px #007bff,
+                0 0 100px #007bff;
+  }
+  
+  .login-box span {
+    position: absolute;
+    display: block;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+  
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  .login-box span:nth-child(1) {
+    bottom: 2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #007bff);
+    animation: btn-anim1 2s linear infinite;
+  }

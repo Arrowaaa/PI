@@ -1,61 +1,62 @@
-body {
+body { 
     display: flex;
-    background-color: #9c6131; ;  
+    background-color: #9c6131;  
     font-family: "Croissant One", "serif";
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    justify-content: left;
+    align-items: left;
     padding: 0.20px;
     border: none;
     margin: 0;
     background-size:contain; 
-    background-position: left center;  
+    background-position: left;  
     background-repeat: no-repeat;
-    height: 100vh;
+  
 }
 
 #esquerda {
     position: fixed;
-    top: 50%; 
+    top: 50%;
     left: 0;
-    transform: translateY(-50%); 
-    width: 600px; 
+    transform: translateY(-50%);
+    width: 600px;
 }
 
 #direita {
     position: fixed;
-    top: 50%; 
+    top: 50%;
     right: 0;
-    transform: translateY(-50%); 
+    transform: translateY(-50%);
     width: 500px;
 }
-
 
 .container {
     background-color: rgba(3, 3, 3, 0.7); 
     padding: 50px;
-    border-radius: 20px;
+    border-radius: 40px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
     width: 26vw; 
-    margin: auto; 
+    margin: 10px auto; 
     text-align: center; 
     color: white;
 }
 
 .input-group {
-    position: relative;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .input-group label {
-    display: block;
+    flex: 1; /* Ocupa todo o espaço disponível */
     margin-bottom: 5px;
     color: rgb(252, 248, 248); 
-    text-align: left; 
+    text-align: start; 
 }
 
 .input-group input {
-    width: 100%; 
+    flex: 1; /* Ocupa todo o espaço disponível */
+    width: auto; 
     padding: 5px 0 2px 0;
     margin-bottom: 10px; 
     border: 1px solid #ccc;
@@ -63,17 +64,19 @@ body {
     padding-right: 40px; /* Espaço para o botão */
 }
 
-.forgot-password{
-    color: #0056b3;
-    margin-left: 160px;
+.forgot-password {
+    display: flex;
+    left: 135px;
+    color: #007bff;
+    cursor: pointer;
 }
 
-.forgot-password:hover{
+.forgot-password:hover {
     color: #0056b3;
-    margin-left: 160px;
+    left: 135px;
     color: #fff;
-
 }
+
 
 .input-group button {
     position: absolute;
@@ -86,11 +89,29 @@ body {
     font-size: 20px;
 }
 
+.botaoVoltar {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    padding: 10px 20px;  
+    margin: 10px; 
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 700px;
+}
+.botaoVoltar:hover {
+    background-color: #f9f9fa;
+    color: #000; 
+}
+
+
 .button {
-    display: inline-block;
+    display: inline-flex;
     padding: 10px 20px; 
     margin-right: 10px; 
-    background-color: #007bff;
     color: #fff;
     text-decoration: none;
     border-radius: 15px;
@@ -99,34 +120,84 @@ body {
 }
 
 .button.cadastrar {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #007bff; 
+    font-family: Arial, Helvetica, sans-serif; 
     color: #fff; 
     border: 1px solid #000; 
 }
 
 .button:hover {
     background-color: #f9f9fa;
-    color: #000;
-    
+    color: #000; 
 }
+
 
 #mostrarSenha {
     padding-top: 20px;
 }
-
 #mostrarConfirmSenha {
     padding-top: 20px;
 }
 
-/* Ícone de olho aberto */
 #mostrarSenha::before,
 #mostrarConfirmSenha::before {
-    content: "\1F441"; /* Unicode para ícone de olho aberto */
+    content: "\1F441"; 
+    
 }
 
-/* Ícone de olho fechado */
+
 #mostrarSenha.oculto::before,
 #mostrarConfirmSenha.oculto::before {
-    content: "\1F440"; /* Unicode para ícone de olho fechado */
+    content: "\1F440"; 
+   
 }
+
+
+
+.login-box form a {
+    font-family: "Croissant One", "serif";
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  
+  .login-box a:hover {
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #007bff,
+                0 0 25px #007bff,
+                0 0 50px #007bff,
+                0 0 100px #007bff;
+  }
+  
+  .login-box span {
+    position: absolute;
+    display: block;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+  
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  .login-box span:nth-child(1) {
+    bottom: 2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #007bff);
+    animation: btn-anim1 2s linear infinite;
+  }

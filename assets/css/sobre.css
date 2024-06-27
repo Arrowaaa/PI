@@ -3,6 +3,7 @@
     /* background-color: gray; */
     height: 100vh;
 }
+
 #fotos .titulo{
     display:flex;
     justify-content: center;
