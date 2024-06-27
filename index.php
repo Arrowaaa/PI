@@ -26,7 +26,8 @@
     background-image: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5)), url(assets/img/banner.png);
     background-size: cover;
     background-position: 0% center;
-    height: 100%;
+    width: 100%;
+    height: 83.5vh;
     padding: 0 0 1px 0;
     animation: moveBackground 50s linear infinite;
    
