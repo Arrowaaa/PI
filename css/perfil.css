@@ -1,0 +1,89 @@
+body {
+    display: flex;
+    background-color: #FF9239;
+    font-family: "Croissant One", "serif";
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0.20px;
+    border: none;
+    margin: 0;
+    background-image: url(../img/cachorros/6.png);
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.imagem-esquerda {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100px;
+}
+
+.imagem-direita {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 500px;
+}
+
+
+.container {
+    display: block;
+    background-color: rgba(3, 3, 3, 0.7);
+    padding: 40px;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+    width: 32vw;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.content {
+    text-align: left;
+    width: 90%;
+    max-width: 500px;
+    /* Defina a largura máxima do conteúdo */
+}
+
+.btn_baixo {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    /* Distância do topo da página */
+    right: 10px;
+    /* Distância da borda direita da página */
+    background-color: #969494;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Estilos para os botões ocultos */
+.bnt_oculto {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #969494;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.bnt_oculto a {
+    display: flex;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+}

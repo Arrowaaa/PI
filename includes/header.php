@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <main style="height: 80vh;">
+    <main>
         <section class="home">
             <header>
                 <nav class="menu-perfil">
@@ -42,10 +42,6 @@
                     </ul>
                 </nav>
             </header>
-
-            <main>
-                <h1>Ven't  Qui</h1>
-            </main>
-
         </section>
     </main>
+    <hr>
