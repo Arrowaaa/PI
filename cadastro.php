@@ -7,18 +7,18 @@
     <title>Cadastro de Cliente & Pet</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/cadastro.css">
 
 </head>
 
 <body>
     <div class="imagens">
-        <img src="assets/img/cachorros/3.png" alt="Imagem 1" class="imagem-esquerda">
-        <img src="assets/img/cachorros/2.png" alt="Imagem 2" class="imagem-direita">
+        <img src="assets/img/cachorros/3.png" id="esquerda" alt="Imagem 1" class="imagem-esquerda">
+        <img src="assets/img/cachorros/2.png" id="direita" alt="Imagem 2" class="imagem-direita">
     </div>
-    <div class="login-box">
+    <div class="container">
 
-        <div class="container">
+        <div class="login-box">
             <h2>Cadastro de Cliente & Pet</h2> <br>
             <form id="cadastroForm" action="processar_cadastro.php" method="POST">
                 <div class="input-group">
@@ -47,7 +47,7 @@
                     <script src="assets/js/mascaras.js"></script>
                 </div>
                 <div class="input-group">
-                    <label for="sexo">Sexo do Tutor:</label>
+                    <label for="sexo">Sexo do Tutor:  </label>
                     <select id="sexo" name="sexo" required>
                         <option></option>
                         <option value="m">Masculino</option>
@@ -65,7 +65,7 @@
                     <input type="date" id="idade" name="idade" required>
                 </div>
                 <div class="input-group">
-                    <label for="especie">Espécie do Pet:</label>
+                    <label for="especie">Espécie do Pet:  </label>
                     <select type="text" id="especie" name="especie" required>
                         <option></option>
                         <option value="m">Mamíferos</option>
@@ -87,7 +87,7 @@
                     <input type="number" id="peso" name="peso" step="0.01" required>
                 </div>
                 <div class="input-group">
-                    <label for="sexop">Sexo do Pet:</label>
+                    <label for="sexop">Sexo do Pet:  </label>
                     <select id="sexop" name="sexop" required>
                         <option></option>
                         <option value="m">Macho</option>
@@ -96,7 +96,7 @@
                     </select>
                 </div>
                 <div class="input-group">
-                    <label for="porte">Porte do Pet:</label>
+                    <label for="porte">Porte do Pet:  </label>
                     <select id="porte" name="porte" required>
                         <option></option>
                         <option value="pequeno">Pequeno</option>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="input-group">
                     <label for="cep">CEP:</label>
-                    <input type="text" id="cep" name="cep" required>
+                    <input type="text" id="cep" name="cep" required placeholder="00000-000">
                     <script src="assets/js/mascaras.js"></script>
                 </div>
                 <div class="input-group">
@@ -122,7 +122,7 @@
                     <input type="number" id="Numero" name="Numero" required>
                 </div>
                 <div class="input-group password-group">
-                    <label for="senha">Nova Senha:</label>
+                    <label for="senha">Senha:</label>
                     <input type="password" id="senha" name="senha" required>
                     <button type="button" id="mostrarSenha"></button>
                 </div>
@@ -138,6 +138,7 @@
     </div>
 
     <script src="assets/js/mascaras.js"></script>
+    <script src="assets/js/senhaToggle.js"></script>
 
 </body>
 

@@ -62,6 +62,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+//função para mostra o icone do olhinho
+
 document.addEventListener('DOMContentLoaded', function() {
     const togglePassword = document.querySelector('#mostrarSenha');
     const password = document.querySelector('#senha');
@@ -81,4 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
         this.classList.toggle('oculto');
     });
 });
+
+
 

@@ -17,7 +17,7 @@
     </div>
     <div class="container">
         <div class="login-box">
-            <h2>Redefinir Senha</h2>
+            <h2>Redefinir Senha</h2><br><br>
             <form id="loginForm" action="login.php">
                 <div class="input-group">
                     <label for="usuario">Usúario:</label>

@@ -65,7 +65,7 @@ figure {
     height: 24vh;
     border-radius: 20px;
     object-fit: cover;
-    object-position: center;
+    object-position: start;
     transition: transform 0.3s ease, z-index 0.3s ease;
     position: relative;
     z-index: 1;

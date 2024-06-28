@@ -1,16 +1,19 @@
-body { 
+body {
     display: flex;
-    background-color: #9c6131;  
+    background-color: #9c6131;
     font-family: "Croissant One", "serif";
     justify-content: left;
     align-items: left;
-    padding: 0.20px;
+    padding: 35px 0.20px;
     border: none;
     margin: 0;
-    background-size:contain; 
-    background-position: left;  
+    background-size: contain;
+    background-position: left;
     background-repeat: no-repeat;
-  
+
+}
+h2 {
+    font-size: 40px;
 }
 
 #esquerda {
@@ -24,22 +27,24 @@ body {
 
 #direita {
     position: fixed;
-    top: 50%;
-    right: 0;
+    top: 48%;
+    left: 60%;
+    margin-top: 40px;
+    margin-left: 60px;
     transform: translateY(-50%);
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
 }
 
 .container {
-    background-color: rgba(3, 3, 3, 0.7); 
+    background-color: rgba(3, 3, 3, 0.7);
     padding: 50px;
     border-radius: 40px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
-    width: 100%; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+    width: 100%;
     max-width: 26vw;
-    margin: 10px auto; 
-    text-align: center; 
+    margin: 10px auto;
+    text-align: center;
     color: white;
 }
 
@@ -51,20 +56,22 @@ body {
 }
 
 .input-group label {
-    flex: 1; /* Ocupa todo o espaço disponível */
-    margin-bottom: 5px;
-    color: rgb(252, 248, 248); 
-    text-align: start; 
+    flex-direction: column;
+    color: rgb(252, 248, 248);
+    text-align: start;
+    font-size: 25px;
 }
 
 .input-group input {
-    flex: 1; /* Ocupa todo o espaço disponível */
-    width: auto; 
+    flex: 1;
+    /* Ocupa todo o espaço disponível */
+    width: auto;
     padding: 5px 0 2px 0;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 10px !important;
-    padding-right: 40px; /* Espaço para o botão */
+    padding-right: 40px;
+    /* Espaço para o botão */
 }
 
 
@@ -82,8 +89,8 @@ body {
 
 .button {
     display: inline-flex;
-    padding: 10px 20px; 
-    margin-right: 10px; 
+    padding: 10px 20px;
+    margin-right: 10px;
     color: #fff;
     text-decoration: none;
     border-radius: 15px;
@@ -93,23 +100,24 @@ body {
 
 
 #mostrarSenha {
-    padding-top: 20px;
+    margin-top: 15px;
 }
+
 #mostrarConfirmSenha {
-    padding-top: 20px;
+    margin-top: 15px;
 }
 
 #mostrarSenha::before,
 #mostrarConfirmSenha::before {
-    content: "\1F441"; 
-    
+    content: "\1F441";
+
 }
 
 
 #mostrarSenha.oculto::before,
 #mostrarConfirmSenha.oculto::before {
-    content: "\1F440"; 
-   
+    content: "\1F440";
+
 }
 
 
@@ -126,38 +134,39 @@ body {
     transition: .5s;
     margin-top: 40px;
     letter-spacing: 4px
-  }
-  
-  .login-box a:hover {
+}
+
+.login-box a:hover {
     background: #FF9239;
     color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 5px #FF9239,
-                0 0 25px #FF9239,
-                0 0 50px #FF9239,
-                0 0 100px #FF9239;
-  }
-  
-  .login-box span {
+        0 0 25px #FF9239,
+        0 0 50px #FF9239,
+        0 0 100px #FF9239;
+}
+
+.login-box span {
     position: absolute;
     display: block;
-  }
-  
-  @keyframes btn-anim1 {
+}
+
+@keyframes btn-anim1 {
     0% {
-      left: -100%;
+        left: -100%;
     }
-  
-    50%,100% {
-      left: 100%;
+
+    50%,
+    100% {
+        left: 100%;
     }
-  }
-  
-  .login-box span:nth-child(1) {
+}
+
+.login-box span:nth-child(1) {
     bottom: 2px;
     left: -100%;
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, transparent, #FF9239);
     animation: btn-anim1 2s linear infinite;
-  }
+}

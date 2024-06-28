@@ -27,7 +27,8 @@
     background-size: cover;
     background-position: 0% center;
     width: 100%;
-    height: 85vh;
+    height: 100%;
+    max-height: 700vh;
     padding: 0 0 1px 0;
     animation: moveBackground 50s linear infinite;
    
@@ -66,14 +67,15 @@ body main .home main h1 {
     -webkit-text-fill-color: transparent;
     text-shadow: 1px 1px 0 #000, 2px 2px 0 #ff9239, 3px 3px 0 #ff9239, 4px 4px 0 #ff9239, 5px 5px 0 #ff9239;
 }
+
 </style>
-<body  style="height: 100%;">
+<body>
     <main>
-        <section class="home">
+        <section class="home"  style="height: 70vh;">
             <header>
                 <nav class="menu-perfil">
                     <img src="assets/img/logo principal.png" alt="logo da empresa" class="logo">
-                    <p>“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</p>
+                    <h5>“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</h5>
                     <ul class="menu">
                         <li> <a class="linha" href="index.php">Início</a></li>
                         <li class="dropdown">

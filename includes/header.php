@@ -22,7 +22,7 @@
             <header>
                 <nav class="menu-perfil">
                     <img src="assets/img/logo principal.png" alt="logo da empresa" class="logo">
-                    <p>“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</p>
+                    <h5>“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</h5>
                     <ul class="menu">
                         <li><a href="index.php">Início</a></li>
                         <li class="dropdown">

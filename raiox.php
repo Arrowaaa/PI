@@ -32,21 +32,15 @@
                         <input type="date" class="form-control" id="data_nascimento" name="data_nascimento">
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Gênero:</label>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="genero" value="M" id="m">
-                            <label class="form-check-label" for="m">Masculino</label>
-                        </div><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="genero" value="F" id="f">
-                            <label class="form-check-label" for="f">Feminino</label>
-                        </div><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="genero" value="O" id="o">
-                            <label class="form-check-label" for="o">Outros</label>
-                        </div>
-                    </div>
+                    <div class="input-group">
+                    <label for="sexo">Sexo do Tutor:  </label>
+                    <select id="sexo" name="sexo" required>
+                        <option></option>
+                        <option value="m">Masculino</option>
+                        <option value="f">Feminino</option>
+                        <option value="o">Outros</option>
+                    </select>
+                </div>
 
                     <div class="mb-3">
                         <label for="endereco" class="form-label">Endereço:</label>
@@ -75,7 +69,7 @@
 
                     <div class="mb-3">
                         <div class="input-group">
-                            <label for="sexo">Gênero do Pet: </label>
+                            <label for="sexo">Gênero do Pet:  </label>
                             <select id="sexo" name="sexo" required>
                                 <option></option>
                                 <option value="m">Macho</option>

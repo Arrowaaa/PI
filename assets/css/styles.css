@@ -14,7 +14,7 @@ body {
     left: -20px;
     transform: translateY(-50%);
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
 }
 
 .imagem-direita {
@@ -23,7 +23,7 @@ body {
     right: -15px;
     transform: translateY(-50%);
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
 
 }
 
@@ -111,16 +111,14 @@ input[type = 'submit']{
 
 #mostrarSenha::before,
 #mostrarConfirmSenha::before {
-    content: "\1F441"; 
-    
+    content: "\1F441"; /* Olho aberto */
 }
-
 
 #mostrarSenha.oculto::before,
 #mostrarConfirmSenha.oculto::before {
-    content: "\1F440"; 
-   
+    content: "\1F576"; /* Olho fechado */
 }
+
 /* Estilo para o grupo .dados */
 
 .dados {

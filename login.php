@@ -18,11 +18,11 @@
         <img src="assets/img/cachorros/6.png" id="imagem-esquerda" alt="Imagem 6" class="imagem-esquerda">
     </div>
     <div class="container">
-        <h2>Login</h2>
+        <h1>Login</h1><br>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $usuario = $_POST['usuario'];
-            $senha = $_POST['senha'];
+            $usuario = htmlspecialchars($_POST['usuario']);
+            $senha = htmlspecialchars($_POST['senha']);
 
             try {
                 $conn = 'mysql:host=62.72.62.1;dbname=u687609827_edilson';
@@ -64,11 +64,8 @@
                     <button type="button" id="mostrarSenha"></button>
                 </div>
                 <div class="input-group">
-                    <div>
-                        <input type="checkbox" id="lembrar" name="lembrar">
-                        <label for="lembrar">Lembre-me</label>
-                    </div>
-                    <span class="forgot-password" onclick="location.href='esqueceu-senha.php'">Esqueceu a senha?</span>
+                    
+                    <i class="forgot-password" onclick="location.href='esqueceu-senha.php'">Esqueceu a senha?</i>
                 </div>
                 <div class="button-group">
                     <center>

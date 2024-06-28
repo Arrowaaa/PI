@@ -92,6 +92,9 @@ h1 {
     transition: 0.5s;
 
 }
+h5 {
+    color: #000;
+}
 
 .menu .selecionado,
 .menu li a:hover {
