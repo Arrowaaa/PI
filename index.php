@@ -27,7 +27,7 @@
     background-size: cover;
     background-position: 0% center;
     width: 100%;
-    height: 100%;
+    height: 83vh;
     max-height: 700vh;
     padding: 0 0 1px 0;
     animation: moveBackground 50s linear infinite;
@@ -70,8 +70,8 @@ body main .home main h1 {
 
 </style>
 <body>
-    <main>
-        <section class="home"  style="height: 70vh;">
+    <main style="height: 80vh;">
+        <section class="home">
             <header>
                 <nav class="menu-perfil">
                     <img src="assets/img/logo principal.png" alt="logo da empresa" class="logo">
