@@ -1,3 +1,51 @@
+<?php
+// conexão com meu banco de dados
+$host = '62.72.62.1';
+$dbname = 'u687609827_edilson';
+$username = 'u687609827_edilson';
+$password = '>2Ana=]b';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $usuario = htmlspecialchars($_POST['usuario']);
+    $senha = htmlspecialchars($_POST['senha']);
+    $confirmSenha = htmlspecialchars($_POST['confirmSenha']);
+
+    if ($senha === $confirmSenha) {
+        try {
+            $UsuarioSenha = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+            $UsuarioSenha->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            // Verificar se o usuário existe
+            $select = "SELECT * FROM usuarios WHERE usuario = :usuario";
+            $parametro = $UsuarioSenha->prepare($select);
+            $parametro->bindParam(':usuario', $usuario, PDO::PARAM_STR);
+            $parametro->execute();
+
+            if ($parametro->rowCount() > 0) {
+                // Atualizar a senha
+                $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
+                $update = "UPDATE usuarios SET senha = :senha WHERE usuario = :usuario";
+                $parametro = $UsuarioSenha->prepare($update);
+                $parametro->bindParam(':senha', $senhaHash, PDO::PARAM_STR);
+                $parametro->bindParam(':usuario', $usuario, PDO::PARAM_STR);
+
+                if ($parametro->execute()) {
+                    echo "<script>alert('Sua senha foi redefinida'); window.location.href='login.php';</script>";
+                } else {
+                    echo "Erro ao atualizar a senha.";
+                }
+            } else {
+                echo "<p>Usuário não encontrado.</p>";
+            }
+        } catch (PDOException $e) {
+            echo 'Erro: ' . $e->getMessage();
+        }
+    } else {
+        echo "<p>As senhas não coincidem.</p>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,9 +66,9 @@
     <div class="container">
         <div class="login-box">
             <h2>Redefinir Senha</h2><br><br>
-            <form id="loginForm" action="login.php">
+            <form id="loginForm" method="POST" action="">
                 <div class="input-group">
-                    <label for="usuario">Usúario:</label>
+                    <label for="usuario">Usuário:</label>
                     <input type="text" id="usuario" name="usuario" required>
                 </div>
                 <div class="input-group password-group">
@@ -35,7 +83,7 @@
                 </div>
                 <div class="button-group">
                     <center>
-                        <a href="#">Enviar<span></span></a>
+                        <button type="submit" class="button-link">Enviar<span></span></button>
                     </center>
                 </div>
                 <div class="button-group">
