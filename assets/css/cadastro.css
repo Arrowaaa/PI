@@ -44,7 +44,7 @@ h2 {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
     width: 100%;
     max-width: 26vw;
-    margin: 10px auto;
+    margin: auto;
     text-align: center;
     color: white;
     justify-content: end;
@@ -53,14 +53,14 @@ h2 {
 
 .input-group {
     display: flex;
-    flex-direction: column; /* Altera a direção dos elementos para coluna */
-    align-items: flex-start; /* Alinha os itens ao início do contêiner */
+    flex-direction: column; 
+    align-items: flex-start; 
     justify-content: space-between;
     margin-bottom: 10px;
 }
 
 .input-group label {
-    flex: none; /* Remove o comportamento flexível do rótulo */
+    flex: none; 
     color: rgb(252, 248, 248);
     text-align: start;
     font-size: 25px;
@@ -68,8 +68,8 @@ h2 {
 }
 
 .input-group input {
-    flex: none; /* Remove o comportamento flexível do input */
-    width: 100%; /* Garante que o input ocupe a largura total do contêiner */
+    flex: none; 
+    width: 100%; 
     padding: 5px 0 2px 0;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -89,16 +89,34 @@ h2 {
     font-size: 20px;
 }
 
+#botaoVoltar {
+    position: absolute;
+    top: 50px; 
+    left: 520px; 
+    text-decoration: none;
+    color: #FF9239;
+    
+}
+
+#botaoVoltar:hover .bi-arrow-left-circle-fill {
+    background: #FF9239;
+    color: whitesmoke;
+    border-radius: 80px;
+    box-shadow: 0 0 5px #FF9239,
+        0 0 25px #FF9239,
+        0 0 50px #FF9239,
+        0 0 100px #FF9239;
+}
+
 
 .button {
     display: inline-flex;
     padding: 10px 20px;
-    margin-right: 10px;
     color: #fff;
     text-decoration: none;
     border-radius: 15px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: 10px;
+
 }
 
 
@@ -134,7 +152,7 @@ h2 {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
+
     letter-spacing: 4px
 }
 

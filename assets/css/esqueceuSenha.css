@@ -37,22 +37,23 @@ h2 {
 }
 
 .container {
+    position: relative;
     background-color: rgba(3, 3, 3, 0.7);
     padding: 50px;
     border-radius: 40px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
     width: 100%;
     max-width: 26vw;
-    margin: 10px auto;
+    margin: auto;
     text-align: center;
     color: white;
 }
 
 .input-group {
     display: flex;
-    flex-direction: column; /* Alinhar os elementos verticalmente */
-    align-items: flex-start; /* Alinhar os elementos ao início do eixo */
-    width: 100%; /* Garantir que ocupa toda a largura disponível */
+    flex-direction: column; 
+    align-items: flex-start; 
+    width: 100%; 
     margin-bottom: 10px;
 }
 
@@ -60,20 +61,30 @@ h2 {
     color: rgb(252, 248, 248);
     text-align: start;
     font-size: 25px;
-    margin-bottom: 5px; /* Adicionar um pequeno espaçamento abaixo do label */
+    margin-bottom: 5px; 
 }
 
 .input-group input {
-    width: 100%; /* Ocupa toda a largura disponível */
+    width: 100%; 
     padding: 5px 0 2px 0;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 10px !important;
-    padding-right: 40px; /* Espaço para o botão */
+    padding-right: 40px; 
 }
 
 .input-group.password-group {
-    position: relative; /* Necessário para posicionar o botão */
+    position: relative; 
+}
+
+.button {
+    display: inline-flex;
+    padding: 10px 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
 }
 
 .input-group button {
@@ -86,18 +97,29 @@ h2 {
     cursor: pointer;
     font-size: 20px;
 }
-
-
-.button {
-    display: inline-flex;
-    padding: 10px 20px;
-    margin-right: 10px;
-    color: #fff;
+ 
+#botaoVoltar {
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
     text-decoration: none;
-    border-radius: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 10px;
+    color: #FF9239;
+    
 }
+
+#botaoVoltar:hover .bi-arrow-left-circle-fill {
+ 
+    color: whitesmoke;
+    box-shadow: 0 0 5px #FF9239,
+        0 0 25px #FF9239,
+        0 0 50px #FF9239,
+        0 0 100px #FF9239;
+}
+
+.bi-arrow-left-circle-fill {
+    font-size: 2rem;
+}
+
 
 
 #mostrarSenha {
@@ -133,7 +155,7 @@ h2 {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
+    margin-top: 10px;
     letter-spacing: 4px
 }
 
