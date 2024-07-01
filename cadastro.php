@@ -7,6 +7,7 @@
     <title>Cadastro de Cliente & Pet</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/cadastro.css">
 
 </head>
@@ -19,6 +20,9 @@
     <div class="container">
 
         <div class="login-box">
+            <a href="login.php" id="botaoVoltar">
+                <i class="bi bi-arrow-left-circle-fill" style="font-size: 2rem;"></i>
+            </a>
             <h2>Cadastro de Cliente & Pet</h2> <br>
             <form id="cadastroForm" action="processar_cadastro.php" method="POST">
                 <div class="input-group">
@@ -130,9 +134,8 @@
                     <label for="confirmSenha">Confirme a Senha:</label>
                     <input type="password" id="confirmSenha" name="confirmSenha" required>
                     <button type="button" id="mostrarConfirmSenha"></button>
-                </div>
+                </div><br>
                 <a type="submit" class="button">Cadastrar <span></span></a>
-                <a href="login.php" class="button">Voltar para Login <span></span></a>
             </form>
         </div>
     </div>

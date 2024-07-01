@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Esqueceu a Senha</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/esqueceuSenha.css">
 </head>
 
@@ -65,7 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
     <div class="container">
         <div class="login-box">
-            <h2>Redefinir Senha</h2><br><br>
+            <a href="login.php" id="botaoVoltar">
+                <i class="bi bi-arrow-left-circle-fill"></i>
+            </a>
+
+            <h1>Redefinir Senha</h1>
             <form id="loginForm" method="POST" action="">
                 <div class="input-group">
                     <label for="usuario">Usuário:</label>
@@ -85,9 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <center>
                         <button type="submit" class="button-link">Enviar<span></span></button>
                     </center>
-                </div>
-                <div class="button-group">
-                    <a href="login.php" class="button">Cancelar <span></span></a>
                 </div>
             </form>
         </div>
