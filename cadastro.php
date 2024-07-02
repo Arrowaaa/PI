@@ -23,8 +23,8 @@
             <a href="login.php" id="botaoVoltar">
                 <i class="bi bi-arrow-left-circle-fill" style="font-size: 2rem;"></i>
             </a>
-            <h2>Cadastro de Cliente & Pet</h2> <br>
-            <form id="cadastroForm" action="processar_cadastro.php" method="POST">
+            <h2><?= isset($id_alterar) ? 'Alterar Dados' : 'Cadastro de Cliente & Pet' ?></h2> <br>
+            <form id="cadastroForm" action="" method="POST">
                 <div class="input-group">
                     <label for="nomeTutor">Nome do Tutor:</label>
                     <input type="text" id="nomeTutor" name="tutor" required>
@@ -125,17 +125,26 @@
                     <label for="Numero">Número (Residência):</label>
                     <input type="number" id="Numero" name="Numero" required>
                 </div>
+            </form>
+            <form action="" method="POST" <?= isset($id_alterar) ? 'disabled' : '' ?>>
+            <br>
+            <h3>Crie Seu Usuário</h3>
+            <br>
+                <div class="input-group">
+                    <label <?= isset($id_alterar) ? 'disabled' : '' ?> for="usuario">Usuário:</label>
+                    <input type="text" id="usuario" name="usuario" required>
+                </div>
                 <div class="input-group password-group">
                     <label for="senha">Senha:</label>
-                    <input type="password" id="senha" name="senha" required>
+                    <input <?= isset($id_alterar) ? 'disabled' : '' ?> type="password" id="senha" name="senha" required>
                     <button type="button" id="mostrarSenha"></button>
                 </div>
                 <div class="input-group password-group">
                     <label for="confirmSenha">Confirme a Senha:</label>
-                    <input type="password" id="confirmSenha" name="confirmSenha" required>
+                    <input <?= isset($id_alterar) ? 'disabled' : '' ?> type="password" id="confirmSenha" name="confirmSenha" required>
                     <button type="button" id="mostrarConfirmSenha"></button>
                 </div><br>
-                <a type="submit" class="button">Cadastrar <span></span></a>
+                <a type="submit" class="button"><?= isset($id_alterar) ? 'Alterar' : 'Cadastrar' ?> <span></span></a>
             </form>
         </div>
     </div>

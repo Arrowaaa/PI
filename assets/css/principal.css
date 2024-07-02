@@ -92,6 +92,7 @@ h1 {
     transition: 0.5s;
 
 }
+
 h5 {
     color: #000;
 }
@@ -108,7 +109,7 @@ h5 {
 header nav {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 30px 30px;
     width: 100%;
     font-size: 15px;

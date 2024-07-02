@@ -157,6 +157,7 @@ body {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
+    margin-top: 10px;
     letter-spacing: 4px
 }
 
@@ -220,3 +221,11 @@ body {
     animation: btn-anim1 2s linear infinite;
 }
 
+.button-link span:nth-child(1) {
+    bottom: 2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #f6f6f7);
+    animation: btn-anim1 2s linear infinite;
+}
