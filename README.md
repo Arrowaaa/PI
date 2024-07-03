@@ -1,4 +1,4 @@
-# PI
+<h1><p align="center">PI</h1> </p>
 Criação de uma clínica veterinária
 
 ## Link da prototipagem
@@ -40,8 +40,9 @@ Siga-nos nas redes sociais:
 Estamos aqui para cuidar dos seus animais de estimação como se fossem nossos próprios!
 
 ******
+******
 
-# Experiência Com o PI
+ <h1><p align="center">Experiência Com o PI</h1> </p>
 
 ## Resumo inicial:
 
