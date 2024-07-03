@@ -22,10 +22,13 @@
         </a>
 
         <h1>Login</h1><br>
+
         <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $usuario = htmlspecialchars($_POST['usuario']);
-            $senha = htmlspecialchars($_POST['senha']);
+        include './classe/Usuarios.php';
+        if (isset($_POST) && !empty($_POST)) {
+
+            $user = $_POST['usuario'];
+            $password = $_POST['senha'];
 
             try {
                 $conn = 'mysql:host=62.72.62.1;dbname=u687609827_edilson';
@@ -33,22 +36,22 @@
                 $UsuarioSenha->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 $select = "SELECT * FROM usuarios WHERE usuario = :usuario";
-                $paramentro = $UsuarioSenha->prepare($select);
-                $paramentro->bindParam(':usuario', $usuario, PDO::PARAM_STR);
-                $paramentro->execute();
+                $stmt = $UsuarioSenha->prepare($select);
+                $stmt->bindParam(':usuario', $user);
+                $stmt->execute();
 
-                if ($paramentro->rowCount() > 0) {
-                    $linha = $paramentro->fetch(PDO::FETCH_ASSOC);
+                $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                    if (password_verify($senha, $linha['senha'])) {
-                        echo "<p>Login bem-sucedido!</p>";
-                        header("Location: perfil.php");
+                if ($resultado) {
+                    if (password_verify($password, $resultado['senha'])) { // Supondo que a senha esteja hashada
+                        echo '<p>Login bem-sucedido!</p>';
+                        header('Location: perfil.php');
                         exit();
                     } else {
-                        echo "<p>Credenciais inválidas. Tente novamente.</p>";
+                        echo '<p class="alert alert-danger">Credenciais inválidas. Tente novamente.</p>';
                     }
                 } else {
-                    echo "<p>Credenciais inválidas. Tente novamente.</p>";
+                    echo '<p class="alert alert-danger">Credenciais inválidas. Tente novamente.</p>';
                 }
             } catch (PDOException $e) {
                 echo 'Erro: ' . $e->getMessage();
@@ -57,7 +60,7 @@
         ?>
         <div class="login-box">
 
-            <form id="loginForm" method="POST" action="">
+            <form method="POST" action="#">
                 <div class="input-group">
                     <label for="usuario">Usuário:</label>
                     <input type="text" id="usuario" name="usuario" required>
@@ -70,7 +73,9 @@
                 <div class="input-group">
 
                     <i class="forgot-password" onclick="location.href='esqueceu-senha.php'">Esqueceu a senha?</i>
-                </div><br>
+                    <i class="forgot-password" onclick="location.href='criar_usuario.php'">Criar usuario</i>
+                </div>
+            
                 <div class="button-group">
                     <center>
                         <button type="submit" class="button-link">Entrar <span></span></button>

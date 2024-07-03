@@ -19,7 +19,7 @@
     <div class="container">
         <h2 style="text-align: center;">Bem-vindo à Seu Perfil</h2>
         <h2> Dados pessoais </h2>
-        <!-- Exibir as informações do cadastro -->
+        
         <div id="cadastroInfo" class="content" style="text-align: left;">
             <h3>Informações:</h3>
             <p>CPF: 000.000.000-00</p>
@@ -43,11 +43,8 @@
 
         <!-- Botões ocultos -->
         <div id="oculto" class="bnt_oculto">
-            <!-- Botão de editar informação do usuario -->
             <p><a href="cadastro.php">Editar</a></p>
-            <!-- Botão de agendamento de consulta -->
             <p><a href="agendamento.php">Agendar Consulta</a></p>
-            <!-- Botão de volta para a página de login/Sair -->
             <p><a href="index.php">Sair</a></p>
         </div>
     </div>

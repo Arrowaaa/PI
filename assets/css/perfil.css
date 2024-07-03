@@ -29,11 +29,11 @@ body {
 
 .imagem-direita {
     position: fixed;
-    top: 50%;
+    top: 45%;
     right: -5%;
     transform: translateY(-50%);
     width: 100%;
-    max-width: 700px;
+    max-width: 750px;
 }
 
 

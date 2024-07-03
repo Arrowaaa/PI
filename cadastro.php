@@ -11,6 +11,15 @@
     <link rel="stylesheet" href="assets/css/cadastro.css">
 
 </head>
+<?php include 'classe/Usuarios.php';
+
+$usuario = new Usuarios();
+if(isset($_GET['id']) && !empty($_GET['id'])) {
+    $id_alterar = $_GET['id'];
+
+    $dadosUsuario = $usuario->listar1Usuarios($id_alterar);
+    
+}?>
 
 <body>
     <div class="imagens">
@@ -23,11 +32,13 @@
             <a href="login.php" id="botaoVoltar">
                 <i class="bi bi-arrow-left-circle-fill" style="font-size: 2rem;"></i>
             </a>
+
+            <input type="HIDDEN" name="id_para_alterar" value="<?= isset($id_alterar) ? $dadosUsuario['id'] : '' ?>"> 
             <h2><?= isset($id_alterar) ? 'Alterar Dados' : 'Cadastro de Cliente & Pet' ?></h2> <br>
-            <form id="cadastroForm" action="" method="POST">
+            <form id="cadastroForm" action="auxcadastro.php" method="POST">
                 <div class="input-group">
                     <label for="nomeTutor">Nome do Tutor:</label>
-                    <input type="text" id="nomeTutor" name="tutor" required>
+                    <input value="<?= isset($id_alterar) ? 'disabled' : '' ?>" type="text" id="nomeTutor" name="tutor" required>
                     <script src="assets/js/mascaras.js"></script>
                 </div>
                 <div class="input-group">
@@ -141,7 +152,7 @@
                 </div>
                 <div class="input-group password-group">
                     <label for="confirmSenha">Confirme a Senha:</label>
-                    <input <?= isset($id_alterar) ? 'disabled' : '' ?> type="password" id="confirmSenha" name="confirmSenha" required>
+                    <input <?= isset($id_alterar) ? 'disabled' : '' ?> type="password" id="confirma" name="confirma" required>
                     <button type="button" id="mostrarConfirmSenha"></button>
                 </div><br>
                 <a type="submit" class="button"><?= isset($id_alterar) ? 'Alterar' : 'Cadastrar' ?> <span></span></a>
