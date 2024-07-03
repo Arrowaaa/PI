@@ -9,16 +9,73 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/principal.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
+    
 </head>
+<style>
+    @keyframes moveBackground {
+    0% {
+        background-position: 0% center;
+    }
 
+    100% {
+        background-position: 100% center;
+    }
+}
+
+.home {
+    background-image: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5)), url(assets/img/banner.png);
+    background-size: cover;
+    background-position: 0% center;
+    width: 100%;
+    height: 83vh;
+    max-height: 700vh;
+    padding: 0 0 1px 0;
+    animation: moveBackground 50s linear infinite;
+   
+
+}
+
+/*Animação no h1*/
+@keyframes rotate3D {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    75% {
+        transform: rotateX(180deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+}
+
+
+
+body main .home main h1 {
+    margin: auto 0;
+    font-family: "Croissant One", "serif";
+    font-size: 150px;
+    color: #FF9239;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rotate3D 10s infinite;
+    transform-style: preserve-3d;
+    background: linear-gradient(45deg, #ff9239, #ff3d00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 0 #000, 2px 2px 0 #ff9239, 3px 3px 0 #ff9239, 4px 4px 0 #ff9239, 5px 5px 0 #ff9239;
+}
+
+</style>
 <body>
     <main style="height: 80vh;">
         <section class="home">
             <header>
                 <nav class="menu-perfil">
                     <img src="assets/img/logo principal.png" alt="logo da empresa" class="logo">
-                    <p>“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</p>
+                    <h5>“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</h5>
                     <ul class="menu">
                         <li> <a class="linha" href="index.php">Início</a></li>
                         <li class="dropdown">
@@ -43,46 +100,7 @@
 
         </section>
     </main>
+    </html>
    
-    <footer class=" rodape">
-        <main class="container ">
-            <div class="row ">
-                <div class="col md-4 text-center">
-                    <h5 class="font-weight-bold">MENU</h5>
-                    <ul class="list-unstyled mt-3">
-                        <li><a href="./index.php">Inicio</a></li>
-                        <li><a href="./servicos.php">Serviços</a></li>
-                        <li><a href="./sobre.php">Sobre</a></li>
-                    </ul>
-                </div>
-
-
-                <div class="col-md-4 text-center">
-                    <h5 class="font-weight-bold">Sobre a Gente</h5>
-                    <ul class="list-unstyled mt-3">
-                        <li><a href="#">Rua: Germano Giusti, 26 - Jd. Paulista - Americana - SP</a></li>
-                        <li><a href="#">Contato</a></li>
-
-                    </ul>
-                </div>
-
-                <div class="col-md-4 text-center" >
-                    <h5 class="font-weight-bold">Nossas Redes Sociais</h5>
-                    <div class="social-icons mt-3">
-                        <a href="#"><i class="bi bi-youtube"></i></a>
-                        <a href="#"><i class="bi bi-whatsapp"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy;2024. Este site foi desenvolvido como projeto integrador (PI) - SENAC Americana.<br>
-                    Não reservamos os
-                    direitos e valores apresentados são meramentes ilustrativos para fins educacionais.</p>
-            </div>
-        </main>
-    </footer>
-</body>
-
-</html>
+    <?php include './includes/footer.php' ?>
+    

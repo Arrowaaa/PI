@@ -1,78 +1,90 @@
 body {
     display: flex;
-    background-color: #FF9239; ;  
+    background-color: #9c6131;
     font-family: "Croissant One", "serif";
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 0.20px;
+    justify-content: left;
+    align-items: left;
+    padding: 35px 0.20px;
     border: none;
     margin: 0;
-    background-size:contain; 
-    background-position: left center;  
+    background-size: contain;
+    background-position: left;
     background-repeat: no-repeat;
-    height: 100vh;
+
+}
+h2 {
+    font-size: 40px;
 }
 
 #esquerda {
     position: fixed;
-    top: 50%; 
+    top: 50%;
     left: 0;
-    transform: translateY(-50%); 
-    width: 700px; 
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 600px;
 }
 
 #direita {
     position: fixed;
-    top: 50%; 
-    right: 0;
-    transform: translateY(-50%); 
-    width: 600px;
+    top: 48%;
+    left: 60%;
+    margin-top: 40px;
+    margin-left: 60px;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 600px;
 }
 
-
 .container {
-    background-color: rgba(3, 3, 3, 0.7); 
+    position: relative;
+    background-color: rgba(3, 3, 3, 0.7);
     padding: 50px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10); 
-    width: 26vw; 
-    margin: auto; 
-    text-align: center; 
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+    width: 100%;
+    max-width: 26vw;
+    margin: auto;
+    text-align: center;
     color: white;
 }
 
 .input-group {
-    position: relative;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    width: 100%; 
+    margin-bottom: 10px;
 }
 
 .input-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: rgb(252, 248, 248); 
-    text-align: left; 
+    color: rgb(252, 248, 248);
+    text-align: start;
+    font-size: 25px;
+    margin-bottom: 5px; 
 }
 
 .input-group input {
     width: 100%; 
     padding: 5px 0 2px 0;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 10px !important;
-    padding-right: 40px; /* Espaço para o botão */
+    padding-right: 40px; 
 }
 
-.forgot-password{
-    color: #0056b3;
-    margin-left: 160px;
+.input-group.password-group {
+    position: relative; 
 }
 
-.forgot-password:hover{
-    color: #0056b3;
-    margin-left: 160px;
-    color: #fff;
-
+.button {
+    display: inline-flex;
+    padding: 10px 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
 }
 
 .input-group button {
@@ -85,48 +97,135 @@ body {
     cursor: pointer;
     font-size: 20px;
 }
-
-.button {
-    display: inline-block;
-    padding: 10px 20px; 
-    margin-right: 10px; 
-    background-color: #007bff;
-    color: #fff;
+ 
+#botaoVoltar {
+    position: absolute;
+    top: 10px; 
+    left: 25px; 
     text-decoration: none;
-    border-radius: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 10px;
-}
-
-.button.cadastrar {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #007bff; 
-    color: #fff; 
-    border: 1px solid #000; 
-}
-
-.button:hover {
-    background-color: #f9f9fa;
-    color: #000;
+    color: #FF9239;
     
 }
 
+#botaoVoltar:hover .bi-arrow-left-circle-fill {
+    background: #FF9239;
+    color: whitesmoke;
+    border-radius: 80px;
+    margin: -10px -20px ;
+    box-shadow: 0 0 5px #FF9239,
+        0 0 25px #FF9239,
+        0 0 50px #FF9239,
+        0 0 100px #FF9239;
+}
+
+.bi-arrow-left-circle-fill {
+    font-size: 2rem;
+}
+
+
+
 #mostrarSenha {
-    padding-top: 20px;
+    margin-top: 15px;
 }
 
 #mostrarConfirmSenha {
-    padding-top: 20px;
+    margin-top: 15px;
 }
 
-/* Ícone de olho aberto */
 #mostrarSenha::before,
 #mostrarConfirmSenha::before {
-    content: "\1F441"; /* Unicode para ícone de olho aberto */
+    content: "\1F441";
+
 }
 
-/* Ícone de olho fechado */
+
 #mostrarSenha.oculto::before,
 #mostrarConfirmSenha.oculto::before {
-    content: "\1F440"; /* Unicode para ícone de olho fechado */
+    content: "\1F440";
+
+}
+
+.button-link {
+    font-family: "Croissant One", "serif";
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FF9239;
+    font-size: 16px;
+    border: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 10px;
+    letter-spacing: 4px
+}
+
+.button-link:hover {
+    background: #FF9239;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #FF9239,
+                0 0 25px #FF9239,
+                0 0 50px #FF9239,
+                0 0 100px #FF9239;
+}
+
+.login-box form a {
+    font-family: "Croissant One", "serif";
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+}
+
+.login-box a:hover {
+    background: #FF9239;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #FF9239,
+        0 0 25px #FF9239,
+        0 0 50px #FF9239,
+        0 0 100px #FF9239;
+}
+
+.login-box span {
+    position: absolute;
+    display: block;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.login-box span:nth-child(1) {
+    bottom: 2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FF9239);
+    animation: btn-anim1 2s linear infinite;
+}
+
+.button-link span:nth-child(1) {
+    bottom: 2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #f6f6f7);
+    animation: btn-anim1 2s linear infinite;
 }

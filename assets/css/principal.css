@@ -12,16 +12,15 @@
 
 }
 
-.menu .linha {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #000;
-}
 
 .icon {
     font-size: 15px;
     padding: 0 0 -4 15px;
 }
 
+#icones {
+    font-size: 25px;
+}
 
 .logo {
     width: 10%;
@@ -33,41 +32,20 @@ body {
 
 }
 
-h1{
+h1 {
     display: flex;
     justify-content: center;
 }
 
 
-/*Animação do banner principal*/
-@keyframes moveBackground {
-    0% {
-        background-position: 0% center;
-    }
-
-    100% {
-        background-position: 100% center;
-    }
-}
-
-.home {
-
-    background: linear-gradient(rgba(44, 40, 40, 0.3), rgba(48, 42, 42, 0.5)), url(../img/rodapé\ cachorro.png);
-    background-size: cover;
-    background-position: 0% center;
-    height: 100%;
-    padding: 0 0 1px 0;
-    animation: moveBackground 40s linear infinite;
-    /* Aplica a animação */
-
-}
 
 /* Função de esconde os botões do rai-x e internação  */
 .dropdown-content a {
     padding: 8px 12px;
     /* Adiciona espaçamento interno aos botões */
     text-decoration: none;
-    display: block; /*Faz com que ele não movar de lugar*/
+    display: block;
+    /*Faz com que ele não movar de lugar*/
 }
 
 .dropdown-content a:not(:last-child) {
@@ -91,7 +69,8 @@ h1{
 .hidden {
     display: none;
 }
-.menu .menu-perfil{
+
+.menu .menu-perfil {
     width: 100vw;
 }
 
@@ -107,7 +86,7 @@ h1{
 }
 
 .menu li a {
-    padding: 8px;
+    padding: 10px;
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.5);
     color: whitesmoke;
@@ -117,9 +96,13 @@ h1{
 
 }
 
+h5 {
+    color: #000;
+}
+
 .menu .selecionado,
 .menu li a:hover {
-    padding: 8px 50px;
+    padding: 10px 15px;
     background-color: whitesmoke;
     color: black;
     border: 1px solid blue;
@@ -129,53 +112,20 @@ h1{
 header nav {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 30px 30px;
     width: 100%;
     font-size: 15px;
 
 }
 
-/*Animação no h1*/
-@keyframes rotate3D {
-    0% {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-
-    75% {
-        transform: rotateX(180deg) rotateY(0deg);
-    }
-
-    100% {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
+hr {
+    border: none;
+    border: 4px solid rgba(0, 0, 0, 1); 
+    margin: 20px 0;
 }
 
-.home main {
-    display: flex;
-    height: 80%;
-    align-items: center;
-    justify-content: center;
-    
-}
 
-body main .home main h1 {
-    margin: auto 0;
-    font-family: "Croissant One", "serif";
-    font-size: 150px;
-    color: #FF9239;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: rotate3D 10s infinite;
-    transform-style: preserve-3d;
-    background: linear-gradient(45deg, #ff9239, #ff3d00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 1px 1px 0 #000, 2px 2px 0 #ff9239, 3px 3px 0 #ff9239, 4px 4px 0 #ff9239, 5px 5px 0 #ff9239;
-}
-
-/* Estilo para o rodapé */
 /*Animação do banner rodapé*/
 @keyframes moveBackgroundRight {
     0% {
@@ -194,7 +144,7 @@ footer {
     background-position: 0% center;
     background-repeat: repeat;
     padding: 0 0 55px 0;
-    animation: moveBackgroundRight 100s linear infinite;
+    animation: moveBackgroundRight 50s linear infinite;
 }
 
 
@@ -204,4 +154,207 @@ footer .rodape {
     justify-content: space-evenly;
     /* Distribui os elementos uniformemente */
     align-items: center;
+}
+
+.imagem-esquerda {
+    position: fixed;
+    top: 50%; 
+    left: 0;
+    transform: translateY(-50%);
+    width: 500px;
+}
+
+.imagem-direita {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 500px;
+
+}
+
+
+.container {
+    background-color: rgba(3, 3, 3, 0.7);
+    padding: 60px ;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+    width: 100%;
+    max-width: 150vh;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 30px;
+}
+
+input[type = 'submit']{
+    margin-bottom: 0;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: rgb(252, 248, 248);
+    text-align: left;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 5px 0 2px 0;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px !important;
+    padding-right: 40px;
+    
+}
+
+.forgot-password {
+    color: #0056b3;
+    margin-left: 160px;
+}
+
+.forgot-password:hover {
+    color: #0056b3;
+    margin-left: 160px;
+    color: #fff;
+
+}
+
+.input-group button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+}
+
+.button.cadastrar {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #000;
+}
+
+.button:hover {
+    background-color: #f9f9fa;
+    color: #000;
+
+}
+
+#mostrarSenha {
+    padding-top: 20px;
+}
+
+#mostrarConfirmSenha {
+    padding-top: 20px;
+}
+
+
+#mostrarSenha::before,
+#mostrarConfirmSenha::before {
+    content: "\1F441";
+
+}
+
+
+#mostrarSenha.oculto::before,
+#mostrarConfirmSenha.oculto::before {
+    content: "\1F440";
+    
+}
+
+/* Estilo para o grupo .dados */
+
+.dados {
+    margin-bottom: 20px;
+}
+
+.dados label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff; /* Cor do texto das labels */
+    text-align: left;
+}
+
+.dados input,
+.dados select {
+    width: 2px; /* Largura total */
+    padding: 2px 1px 2px 0;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; 
+    color: #333; 
+}
+
+.dados input[type="date"],
+.dados input[type="time"],
+.dados select {
+    width: 120px; 
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 600px; 
+    }
+
+    .dados input,
+    .dados select {
+        width: calc(100% - 16px); 
+    }
+}
+
+footer {
+    color: white;
+    padding: 40px 40px ;
+}
+
+
+footer h5{
+    font-weight: bold;
+    color: goldenrod;
+
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+    color: goldenrod;
+}
+#estilo:hover {
+    text-decoration: underline;
+    color: goldenrod;
+}
+
+
+
+.footer-bottom{
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
 }
