@@ -1,7 +1,6 @@
 <?php
 class Usuarios
 {
-    //função para cadastrar usuários
     public function CadastroUsuario($user, $password, $passwordConfirm)
     {
         $host = '62.72.62.1';
@@ -26,25 +25,24 @@ class Usuarios
             $UsuarioSenha->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $select = "SELECT * FROM usuarios WHERE usuario = :usuario";
-            $stmt = $UsuarioSenha->prepare($select);
-            $stmt->bindParam(':usuario', $user);
-            $stmt->execute();
-            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+            $preparo = $UsuarioSenha->prepare($select);
+            $preparo->bindParam(':usuario', $user);
+            $preparo->execute();
+            $resultado = $preparo->fetch(PDO::FETCH_ASSOC);
 
             if ($resultado) {
                 return "<br>Usuário já existe";
                 
             }
 
-            // Hash da senha
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
-            // Inserir novo usuário
+            
             $insert = "INSERT INTO usuarios (usuario, senha) VALUES (:usuario, :senha)";
-            $stmt = $UsuarioSenha->prepare($insert);
-            $stmt->bindParam(':usuario', $user);
-            $stmt->bindParam(':senha', $passwordHash);
-            $stmt->execute();
+            $preparo = $UsuarioSenha->prepare($insert);
+            $preparo->bindParam(':usuario', $user);
+            $preparo->bindParam(':senha', $passwordHash);
+            $preparo->execute();
 
             return "Usuário cadastrado com sucesso";
 
@@ -68,8 +66,6 @@ class Usuarios
         return $lista;
     }
 
-
-    // Função para atualizar o usuário
     public function AtualizarUsuario($id_alterar, $user, $password, $passwordConfirm)
     {
         try {
