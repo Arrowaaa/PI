@@ -38,33 +38,28 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
             <form id="cadastroForm" action="auxcadastro.php" method="POST">
                 <div class="input-group">
                     <label for="nomeTutor">Nome do Tutor:</label>
-                    <input value="<?= isset($id_alterar) ? 'disabled' : '' ?>" type="text" id="nomeTutor" name="tutor" required>
-                    <script src="assets/js/mascaras.js"></script>
+                    <input type="text" id="nomeTutor" name="tutor" required>
                 </div>
                 <div class="input-group">
                     <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" required>
-                    <script src="assets/js/mascaras.js"></script>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
                 </div>
                 <div class="input-group">
                     <label for="email">E-mail:</label>
-                    <input type="email" id="email" placeholder="exemplo@exemplo.com" name="email" required>
-                    <script src="assets/js/mascaras.js"></script>
+                    <input type="email" id="email" name="email" placeholder="exemplo@exemplo.com" required>
                 </div>
                 <div class="input-group">
                     <label for="telefone">Telefone:</label>
-                    <input type="text" id="telefone" placeholder="(00) 0000-0000" name="telefone" required>
-                    <script src="assets/js/mascaras.js"></script>
+                    <input type="text" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" required>
                 </div>
                 <div class="input-group">
                     <label for="contato">Outro contato:</label>
-                    <input type="text" id="contato" placeholder="(00) 0000-0000" name="contato" required>
-                    <script src="assets/js/mascaras.js"></script>
+                    <input type="text" id="contato" name="contato" placeholder="(00) 0 0000-0000" required>
                 </div>
                 <div class="input-group">
-                    <label for="sexo">Sexo do Tutor:  </label>
+                    <label for="sexo">Sexo do Tutor:</label>
                     <select id="sexo" name="sexo" required>
-                        <option></option>
+                        <option value=""></option>
                         <option value="m">Masculino</option>
                         <option value="f">Feminino</option>
                         <option value="o">Outros</option>
@@ -73,16 +68,15 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
                 <div class="input-group">
                     <label for="nomePet">Nome do Pet:</label>
                     <input type="text" id="nomePet" name="paciente" required>
-                    <script src="assets/js/mascaras.js"></script>
                 </div>
                 <div class="input-group">
                     <label for="idade">Idade do Pet:</label>
                     <input type="date" id="idade" name="idade" required>
                 </div>
                 <div class="input-group">
-                    <label for="especie">Espécie do Pet:  </label>
-                    <select type="text" id="especie" name="especie" required>
-                        <option></option>
+                    <label for="especie">Espécie do Pet:</label>
+                    <select id="especie" name="especie" required>
+                        <option value=""></option>
                         <option value="m">Mamíferos</option>
                         <option value="c">Canidaes(Cães)</option>
                         <option value="f">Felídeos(Gatos)</option>
@@ -102,18 +96,18 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
                     <input type="number" id="peso" name="peso" step="0.01" required>
                 </div>
                 <div class="input-group">
-                    <label for="sexop">Sexo do Pet:  </label>
+                    <label for="sexop">Sexo do Pet:</label>
                     <select id="sexop" name="sexop" required>
-                        <option></option>
+                        <option value=""></option>
                         <option value="m">Macho</option>
-                        <option value="f">Femea</option>
+                        <option value="f">Fêmea</option>
                         <option value="o">Outros</option>
                     </select>
                 </div>
                 <div class="input-group">
-                    <label for="porte">Porte do Pet:  </label>
+                    <label for="porte">Porte do Pet:</label>
                     <select id="porte" name="porte" required>
-                        <option></option>
+                        <option value=""></option>
                         <option value="pequeno">Pequeno</option>
                         <option value="medio">Médio</option>
                         <option value="grande">Grande</option>
@@ -121,8 +115,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
                 </div>
                 <div class="input-group">
                     <label for="cep">CEP:</label>
-                    <input type="text" id="cep" name="cep" required placeholder="00000-000">
-                    <script src="assets/js/mascaras.js"></script>
+                    <input type="text" id="cep" name="cep" placeholder="00000-000"required>
                 </div>
                 <div class="input-group">
                     <label for="endereco">Endereço:</label>
@@ -136,33 +129,16 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
                     <label for="Numero">Número (Residência):</label>
                     <input type="number" id="Numero" name="Numero" required>
                 </div>
-            </form>
-            <form action="" method="POST" <?= isset($id_alterar) ? 'disabled' : '' ?>>
-            <br>
-            <h3>Crie Seu Usuário</h3>
-            <br>
-                <div class="input-group">
-                    <label <?= isset($id_alterar) ? 'disabled' : '' ?> for="usuario">Usuário:</label>
-                    <input type="text" id="usuario" name="usuario" required>
+                <br>
+                <div class="button-group">
+                    <center>
+                        <button type="submit" class="button-link"><?= isset($id_alterar) ? 'Alterar' : 'Cadastrar'?><span></span></button>
+                    </center>
                 </div>
-                <div class="input-group password-group">
-                    <label for="senha">Senha:</label>
-                    <input <?= isset($id_alterar) ? 'disabled' : '' ?> type="password" id="senha" name="senha" required>
-                    <button type="button" id="mostrarSenha"></button>
-                </div>
-                <div class="input-group password-group">
-                    <label for="confirmSenha">Confirme a Senha:</label>
-                    <input <?= isset($id_alterar) ? 'disabled' : '' ?> type="password" id="confirma" name="confirma" required>
-                    <button type="button" id="mostrarConfirmSenha"></button>
-                </div><br>
-                <a type="submit" class="button"><?= isset($id_alterar) ? 'Alterar' : 'Cadastrar' ?> <span></span></a>
             </form>
         </div>
     </div>
-
     <script src="assets/js/mascaras.js"></script>
     <script src="assets/js/senhaToggle.js"></script>
-
 </body>
-
 </html>
