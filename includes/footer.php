@@ -18,7 +18,7 @@
                 <h5 class="font-weight-bold">Sobre a Gente</h5>
                 <ul class="list-unstyled mt-3">
                     <li><a href="#">Rua: Germano Giusti, 26 - Jd. Paulista - Americana - SP</a></li>
-                    <li><a href="#">(19) 0000-0000 </a></li>
+                    <li><a href="#"> (19) 0000-0000 </a></li>
 
                 </ul>
             </div>
