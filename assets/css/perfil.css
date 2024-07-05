@@ -52,44 +52,51 @@ body {
     align-items: center;
     color: white;
 }
-.content {
-    text-align: left;
-    width: 90%;
-    max-width: 500px;
-    /* Defina a largura máxima do conteúdo */
+#opcoes-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Certifique-se de que o dropdown apareça sobre outros elementos */
+}
+
+.bnt_oculto {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    margin-top: 10px;
+}
+
+.bnt_oculto p {
+    margin: 0;
+    padding: 10px;
+    background-color: #643d1e;
+}
+
+.bnt_oculto p a {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn_baixo {
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    /* Distância do topo da página */
-    right: 10px;
-    /* Distância da borda direita da página */
-    background-color: #969494;
+    background-color:#643d1e;
     color: #fff;
+    border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    border: none;
+    cursor: pointer;
+    
 }
 
-/* Estilos para os botões ocultos */
-.bnt_oculto {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    background-color: #969494;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+.btn_baixo:hover {
+    background-color: #000;
+    color: #fff;
 }
-
-.bnt_oculto a {
-    display: flex;
-    margin-bottom: 5px;
-    text-decoration: none;
-    color: #ffffff;
-    justify-content: center;
-    align-items: center;
+.bnt_oculto a:hover{
+    background-color: #000;
+    color: #fff;
 }

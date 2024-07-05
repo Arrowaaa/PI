@@ -16,7 +16,9 @@
         <img src="assets/img/cachorros/cachorro.png" id="imagem-direita" alt="Imagem 2" class="imagem-direita">
         <img src="assets/img/cachorros/6.png" id="imagem-esquerda" alt="Imagem 6" class="imagem-esquerda">
     </div>
+    
     <div class="container">
+        
         <a href="index.php" id="botaoVoltar">
             <i class="bi bi-arrow-left-circle-fill" style="font-size: 2rem;"></i>
         </a>
@@ -58,6 +60,7 @@
             }
         }
         ?>
+            
         <div class="login-box">
 
             <form method="POST" action="#">
@@ -75,14 +78,12 @@
                     <i class="forgot-password" onclick="location.href='esqueceu-senha.php'">Esqueceu a senha?</i>
                     <i class="forgot-password" onclick="location.href='criar_usuario.php'">Criar usuario</i>
                 </div>
-            
+                <br>
                 <div class="button-group">
                     <center>
                         <button type="submit" class="button-link">Entrar <span></span></button>
                     </center>
-                </div>
-                <div class="button-group">
-                    <a href="cadastro.php" class="button">Cadastrar <span></span></a>
+                    <br>
                 </div>
             </form>
         </div>

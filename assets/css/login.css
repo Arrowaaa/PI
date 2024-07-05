@@ -11,6 +11,10 @@ body {
     background-position: left;
     background-repeat: no-repeat;
 }
+.h1{
+    color: #fff;
+    font-size: 34px;
+}
 
 #imagem-direita {
     position: fixed;
@@ -135,6 +139,10 @@ body {
     margin-top: 20px;
 }
 
+#mostrarConfirmSenha {
+    margin-top: 16px;
+}
+
 #mostrarSenha::before,
 #mostrarConfirmSenha::before {
     content: "\1F441";
@@ -144,6 +152,8 @@ body {
 #mostrarConfirmSenha.oculto::before {
     content: "\1F440";
 }
+
+
 
 .button-link {
     font-family: "Croissant One", "serif";
@@ -229,3 +239,4 @@ body {
     background: linear-gradient(90deg, transparent, #f6f6f7);
     animation: btn-anim1 2s linear infinite;
 }
+

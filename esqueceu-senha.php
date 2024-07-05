@@ -1,5 +1,5 @@
 <?php
-// conexão com meu banco de dados
+
 $host = '62.72.62.1';
 $dbname = 'u687609827_edilson';
 $username = 'u687609827_edilson';
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $parametro->execute();
 
             if ($parametro->rowCount() > 0) {
-                // Atualizar a senha
+               
                 $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
                 $update = "UPDATE usuarios SET senha = :senha WHERE usuario = :usuario";
                 $parametro = $UsuarioSenha->prepare($update);
@@ -65,11 +65,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <img src="assets/img/cachorros/cachorro.png" id="direita" alt="Imagem 2" class="imagem-direita">
     </div>
     <div class="container">
+        <a href="login.php" id="botaoVoltar">
+            <i class="bi bi-arrow-left-circle-fill"></i>
+        </a>
         <div class="login-box">
-            <a href="login.php" id="botaoVoltar">
-                <i class="bi bi-arrow-left-circle-fill"></i>
-            </a>
-
             <h1>Redefinir Senha</h1>
             <form id="loginForm" method="POST" action="">
                 <div class="input-group">

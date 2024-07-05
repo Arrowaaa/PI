@@ -38,12 +38,12 @@
             <p>Hora: 09:00</p>
         </div>
 
-        <!-- Botão com a seta para baixo -->
+        <div id="opcoes-container">
         <button class="btn_baixo" onclick="toggleDropdown()">Opções ▼</button>
-
-        <!-- Botões ocultos -->
         <div id="oculto" class="bnt_oculto">
-            <p><a href="cadastro.php">Editar</a></p>
+            <p><a href="cadastro.php">Editar Informações</a></p>
+            <p><a href="cadastro.php">Cadastra Suas Informações</a></p>
+            <p><a href="cadastro_medico.php">Sou Médico</a></p>
             <p><a href="agendamento.php">Agendar Consulta</a></p>
             <p><a href="index.php">Sair</a></p>
         </div>
