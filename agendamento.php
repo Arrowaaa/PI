@@ -31,9 +31,9 @@
             <select id="especializacao" name="especializacao" required>
                 <?php
                 $serve = "62.72.62.1";
+                $banco = "u687609827_edilson";
                 $nome = "u687609827_edilson";
                 $senha = ">2Ana=]b";
-                $banco = "u687609827_edilson";
 
                 $conn = new mysqli($serve, $nome, $senha, $banco);
 

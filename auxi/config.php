@@ -1,17 +1,18 @@
 <?php
 
-$host = '62.72.62.1';
-$db = 'u687609827_edilson';
-$user = 'u687609827_edilson';
-$pass = '>2Ana=]b';
+$serve = "62.72.62.1";
+$banco = "u687609827_edilson";
+$nome = "u687609827_edilson";
+$senha = ">2Ana=]b";
 
 try {
 
-    $UsuarioSenha = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+    $UsuarioSenha = new PDO("mysql:host=$serve;dbname=$banco", $nome, $senha);
 
     $UsuarioSenha->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
 
     die("Erro de conexão: " . $e->getMessage());
 }
+
 
