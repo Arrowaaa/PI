@@ -89,7 +89,7 @@ h1 {
     padding: 10px;
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.5);
-    color: whitesmoke;
+    color: #FF9239;
     text-decoration: none;
     font-family: "Croissant One", "serif";
     transition: 0.5s;
@@ -97,12 +97,15 @@ h1 {
 }
 
 h5 {
-    color: #000;
+    color: #000000;
+    font-size: 25px;
+    
 }
 
 .menu .selecionado,
 .menu li a:hover {
-    padding: 10px 15px;
+    padding: 10px 25px;
+    font-size: 19px;
     background-color: whitesmoke;
     color: black;
     border: 1px solid blue;
@@ -332,8 +335,8 @@ footer {
 
 footer h5{
     font-weight: bold;
-    color: goldenrod;
-
+    color:#FF9239;
+    border: 2px solid #000;
 }
 
 footer a{
@@ -343,11 +346,11 @@ footer a{
 
 footer a:hover{
     text-decoration: underline;
-    color: goldenrod;
+    color: #FF9239;
 }
 #estilo:hover {
     text-decoration: underline;
-    color: goldenrod;
+    color: #FF9239;
 }
 
 
