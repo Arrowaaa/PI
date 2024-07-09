@@ -46,7 +46,7 @@
 
         <div class="footer-bottom">
             <div>
-                &copy; 2024. Este site foi desenvolvido por Guilherme Maia da turma TI21 - SENAC AMERICANA. <br> Não
+                &copy; 2024. Este site foi desenvolvido por Edilson Carlos da turma TI21 - SENAC AMERICANA. <br> Não
                 reservamos os
                 direitos e valores apresentados, são meramente ilustrativos para fins educacionais.
             </div>
