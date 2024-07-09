@@ -93,7 +93,7 @@ body main .home main h1 {
                     </ul>
                 </nav>
             </header>
-
+                <br><br>
             <main>
                 <h1>Ven't  Qui</h1>
             </main>
