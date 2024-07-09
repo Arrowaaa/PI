@@ -31,7 +31,7 @@
 header nav {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-evenly; /*remover essa linha caso opte para adicionar o novo menu*/
     padding: 30px 30px;
     width: 100%;
     font-size: 15px;
