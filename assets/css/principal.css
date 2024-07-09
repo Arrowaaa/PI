@@ -24,7 +24,6 @@
 
 .logo {
     width: 10%;
-    padding: 5px;
 }
 
 body {
@@ -108,6 +107,16 @@ h5 {
     border: 1px solid blue;
     transition: 1s;
 }
+
+/*header nav {  
+    display: flex;
+    padding: 30px 30px;
+    font-size: 15px;
+    justify-content: center;   teste do novo menu
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}*/
 
 header nav {
     display: flex;
