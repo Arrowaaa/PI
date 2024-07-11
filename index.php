@@ -9,6 +9,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/principal.css">
+    <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
     
 </head>
 <style>
@@ -70,12 +71,13 @@ body main .home main h1 {
 
 </style>
 <body>
-    <main style="height: 80vh;">
+    <main style="height: 80vh; width: 99vw;">
         <section class="home">
+            <!-- <video width="640" height="360" controls loop autoplay><source src="./assets/video/caramelo.mp4" type="video/mp4"> -->
             <header>
                 <nav class="menu-perfil">
-                    <img src="assets/img/logo principal.png" alt="logo da empresa" class="logo">
-                    <h5>“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</h5>
+                    <img src="./assets/img/principal.png" alt="logo da empresa" id="logo">
+                    <h5 id="titulo">“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</h5>
                     <ul class="menu">
                         <li> <a class="linha" href="index.php">Início</a></li>
                         <li class="dropdown">
@@ -94,6 +96,7 @@ body main .home main h1 {
                 </nav>
             </header>
                 <br><br>
+                
             <main>
                 <h1>Ven't  Qui</h1>
             </main>
