@@ -10,100 +10,118 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/principal.css">
     <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
-    
 </head>
+
 <style>
     @keyframes moveBackground {
-    0% {
-        background-position: 0% center;
+        0% {
+            background-position: 0% center;
+        }
+
+        100% {
+            background-position: 100% center;
+        }
     }
 
-    100% {
-        background-position: 100% center;
-    }
-}
-
-.home {
-    background-image: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5)), url(assets/img/banner.png);
-    background-size: cover;
-    background-position: 0% center;
-    width: 100%;
-    height: 83vh;
-    max-height: 700vh;
-    padding: 0 0 1px 0;
-    animation: moveBackground 50s linear infinite;
-   
-
-}
-
-/*Animação no h1*/
-@keyframes rotate3D {
-    0% {
-        transform: rotateX(0deg) rotateY(0deg);
+    .home {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+        overflow: hidden;
     }
 
-    75% {
-        transform: rotateX(180deg) rotateY(0deg);
+    #background-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        z-index: -2;
     }
 
-    100% {
-        transform: rotateX(0deg) rotateY(0deg);
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(44, 40, 40, 0.5), rgba(48, 42, 42, 0.5));
+        z-index: -1;
     }
-}
 
+    .content {
+        position: relative;
+        z-index: 1;
+    }
 
+    @keyframes rotate3D {
+        0% {
+            transform: rotateX(0deg) rotateY(0deg);
+        }
 
-body main .home main h1 {
-    margin: auto 0;
-    font-family: "Croissant One", "serif";
-    font-size: 150px;
-    color: #FF9239;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: rotate3D 10s infinite;
-    transform-style: preserve-3d;
-    background: linear-gradient(45deg, #ff9239, #ff3d00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 1px 1px 0 #000, 2px 2px 0 #ff9239, 3px 3px 0 #ff9239, 4px 4px 0 #ff9239, 5px 5px 0 #ff9239;
-}
+        75% {
+            transform: rotateX(180deg) rotateY(0deg);
+        }
 
+        100% {
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+    }
+
+    body main .home main h1 {
+        margin: auto 0;
+        font-family: "Croissant One", "serif";
+        font-size: 150px;
+        color: #FF9239;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: rotate3D 10s infinite;
+        transform-style: preserve-3d;
+        background: linear-gradient(45deg, #ff9239, #ff3d00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 1px 1px 0 #000, 2px 2px 0 #ff9239, 3px 3px 0 #ff9239, 4px 4px 0 #ff9239, 5px 5px 0 #ff9239;
+    }
 </style>
-<body>
-    <main style="height: 80vh; width: 99vw;">
-        <section class="home">
-            <!-- <video width="640" height="360" controls loop autoplay><source src="./assets/video/caramelo.mp4" type="video/mp4"> -->
-            <header>
-                <nav class="menu-perfil">
-                    <img src="./assets/img/principal.png" alt="logo da empresa" id="logo">
-                    <h5 id="titulo">“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</h5>
-                    <ul class="menu">
-                        <li> <a class="linha" href="index.php">Início</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropbtn">Requisições &#9660;</a>
-                            <div class="dropdown-content">
-                                <a href="raiox.php">Raio-X</a>
-                                <a href="internacao.php">Internação</a>
-                            </div>
-                        </li>
-                        <li> <a href="servicos.php">Serviços</a></li>
-                        <li> <a href="sobre.php">Sobre</a></li>
-                        <!-- <div class="loguin"> -->
-                        <li class="icon"><a href="login.php"><i class="bi bi-person"> Login</i></a></li>
-                    <!-- </div> -->
-                    </ul>
-                </nav>
-            </header>
-                <br><br>
-                
-            <main>
-                <h1>Ven't  Qui</h1>
-            </main>
 
+<body>
+    <main style="height: 90vh; width: 100%;">
+        <section class="home">
+            <video id="background-video" autoplay muted loop>
+                <source src="./assets/video/caramelo.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+            <div class="overlay"></div>
+            <div class="content">
+                <header>
+                    <nav class="menu-perfil">
+                        <img src="./assets/img/principal.png" alt="logo da empresa" id="logo">
+                        <h5 id="titulo">“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</h5>
+                        <ul class="menu">
+                            <li> <a class="linha" href="index.php">Início</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropbtn">Requisições &#9660;</a>
+                                <div class="dropdown-content">
+                                    <a href="raiox.php">Raio-X</a>
+                                    <a href="internacao.php">Internação</a>
+                                </div>
+                            </li>
+                            <li> <a href="servicos.php">Serviços</a></li>
+                            <li> <a href="sobre.php">Sobre</a></li>
+                            <li class="icon"><a href="login.php"><i class="bi bi-person"> Login</i></a></li>
+                        </ul>
+                    </nav>
+                </header>
+                <br><br>
+                <main>
+                    <h1>Ven't Qui</h1>
+                </main>
+            </div>
         </section>
     </main>
-    </html>
-   
     <?php include './includes/footer.php' ?>
-    
+</html>
