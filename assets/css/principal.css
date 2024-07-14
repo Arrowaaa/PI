@@ -359,6 +359,7 @@ footer h5{
 }
 
 footer a{
+    padding: 10px;
     color: white;
     text-decoration: none;
 }
