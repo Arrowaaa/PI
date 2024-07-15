@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+}
+
+body {
+    display: flex;
+    background-color: #9c6131;
+    font-family: "Croissant One", "serif";
+    justify-content: center;
+    align-items: center;
+    padding: 0.20px;
+    border: none;
+    margin: 5px;
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+
+}
+
+.imagem-esquerda {
+    position: fixed;
+    top: 60%;
+    left: -6%;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 600px;
+}
+
+.imagem-direita {
+    position: fixed;
+    top: 44%;
+    right: -5%;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 750px;
+}
+
+
+.container {
+    display: block;
+    background-color: rgba(3, 3, 3, 0.7);
+    padding: 40px;
+    height: 80%;
+    max-height: 150vh;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+    width: 100%;
+    max-width: 42vw;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#opcoes-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Certifique-se de que o dropdown apareça sobre outros elementos */
+}
+
+.bnt_oculto {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    margin-top: 10px;
+}
+
+.bnt_oculto p {
+    margin: 0;
+    padding: 10px;
+    background-color: #643d1e;
+}
+
+.bnt_oculto p a {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_baixo {
+    background-color:#643d1e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+.btn_baixo:hover {
+    background-color: #000;
+    color: #fff;
+}
+.bnt_oculto a:hover{
+    background-color: #000;
+    color: #fff;
+}

@@ -1,0 +1,172 @@
+body {
+    display: flex;
+    background-color: #9c6131;
+    font-family: "Croissant One", serif;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(3, 3, 3, 0.7);
+    padding: 50px;
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+    width: 100%;
+    max-width: 450px;
+    margin: 20px auto;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+#esquerda {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 500px;
+}
+
+#direita {
+    position: fixed;
+    top: 48%;
+    left: 50%;
+    margin-top: 40px;
+    margin-left: 60px;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 850px;
+}
+
+form {
+    width: 80%;
+}
+
+form label {
+    display: block;
+    color: rgb(252, 248, 248);
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+form input[type="submit"] {
+    background-color: #FF9239;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #e58330;
+}
+
+#botaoVoltar {
+    position: absolute;
+    top: 10px; 
+    left: 25px;
+    border-radius: 60px;
+    text-decoration: none;
+    color: #FF9239;
+    font-size: 34px;
+    gap: 15px;
+}
+
+#botaoVoltar:hover {
+    color: #e58330;
+}
+
+#botaoVoltar:hover .bi-arrow-left-circle-fill {
+    background: #FF9239;
+    color: whitesmoke;
+    border-radius: 80px;
+    margin: -10px -20px;
+    box-shadow: 0 0 5px #FF9239, 0 0 25px #FF9239, 0 0 50px #FF9239, 0 0 100px #FF9239;
+}
+
+.button-link {
+    font-family: "Croissant One", "serif";
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FF9239;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 10px;
+    letter-spacing: 4px;    
+}
+
+.button-link:hover {
+    background: #FF9239;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #FF9239,
+                0 0 25px #FF9239,
+                0 0 50px #FF9239,
+                0 0 100px #FF9239;
+}
+
+.button-link span:nth-child(1) {
+    bottom: 2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #f6f6f7);
+    animation: btn-anim1 2s linear infinite;
+}
+
+.button-group span {
+    position: absolute;
+    display: block;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+.check {
+    margin-top: -34px;
+    margin-right: 55px;
+    
+}
