@@ -2,7 +2,6 @@
 
 * {
     margin: 0;
-    font-family: "Croissant One", "serif" f;
     ;
     font-optical-sizing: auto;
     font-weight: 900;
@@ -13,18 +12,12 @@
 }
 
 
-.icon {
-    font-size: 15px;
-    padding: 0 0 -4 15px;
-}
-
 #icones {
-    font-size: 25px;
+    font-size: 35px;
 }
 
-.logo {
+#logo {
     width: 10%;
-    padding: 5px;
 }
 
 body {
@@ -35,6 +28,9 @@ body {
 h1 {
     display: flex;
     justify-content: center;
+    font-size: 50px;
+    color: aliceblue;
+    font-weight: bold;
 }
 
 
@@ -70,11 +66,19 @@ h1 {
     display: none;
 }
 
-.menu .menu-perfil {
-    width: 100vw;
+.menu-perfil{
+    padding-right: 20px !important;
 }
 
-.menu ul .menu {
+.li {
+    color: white;
+    font-size: 25px;
+}
+.menu .menu-perfil {
+    width: 100%;
+}
+
+.menu ul {
     list-style: none;
     display: flex;
     gap: 5px;
@@ -93,32 +97,40 @@ h1 {
     text-decoration: none;
     font-family: "Croissant One", "serif";
     transition: 0.5s;
-
+    font-size: 19px;
 }
 
-h5 {
+#titulo {
     color: #000000;
-    font-size: 25px;
-    
+    font-size: 130%; 
 }
 
 .menu .selecionado,
 .menu li a:hover {
-    padding: 10px 25px;
+    padding: auto;
     font-size: 19px;
     background-color: whitesmoke;
     color: black;
     border: 1px solid blue;
-    transition: 1s;
+    transition: 2s;
 }
 
-header nav {
+/*header nav {  
+    display: flex;
+    padding: 30px 30px;
+    font-size: 15px;
+    justify-content: center;   teste do novo menu
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}*/
+
+nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 30px 30px;
     width: 100%;
-    font-size: 15px;
+    height: 100%;
+    margin: 0;
 
 }
 
@@ -148,6 +160,7 @@ footer {
     background-repeat: repeat;
     padding: 0 0 55px 0;
     animation: moveBackgroundRight 50s linear infinite;
+    font-size: 19px;
 }
 
 
@@ -155,7 +168,6 @@ footer {
 footer .rodape {
     display: flex;
     justify-content: space-evenly;
-    /* Distribui os elementos uniformemente */
     align-items: center;
 }
 
@@ -318,7 +330,7 @@ input[type = 'submit']{
 
 @media (min-width: 768px) {
     .container {
-        max-width: 600px; 
+        max-width: 60%; 
     }
 
     .dados input,
@@ -337,6 +349,7 @@ footer h5{
     font-weight: bold;
     color:#FF9239;
     border: 2px solid #000;
+    font-size: 25px;
 }
 
 footer a{

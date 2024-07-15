@@ -8,7 +8,6 @@ body {
     font-family: "Croissant One", "serif";
     justify-content: center;
     align-items: center;
-    height: 100vh;
     padding: 0.20px;
     border: none;
     margin: 5px;
@@ -20,8 +19,8 @@ body {
 
 .imagem-esquerda {
     position: fixed;
-    top: 50%;
-    left: -10%;
+    top: 60%;
+    left: -6%;
     transform: translateY(-50%);
     width: 100%;
     max-width: 600px;
@@ -29,7 +28,7 @@ body {
 
 .imagem-direita {
     position: fixed;
-    top: 45%;
+    top: 44%;
     right: -5%;
     transform: translateY(-50%);
     width: 100%;
@@ -41,55 +40,64 @@ body {
     display: block;
     background-color: rgba(3, 3, 3, 0.7);
     padding: 40px;
-    height: 100%;
+    height: 80%;
+    max-height: 150vh;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
     width: 100%;
-    max-width: 32vw;
+    max-width: 42vw;
     margin: auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
 }
-.content {
-    text-align: left;
-    width: 90%;
-    max-width: 500px;
-    /* Defina a largura máxima do conteúdo */
+
+#opcoes-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Certifique-se de que o dropdown apareça sobre outros elementos */
+}
+
+.bnt_oculto {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    margin-top: 10px;
+}
+
+.bnt_oculto p {
+    margin: 0;
+    padding: 10px;
+    background-color: #643d1e;
+}
+
+.bnt_oculto p a {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn_baixo {
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    /* Distância do topo da página */
-    right: 10px;
-    /* Distância da borda direita da página */
-    background-color: #969494;
+    background-color:#643d1e;
     color: #fff;
+    border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    border: none;
+    cursor: pointer;
+    
 }
 
-/* Estilos para os botões ocultos */
-.bnt_oculto {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    background-color: #969494;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+.btn_baixo:hover {
+    background-color: #000;
+    color: #fff;
 }
-
-.bnt_oculto a {
-    display: flex;
-    margin-bottom: 5px;
-    text-decoration: none;
-    color: #ffffff;
-    justify-content: center;
-    align-items: center;
+.bnt_oculto a:hover{
+    background-color: #000;
+    color: #fff;
 }

@@ -35,7 +35,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 
             <input type="HIDDEN" name="id_para_alterar" value="<?= isset($id_alterar) ? $dadosUsuario['id'] : '' ?>"> 
             <h2><?= isset($id_alterar) ? 'Alterar Dados' : 'Cadastro de Cliente & Pet' ?></h2> <br>
-            <form id="cadastroForm" action="auxcadastro.php" method="POST">
+            <form id="cadastroForm" action="./auxi/auxcadastro.php" method="POST">
                 <div class="input-group">
                     <label for="nomeTutor">Nome do Tutor:</label>
                     <input type="text" id="nomeTutor" name="tutor" required>

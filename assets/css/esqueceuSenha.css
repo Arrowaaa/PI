@@ -102,28 +102,29 @@ h2 {
 #botaoVoltar {
     position: absolute;
     top: 10px; 
-    left: 25px; 
+    left: 25px;
+    border-radius: 60px;
     text-decoration: none;
     color: #FF9239;
-    
+    font-size: 34px;
+    gap: 15px;
+}
+
+#botaoVoltar:hover {
+    color: #e58330;
 }
 
 #botaoVoltar:hover .bi-arrow-left-circle-fill {
     background: #FF9239;
     color: whitesmoke;
     border-radius: 80px;
-    margin: -10px -20px ;
-    box-shadow: 0 0 5px #FF9239,
-        0 0 25px #FF9239,
-        0 0 50px #FF9239,
-        0 0 100px #FF9239;
+    margin: -10px -20px;
+    box-shadow: 0 0 5px #FF9239, 0 0 25px #FF9239, 0 0 50px #FF9239, 0 0 100px #FF9239;
 }
 
 .bi-arrow-left-circle-fill {
     font-size: 2rem;
 }
-
-
 
 #mostrarSenha {
     margin-top: 15px;

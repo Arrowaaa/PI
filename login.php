@@ -16,39 +16,37 @@
         <img src="assets/img/cachorros/cachorro.png" id="imagem-direita" alt="Imagem 2" class="imagem-direita">
         <img src="assets/img/cachorros/6.png" id="imagem-esquerda" alt="Imagem 6" class="imagem-esquerda">
     </div>
+
     <div class="container">
+
         <a href="index.php" id="botaoVoltar">
             <i class="bi bi-arrow-left-circle-fill" style="font-size: 2rem;"></i>
         </a>
 
         <h1>Login</h1><br>
-
         <?php
         include './classe/Usuarios.php';
-        if (isset($_POST) && !empty($_POST)) {
 
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $_POST['usuario'];
             $password = $_POST['senha'];
 
             try {
-                $conn = 'mysql:host=62.72.62.1;dbname=u687609827_edilson';
-                $UsuarioSenha = new PDO($conn, 'u687609827_edilson', '>2Ana=]b');
-                $UsuarioSenha->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $conn = new PDO('mysql:host=62.72.62.1;dbname=u687609827_edilson', 'u687609827_edilson', '>2Ana=]b');
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 $select = "SELECT * FROM usuarios WHERE usuario = :usuario";
-                $stmt = $UsuarioSenha->prepare($select);
+                $stmt = $conn->prepare($select);
                 $stmt->bindParam(':usuario', $user);
                 $stmt->execute();
 
                 $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                if ($resultado) {
-                    if (password_verify($password, $resultado['senha'])) { // Supondo que a senha esteja hashada
-                        echo '<p>Login bem-sucedido!</p>';
+           
+                if (password_verify($password, $resultado['senha'])) {
+                    {
+                        echo '<p>Login bem-sucedido!</p>';        
                         header('Location: perfil.php');
                         exit();
-                    } else {
-                        echo '<p class="alert alert-danger">Credenciais inválidas. Tente novamente.</p>';
                     }
                 } else {
                     echo '<p class="alert alert-danger">Credenciais inválidas. Tente novamente.</p>';
@@ -58,9 +56,10 @@
             }
         }
         ?>
+
         <div class="login-box">
 
-            <form method="POST" action="#">
+            <form method="POST" action="#" id="loginForm">
                 <div class="input-group">
                     <label for="usuario">Usuário:</label>
                     <input type="text" id="usuario" name="usuario" required>
@@ -70,19 +69,15 @@
                     <input type="password" id="senha" name="senha" required>
                     <button type="button" id="mostrarSenha"></button>
                 </div>
-                <div class="input-group">
-
-                    <i class="forgot-password" onclick="location.href='esqueceu-senha.php'">Esqueceu a senha?</i>
-                    <i class="forgot-password" onclick="location.href='criar_usuario.php'">Criar usuario</i>
-                </div>
-            
+                <i class="forgot-password" onclick="location.href='esqueceu-senha.php'">Esqueceu a senha?</i>
+                <br>
+                <i id="Criaruser" onclick="location.href='criar_usuario.php'">Criar usuario</i>
+                <br><br>
                 <div class="button-group">
                     <center>
                         <button type="submit" class="button-link">Entrar <span></span></button>
                     </center>
-                </div>
-                <div class="button-group">
-                    <a href="cadastro.php" class="button">Cadastrar <span></span></a>
+                    <br>
                 </div>
             </form>
         </div>

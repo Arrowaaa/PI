@@ -34,7 +34,7 @@ class Usuarios
                 return "<br>Usuário já existe";
                 
             }
-
+            
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
             

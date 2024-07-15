@@ -5,16 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ven't qui</title>
-
-    <link rel="shortcut icon" href="assets/img/favicon-32x32.png" type="image/x-icon">
-
+    <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/principal.css">
-    <link rel="stylesheet" href="assets/css/servico.css">
-     
+    <link rel="stylesheet" href="assets/css/servico.css">     
 </head>
 
 <body>
@@ -22,8 +19,8 @@
         <section class="home">
             <header>
                 <nav class="menu-perfil">
-                    <img src="assets/img/logo principal.png" alt="logo da empresa" class="logo">
-                    <h5>“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</h5>
+                <img src="./assets/img/principal.png" alt="logo da empresa" id="logo">
+                    <h5 id="titulo" >“Unindo amor e expertise para cuidar dos seus melhores amigos na saúde e na alegria."</h5>
                     <ul class="menu">
                         <li><a href="index.php">Início</a></li>
                         <li class="dropdown">
@@ -35,9 +32,7 @@
                         </li>
                         <li> <a href="servicos.php">Serviços</a></li>
                         <li> <a href="sobre.php">Sobre</a></li>
-                        <!-- <div class="loguin"> -->
                         <li class="icon"><a href="login.php"><i class="bi bi-person"> Login</i></a></li>
-                    <!-- </div> -->
                     </ul>
                 </nav>
             </header>

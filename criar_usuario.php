@@ -11,27 +11,73 @@
     <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <style>
-    body {
-        background-color: #9c6131;
+    .container {
+        position: relative;
+        padding: 50px;
+        border-radius: 40px;
+        width: 26vw;
+        margin: 30px auto;
+        text-align: center;
+        color: white;
     }
-    #criar_user {
-        display: flex;
-        background-color: #9c6131;
-    }
-    .form-signin {
-        max-width: 430px;
-        padding: 2rem;
-        background-color: #9c6131;
-        border-radius: 10px;
-        color: black;
-    }
+
     h1 {
-        display: flex;
-        justify-content: center;
+        color: #fff;
+    }
+
+    .button-link {
+        font-family: "Croissant One", "serif";
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #FF9239;
+        font-size: 16px;
+        border: none;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        margin-top: 10px;
+        letter-spacing: 4px
+    }
+
+    .button-link span {
+        position: absolute;
+        display: block;
+    }
+
+    @keyframes btn-anim1 {
+        0% {
+            left: -100%;
+        }
+
+        50%,
+        100% {
+            left: 100%;
+        }
+    }
+
+    .button-link:hover {
+        background: #FF9239;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #FF9239,
+            0 0 25px #FF9239,
+            0 0 50px #FF9239,
+            0 0 100px #FF9239;
+    }
+
+    .button-link span:nth-child(1) {
+        bottom: 2px;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #fff);
+        animation: btn-anim1 2s linear infinite;
     }
 </style>
 
-<body class="d-flex align-items-center py-4 corpinho" id="criar_user">
+<body>
 
     <div class="imagens">
         <img src="assets/img/cachorros/cachorro.png" id="imagem-direita" alt="Imagem 2" class="imagem-direita">
@@ -42,28 +88,34 @@
             <i class="bi bi-arrow-left-circle-fill" style="font-size: 2rem;"></i>
         </a>
         <main class="form-signin w-100 m-auto">
-            <form action="auxcadastro.php" method="POST">
-                <h1 class="h3 mb-3 fw-normal"> Crie Seu Usuário</h1>
+            <form action="/auxi/auxcadastro.php" method="POST">
+                <h1> Crie Seu Usuário</h1><br>
 
-                <div class="form-floating my-2">
-                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required>
-                    <label for="usuario">Usuario</label>
+                <div class="input-group">
+                    <label for="usuario">Usuário:</label>
+                    <input type="text" id="usuario" name="usuario" required>
+                </div>
+                <div class="input-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required>
+                    <button type="button" id="mostrarSenha"></button>
                 </div>
 
-                <div class="form-floating my-2">
-                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
-                    <label for="senha">Senha</label>
+                <div class="input-group password-group">
+                    <label for="confirmSenha">Confirme a Senha:</label>
+                    <input type="password" id="confirmSenha" name="confirmSenha" required>
+                    <button type="button" id="mostrarConfirmSenha"></button>
+                </div><br>
+                <div class="button-group">
+                    <center>
+                        <button type="submit" class="button-link">Criar <span></span></button>
+                    </center>
+                    <br>
                 </div>
-
-                <div class="form-floating my-2">
-                    <input type="password" class="form-control" id="confirma" name="confirma" placeholder="Confirmar Senha" required>
-                    <label for="confirma">Confirmar Senha</label>
-                </div>
-
-                <input class="btn btn-primary w-100 py-2 mt-5" type="submit" value='Criar'>
             </form>
         </main>
     </div>
+    <script src="assets/js/login.js"></script>
 </body>
 
 </html>
