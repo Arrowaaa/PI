@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
         e.target.value = contato;
     });
 });
+
 document.addEventListener("DOMContentLoaded", function() {
     var nomeTutorInput = document.getElementById('nomeTutor');
     
@@ -29,15 +30,16 @@ document.addEventListener("DOMContentLoaded", function() {
         e.target.value = nome;
     });
 });
-document.addEventListener("DOMContentLoaded", function() {
-    var medicoInput = document.getElementById('medico');
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     var medicoInput = document.getElementById('medico');
     
-    medicoInput.addEventListener('input', function(e) {
-        var medico = e.target.value;
-        medico = medico.replace(/[^a-zA-Z\sç]/g, ''); 
-        e.target.value = medico;
-    });
-});
+//     medicoInput.addEventListener('input', function(e) {
+//         var medico = e.target.value;
+//         medico = medico.replace(/[^a-zA-Z\sç]/g, ''); 
+//         e.target.value = medico;
+//     });
+// });
 
 document.addEventListener("DOMContentLoaded", function() {
     var nomePetInput = document.getElementById('nomePet');

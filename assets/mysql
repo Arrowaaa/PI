@@ -183,11 +183,18 @@ INSERT INTO agendamentos (id_agendamento, id_cliente, data_agendamento, hora_age
 (1, 2, '0000-00-00', '10:10:00'),
 (1, 2, '0000-00-00', '07:10:00');
 
+INSERT INTO `usuarios` (`email`) VALUES
+('adm@exemplo.com'),
+('agus@gmail.com'),
+('arrow5@exemplo.com'),
+('root@exemplo.com'),
+('jj@exemplo.com');
 INSERT INTO `clientes` (`nome`, `cpf`, `email`, `telefone`, `contato`, `sexo`, `CEP`, `cidade`, `complemento`, `numero_residencia`, `id_usuario`, `id_pet`) VALUES
-('arrow', '000.000.000', 'arrow@gmail.com', '(00) 00000-0000', '(00) 00000-0000', 'M', '12345678', 'São Paulo', 'Apto 101', 123, 1, 1),
-('ackles', '000.000.000', 'ackles@gmail.com', '(00) 00000-0000', '(00) 00000-0000', 'F', '87654321', 'Rio de Janeiro', 'Casa 5', 456, 2, 2),
+('adm', '000.000.000', 'adm@exemplo.com', '(00) 00000-0000', '(00) 00000-0000', 'F', '87654321', 'Rio de Janeiro', 'Casa 5', 456, 2, 2),
 ('agus', '000.000.000', 'agus@gmail.com', '(00) 00000-0000', '(00) 00000-0000', 'M', '11223344', 'Belo Horizonte', 'Bloco B', 789, 3, 3),
-('jj', '000.000.000', 'jj@gmail.com', '(00) 00000-0000', '(00) 00000-0000', 'F', '11223344', 'Belo Horizonte', 'Bloco B', 789, 3, 3);
+('arrow', '000.000.000', 'arrow5@exemplo.com', '(00) 00000-0000', '(00) 00000-0000', 'M', '12345678', 'São Paulo', 'Apto 101', 123, 1, 1),
+('root', '000.000.000', 'root@exemplo.com', '(00) 00000-0000', '(00) 00000-0000', 'M', '12445678', 'São Paulo', 'Apto 11', 13, 1, 1),
+('jj', '000.000.000', 'jj@exemplo.com', '(00) 00000-0000', '(00) 00000-0000', 'F', '11223344', 'Belo Horizonte', 'Bloco B', 789, 3, 3);
 
 INSERT INTO `horarios_medicos` (`id_medico`, `dia_semana`, `hora_inicio`, `hora_fim`, `disponivel`, `medico`, `especializacao`) VALUES
 (1, 'Segunda', '08:00:00', '12:00:00', 1, 1, 1),

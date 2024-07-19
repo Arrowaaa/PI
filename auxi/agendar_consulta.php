@@ -12,13 +12,13 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-$cpf = $_POST['cpf'];
+$email = $_POST['email'];
 $especializacao = $_POST['especializacao'];
 $dataAgendamento = $_POST['DataAgendamento'];
 $horaAgendamento = $_POST['HoraAgendamento'];
 
 
-$slqCliente = "SELECT id_cliente FROM clientes WHERE cpf = '$cpf'";
+$slqCliente = "SELECT id_cliente FROM clientes WHERE email = '$email'";
 $resultCliente = $conn->query($slqCliente);
 
 if ($resultCliente->num_rows > 0) {

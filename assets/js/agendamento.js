@@ -77,7 +77,6 @@
             }
         }
 
-        // Event listener para atualizar a lista de médicos quando a especialização é alterada
         const selectEspecializacao = document.getElementById("especializacao");
         selectEspecializacao.addEventListener("change", function() {
             const especializacaoSelecionada = this.value;

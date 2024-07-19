@@ -19,7 +19,7 @@ body {
 
 .imagem-esquerda {
     position: fixed;
-    top: 60%;
+    top: 65%;
     left: -6%;
     transform: translateY(-50%);
     width: 100%;
@@ -28,7 +28,7 @@ body {
 
 .imagem-direita {
     position: fixed;
-    top: 44%;
+    top: 55%;
     right: -5%;
     transform: translateY(-50%);
     width: 100%;
@@ -46,18 +46,20 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
     width: 100%;
     max-width: 42vw;
-    margin: auto;
+    margin: 50px auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
 }
+
 #opcoes-container {
     position: absolute;
     top: 10px;
     right: 10px;
     z-index: 1000; /* Certifique-se de que o dropdown apareça sobre outros elementos */
 }
+
 
 .bnt_oculto {
     display: none;
@@ -68,13 +70,13 @@ body {
     margin-top: 10px;
 }
 
-.bnt_oculto p {
+#oculto p {
     margin: 0;
     padding: 10px;
     background-color: #643d1e;
 }
 
-.bnt_oculto p a {
+#oculto p a {
     display: flex;
     text-decoration: none;
     color: #fff;
@@ -82,7 +84,10 @@ body {
     align-items: center;
 }
 
-.btn_baixo {
+.bnt_oculto {
+    display: none;
+}
+#baixo {
     background-color:#643d1e;
     color: #fff;
     border: none;
@@ -92,11 +97,11 @@ body {
     
 }
 
-.btn_baixo:hover {
+#baixo:hover {
     background-color: #000;
     color: #fff;
 }
-.bnt_oculto a:hover{
+#oculto a:hover{
     background-color: #000;
     color: #fff;
 }

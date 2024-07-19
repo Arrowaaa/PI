@@ -45,7 +45,7 @@ body {
     border-radius: 40px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
     width: 26vw;
-    margin: 30px auto;
+    margin: 70px auto;
     text-align: center;
     color: white;
 }
@@ -76,10 +76,21 @@ body {
     padding-right: 40px;
 }
 
+#Criaruser {
+    margin-right: 72%;
+    color: #FF9239;
+    cursor: pointer;
+    gap: 100px;
+}
 
+#Criaruser:hover {
+    color: #f4f4f5;
+    
+ 
+}
 
 .forgot-password {
-    margin-left: 50%;
+    margin-left: 60%;
     color: #FF9239;
     cursor: pointer;
 }
