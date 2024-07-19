@@ -22,20 +22,16 @@
         <h2>Agendamento de Consultas</h2><br>
         <form action="/auxi/agendar_consulta.php" method="post">
             <div class="input-group">
-                <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" required>
-                <script src="assets/js/mascaras.js"></script>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="exemplo@exemplo.com" required>
             </div>
 
             <label for="especializacao">Especialização:</label>
             <select id="especializacao" name="especializacao" required>
                 <?php
-                $serve = "62.72.62.1";
-                $banco = "u687609827_edilson";
-                $nome = "u687609827_edilson";
-                $senha = ">2Ana=]b";
+                require_once './auxi/config.php';
 
-                $conn = new mysqli($serve, $nome, $senha, $banco);
+                $conn = new mysqli($serve, $banco, $nome, $senha);
 
                 if ($conn->connect_error) {
                     die("Falha na conexão: " . $conn->connect_error);

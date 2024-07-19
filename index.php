@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ven't qui</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/principal.css">
     <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
@@ -93,7 +92,6 @@
         <section class="home">
             <video id="background-video" autoplay muted loop>
                 <source src="./assets/video/caramelo.mp4" type="video/mp4">
-                Seu navegador não suporta o elemento de vídeo.
             </video>
             <div class="overlay"></div>
             <div class="content">
@@ -112,7 +110,20 @@
                             </li>
                             <li> <a href="servicos.php">Serviços</a></li>
                             <li> <a href="sobre.php">Sobre</a></li>
-                            <li class="icon"><a href="login.php"><i class="bi bi-person"> Login</i></a></li>
+                            <?php
+                            if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] !== "") {
+                            ?>
+                                <img class="rounded-circle" height="20" src="img/<?php echo $_SESSION['fotoPerfilLogado']; ?>">  
+
+                            <?php
+                                echo $_SESSION["usuario"];
+                            } else { ?>
+
+                                <li class="icon"><a href="login.php"><i class="bi bi-person"> Login</i></a></li>
+
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </nav>
                 </header>
@@ -124,4 +135,5 @@
         </section>
     </main>
     <?php include './includes/footer.php' ?>
+
 </html>
