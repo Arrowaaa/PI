@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -44,27 +46,23 @@
 
                 if ($resultado) {
                     if ($resultado['senha'] !== null && password_verify($password, $resultado['senha'])) {
-                        // Login bem-sucedido
                         $id_usuario = $resultado['id_usuario'];
                         $select_cliente = "SELECT id_cliente FROM clientes WHERE id_usuario = :id_usuario";
                         $stmt_cliente = $conn->prepare($select_cliente);
                         $stmt_cliente->bindParam(':id_usuario', $id_usuario);
                         $stmt_cliente->execute();
                         $cliente_result = $stmt_cliente->fetch(PDO::FETCH_ASSOC);
-
-                        if ($cliente_result) {
-                            $id_cliente = $cliente_result['id_cliente'];
-                            header("Location: perfil.php?id_cliente=" . $id_cliente);
-                            exit();
-                        } else {
+                        $id_cliente = $cliente_result['id_cliente'];
+                        echo '<p class="alert alert-success">Login bem-sucedido.</p>';
+                        echo '<script>';
+                        echo 'setTimeout(function() { window.location.href = "perfil.php?id_cliente=' . $id_cliente . '"; }, 1600);';
+                        echo '</script>';
+                    } else {
                             echo '<p class="alert alert-danger">Cliente não encontrado. Tente novamente.</p>';
                         }
                     } else {
                         echo '<p class="alert alert-danger">Credenciais inválidas. Tente novamente.</p>';
                     }
-                } else {
-                    echo '<p class="alert alert-danger">Credenciais inválidas. Tente novamente.</p>';
-                }
             } catch (PDOException $e) {
                 echo 'Erro: ' . $e->getMessage();
             }
