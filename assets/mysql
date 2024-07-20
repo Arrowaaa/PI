@@ -140,14 +140,8 @@ INSERT INTO medicos (id, nome, crm, especializacao, id_horario) VALUES
 (22, 'Dra. Juliana', '22011', 11, NULL);
 
 INSERT INTO pets (id_pet, id_cliente, nome, especie, idade, raca, peso, sexo, porte) VALUES
-
 (1, 2, 'Mick', 2, 2020, 'Argentino', 20.00, 'M', 'medio'),
 (1, 2, 'Thor', 2, 2020, 'Bull Terrier ', 20.00, 'M', 'grande');
-
-(1, 8, 'Mick', 2, 3, 'Argentino', 20.00, 'M', 'medio'),
-(2, 9, 'Thor', 2, 2, 'Bull Terrier', 30, 'M', 'grande'),
-(3, 10, 'Flora', 3, 2, 'Siamês', 11, 'F', 'pequeno');
-
 
 INSERT INTO especializacao (id, nome) VALUES
 (1, 'Veterinário Clínico'),
@@ -189,7 +183,6 @@ INSERT INTO agendamentos (id_agendamento, id_cliente, data_agendamento, hora_age
 (1, 2, '0000-00-00', '10:10:00'),
 (1, 2, '0000-00-00', '07:10:00');
 
-
 INSERT INTO `usuarios` (`email`) VALUES
 ('adm@exemplo.com'),
 ('agus@gmail.com'),
@@ -202,13 +195,6 @@ INSERT INTO `clientes` (`nome`, `cpf`, `email`, `telefone`, `contato`, `sexo`, `
 ('arrow', '000.000.000', 'arrow5@exemplo.com', '(00) 00000-0000', '(00) 00000-0000', 'M', '12345678', 'São Paulo', 'Apto 101', 123, 1, 1),
 ('root', '000.000.000', 'root@exemplo.com', '(00) 00000-0000', '(00) 00000-0000', 'M', '12445678', 'São Paulo', 'Apto 11', 13, 1, 1),
 ('jj', '000.000.000', 'jj@exemplo.com', '(00) 00000-0000', '(00) 00000-0000', 'F', '11223344', 'Belo Horizonte', 'Bloco B', 789, 3, 3);
-
-INSERT INTO `clientes` (`nome`, `cpf`, `email`, `telefone`, `contato`, `sexo`, `CEP`, `cidade`, `complemento`, `numero_residencia`, `id_usuario`, `id_pet`) VALUES
-('arrow', '000.000.000', 'arrow@gmail.com', '(00) 00000-0000', '(00) 00000-0000', 'M', '12345678', 'São Paulo', 'Apto 101', 123, 1, 1),
-('ackles', '000.000.000', 'ackles@gmail.com', '(00) 00000-0000', '(00) 00000-0000', 'F', '87654321', 'Rio de Janeiro', 'Casa 5', 456, 2, 2),
-('agus', '000.000.000', 'agus@gmail.com', '(00) 00000-0000', '(00) 00000-0000', 'M', '11223344', 'Belo Horizonte', 'Bloco B', 789, 3, 3),
-('jj', '000.000.000', 'jj@gmail.com', '(00) 00000-0000', '(00) 00000-0000', 'F', '11223344', 'Belo Horizonte', 'Bloco B', 789, 3, 3);
-
 
 INSERT INTO `horarios_medicos` (`id_medico`, `dia_semana`, `hora_inicio`, `hora_fim`, `disponivel`, `medico`, `especializacao`) VALUES
 (1, 'Segunda', '08:00:00', '12:00:00', 1, 1, 1),

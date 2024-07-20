@@ -13,15 +13,12 @@ if ($conn->connect_error) {
 }
 
 $email = $_POST['email'];
-
-$cpf = $_POST['cpf'];
 $especializacao = $_POST['especializacao'];
 $dataAgendamento = $_POST['DataAgendamento'];
 $horaAgendamento = $_POST['HoraAgendamento'];
 
 
 $slqCliente = "SELECT id_cliente FROM clientes WHERE email = '$email'";
-$slqCliente = "SELECT id_cliente FROM clientes WHERE cpf = '$cpf'";
 $resultCliente = $conn->query($slqCliente);
 
 if ($resultCliente->num_rows > 0) {
