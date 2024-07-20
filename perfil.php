@@ -71,8 +71,9 @@ $pessoas = new pessoas();
 
             <div id="cadastroInfo" class="content" style="text-align: left;">
                 <h3>Informações:</h3><br>
+                <p>Nome: <?= htmlspecialchars(ucwords(strtolower($clientes['nome']))) ?></p>
+                <p>E-mail: <?= htmlspecialchars(ucwords(strtolower($clientes['email']))) ?></p>
                 <p>CPF: <?= htmlspecialchars(ucwords(strtolower($clientes['cpf']))) ?></p>
-                <p>Email: <?= htmlspecialchars(ucwords(strtolower($clientes['email']))) ?></p>
                 <p>Telefone: <?= htmlspecialchars(ucwords(strtolower($clientes['telefone']))) ?></p>
                 <p>Contato: <?= htmlspecialchars(ucwords(strtolower($clientes['contato']))) ?></p>
                 <p>Sexo: <?= htmlspecialchars(pessoas::formatarSexo(ucwords(strtolower($clientes['sexo'])))) ?></p>
