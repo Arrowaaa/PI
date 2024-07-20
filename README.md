@@ -26,10 +26,10 @@ Nosso principal objetivo é proporcionar um atendimento de qualidade, compassivo
 ## Contato
 
 Para agendar uma consulta ou obter mais informações sobre nossos serviços, entre em contato conosco:
-
+[
 - **Telefone:** (19) 9 99999-9999
 - **Email:** ventqui@gmail.com
-- **Endereço:** Rua: ...
+- **Endereço:** Rua: ...] Dados completamentes fictícios
 
 Siga-nos nas redes sociais:
 
