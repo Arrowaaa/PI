@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendamento de Consultas</title>
+    <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -22,14 +23,8 @@
         <h2>Agendamento de Consultas</h2><br>
         <form action="/auxi/agendar_consulta.php" method="post">
             <div class="input-group">
-
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" placeholder="exemplo@exemplo.com" required>
-
-                <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" required>
-                <script src="assets/js/mascaras.js"></script>
-
             </div>
 
             <label for="especializacao">Especialização:</label>
@@ -38,13 +33,6 @@
                 require_once './auxi/config.php';
 
                 $conn = new mysqli($serve, $banco, $nome, $senha);
-
-                $serve = "62.72.62.1";
-                $banco = "u687609827_edilson";
-                $nome = "u687609827_edilson";
-                $senha = ">2Ana=]b";
-
-                $conn = new mysqli($serve, $nome, $senha, $banco);
 
                 if ($conn->connect_error) {
                     die("Falha na conexão: " . $conn->connect_error);

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Médicos</title>
+    <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/medico.css">
@@ -14,8 +15,6 @@
     <div class="imagens">
         <img src="assets/img/cachorros/meddog3.png" alt="cachorro medico" id="esquerda">
         <img src="assets/img/cachorros/meddog2.png" alt="cachorro medico 2" id="direita">
-        <img src="assets/img/cachorros/meddog (3).png" alt="cachorro medico" id="esquerda">
-        <img src="assets/img/cachorros/meddog (2).png" alt="cachorro medico 2" id="direita">
     </div>
     <div class="container">
         <a href="perfil.php" id="botaoVoltar">
@@ -35,12 +34,6 @@
                 require_once './auxi/config.php';
 
                 $conn = new mysqli($serve, $banco, $nome, $senha);
-                $servidor = "62.72.62.1";
-                $nome = "u687609827_edilson";
-                $senha = ">2Ana=]b";
-                $banco = "u687609827_edilson";
-
-                $conn = new mysqli($servidor, $nome, $senha, $banco);
 
 
                 if ($conn->connect_error) {

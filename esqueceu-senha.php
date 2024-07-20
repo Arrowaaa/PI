@@ -1,10 +1,6 @@
 <?php
 
 require_once './auxi/config.php';
-$host = '62.72.62.1';
-$dbname = 'u687609827_edilson';
-$username = 'u687609827_edilson';
-$password = '>2Ana=]b';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -53,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redefinir Senha</title>
+    <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/esqueceuSenha.css">
@@ -66,7 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container">
         <a href="login.php" id="botaoVoltar">
             <i class="bi bi-arrow-left-circle-fill"></i> 
-            <i class="bi bi-arrow-left-circle-fill"></i>
         </a>
         <div class="login-box">
             <h1>Redefinir Senha</h1>

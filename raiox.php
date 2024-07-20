@@ -1,5 +1,6 @@
 <?php include './includes/header.php' ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js" integrity="sha512-MpDFIChbcXl2QgipQrt1VcPHMldRILetapBl5MPCA9Y8r7qvlwx1/Mc9hNTzY+kS5kX6PdoDq41ws1HiVNLdZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
 <main>
     <section id="box">
         <div id="content">
@@ -37,17 +38,6 @@
                     <input type="checkbox">  Masculino  </input>
                     <input type="checkbox">  Feminino  </input>
                     <input type="checkbox">  Outros  </input>
-
-                <div class="mb-3">
-                    <label for="date">Data de Nascimento:  </label>
-                    <input type="date" class="inputUser">
-                </div>
-
-                <div class="mb-3">
-                    <label for="sexo">Sexo do Tutor:  </label>
-                    <input type="radio">  Masculino  </input>
-                    <input type="radio">  Feminino  </input>
-                    <input type="radio">  Outros  </input>
                 </div>
 
                 <div class="mb-3">
@@ -87,16 +77,6 @@
                     <input type="checkbox">  Manhã  </input>
                     <input type="checkbox">  Tarde  </input>
                     <input type="checkbox">  Noite  </input>
-                    <input type="radio">  Macho  </input>
-                    <input type="radio">  Femea  </input>
-                    <input type="radio">  Outros  </input>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="preferencia_data_hora" class="form-label">Preferência de Periodo:  </label>
-                    <input type="radio">  Manhã  </input>
-                    <input type="radio">  Tarde  </input>
-                    <input type="radio">  Noite  </input>
                 </div>
 
                 <div class="mb-3">
@@ -108,12 +88,6 @@
                     <label for="historico_medico" class="form-label">Histórico Médico:  </label>
                     <input type="file" id="comprovante">  
                     
-                    <textarea class="inputUser" id="sintomas" name="sintomas" cols="30" rows="3"></textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label for="historico_medico" class="form-label">Histórico Médico:  </label>
-                    <textarea class="inputUser" id="historico_medico" name="historico_medico" cols="30" rows="3"></textarea>
                 </div>
 
                 <div class="mb-3">
@@ -123,11 +97,6 @@
                 <br>
 
                 <button type="button" class="button" id="generate-pdf" onclick="converterImagem()">Baixar Formulário</button>
-                    <textarea class="inputUser" id="mensagem" name="mensagem" cols="30" rows="3"></textarea>
-                </div>
-                <br>
-
-                <button type="button" id="generate-pdf">Baixar Formulário</button>
             </form>
         </div>
     </section>
