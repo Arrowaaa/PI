@@ -9,6 +9,8 @@ class pessoas
     
     // Função para formatar o sexo do pet
     public static function formatarSexop($sexo) {
+    // Função para formatar o sexo
+    public static function formatarSexo($sexo) {
         switch ($sexo) {
             case 'M':
                 return 'Macho';

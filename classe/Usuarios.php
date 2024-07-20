@@ -39,6 +39,7 @@ class Usuarios
             }
 
             // Hash da senha para criptografar
+            
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
             // Inserção do novo usuário

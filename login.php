@@ -32,6 +32,8 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = trim($_POST['email']);
             $password = trim($_POST['senha']);
+            $user = $_POST['usuario'];
+            $password = $_POST['senha'];
 
             try {
                 $conn = new PDO('mysql:host=62.72.62.1;dbname=u687609827_edilson', 'u687609827_edilson', '>2Ana=]b');
@@ -62,6 +64,18 @@
                         }
                     } else {
                         echo '<p class="alert alert-danger">Credenciais inválidas. Tente novamente.</p>';
+                $select = "SELECT * FROM usuarios WHERE usuario = :usuario";
+                $stmt = $conn->prepare($select);
+                $stmt->bindParam(':usuario', $user);
+                $stmt->execute();
+
+                $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+           
+                if (password_verify($password, $resultado['senha'])) {
+                    {
+                        echo '<p>Login bem-sucedido!</p>';        
+                        header('Location: perfil.php');
+                        exit();
                     }
             } catch (PDOException $e) {
                 echo 'Erro: ' . $e->getMessage();
@@ -84,6 +98,7 @@
                 <i class="forgot-password" onclick="location.href='esqueceu-senha.php'">Esqueceu a senha?</i>
                 <br>
                 <i id="Criaruser" onclick="location.href='cadastro.php'">Criar usuario</i>
+                <i id="Criaruser" onclick="location.href='criar_usuario.php'">Criar usuario</i>
                 <br><br>
                 <div class="button-group">
                     <center>

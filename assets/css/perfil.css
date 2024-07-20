@@ -19,7 +19,11 @@ body {
 
 .imagem-esquerda {
     position: fixed;
+
     top: 65%;
+
+    top: 60%;
+
     left: -6%;
     transform: translateY(-50%);
     width: 100%;
@@ -28,7 +32,11 @@ body {
 
 .imagem-direita {
     position: fixed;
+
     top: 55%;
+
+    top: 44%;
+
     right: -5%;
     transform: translateY(-50%);
     width: 100%;
@@ -46,7 +54,11 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
     width: 100%;
     max-width: 42vw;
+
     margin: 50px auto;
+
+    margin: auto;
+
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -70,13 +82,21 @@ body {
     margin-top: 10px;
 }
 
+
 #oculto p {
+
+.bnt_oculto p {
+
     margin: 0;
     padding: 10px;
     background-color: #643d1e;
 }
 
+
 #oculto p a {
+
+.bnt_oculto p a {
+
     display: flex;
     text-decoration: none;
     color: #fff;
@@ -84,10 +104,14 @@ body {
     align-items: center;
 }
 
+
 .bnt_oculto {
     display: none;
 }
 #baixo {
+
+.btn_baixo {
+
     background-color:#643d1e;
     color: #fff;
     border: none;
@@ -102,6 +126,13 @@ body {
     color: #fff;
 }
 #oculto a:hover{
+
+.btn_baixo:hover {
+    background-color: #000;
+    color: #fff;
+}
+.bnt_oculto a:hover{
+
     background-color: #000;
     color: #fff;
 }
