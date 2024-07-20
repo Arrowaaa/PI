@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
+
+* {
+    margin: 0;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.box {
+    display: flex;
+    background-color: #9c6131;
+    background-size: cover;
+    background-position: center;
+    justify-content: start;
+    text-align: start;
+    font-family: "Croissant One", "serif";
+    padding: 50px;
+
+}
+
+#box {
+    display: flex;
+    background-color: #9c6131;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Croissant One", "serif";
+    width: 100%;
+    height: 100%;
+}
+
+.form-label {
+    pointer-events: none;
+    transition: .5s;
+}
+
+.inputUser {
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: rgb(44, 44, 44);
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 30px 30px;
+    width: 100%;
+    font-size: 15px;
+
+}
+
+#fotos {
+    margin-top: 20px;
+
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 22px;
+}
+
+.col-lg-3,
+.col-md-6,
+.col-sm-12 {
+    flex: 0 0 23%;
+    max-width: 23%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+figure {
+    position: relative;
+    margin: 0;
+}
+
+.foto-produto {
+    display: flex;
+    width: 30vh;
+    height: 34vh;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: transform 0.3s ease, z-index 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+figure:hover .foto-produto {
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    height: 52vh;
+    width: 42vh;
+
+}
+
+figcaption {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 0 0 20px 20px;
+}
+
+figcaption h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+
+    .col-lg-3,
+    .col-md-6,
+    .col-sm-12 {
+        flex: 0 0 48%;
+        max-width: 48%;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .col-lg-3,
+    .col-md-6,
+    .col-sm-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
