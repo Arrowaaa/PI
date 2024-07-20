@@ -14,19 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $resultado = $usuarios->CadastroUsuario('email@example.com', 'senha', 'senha');
 
         echo $resultado;
-include 'classe/Usuarios.php';
-include 'config.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    if (isset($_POST['usuario'])) {
-        $user = $_POST['usuario'];
-        $password = $_POST['senha'];
-        $passwordConfirm = $_POST['confirma'];
-
-        $usuario = new Usuarios();
-        $resultado = $usuario->CadastroUsuario($user, $password, $passwordConfirm);
-
         if ($resultado === "Usuário cadastrado com sucesso") {
 
             header('Location: login.php');
@@ -49,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($_POST['id_para_alterar'])) {
         $email = $_POST['email'];
-        $user = $_POST['usuario'];
         $password = $_POST['senha'];
         $passwordConfirm = $_POST['confirma'];
         $id_para_alterar = $_POST['id_para_alterar'];
@@ -57,9 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = new Usuarios();
 
         $resultado = $email->AtualizarUsuario($id_para_alterar, $email, $password, $passwordConfirm);
-        $usuario = new Usuarios();
-
-        $resultado = $usuario->AtualizarUsuario($id_para_alterar, $user, $password, $passwordConfirm);
     }
 
     // Lógica nova para cadastro de cliente e pet
@@ -86,8 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $preparo = $UsuarioSenha->prepare("INSERT INTO clientes (nome, cpf, email, telefone, contato, sexo, CEP, cidade, complemento, numero_residencia,senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $preparo->execute([$nome, $cpf, $email, $telefone, $contato, $sexo, $cep, $endereco, $complemento, $numero, $senha]);
-            $preparo = $UsuarioSenha->prepare("INSERT INTO clientes (nome, cpf, email, telefone, contato, sexo, CEP, cidade, complemento, numero_residencia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $preparo->execute([$nome, $cpf, $email, $telefone, $contato, $sexo, $cep, $endereco, $complemento, $numero]);
 
             $id_cliente = $UsuarioSenha->lastInsertId();
 
