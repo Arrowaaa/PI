@@ -1,4 +1,19 @@
 <?php
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/../classe/Usuarios.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if (isset($_POST['email'])) {
+        $email = $_POST['email'];
+        $password = $_POST['senha'];
+        $passwordConfirm = $_POST['confirmSenha'];
+
+        $usuarios = new Usuarios();
+
+        $resultado = $usuarios->CadastroUsuario('email@example.com', 'senha', 'senha');
+
+        echo $resultado;
 include 'classe/Usuarios.php';
 include 'config.php';
 
@@ -33,11 +48,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (!empty($_POST['id_para_alterar'])) {
+        $email = $_POST['email'];
         $user = $_POST['usuario'];
         $password = $_POST['senha'];
         $passwordConfirm = $_POST['confirma'];
         $id_para_alterar = $_POST['id_para_alterar'];
 
+        $email = new Usuarios();
+
+        $resultado = $email->AtualizarUsuario($id_para_alterar, $email, $password, $passwordConfirm);
         $usuario = new Usuarios();
 
         $resultado = $usuario->AtualizarUsuario($id_para_alterar, $user, $password, $passwordConfirm);
@@ -65,6 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         try {
 
+            $preparo = $UsuarioSenha->prepare("INSERT INTO clientes (nome, cpf, email, telefone, contato, sexo, CEP, cidade, complemento, numero_residencia,senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $preparo->execute([$nome, $cpf, $email, $telefone, $contato, $sexo, $cep, $endereco, $complemento, $numero, $senha]);
             $preparo = $UsuarioSenha->prepare("INSERT INTO clientes (nome, cpf, email, telefone, contato, sexo, CEP, cidade, complemento, numero_residencia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $preparo->execute([$nome, $cpf, $email, $telefone, $contato, $sexo, $cep, $endereco, $complemento, $numero]);
 

@@ -22,14 +22,23 @@
         <h2>Agendamento de Consultas</h2><br>
         <form action="/auxi/agendar_consulta.php" method="post">
             <div class="input-group">
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="exemplo@exemplo.com" required>
+
                 <label for="cpf">CPF:</label>
                 <input type="text" id="cpf" name="cpf" required>
                 <script src="assets/js/mascaras.js"></script>
+
             </div>
 
             <label for="especializacao">Especialização:</label>
             <select id="especializacao" name="especializacao" required>
                 <?php
+                require_once './auxi/config.php';
+
+                $conn = new mysqli($serve, $banco, $nome, $senha);
+
                 $serve = "62.72.62.1";
                 $banco = "u687609827_edilson";
                 $nome = "u687609827_edilson";

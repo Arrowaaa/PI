@@ -63,11 +63,9 @@
                 <label for="horariofim">Horário de Fim:</label>
                 <input type="time" id="horariofim" name="horariofim" required>
             </div>
-            <!-- Botão -->
             <button type="submit" class="button">Salvar Horário</button>
         </form>
     </div>
-    <!--conecção-->
     <script src="assets/js/mascaras.js"></script>
 </body>
 

@@ -12,6 +12,8 @@
 
 <body>
     <div class="imagens">
+        <img src="assets/img/cachorros/meddog3.png" alt="cachorro medico" id="esquerda">
+        <img src="assets/img/cachorros/meddog2.png" alt="cachorro medico 2" id="direita">
         <img src="assets/img/cachorros/meddog (3).png" alt="cachorro medico" id="esquerda">
         <img src="assets/img/cachorros/meddog (2).png" alt="cachorro medico 2" id="direita">
     </div>
@@ -30,6 +32,9 @@
             <label for="especializacao">Especialização:</label>
             <select id="especializacao" name="especializacao" required>
                 <?php
+                require_once './auxi/config.php';
+
+                $conn = new mysqli($serve, $banco, $nome, $senha);
                 $servidor = "62.72.62.1";
                 $nome = "u687609827_edilson";
                 $senha = ">2Ana=]b";

@@ -157,10 +157,10 @@ footer {
     background-color: #FF9239;
     background-size: auto 100%;
     background-position: 0% center;
-    background-repeat: repeat;
     padding: 0 0 55px 0;
     animation: moveBackgroundRight 50s linear infinite;
     font-size: 19px;
+
 }
 
 
@@ -196,7 +196,7 @@ footer .rodape {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
     width: 100%;
     max-width: 150vh;
-    margin: auto;
+    margin: 50px auto;
     text-align: center;
     color: white;
 }
@@ -254,7 +254,7 @@ input[type = 'submit']{
 .button {
     display: inline-block;
     padding: 10px 20px;
-    margin-right: 10px;
+    margin-left: 70px;
     background-color: #007bff;
     color: #fff;
     text-decoration: none;
@@ -361,9 +361,16 @@ footer a:hover{
     text-decoration: underline;
     color: #FF9239;
 }
+
+#estilo {
+    text-decoration: underline;
+    padding: 10px;
+}
+
 #estilo:hover {
     text-decoration: underline;
     color: #FF9239;
+
 }
 
 

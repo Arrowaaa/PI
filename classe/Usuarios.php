@@ -1,111 +1,208 @@
 <?php
 class Usuarios
 {
-    public function CadastroUsuario($user, $password, $passwordConfirm)
+    private $host = '62.72.62.1';
+    private $dbname = 'u687609827_edilson';
+    private $username = 'u687609827_edilson';
+    private $passwordbd = '>2Ana=]b';
+    private $UsuarioSenha;
+
+    public function __construct()
     {
-        $host = '62.72.62.1';
-        $dbname = 'u687609827_edilson';
-        $username = 'u687609827_edilson';
-        $passwordbd = '>2Ana=]b';
+        $this->UsuarioSenha = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->username, $this->passwordbd);
+        $this->UsuarioSenha->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
 
+    // Função para cadastrar um novo usuário
+    public function CadastroUsuario($email, $password, $passwordConfirm)
+    {
         try {
-            if (empty($user)) {
-                return "<br>Usuário não informado";
+            if (empty($email)) {
+                return "Usuário não informado";
             }
-
             if (empty($password)) {
-                return "<br>Senha não informada";
+                return "Senha não informada";
             }
-
             if ($password != $passwordConfirm) {
-                return "<br>Senhas não são iguais";
+                return "Senhas não são iguais";
             }
 
-            $UsuarioSenha = new PDO("mysql:host=$host;dbname=$dbname", $username, $passwordbd);
-            $UsuarioSenha->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $select = "SELECT * FROM usuarios WHERE usuario = :usuario";
-            $preparo = $UsuarioSenha->prepare($select);
-            $preparo->bindParam(':usuario', $user);
+            // Verifica se o usuário já existe
+            $select = "SELECT * FROM usuarios WHERE email = :email";
+            $preparo = $this->UsuarioSenha->prepare($select);
+            $preparo->bindParam(':email', $email);
             $preparo->execute();
             $resultado = $preparo->fetch(PDO::FETCH_ASSOC);
 
             if ($resultado) {
-                return "<br>Usuário já existe";
-                
+                return "Usuário já existe";
             }
+
+            // Hash da senha para criptografar
             
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
-            
-            $insert = "INSERT INTO usuarios (usuario, senha) VALUES (:usuario, :senha)";
-            $preparo = $UsuarioSenha->prepare($insert);
-            $preparo->bindParam(':usuario', $user);
+            // Inserção do novo usuário
+            $insert = "INSERT INTO usuarios (email, senha) VALUES (:email, :senha)";
+            $preparo = $this->UsuarioSenha->prepare($insert);
+            $preparo->bindParam(':email', $email);
             $preparo->bindParam(':senha', $passwordHash);
             $preparo->execute();
 
             return "Usuário cadastrado com sucesso";
-
         } catch (PDOException $erro) {
             return "Erro ao tentar cadastrar: " . $erro->getMessage();
         }
     }
-
-    public function listar1Usuarios($id_usuario)
+    public function Usuarios($id_cliente)
     {
-        $host = '62.72.62.1';
-        $dbname = 'u687609827_edilson';
-        $username = 'u687609827_edilson';
-        $password = '>2Ana=]b';
+        try {
+            $script = "SELECT * FROM clientes WHERE id_cliente = :id_cliente";
+            $preparo = $this->UsuarioSenha->prepare($script);
+            $preparo->bindParam(':id_cliente', $id_cliente);
+            $preparo->execute();
+            return $preparo->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $erro) {
+            return "Erro ao listar usuário: " . $erro->getMessage();
+        }
+    }
+    // Função para listar usuários
+    public function listarUsuarios($id_cliente = null)
+    {
+        try {
+            $script = "SELECT * FROM usuarios";
+            if ($id_cliente !== null) {
+                $script .= " WHERE id_usuario = :id_usuario";
+            }
+            $preparo = $this->UsuarioSenha->prepare($script);
+            if ($id_cliente !== null) {
+                $preparo->bindParam(':id_usuario', $id_cliente);
+            }
+            $preparo->execute();
 
-        $UsuarioSenha = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        $script = "SELECT * FROM usuario WHERE id = " . $id_usuario;
-
-        $lista = $UsuarioSenha->query($script)->fetch();
-
-        return $lista;
+            return $preparo->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $erro) {
+            return "Erro ao listar usuários: " . $erro->getMessage();
+        }
     }
 
-    public function AtualizarUsuario($id_alterar, $user, $password, $passwordConfirm)
+    // Função para listar clientes
+    public function listarClientes($id_cliente = null)
+    {
+        try {
+            $script = "SELECT * FROM clientes";
+            if ($id_cliente !== null) {
+                $script .= " WHERE id_cliente = :id_cliente";
+            }
+            $preparo = $this->UsuarioSenha->prepare($script);
+            if ($id_cliente !== null) {
+                $preparo->bindParam(':id_cliente', $id_cliente);
+            }
+            $preparo->execute();
+
+            return $preparo->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $erro) {
+            return "Erro ao listar clientes: " . $erro->getMessage();
+        }
+    }
+    // Função para listar um pet pelo ID do cliente
+    public function listarPet($id_cliente)
     {
         try {
 
-            $host = '62.72.62.1';
-            $dbname = 'u687609827_edilson';
-            $username = 'u687609827_edilson';
-            $passwordbd = '>2Ana=]b';
+            // Tenta atualizar o cliente
+            $script = "UPDATE clientes SET email = :email, senha = :senha WHERE id_cliente = :id_cliente";
+            $preparo = $this->UsuarioSenha->prepare($script);
+            $preparo->bindParam(':email', $email);
+            $preparo->bindParam(':senha', $passwordHash);
+            $preparo->bindParam(':id_cliente', $id_cliente);
+            $preparo->execute();
 
-            if (empty($user)) {
-                return "<br>Usuário não informado";
+            if ($preparo->rowCount() === 0) {
+                // Se não encontrar, tenta atualizar o usuário
+                $script = "UPDATE usuarios SET email = :email, senha = :senha WHERE id_usuario = :id_usuario";
+                $preparo = $this->UsuarioSenha->prepare($script);
+                $preparo->bindParam(':email', $email);
+                $preparo->bindParam(':senha', $passwordHash);
+                $preparo->bindParam(':id_usuario', $id);
+                $preparo->execute();
             }
 
-            if (empty($password)) {
-                return "<br>Senha não informada";
-            }
-
-            if ($password != $passwordConfirm) {
-                return "<br>Senhas não são iguais";
-            }
-
-            $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $passwordbd);
-
-
-            $script = "UPDATE usuarios SET usuario = :usuario, senha = :senha WHERE id = :id_usuario";
-            $preparo = $conn->prepare($script);
-
-
-            $valores = [
-                ':usuario' => $user,
-                ':senha' => $password,
-                ':id' => $id_alterar
-            ];
-
-
-            $preparo->execute($valores);
-
-            return "Informações alteradas com sucesso" . $id_alterar;
+            return "Informações alteradas com sucesso";
         } catch (PDOException $erro) {
             return "Informações não alteradas <br>" . $erro->getMessage();
+        }
+    }
+
+    // Função para atualizar um usuário ou cliente
+    public function atualizarUsuario($id, $email, $password, $passwordConfirm)
+    {
+        try {
+            if (empty($email)) {
+                return "Usuário não informado";
+            }
+            if (empty($password)) {
+                return "Senha não informada";
+            }
+            if ($password != $passwordConfirm) {
+                return "Senhas não são iguais";
+            }
+
+            $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+
+            // Atualiza cliente se existir
+            $script = "UPDATE clientes SET email = :email, senha = :senha WHERE id_cliente = :id_cliente";
+            $preparo = $this->UsuarioSenha->prepare($script);
+            $preparo->bindParam(':email', $email);
+            $preparo->bindParam(':senha', $passwordHash);
+            $preparo->bindParam(':id_cliente', $id);
+            $preparo->execute();
+
+            if ($preparo->rowCount() === 0) {
+                // Se não encontrar, atualiza usuário
+                $script = "UPDATE usuarios SET email = :email, senha = :senha WHERE id_usuario = :id_usuario";
+                $preparo = $this->UsuarioSenha->prepare($script);
+                $preparo->bindParam(':email', $email);
+                $preparo->bindParam(':senha', $passwordHash);
+                $preparo->bindParam(':id_usuario', $id);
+                $preparo->execute();
+            }
+
+            return "Informações alteradas com sucesso";
+        } catch (PDOException $erro) {
+            return "Informações não alteradas: " . $erro->getMessage();
+        }
+    }
+
+    // Função para deletar um usuário
+    public function deletarUsuario($id_usuario)
+    {
+        try {
+            $script = "DELETE FROM usuarios WHERE id_usuario = :id_usuario";
+            $preparo = $this->UsuarioSenha->prepare($script);
+            $preparo->execute([
+                ":id_usuario" => $id_usuario
+            ]);
+
+            return $preparo->rowCount();
+        } catch (PDOException $erro) {
+            return "Erro ao deletar usuário: " . $erro->getMessage();
+        }
+    }
+
+    // Função para deletar um cliente
+    public function deletarCliente($id_cliente)
+    {
+        try {
+            $script = "DELETE FROM clientes WHERE id_cliente = :id_cliente";
+            $preparo = $this->UsuarioSenha->prepare($script);
+            $preparo->execute([
+                ":id_cliente" => $id_cliente
+            ]);
+
+            return $preparo->rowCount();
+        } catch (PDOException $erro) {
+            return "Erro ao deletar cliente: " . $erro->getMessage();
         }
     }
 }

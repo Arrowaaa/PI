@@ -30,6 +30,17 @@
                 <div class="mb-3">
                     <label for="date">Data de Nascimento:  </label>
                     <input type="date" class="inputUser">
+                </div><br>
+
+                <div class="mb-3">
+                    <label for="sexo">Sexo do Tutor:  </label>
+                    <input type="checkbox">  Masculino  </input>
+                    <input type="checkbox">  Feminino  </input>
+                    <input type="checkbox">  Outros  </input>
+
+                <div class="mb-3">
+                    <label for="date">Data de Nascimento:  </label>
+                    <input type="date" class="inputUser">
                 </div>
 
                 <div class="mb-3">
@@ -66,6 +77,16 @@
 
                 <div class="mb-3">
                     <label for="sexopet">Sexo do Pet:  </label>
+                    <input type="checkbox">  Macho  </input>
+                    <input type="checkbox">  Femea  </input>
+                    <input type="checkbox">  Outros  </input>
+                </div><br>
+                
+                <div class="mb-3">
+                    <label for="preferencia_data_hora" class="form-label">Preferência de Periodo:  </label>
+                    <input type="checkbox">  Manhã  </input>
+                    <input type="checkbox">  Tarde  </input>
+                    <input type="checkbox">  Noite  </input>
                     <input type="radio">  Macho  </input>
                     <input type="radio">  Femea  </input>
                     <input type="radio">  Outros  </input>
@@ -80,6 +101,13 @@
 
                 <div class="mb-3">
                     <label for="sintomas" class="form-label">Sintomas ou Razão do Exame:  </label>
+                    <textarea class="inputUser" id="sintomas" name="sintomas" cols="30" rows="2"></textarea>
+                </div><br>
+
+                <div class="mb-3">
+                    <label for="historico_medico" class="form-label">Histórico Médico:  </label>
+                    <input type="file" id="comprovante">  
+                    
                     <textarea class="inputUser" id="sintomas" name="sintomas" cols="30" rows="3"></textarea>
                 </div>
 
@@ -90,6 +118,11 @@
 
                 <div class="mb-3">
                     <label for="mensagem" class="form-label">Deixe sua mensagem:  </label>
+                    <textarea class="inputUser" id="mensagem" name="mensagem" cols="30" rows="2"></textarea>
+                </div>
+                <br>
+
+                <button type="button" class="button" id="generate-pdf" onclick="converterImagem()">Baixar Formulário</button>
                     <textarea class="inputUser" id="mensagem" name="mensagem" cols="30" rows="3"></textarea>
                 </div>
                 <br>
