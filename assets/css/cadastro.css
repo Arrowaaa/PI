@@ -81,14 +81,50 @@ h2 {
 }
 
 select {
-    width: 50%;
+    width: 45%;
     max-width: 400px;
     height: 40px;
     padding: 8px;
     border-radius: 10px !important;
-    box-sizing: border-box;
-    
+    box-sizing: border-box; 
 }
+
+#nomep {
+    width: 40%;
+    max-width: 400px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 10px !important;
+    box-sizing: border-box;
+}
+
+#data_nascimento {
+    width: 40%;
+    max-width: 400px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 10px !important;
+    box-sizing: border-box;
+}
+
+#raca {
+    width: 45%;
+    max-width: 400px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 10px !important;
+    box-sizing: border-box;
+}
+#peso {
+    width: 30%;
+    max-width: 400px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 10px !important;
+    box-sizing: border-box; 
+}
+
+
 
 .input-group button {
     position: absolute;
@@ -104,14 +140,14 @@ select {
 #botaoVoltar {
     position: absolute;
     top: 12%;
-    left: 38%;
+    right: 38%; 
     border-radius: 60px;
     text-decoration: none;
     color: #FF9239;
 
 }
 
-#botaoVoltar:hover .bi-arrow-left-circle-fill {
+#botaoVoltar:hover .bi-x-circle-fill {
     background: #FF9239;
     color: whitesmoke;
     border-radius: 80px;

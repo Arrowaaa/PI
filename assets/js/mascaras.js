@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         e.target.value = telefone;
     });
 });
+
 document.addEventListener("DOMContentLoaded", function() {
     var contatoInput = document.getElementById('contato');
     

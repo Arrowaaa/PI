@@ -14,7 +14,7 @@ class Usuarios
     }
 
     // Função para cadastrar um novo usuário
-    public function CadastroUsuario($email, $password, $passwordConfirm)
+    public function CadastroUsuario($email, $password, $passwordConfirm,$nivel)
     {
         try {
             if (empty($email)) {
@@ -25,6 +25,9 @@ class Usuarios
             }
             if ($password != $passwordConfirm) {
                 return "Senhas não são iguais";
+            }
+            if (empty($nivel)) {
+                return "Nivel não informado";
             }
 
             // Verifica se o usuário já existe
@@ -39,14 +42,14 @@ class Usuarios
             }
 
             // Hash da senha para criptografar
-            
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
             // Inserção do novo usuário
-            $insert = "INSERT INTO usuarios (email, senha) VALUES (:email, :senha)";
+            $insert = "INSERT INTO usuarios (email, senha, nivel) VALUES (:email, :senha, :nivel)";
             $preparo = $this->UsuarioSenha->prepare($insert);
             $preparo->bindParam(':email', $email);
             $preparo->bindParam(':senha', $passwordHash);
+            $preparo->bindParam(':nivel', $nivel);
             $preparo->execute();
 
             return "Usuário cadastrado com sucesso";
@@ -86,26 +89,33 @@ class Usuarios
         }
     }
 
-    // Função para listar clientes
-    public function listarClientes($id_cliente = null)
-    {
+    // Função para editar usuario
+    public function EditarUsuarios($id_para_alterar, $email, $nivel) {
         try {
-            $script = "SELECT * FROM clientes";
-            if ($id_cliente !== null) {
-                $script .= " WHERE id_cliente = :id_cliente";
-            }
+            $script = "UPDATE usuarios SET email = :email, nivel = :nivel WHERE id_usuario = :id_para_alterar";
             $preparo = $this->UsuarioSenha->prepare($script);
-            if ($id_cliente !== null) {
-                $preparo->bindParam(':id_cliente', $id_cliente);
-            }
-            $preparo->execute();
-
-            return $preparo->fetchAll(PDO::FETCH_ASSOC);
+            $preparo->bindParam(':email', $email);
+            $preparo->bindParam(':nivel', $nivel);
+            $preparo->bindParam(':id_para_alterar', $id_para_alterar);
+            return $preparo->execute();
         } catch (PDOException $erro) {
-            return "Erro ao listar clientes: " . $erro->getMessage();
+            return "Erro ao atualizar usuário: " . $erro->getMessage();
         }
     }
-   
+    // Função para obter informação do usuario pelo id
+    public function obterUsuarioPorId($id_usuario) {
+        try {
+            $script = "SELECT * FROM usuarios WHERE id_usuario = :id_usuario";
+            $preparo = $this->UsuarioSenha->prepare($script);
+            $preparo->bindParam(':id_usuario', $id_usuario);
+            $preparo->execute();
+            return $preparo->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $erro) {
+            return "Erro ao obter dados do usuário: " . $erro->getMessage();
+        }
+    }
+    
+    
      // Função para listar pets associados a um cliente
      public function listarPet($id_cliente)
      {
@@ -119,6 +129,7 @@ class Usuarios
              return "Erro ao listar pets: " . $erro->getMessage();
          }
      }
+    
  
 
     // Função para atualizar um usuário ou cliente

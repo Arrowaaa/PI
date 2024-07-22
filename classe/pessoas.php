@@ -7,7 +7,7 @@ class pessoas
         return $peso . ' kg';
     }
     
-    // Função para formatar o sexo
+    // Função para formatar o sexo do pet
     public static function formatarSexop($sexo) {
         switch ($sexo) {
             case 'M':

@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $usuarios = new Usuarios();
 
-        $resultado = $usuarios->CadastroUsuario('email@example.com', 'senha', 'senha');
+        $resultado = $usuarios->CadastroUsuario('email@example.com', 'senha', 'senha','nivel');
 
         echo $resultado;
         if ($resultado === "Usuário cadastrado com sucesso") {
