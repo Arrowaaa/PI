@@ -31,10 +31,10 @@
                 <div class="col-lg-4 col-md-2 col-sm-12">
                     <figure>
                         <img src="assets/img/cirurgia.png" alt="Imagem de uma sala de cirurgia" class="foto-produto">
-
                     </figure>
                 </div>
-
+            </div>
+            <div class="row">
 
                 <div class="col-lg-4 col-md-2 col-sm-12">
 
@@ -71,7 +71,8 @@
 
                     </figure>
                 </div>
-
+            </div>
+            <div class="row">
                 <div class="col-lg-4 col-md-2 col-sm-12">
 
                     <figure>

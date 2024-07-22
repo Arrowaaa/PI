@@ -31,10 +31,8 @@
             <main class="body">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                        <!-- criando o Card -->
                         <figure>
                             <img src="assets/img/entrada.png" alt="Imagem da entrada" class="foto-produto">
-                            <!-- Conteudo dentro do 'Card'-->
                             <figcaption>
                                 <h4> Entrada</h4>
                             </figcaption>
@@ -51,8 +49,9 @@
 
                         </figure>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12">
-
                         <figure>
                             <img src="assets/img/sala.png" alt="Imagem da sala do veterinário" class="foto-produto">
 
@@ -93,6 +92,8 @@
                             </figcaption>
                         </figure>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12">
 
                         <figure>
@@ -104,7 +105,7 @@
                             </figcaption>
                         </figure>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="col-lg-3 col-md-6 col-sm-12 " id="lazer">
 
                         <figure>
                             <img src="assets/img/lazer.png" alt="Imagem da sala de lazer" class="foto-produto">
@@ -117,6 +118,7 @@
                 </div>
             </main>
         </section>
+    </div>
 </main>
 
 

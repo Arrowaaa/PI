@@ -5,7 +5,7 @@
 <main>
     <section id="box">
         <div id="content">
-            <form id="form">
+            <form  action="salvar.php" id="form" enctype="multipart/form-data">
                 <h2>Preencha Seus Dados Da Internação</h2>
                 <br>
 
@@ -80,7 +80,7 @@
 
                 <div class="mb-3">
                     <label for="historico_medico" class="form-label">Histórico Médico:  </label>
-                    <input type="file" id="comprovante">
+                    <input type="file" id="comprovante" accept="image/*">
                     <div id="apresentar-imagem"></div>
                 </div>
 

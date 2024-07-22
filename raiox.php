@@ -4,7 +4,7 @@
 <main>
     <section id="box">
         <div id="content">
-            <form id="form">
+            <form action="salvar.php" id="form" enctype="multipart/form-data">
                 <h2>Preencha Seus Dados Do Raio-X</h2>
                 <br>
 
