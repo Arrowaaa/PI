@@ -18,6 +18,8 @@
     text-align: start;
     font-family: "Croissant One", "serif";
     padding: 50px;
+    width: 100%;
+    height: 100%;
 
 }
 
@@ -31,6 +33,7 @@
     font-family: "Croissant One", "serif";
     width: 100%;
     height: 100%;
+    
 }
 
 .form-label {
@@ -61,6 +64,7 @@ header nav {
 
 #fotos {
     margin-top: 20px;
+    padding: 20px;
 
 }
 
@@ -68,15 +72,15 @@ header nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 22px;
 }
 
 .col-lg-3,
 .col-md-6,
 .col-sm-12 {
     flex: 0 0 23%;
-    max-width: 23%;
+    max-width: 50%;
     margin-bottom: 20px;
+    padding: 10px;
     transition: transform 0.3s ease;
     position: relative;
 }
@@ -88,8 +92,8 @@ figure {
 
 .foto-produto {
     display: flex;
-    width: 30vh;
-    height: 34vh;
+    height: 52vh;
+    width: 42vh;
     border-radius: 20px;
     object-fit: cover;
     transition: transform 0.3s ease, z-index 0.3s ease;

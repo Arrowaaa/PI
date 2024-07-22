@@ -190,11 +190,11 @@ footer .rodape {
 
 .container {
     background-color: rgba(3, 3, 3, 0.7);
-    padding: 60px ;
+    padding: 60px 60px;
     border-radius: 30px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
     width: 100%;
-    max-width: 150vh;
+    max-width: 250vh;
     margin: 50px auto;
     text-align: center;
     color: white;
