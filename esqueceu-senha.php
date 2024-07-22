@@ -1,10 +1,6 @@
 <?php
 
 require_once './auxi/config.php';
-$host = '62.72.62.1';
-$dbname = 'u687609827_edilson';
-$username = 'u687609827_edilson';
-$password = '>2Ana=]b';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -66,8 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
     <div class="container">
         <a href="login.php" id="botaoVoltar">
-            <i class="bi bi-arrow-left-circle-fill"></i> 
-            <i class="bi bi-arrow-left-circle-fill"></i>
+            <i class="bi bi-x-circle-fill"></i> 
         </a>
         <div class="login-box">
             <h1>Redefinir Senha</h1>

@@ -1,3 +1,7 @@
+<?php
+$id_cliente = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,12 +19,10 @@
     <div class="imagens">
         <img src="assets/img/cachorros/meddog3.png" alt="cachorro medico" id="esquerda">
         <img src="assets/img/cachorros/meddog2.png" alt="cachorro medico 2" id="direita">
-        <img src="assets/img/cachorros/meddog (3).png" alt="cachorro medico" id="esquerda">
-        <img src="assets/img/cachorros/meddog (2).png" alt="cachorro medico 2" id="direita">
     </div>
     <div class="container">
-        <a href="perfil.php" id="botaoVoltar">
-            <i class="bi bi-arrow-left-circle-fill"></i>
+        <a href="<?= $id_cliente ? 'perfil.php?id_cliente=' . $id_cliente : 'javascript:history.back()'; ?>" id="botaoVoltar">
+            <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
         </a><br>
         <h1>Cadastro de Médicos</h1>
         <form action="/auxi/auxcadastromedico.php" method="post">
@@ -36,12 +38,6 @@
                 require_once './auxi/config.php';
 
                 $conn = new mysqli($serve, $banco, $nome, $senha);
-                $servidor = "62.72.62.1";
-                $nome = "u687609827_edilson";
-                $senha = ">2Ana=]b";
-                $banco = "u687609827_edilson";
-
-                $conn = new mysqli($servidor, $nome, $senha, $banco);
 
 
                 if ($conn->connect_error) {

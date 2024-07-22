@@ -8,6 +8,7 @@ session_start();
 $clientes = null;
 $pet = null;
 $nivel = 'base';
+$agendamentos = [];
 
 if (isset($_GET['id_cliente'])) {
     $id_cliente = $_GET['id_cliente'];
@@ -38,6 +39,17 @@ if (isset($_GET['id_cliente'])) {
         $preparo->execute([$id_cliente]);
         $pet = $preparo->fetch(PDO::FETCH_ASSOC);
 
+        // Consulta para obter os agendamentos do cliente, incluindo especialização e médico
+        $preparo = $conn->prepare("
+            SELECT agendamentos.*, especializacao.especializacao AS especializacao_nome, medicos.nome AS medico_nome, medicos.crm 
+            FROM agendamentos 
+            JOIN medicos ON agendamentos.id_medico = medicos.id_medico 
+            JOIN especializacao ON medicos.especializacao = especializacao.id_especializacao 
+            WHERE agendamentos.id_cliente = ?
+        ");
+        $preparo->execute([$id_cliente]);
+        $agendamentos = $preparo->fetchAll(PDO::FETCH_ASSOC);
+
     } catch (PDOException $e) {
         echo 'Erro: ' . $e->getMessage();
     }
@@ -53,9 +65,9 @@ $pessoas = new pessoas();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
-    <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/perfil.css">
 </head>
 
@@ -71,16 +83,17 @@ $pessoas = new pessoas();
 
             <div id="cadastroInfo" class="content" style="text-align: left;">
                 <h3>Informações:</h3><br>
-                <p>CPF: <?= htmlspecialchars(ucwords(strtolower($clientes['cpf']))) ?></p>
-                <p>Email: <?= htmlspecialchars(ucwords(strtolower($clientes['email']))) ?></p>
-                <p>Telefone: <?= htmlspecialchars(ucwords(strtolower($clientes['telefone']))) ?></p>
-                <p>Contato: <?= htmlspecialchars(ucwords(strtolower($clientes['contato']))) ?></p>
+                <p>Nome: <?= htmlspecialchars(ucwords(strtolower($clientes['nome']))) ?></p>
+                <p>Email: <?= htmlspecialchars($clientes['email']) ?></p>
+                <p>CPF: <?= htmlspecialchars($clientes['cpf']) ?></p>
+                <p>Telefone: <?= htmlspecialchars($clientes['telefone']) ?></p>
+                <p>Contato: <?= htmlspecialchars($clientes['contato']) ?></p>
                 <p>Sexo: <?= htmlspecialchars(pessoas::formatarSexo(ucwords(strtolower($clientes['sexo'])))) ?></p>
                 <p>Cidade: <?= htmlspecialchars(ucwords(strtolower($clientes['cidade']))) ?>, <?= htmlspecialchars(strtoupper($clientes['estado'])) ?> , Complemento: <?= htmlspecialchars(ucwords(strtolower($clientes['complemento']))) ?>, Nº: <?= htmlspecialchars($clientes['numero_residencia']) ?></p>
             </div>
         <?php else : ?>
             <h2 style="text-align: center;">Cliente não encontrado</h2>
-        <?php endif; ?>
+        <?php endif; ?><br>
 
         <h2 style="text-align: center;">Dados do Pet</h2><br>
         <div id="petInfo" class="content" style="text-align: left;">
@@ -98,6 +111,21 @@ $pessoas = new pessoas();
             <?php endif; ?>
         </div>
 
+        <h2 style="text-align: center;">Agendamentos</h2><br>
+        <div id="agendamentosInfo" class="content" style="text-align: left;">
+            <h3>Informações dos Agendamentos:</h3><br>
+            <?php if (!empty($agendamentos)) : ?>
+                <?php foreach ($agendamentos as $agendamento) : ?>
+                    <p>Data do Agendamento: <?= htmlspecialchars($agendamento['data_agendamento']) ?></p>
+                    <p>Hora do Agendamento: <?= htmlspecialchars($agendamento['hora_agendamento']) ?></p>
+                    <p>Especialização: <?= htmlspecialchars($agendamento['especializacao_nome']) ?></p>
+                    <p>Médico: <?= htmlspecialchars($agendamento['medico_nome']) ?> (CRM: <?= htmlspecialchars($agendamento['crm']) ?>)</p>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <p>Não há agendamentos disponíveis.</p>
+            <?php endif; ?>
+        </div>
+
         <div id="opcoes-container">
             <button id="baixo" onclick="toggleDropdown()">Opções ▼</button>
             <div id="oculto" class="bnt_oculto">
@@ -106,8 +134,9 @@ $pessoas = new pessoas();
                     <p><a href="cadastrarServicos.php">Tela de Serviços</a></p>
                     <p><a href="criar_usuarioAdm.php">Cadastrar ADM</a></p>
                     <p><a href="listarUser.php">Listar Usuários</a></p>
+                    <p><a href="cadastro_medico.php">Sou Médico</a></p>
+                    <p><a href="horarios.php">Horários dos Médicos</a></p>
                 <?php endif; ?>
-                <p><a href="cadastro_medico.php">Sou Médico</a></p>
                 <p><a href="agendamento.php">Agendar Consulta</a></p>
                 <p><a href="index.php">Sair</a></p>
             </div>

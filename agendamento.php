@@ -1,3 +1,7 @@
+<?php
+$id_cliente = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,61 +21,28 @@
         <img src="assets/img/cachorros/cachorro.png" alt="Imagem 2" class="imagem-direita">
     </div>
     <div class="container">
-        <a href="perfil.php" id="botaoVoltar">
-            <i class="bi bi-arrow-left-circle-fill"></i>
+    <a href="<?= $id_cliente ? 'perfil.php?id_cliente=' . $id_cliente : 'javascript:history.back()'; ?>" id="botaoVoltar">
+            <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
         </a><br>
         <h2>Agendamento de Consultas</h2><br>
-        <form action="/auxi/agendar_consulta.php" method="post">
+        <form action="agendar_consulta.php" method="post">
             <div class="input-group">
-
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" placeholder="exemplo@exemplo.com" required>
-
-                <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" required>
-                <script src="assets/js/mascaras.js"></script>
-
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="exemplo@exemplo.com" required>
             </div>
 
             <label for="especializacao">Especialização:</label>
             <select id="especializacao" name="especializacao" required>
-                <?php
-                require_once './auxi/config.php';
-
-                $conn = new mysqli($serve, $banco, $nome, $senha);
-
-                $serve = "62.72.62.1";
-                $banco = "u687609827_edilson";
-                $nome = "u687609827_edilson";
-                $senha = ">2Ana=]b";
-
-                $conn = new mysqli($serve, $nome, $senha, $banco);
-
-                if ($conn->connect_error) {
-                    die("Falha na conexão: " . $conn->connect_error);
-                }
-                $selec = "SELECT id, nome FROM especializacao";
-                $result = $conn->query($selec);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<option value='" . $row['id'] . "'>" . $row['id'] . " - " . $row['nome'] . "</option>";
-                    }
-                } else {
-                    echo "<option value=''>Nenhuma especialização encontrada</option>";
-                }
-
-
-                $conn->close();
-                ?>
+                <!-- As opções devem ser preenchidas pelo PHP ou JavaScript -->
             </select><br>
-                
+
             <div class="input-group" id="selectMedicoGroup" style="display: none;">
                 <label for="selectMedico">Escolha o Médico:</label>
                 <select id="selectMedico" name="selectMedico" required>
+                    <option value="">Selecione o Médico</option>
                 </select>
             </div>
-                <br>
+            <br>
             <div id="agendamentoForm">
                 <div class="dados">
                     <label for="DataAgendamento">Data do Agendamento:</label>
@@ -89,7 +60,6 @@
                 </div>
 
             </div>
-
         </form>
     </div>
     <script src="assets/js/agendamento.js"></script>
