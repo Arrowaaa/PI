@@ -84,7 +84,7 @@
                 </div>
                 <i class="forgot-password" onclick="location.href='esqueceu-senha.php'">Esqueceu a senha?</i>
                 <br>
-                <i id="Criaruser" onclick="location.href='cadastro.php'">Criar usuario</i>
+                <i id="Criaruser" onclick="location.href='criar_usuario.php'">Criar usuario</i>
                 <br><br>
                 <div class="button-group">
                     <center>

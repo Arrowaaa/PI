@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td><?= htmlspecialchars($value['senha']) ?></td>
                                 <td><?= htmlspecialchars($value['nivel']) ?></td>
                                 <td class="d-flex justify-content-center gap-2">
-                                    <a href="criar_usuarioAdm.php?id_usuario=<?= htmlspecialchars($value['id_usuario']) ?>" class="btn btn-warning">Editar</a>
+                                    <a href="criar_usuario.php?id_usuario=<?= htmlspecialchars($value['id_usuario']) ?>" class="btn btn-warning">Editar</a>
                                     <form action="listarUser.php" method="POST" style="display:inline;">
                                         <input type="hidden" name="id_usuario" value="<?= htmlspecialchars($value['id_usuario']) ?>">
                                         <button type="submit" name="delete" class="btn btn-danger">Apagar</button>

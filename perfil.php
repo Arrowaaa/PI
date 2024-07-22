@@ -132,7 +132,7 @@ $pessoas = new pessoas();
                 <p><a href="cadastro.php?id_cliente=<?= $_SESSION['id_cliente'] ?>">Editar Informações</a></p>
                 <?php if (isset($_SESSION['Nivel']) && $_SESSION['Nivel'] !== 'base') : ?>
                     <p><a href="cadastrarServicos.php">Tela de Serviços</a></p>
-                    <p><a href="criar_usuarioAdm.php">Cadastrar ADM</a></p>
+                    <p><a href="criar_usuario.php">Cadastrar ADM</a></p>
                     <p><a href="listarUser.php">Listar Usuários</a></p>
                     <p><a href="cadastro_medico.php">Sou Médico</a></p>
                     <p><a href="horarios.php">Horários dos Médicos</a></p>
