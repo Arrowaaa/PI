@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const selectMedicoElement = document.getElementById("selectMedico");
         selectMedicoElement.innerHTML = "<option value=''>Selecione o Médico</option>";
         
-        fetch(`/auxi/agendar_consulta.php?especializacao=${especializacao}`)
+        fetch(`./auxi/agendar_consulta.php?especializacao=${especializacao}`)
             .then(response => response.json())
             .then(data => {
                 if (data.length > 0) {

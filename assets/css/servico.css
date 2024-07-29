@@ -33,7 +33,7 @@
     font-family: "Croissant One", "serif";
     width: 100%;
     height: 100%;
-    
+
 }
 
 .form-label {
@@ -69,9 +69,45 @@ header nav {
 }
 
 .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
+}
+
+.col-lg-4,
+.col-md-2,
+.col-sm-12 {
+    flex: 0 0 23%;
+    max-width: 50%;
+    margin-bottom: 20px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+    position: relative;
+    margin: 0 auto;
+    /* Adicionando margem automática para centralizar */
+}
+
+.foto-produto {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+
+    .col-lg-4,
+    .col-md-2,
+    .col-sm-12 {
+        flex: 0 0 48%;
+        max-width: 48%;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .col-lg-4,
+    .col-md-2,
+    .col-sm-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
 
 .col-lg-3,
@@ -82,67 +118,52 @@ header nav {
     margin-bottom: 20px;
     padding: 10px;
     transition: transform 0.3s ease;
-    position: relative;
-}
-
-figure {
-    position: relative;
-    margin: 0;
+    margin: 0 auto;
+    /* Centraliza horizontalmente */
 }
 
 .foto-produto {
-    display: flex;
-    height: 52vh;
-    width: 42vh;
+    display: block;
+    height: 270px;
+    width: 32vh;
     border-radius: 20px;
     object-fit: cover;
     transition: transform 0.3s ease, z-index 0.3s ease;
-    position: relative;
-    z-index: 1;
+    margin-bottom: 10px;
+}
+
+.col-lg-3:not(:last-child),
+.col-md-6:not(:last-child),
+.col-sm-12:not(:last-child) {
+    margin-right: 20px;
 }
 
 figure:hover .foto-produto {
     transform: scale(1.1);
     z-index: 10;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    height: 52vh;
-    width: 42vh;
 
 }
 
 figcaption {
     position: absolute;
-    bottom: 10px;
+    bottom: 0;
     left: 0;
     right: 0;
     text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
+    color: #000000;
     padding: 5px;
     border-radius: 0 0 20px 20px;
+    display: flex;
+    align-items: start;
+    height: 100%;
+    z-index: 1;
 }
 
 figcaption h4 {
     margin: 0;
-    font-size: 16px;
-}
+    font-size: 26px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 
-@media (max-width: 768px) {
-
-    .col-lg-3,
-    .col-md-6,
-    .col-sm-12 {
-        flex: 0 0 48%;
-        max-width: 48%;
-    }
-}
-
-@media (max-width: 576px) {
-
-    .col-lg-3,
-    .col-md-6,
-    .col-sm-12 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
 }

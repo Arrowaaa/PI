@@ -102,7 +102,47 @@ body {
     background-color: #000;
     color: #fff;
 }
+
 #oculto a:hover{
     background-color: #000;
     color: #fff;
+}
+
+.foto-usuario {
+    position: absolute; 
+    top: 30%; 
+    right: 35%; 
+    width: 150px; 
+    height: 150px; 
+    border-radius: 80%; 
+    overflow: hidden; 
+    background-color: #020202;
+}
+
+.foto-usuario img {
+    width: 100%; 
+    height: 100%; 
+   
+    object-fit: cover; /* Para manter a proporção da imagem e cortá-la conforme necessário */
+}
+
+#img-usuario{
+    position: absolute; 
+
+}
+
+.dropdown-foto {
+    display: none;
+    position: absolute;
+    top: 15%; 
+    left: 0;
+    z-index: 1;
+    background-color: #020202;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.dropdown-foto.show {
+    display: block;
 }

@@ -1,8 +1,7 @@
 <?php
-require_once './auxi/config.php'; // Inclua o arquivo de configuração
+require_once 'config.php';
 
-// Verifique se os dados do formulário foram enviados
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Recebe os dados do formulário
     $email = $_POST['email'] ?? '';
     $especializacao = $_POST['especializacao'] ?? '';
@@ -47,9 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Nenhum médico disponível para a especialização, data e hora selecionadas.";
         }
     } else {
-        echo "Cliente não encontrado.";
+        echo '<p class="alert alert-danger">Cliente não encontrado.</p>';
+        echo '<script>';
+        echo 'setTimeout(function() { window.location.href = "../agendamento.php"; }, 1600);';
+        echo '</script>';
     }
 } else {
-    echo "Nenhum dado enviado.";
-}
 
+    echo "Erro!.";
+}
