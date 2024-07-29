@@ -1,11 +1,9 @@
 <?php include './includes/header.php'; ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js" integrity="sha512-MpDFIChbcXl2QgipQrt1VcPHMldRILetapBl5MPCA9Y8r7qvlwx1/Mc9hNTzY+kS5kX6PdoDq41ws1HiVNLdZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
 <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
 <main>
     <section id="box">
         <div id="content">
-            <form id="form">
+            <form action="#" id="form" enctype="multipart/form-data">
                 <h2>Preencha Seus Dados Da Internação</h2>
                 <br>
 
@@ -69,7 +67,7 @@
                 <div class="mb-3">
                     <label for="sexopet">Sexo do Pet:  </label>
                     <input type="checkbox">  Macho  </input>
-                    <input type="checkbox">  Femea  </input>
+                    <input type="checkbox">  Fêmea  </input>
                     <input type="checkbox">  Outros  </input>
                 </div>
 
@@ -80,8 +78,8 @@
 
                 <div class="mb-3">
                     <label for="historico_medico" class="form-label">Histórico Médico:  </label>
-                    <input type="file" id="comprovante">
-                    <div id="apresentar-imagem"></div>
+                    <input type="file" id="historico_medico" accept="image/*">
+                    <div id="apresentar-imagem-historico"></div>
                 </div>
 
                 <div class="mb-3">
@@ -118,8 +116,9 @@
 
                 <div class="mb-3">
                     <label for="medicacao_previa" class="form-label">Medicação Prévia:  </label>
-                    <input type="file" id="comprovante">
-                    <div id="apresentar-imagem"></div>
+                    <input type="file" id="medicacao_previa" accept="image/*">
+                    <div id="apresentar-imagem-previa"></div>
+                </div>
 
                 <div class="mb-3">
                     <label for="mensagem" class="form-label">Mensagem:  </label>
@@ -131,39 +130,95 @@
                     <input type="checkbox">  Sim  </input>
                     <input type="checkbox">  Não  </input>
                 </div><br>
-                
+
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="autorizacao_procedimentos" name="autorizacao_procedimentos">
                     <label class="form-check-label" for="autorizacao_procedimentos">Autorizo a realização de procedimentos adicionais, se necessário.</label>
                 </div><br>
-
-                <button type="button" class="button" id="generate-pdf" onclick="converterImagem()">Baixar Formulário</button>
+                <button type="button" class="button no-print" id="generate-pdf">Baixar Formulário</button>
+            
             </form>
         </div>
     </section>
-    <script src="./assets/js/pdf.js" defer></script>
-    <script>
-        document.getElementById('generate-pdf').addEventListener('click', function() {
-            const element = document.getElementById('content');
-            const formData = new FormData(document.getElementById('form'));
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js" integrity="sha512-MpDFIChbcXl2QgipQrt1VcPHMldRILetapBl5MPCA9Y8r7qvlwx1/Mc9hNTzY+kS5kX6PdoDq41ws1HiVNLdZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Função para exibir imagens pré-visualizadas
+            function displayImage(inputId, previewId) {
+                const input = document.querySelector(inputId);
+                const preview = document.querySelector(previewId);
 
-            html2pdf().from(element).set({
-                margin: 1,
-                filename: 'formulario_preenchido.pdf',
-                html2canvas: {
-                    scale: 2
-                },
-                jsPDF: {
-                    unit: 'in',
-                    format: 'letter',
-                    orientation: 'portrait'
-                },
-                pagebreak: {
-                    mode: 'avoid-all'
-                }
-            }).save();
+                input.addEventListener('change', function() {
+                    const file = this.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            const imgElement = document.createElement('img');
+                            imgElement.src = e.target.result;
+                            imgElement.style.maxWidth = '10%';
+                            preview.innerHTML = '';
+                            preview.appendChild(imgElement);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+
+            // Adiciona visualização das imagens ao carregar
+            displayImage('#historico_medico', '#apresentar-imagem-historico');
+            displayImage('#medicacao_previa', '#apresentar-imagem-previa');
+
+            // Função para gerar o PDF
+            document.querySelector('#generate-pdf').addEventListener('click', () => {
+                const content = document.querySelector("#content");
+
+                const options = {
+                    margin: [10, 10, 10, 10],
+                    filename: "formulario.pdf",
+                    html2canvas: { scale: 2, scrollX: 0, scrollY: 0 },
+                    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+                };
+
+                html2pdf().set(options).from(content).toPdf().get('pdf').then(function(pdf) {
+                    // Adiciona imagens ao PDF
+                    const images = [
+                        { id: '#apresentar-imagem-historico', x: 10, y: 140 },
+                        { id: '#apresentar-imagem-previa', x: 10, y: 200 }
+                    ];
+
+                    images.forEach(imgInfo => {
+                        const imgElement = document.querySelector(imgInfo.id + ' img');
+                        if (imgElement) {
+                            const imgData = imgElement.src;
+                            const imgWidth = 190; // Largura máxima da página A4 (210mm menos margens)
+                            const imgHeight = imgElement.naturalHeight * imgWidth / imgElement.naturalWidth;
+
+                            // Ajusta a altura da imagem para que ela não ultrapasse a página
+                            const maxPageHeight = 297 - 20; // Altura da página A4 menos margens
+                            if (imgHeight > maxPageHeight) {
+                                const scale = maxPageHeight / imgHeight;
+                                imgWidth *= scale;
+                                imgHeight = maxPageHeight;
+                            }
+
+                            pdf.addImage(imgData, 'JPEG', imgInfo.x, imgInfo.y, imgWidth, imgHeight);
+                            imgInfo.y += imgHeight + 10; // Adiciona uma margem entre as imagens
+                        }
+                    });
+
+                    pdf.save();
+                }).catch(err => console.error('Erro ao gerar PDF:', err));
+            });
         });
     </script>
-</main> <br>
-
+</main>
+<br>
 <?php include './includes/footer.php'; ?>
+
+<style>
+    @media print {
+        .no-print {
+            display: none;
+        }
+    }
+</style>
