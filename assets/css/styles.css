@@ -29,21 +29,42 @@ body {
 
 
 .container {
+    position: relative;
     background-color: rgba(3, 3, 3, 0.7);
     padding: 50px;
     border-radius: 40px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
-    width: 32%;
+    width: 100%;
     max-width: 26vw;
-    margin: 50px auto;
+    margin: 40px auto;
     text-align: center;
     color: white;
 }
+#email{
+    display: flex;
+    width: 50%;
+    max-width: 400px;
+    height: 40px;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px !important;
+    box-sizing: border-box;
+}
 
-.input-group {
+/* .input-group {
     position: relative;
     margin-bottom: 20px;
     border-radius: 30px;
+} */
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
 }
 
 input[type='submit'] {
@@ -105,13 +126,13 @@ input[type='submit'] {
 
 #botaoVoltar {
     position: absolute;
-    top: 10px;
-    left: 530px;
+    top: 10px; 
+    left: 25px;
     border-radius: 60px;
     text-decoration: none;
     color: #FF9239;
     font-size: 34px;
-    margin-top: 10px;
+    gap: 15px;
 }
 
 #botaoVoltar:hover {
@@ -119,13 +140,15 @@ input[type='submit'] {
 
 }
 
-#botaoVoltar:hover .bi-arrow-left-circle-fill {
-    position: absolute;
+#botaoVoltar:hover .bi-x-circle-fill {
     background: #FF9239;
     color: whitesmoke;
     border-radius: 80px;
-    text-decoration: none;
-    box-shadow: 0 0 5px #FF9239, 0 0 25px #FF9239, 0 0 50px #FF9239, 0 0 100px #FF9239;
+    margin: -10% -20% ;
+    box-shadow: 0 0 5px #FF9239,
+        0 0 25px #FF9239,
+        0 0 50px #FF9239,
+        0 0 100px #FF9239;
 }
 
 #mostrarSenha {

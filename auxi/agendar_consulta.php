@@ -1,54 +1,57 @@
 <?php
-$servername = "62.72.62.1";
-$username = "u687609827_edilson";
-$password = ">2Ana=]b";
-$dbname = "u687609827_edilson";
+require_once 'config.php';
 
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    // Recebe os dados do formulário
+    $email = $_POST['email'] ?? '';
+    $especializacao = $_POST['especializacao'] ?? '';
+    $dataAgendamento = $_POST['DataAgendamento'] ?? '';
+    $horaAgendamento = $_POST['HoraAgendamento'] ?? '';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+    // Prepara e executa a consulta para encontrar o id_cliente
+    $sqlCliente = "SELECT id_cliente FROM clientes WHERE email = :email";
+    $stmtCliente = $UsuarioSenha->prepare($sqlCliente);
+    $stmtCliente->execute(['email' => $email]);
 
+    if ($stmtCliente->rowCount() > 0) {
+        $rowCliente = $stmtCliente->fetch(PDO::FETCH_ASSOC);
+        $id_cliente = $rowCliente['id_cliente'];
 
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+        // Prepara e executa a consulta para encontrar médicos disponíveis
+        $sqlMedicosDisponiveis = "
+            SELECT m.id_medico, m.nome
+            FROM medicos m
+            LEFT JOIN agendamentos a ON m.id_medico = a.id_medico 
+            AND a.data_agendamento = :dataAgendamento 
+            AND a.hora_agendamento = :horaAgendamento
+            WHERE m.especializacao = :especializacao
+            AND a.id_medico IS NULL
+        ";
 
-$email = $_POST['email'];
-$especializacao = $_POST['especializacao'];
-$dataAgendamento = $_POST['DataAgendamento'];
-$horaAgendamento = $_POST['HoraAgendamento'];
+        $stmtMedicos = $UsuarioSenha->prepare($sqlMedicosDisponiveis);
+        $stmtMedicos->execute([
+            'especializacao' => $especializacao,
+            'dataAgendamento' => $dataAgendamento,
+            'horaAgendamento' => $horaAgendamento
+        ]);
 
-
-$slqCliente = "SELECT id_cliente FROM clientes WHERE email = '$email'";
-$resultCliente = $conn->query($slqCliente);
-
-if ($resultCliente->num_rows > 0) {
-    $rowCliente = $resultCliente->fetch_assoc();
-    $id_cliente = $rowCliente['id_cliente'];
-
-    $slqMedicosDisponiveis = "SELECT id_medico, nome_medico FROM medicos 
-                              WHERE especializacao = '$especializacao'
-                              AND id_medico NOT IN (
-                                  SELECT id_medico FROM agendamentos 
-                                  WHERE data_agendamento = '$dataAgendamento' 
-                                  AND hora_agendamento = '$horaAgendamento'
-                              )";
-    
-    $resultMedicos = $conn->query($slqMedicosDisponiveis);
-
-    if ($resultMedicos->num_rows > 0) {
-       
-        echo "<h3>Médicos Disponíveis:</h3>";
-        echo "<ul>";
-        while ($rowMedico = $resultMedicos->fetch_assoc()) {
-            echo "<li>" . $rowMedico['id_medico'] . " - " . $rowMedico['nome_medico'] . "</li>";
+        if ($stmtMedicos->rowCount() > 0) {
+            echo "<h3>Médicos Disponíveis:</h3>";
+            echo "<ul>";
+            while ($rowMedico = $stmtMedicos->fetch(PDO::FETCH_ASSOC)) {
+                echo "<li>" . $rowMedico['id_medico'] . " - " . $rowMedico['nome'] . "</li>";
+            }
+            echo "</ul>";
+        } else {
+            echo "Nenhum médico disponível para a especialização, data e hora selecionadas.";
         }
-        echo "</ul>";
     } else {
-        echo "Nenhum médico disponível para a especialização, data e hora selecionadas.";
+        echo '<p class="alert alert-danger">Cliente não encontrado.</p>';
+        echo '<script>';
+        echo 'setTimeout(function() { window.location.href = "../agendamento.php"; }, 1600);';
+        echo '</script>';
     }
 } else {
-    echo "Cliente não encontrado.";
+
+    echo "Erro!.";
 }
-
-$conn->close();
-

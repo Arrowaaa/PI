@@ -1,11 +1,11 @@
 <?php
-$servername = "62.72.62.1";
-$username = "u687609827_edilson";
-$password = ">2Ana=]b";
-$dbname = "u687609827_edilson";
+$serve = "62.72.62.1";
+$banco = "u687609827_edilson";
+$nome = "u687609827_edilson";
+$senha = ">2Ana=]b";
 
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($serve, $banco, $nome, $senha);
 
 
 if ($conn->connect_error) {

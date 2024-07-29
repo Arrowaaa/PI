@@ -23,7 +23,7 @@
                 </ul>
             </div>
 
-            <div class="col-md-2 text-center">
+            <div class="col-md-3 text-center">
                 <h5>Parceiros</h5>
                 <ul class="list-unstyled mt-3">
                     <li><a href="https://idrink.paulowh.com/adega-idrink/" target="_blank">IDrink</a></li>
@@ -39,9 +39,13 @@
                     <a href="https://www.instagram.com" target="_blank"><i id="estilo" class="bi bi-instagram"></i></a>
                     <a href="https://www.youtube.com" target="_blank"><i id="estilo" class="bi bi-youtube"></i></a>
                     <a href="https://www.twitter.com" target="_blank"><i id="estilo" class="bi bi-twitter"></i></a>
-                    <a href="https://github.com/Arrowaaa"  target="_blank"><i id="estilo" class="bi bi-github"></i></a>
+                    <a href="https://github.com/Arrowaaa" target="_blank"><i id="estilo" class="bi bi-github"></i></a>
                 </ul>
             </div>
+        </div>
+        <br>
+        <div class="footer  text-center">
+            <p>&copy; 2024 Clínica Veterinária. Todos os direitos reservados.</p>
         </div>
 
         <div class="footer-bottom">

@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         e.target.value = telefone;
     });
 });
+
 document.addEventListener("DOMContentLoaded", function() {
     var contatoInput = document.getElementById('contato');
     
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    var nomeTutorInput = document.getElementById('nomeTutor');
+    var nomeTutorInput = document.getElementById('nome');
     
     nomeTutorInput.addEventListener('input', function(e) {
         var nome = e.target.value;
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // });
 
 document.addEventListener("DOMContentLoaded", function() {
-    var nomePetInput = document.getElementById('nomePet');
+    var nomePetInput = document.getElementById('nomep');
     
     nomePetInput.addEventListener('input', function(e) {
         var nome = e.target.value;
