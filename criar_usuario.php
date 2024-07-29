@@ -40,11 +40,11 @@ if (!empty($id_usuario)) {
         <main class="form-signin w-100 m-auto">
             <form action="criar_usuario.php" method="POST">
                 <input type="hidden" name="id_para_alterar" value="<?= isset($dadosUsuario['id_usuario']) ? htmlspecialchars($dadosUsuario['id_usuario']) : '' ?>">
-                <h1><?= isset($id_usuario) ? 'Alterar Dados do Usuário' : 'Crie Seu Usuário' ?></h1><br>
+                <h1><?= isset($id_usuario) ? 'Alterar Dados do Usuário ADM' : 'Crie Seu Usuário ADM' ?></h1><br>
 
                 <div class="input-group">
                     <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" value="<?= isset($dadosUsuario['email']) ? htmlspecialchars($dadosUsuario['email']) : '' ?>" required>
+                    <input type="email" id="email" name="email" value="<?= isset($dadosUsuario['email']) ? htmlspecialchars($dadosUsuario['email']) : '' ?>" readonly required>
                 </div>
                 <div class="input-group">
                     <label for="senha">Senha:</label>
@@ -58,9 +58,9 @@ if (!empty($id_usuario)) {
                     <button type="button" id="mostrarConfirmSenha"></button>
                 </div>
 
-                <div class="input-group nivel <?= isset($id_usuario) ? 'nivel-visivel' : 'nivel-oculto' ?>">
+                <div class="input-group nivel">
                     <label for="nivel">Nível:</label>
-                    <input type="text" id="nivel" name="nivel" value="<?= isset($dadosUsuario['nivel']) ? htmlspecialchars($dadosUsuario['nivel']) : '' ?>" <?= !isset($id_usuario) ? 'disabled' : '' ?> required>
+                    <input type="text" id="nivel" name="nivel" value="<?= isset($dadosUsuario['nivel']) ? htmlspecialchars($dadosUsuario['nivel']) : '' ?>" required>
                 </div><br>
                 <div class="button-group">
                     <center>
@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             // Criar um novo usuário
             if ($password === $passwordConfirm) {
-                $resultado = $usuario->CadastroUsuario($email, $password, $passwordConfirm, $nivel);
+                $resultado = $usuario->CadastroADM($email, $password, $passwordConfirm, $nivel);
 
                 if ($resultado === "ADM cadastrado com sucesso") {
                     header('Location: /login.php');

@@ -1,28 +1,29 @@
 <?php
 
-require_once './auxi/config.php';
+require_once './auxi/config.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $confirmSenha = $_POST['confirmSenha'];
+    $cpf = $_POST['cpf'];
 
     if ($senha === $confirmSenha) {
         try {
-            $UsuarioSenha = new PDO("mysql:host=$serve;dbname=$banco", $nome, $senha);
-            $UsuarioSenha->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            global $UsuarioSenha; // Acessa a variável global
 
-            $select = "SELECT * FROM usuarios WHERE email = :email";
+            $select = "SELECT * FROM clientes WHERE email = :email AND cpf = :cpf";
             $parametro = $UsuarioSenha->prepare($select);
-            $parametro->bindParam(':email', $email, PDO::PARAM_STR);
+            $parametro->bindParam(':email', $email);
+            $parametro->bindParam(':cpf', $cpf);
             $parametro->execute();
 
             if ($parametro->rowCount() > 0) {
                 $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
-                $update = "UPDATE usuarios SET senha = :senha WHERE email = :email";
+                $update = "UPDATE clientes SET senha = :senha WHERE email = :email";
                 $parametro = $UsuarioSenha->prepare($update);
-                $parametro->bindParam(':senha', $senhaHash, PDO::PARAM_STR);
-                $parametro->bindParam(':email', $email, PDO::PARAM_STR);
+                $parametro->bindParam(':senha', $senhaHash);
+                $parametro->bindParam(':email', $email);
 
                 if ($parametro->execute()) {
                     echo "<script>alert('Sua senha foi redefinida'); window.location.href='login.php';</script>";
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "<p>Usuário não encontrado.</p>";
             }
         } catch (PDOException $e) {
-            echo 'Erro: ' . $e->getMessage();
+            echo "<p>Erro: " . $e->getMessage() . "</p>";
         }
     } else {
         echo "<p>As senhas não coincidem.</p>";
@@ -71,15 +72,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="email">E-mail:</label>
                     <input type="email" id="email" name="email" placeholder="exemplo@exemplo.com" required>
                 </div>
+                <div class="input-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    <script src="assets/js/mascaras.js"></script>
+                </div>
                 <div class="input-group password-group">
                     <label for="senha">Nova Senha:</label>
                     <input type="password" id="senha" name="senha" required>
-                    <button type="button" id="mostrarSenha"></button>
                 </div>
                 <div class="input-group password-group">
                     <label for="confirmSenha">Confirme a Senha:</label>
                     <input type="password" id="confirmSenha" name="confirmSenha" required>
-                    <button type="button" id="mostrarConfirmSenha"></button>
                 </div>
                 <div class="button-group">
                     <center>

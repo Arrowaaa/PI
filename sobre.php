@@ -28,95 +28,75 @@
         <br><br>
         <h2 class="titulo">Nossa Estrutura:</h2>
         <section id="fotos">
-            <main class="body">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <figure>
-                            <img src="assets/img/entrada.png" alt="Imagem da entrada" class="foto-produto">
-                            <figcaption>
-                                <h4> Entrada</h4>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-
-                        <figure>
-                            <img src="assets/img/recepcao.png" alt="Imagem da sala de recepção" class="foto-produto">
-
-                            <figcaption>
-                                <h4>Recepção</h4>
-                            </figcaption>
-
-                        </figure>
-                    </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <figure class="text-center">
+                        <img src="assets/img/entrada.png" alt="Imagem da entrada" class="foto-produto">
+                        <figcaption>
+                            <h4>Entrada</h4>
+                        </figcaption>
+                    </figure>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <figure>
-                            <img src="assets/img/sala.png" alt="Imagem da sala do veterinário" class="foto-produto">
-
-                            <figcaption>
-                                <h4>Consultório</h4>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-
-                        <figure>
-                            <img src="assets/img/triagem.png" alt="sala de triagem" class="foto-produto">
-
-                            <figcaption>
-                                <h4>Triagem</h4>
-                            </figcaption>
-                        </figure>
-                    </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <figure class="text-center">
+                        <img src="assets/img/recepcao.png" alt="Imagem da sala de recepção" class="foto-produto">
+                        <figcaption>
+                            <h4>Recepção</h4>
+                        </figcaption>
+                    </figure>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-12">
 
-                        <figure>
-                            <img src="assets/img/lab.png" alt="Imagem da sala do laboratorio" class="foto-produto">
-
-                            <figcaption>
-                                <h4>Laboratório</h4>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-
-                        <figure>
-                            <img src="assets/img/vacinacao.png" alt="Imagem de um veterinário aplicando injeção em um pet" class="foto-produto">
-
-                            <figcaption>
-                                <h4>Aplicação</h4>
-                            </figcaption>
-                        </figure>
-                    </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <figure class="text-center">
+                        <img src="assets/img/triagem.png" alt="Imagem da sala de triagem" class="foto-produto">
+                        <figcaption>
+                            <h4>Triagem</h4>
+                        </figcaption>
+                    </figure>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-12">
 
-                        <figure>
-                            <img src="assets/img/internacao.png" alt="Imagem da sala de internação" class="foto-produto">
-
-                            <figcaption>
-                                <h4>Internação</h4>
-
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 " id="lazer">
-
-                        <figure>
-                            <img src="assets/img/lazer.png" alt="Imagem da sala de lazer" class="foto-produto">
-
-                            <figcaption>
-                                <h4>Lazer</h4>
-                            </figcaption>
-                        </figure>
-                    </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <figure class="text-center">
+                        <img src="assets/img/lazer.png" alt="Imagem da sala de lazer" class="foto-produto">
+                        <figcaption>
+                            <h4>Lazer</h4>
+                        </figcaption>
+                    </figure>
                 </div>
-            </main>
+
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <figure class="text-center">
+                        <img src="assets/img/lab.png" alt="Imagem da sala do laboratório" class="foto-produto">
+                        <figcaption>
+                            <h4>Laboratório</h4>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <figure class="text-center">
+                        <img src="assets/img/vacinacao.png" alt="Imagem de aplicação de vacina" class="foto-produto">
+                        <figcaption>
+                            <h4>Aplicação</h4>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <figure class="text-center">
+                        <img src="assets/img/internacao.png" alt="Imagem da sala de internação" class="foto-produto">
+                        <figcaption>
+                            <h4>Internação</h4>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <figure class="text-center">
+                        <img src="assets/img/sala.png" alt="Imagem da sala do veterinário" class="foto-produto">
+                        <figcaption>
+                            <h4>Consultório</h4>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
         </section>
     </div>
 </main>

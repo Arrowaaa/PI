@@ -1,95 +1,41 @@
 <?php include './includes/header.php' ?>
 
-<main class="container body">
-    <h1>Deseja Cadastrar ou Vender Serviços ?</h1><br>
-
-    <p>Escolha Um Serviços.
-    </p>
-    <br>
-    <li> Consultas Veterinárias</li>
-    <br>
-    <li> Vacinação e Prevenção</li>
-    <br>
-    <li> Cirurgia:</li>
-    <br>
-    <li> Exames Laboratoriais:</li>
-    <br>
-    <li> Atendimento de Emergência:</li>
-    <br>
-    <li>Entre Outros</li> <br>
-
-    <section id="produtos me-5">
-        <main class="col me-4">
-            <div class="row">
-                <div class="col-lg-4 col-md-2 col-sm-12">
-                    <figure>
-                        <img src="assets/img/exames.png" alt="Imagem de exames no pet" class="foto-produto">
-                    </figure>
-                </div>
-
-                <div class="col-lg-4 col-md-2 col-sm-12">
-                    <figure>
-                        <img src="assets/img/cirurgia.png" alt="Imagem de uma sala de cirurgia" class="foto-produto">
-
-                    </figure>
-                </div>
-
-
-                <div class="col-lg-4 col-md-2 col-sm-12">
-
-                    <figure>
-                        <img src="assets/img/castracao.png" alt="Imagem de uma castração" class="foto-produto">
-
-                    </figure>
-                </div>
-
-                <div class="col-lg-4 col-md-2 col-sm-12">
-
-                    <figure>
-                        <img src="assets/img/vacina.png" alt="Vacinação" class="foto-produto">
-
-                    </figure>
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="col-lg-4 col-md-2 col-sm-12">
-
-                    <figure>
-                        <img src="assets/img/aplicacao.png" alt="Aplicação de medicamento" class="foto-produto">
-
-                    </figure>
-                </div>
-
-                <div class="col-lg-4 col-md-2 col-sm-12">
-
-                    <figure>
-                        <img src="assets/img/emergencia.png" alt="Emergência 24h" class="foto-produto">
-
-                    </figure>
-                </div>
-
-                <div class="col-lg-4 col-md-2 col-sm-12">
-
-                    <figure>
-                        <img src="assets/img/raioX.png" alt="Exames de imagem- Raio-X" class="foto-produto">
-
-                    </figure>
-                </div>
-
-
-                <div class="col-lg-4 col-md-2 col-sm-12">
-
-                    <figure>
-                        <img src="assets/img/animaisS.png" alt="Exames em animais silvestres" class="foto-produto">
-
-                    </figure>
+<div class="container my-5">
+    <h2 class="text-center">Nossos Serviços</h2><br>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="./assets/img/services/vacina.png" class="card-img-top" alt="Vacinação">
+                <div class="card-body">
+                    <h5 class="card-title">Vacinação</h5>
+                    <p class="card-text">Proteja seu pet com as melhores vacinas.</p>
+                    <a href="agendamento.php" class="btn btn-primary">Agendar</a>
                 </div>
             </div>
-        </main>
-    </section>
-</main>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="assets/img/services/consulta.png" class="card-img-top" alt="Consulta">
+                <div class="card-body">
+                    <h5 class="card-title">Exames/Consultas</h5>
+                    <p class="card-text">Cuide da saúde do seu pet com nossos especialistas.</p>
+                    <a href="agendamento.php" class="btn btn-primary">Agendar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="assets/img/services/atendimento.png" class="card-img-top" alt="Banho e Tosa">
+                <div class="card-body">
+                    <h5 class="card-title">Atendimento 24h</h5>
+                    <p class="card-text">Deixe seu pet sempre saudável e bem cuidado.</p>
+                    <a href="agendamento.php" class="btn btn-primary">Agendar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
+
 
 <?php include './includes/footer.php' ?>

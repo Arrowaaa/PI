@@ -1,5 +1,13 @@
 <?php
 $id_cliente = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
+
+require_once './auxi/config.php';
+
+// Consulta para carregar especializações
+$sqlEspecializacao = "SELECT id_especializacao, especializacao FROM especializacao";
+$stmtEspecializacao = $UsuarioSenha->prepare($sqlEspecializacao);
+$stmtEspecializacao->execute();
+$especializacoes = $stmtEspecializacao->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +33,7 @@ $id_cliente = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
             <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
         </a><br>
         <h1>Cadastro de Médicos</h1>
-        <form action="/auxi/auxcadastromedico.php" method="post">
+        <form action="auxcadastromedico.php" method="post">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required><br>
 
@@ -35,35 +43,19 @@ $id_cliente = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
             <label for="especializacao">Especialização:</label>
             <select id="especializacao" name="especializacao" required>
                 <?php
-                require_once './auxi/config.php';
-
-                $conn = new mysqli($serve, $banco, $nome, $senha);
-
-
-                if ($conn->connect_error) {
-                    die("Falha na conexão: " . $conn->connect_error);
-                }
-
-                $selec = "SELECT id, nome FROM especializacao";
-                $result = $conn->query($selec);
-
-                if ($result->num_rows > 0) {
-
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<option value='" . $row['id'] . "'>" . $row['id'] . " - " . $row['nome'] . "</option>";
+                if (!empty($especializacoes)) {
+                    foreach ($especializacoes as $especializacao) {
+                        echo "<option value='" . htmlspecialchars($especializacao['id_especializacao']) . "'>" . htmlspecialchars($especializacao['especializacao']) . "</option>";
                     }
                 } else {
                     echo "<option value=''>Nenhuma especialização encontrada</option>";
                 }
-
-
-                $conn->close();
                 ?>
             </select><br>
 
             <label for="dia_semana">Dia da Semana:</label>
             <select id="dia_semana" name="dia_semana" required>
-                <option></option>
+                <option value="">Selecione...</option>
                 <option value="Segunda">Segunda</option>
                 <option value="Terça">Terça</option>
                 <option value="Quarta">Quarta</option>
@@ -91,7 +83,6 @@ $id_cliente = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
             </div>
         </form>
     </div>
-
 </body>
 
 </html>

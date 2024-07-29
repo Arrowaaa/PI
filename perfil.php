@@ -1,28 +1,29 @@
 <?php
+session_start();
+
 require_once './auxi/config.php';
 require_once './classe/Usuarios.php';
 require_once './classe/pessoas.php';
 
-session_start();
-
 $clientes = null;
 $pet = null;
-$nivel = 'base';
+$nivel = 'base' || '';
 $agendamentos = [];
 
 if (isset($_GET['id_cliente'])) {
     $id_cliente = $_GET['id_cliente'];
 
     try {
-        $conn = new PDO('mysql:host=62.72.62.1;dbname=u687609827_edilson', 'u687609827_edilson', '>2Ana=]b');
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Conexão com o banco de dados
+        global $UsuarioSenha;
 
         // Busca informações do cliente
-        $preparo = $conn->prepare("SELECT * FROM clientes WHERE id_cliente = ?");
+        $preparo = $UsuarioSenha->prepare("SELECT * FROM clientes WHERE id_cliente = ?");
         $preparo->execute([$id_cliente]);
         $clientes = $preparo->fetch(PDO::FETCH_ASSOC);
         $_SESSION['id_cliente'] = $id_cliente;
 
+        // Verifica se o cliente foi encontrado
         if (!$clientes) {
             header('Location: login.php');
             exit();
@@ -35,12 +36,12 @@ if (isset($_GET['id_cliente'])) {
         }
 
         // Consulta para obter informações do pet associado ao cliente
-        $preparo = $conn->prepare("SELECT pets.*, especies.nome AS especie_nome FROM pets JOIN especies ON pets.especie = especies.id_especie WHERE pets.id_cliente = ?");
+        $preparo = $UsuarioSenha->prepare("SELECT pets.*, especies.nome AS especie_nome FROM pets JOIN especies ON pets.especie = especies.id_especie WHERE pets.id_cliente = ?");
         $preparo->execute([$id_cliente]);
         $pet = $preparo->fetch(PDO::FETCH_ASSOC);
 
         // Consulta para obter os agendamentos do cliente, incluindo especialização e médico
-        $preparo = $conn->prepare("
+        $preparo = $UsuarioSenha->prepare("
             SELECT agendamentos.*, especializacao.especializacao AS especializacao_nome, medicos.nome AS medico_nome, medicos.crm 
             FROM agendamentos 
             JOIN medicos ON agendamentos.id_medico = medicos.id_medico 
@@ -50,12 +51,22 @@ if (isset($_GET['id_cliente'])) {
         $preparo->execute([$id_cliente]);
         $agendamentos = $preparo->fetchAll(PDO::FETCH_ASSOC);
 
+        // Define a foto do cliente com base no nível de acesso
+        if ($nivel == 'base' || $nivel == '') {
+            $foto_cliente = './assets/img/img_clientes/cachorro.png';
+        } elseif ($nivel == 'adm') {
+            $foto_cliente = './assets/img/img_clientes/mick.jpg';
+        } else {
+            // Caso queira definir uma foto padrão para os demais cliente especificados
+            $foto_cliente = './assets/img/img_clientes/default.png';
+        }
     } catch (PDOException $e) {
         echo 'Erro: ' . $e->getMessage();
     }
 }
 
 $pessoas = new pessoas();
+
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +93,23 @@ $pessoas = new pessoas();
             <h2 style="text-align: center;">Dados pessoais</h2><br>
 
             <div id="cadastroInfo" class="content" style="text-align: left;">
-                <h3>Informações:</h3><br>
+                <h3>Informações:</h3>
+                <div class="foto-usuario">
+                    <div id="editar-foto">
+                        <?php if (isset($foto_cliente)) : ?>
+                            <img src="<?= $foto_cliente ?>" width="150" height="150" alt="Click Para Escolher a Sua Foto" id="img-usuario">
+                        <?php endif; ?>
+                        <div class="dropdown-foto">
+                            <label for="foto">
+                                Escolher nova foto:
+                                <input type="file" id="foto" name="foto">
+                            </label>
+                            <br>
+                            <input type="submit" value="Enviar Foto" id="enviar-foto">
+                        </div>
+                    </div>
+                </div>
+                <br>
                 <p>Nome: <?= htmlspecialchars(ucwords(strtolower($clientes['nome']))) ?></p>
                 <p>Email: <?= htmlspecialchars($clientes['email']) ?></p>
                 <p>CPF: <?= htmlspecialchars($clientes['cpf']) ?></p>
@@ -131,17 +158,23 @@ $pessoas = new pessoas();
             <div id="oculto" class="bnt_oculto">
                 <p><a href="cadastro.php?id_cliente=<?= $_SESSION['id_cliente'] ?>">Editar Informações</a></p>
                 <?php if (isset($_SESSION['Nivel']) && $_SESSION['Nivel'] !== 'base') : ?>
-                    <p><a href="cadastrarServicos.php">Tela de Serviços</a></p>
+                    <p><a href="produtosServicos.php">Tela de Serviços</a></p>
                     <p><a href="criar_usuario.php">Cadastrar ADM</a></p>
                     <p><a href="listarUser.php">Listar Usuários</a></p>
                     <p><a href="cadastro_medico.php">Sou Médico</a></p>
-                    <p><a href="horarios.php">Horários dos Médicos</a></p>
+                    <p><a href="horarios.php?id_cliente=<?= $_SESSION['id_cliente'] ?>">Horários dos Médicos</a></p>
                 <?php endif; ?>
-                <p><a href="agendamento.php">Agendar Consulta</a></p>
+                <p><a href="agendamento.php?id_cliente=<?= $_SESSION['id_cliente'] ?>">Agendar Consulta</a></p>
+                <p><a href="listarAgenda.php?id_cliente=<?= $_SESSION['id_cliente'] ?>">Cancelar Consulta</a></p>
+                <p><a href="cadastro_pet.php?id_cliente=<?= $_SESSION['id_cliente'] ?>">Cadastrar Pet</a></p>
                 <p><a href="index.php">Sair</a></p>
+                <form id="excluirContaForm" action="excluir_conta.php" method="post" style="text-align: center;">
+                    <input type="hidden" name="id_cliente" value="<?= htmlspecialchars($clientes['id_cliente']) ?>">
+                    <button type="submit" class="btn btn-danger">Excluir Conta</button>
+                </form>
             </div>
         </div>
-
+    </div>
         <script src="./assets/js/login.js"></script>
     </div>
 </body>
