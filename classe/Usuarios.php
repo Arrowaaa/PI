@@ -139,9 +139,6 @@ class Usuarios
             $preparo->bindParam(':cpf', $cpf);
             $preparo->bindParam(':nivel', $nivel);
             $resultado = $preparo->execute();
-
-            // Atualizando o e-mail na tabela usuarios se for necessário
-            // O e-mail não é atualizado nesse código, se precisar dessa atualização adicione conforme necessário
             return $resultado;
         } catch (PDOException $erro) {
             echo "<script>alert('Erro ao atualizar usuário: " . $erro->getMessage() . "');</script>";
@@ -289,7 +286,6 @@ class Usuarios
         }
     }
 
-
     // Função para listar pets associados a um cliente
     public function listarPet($id_cliente)
     {
@@ -306,23 +302,23 @@ class Usuarios
     }
 
     // Função para cadastrar pets do cliente
-    public function CadastroPet($nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte)
-    {
-        try {
-            $preparo = $this->UsuarioSenha->prepare("INSERT INTO pets ( nomep, especie, data_nascimento, raca, peso, sexop, porte) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
-            $preparo->execute([$nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte]);
-            return true;
-        } catch (PDOException $e) {
-            echo "Erro: " . $e->getMessage();
-            return false;
-        }
-    }
+    // public function CadastroPet($nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte)
+    // {
+    //     try {
+    //         $preparo = $this->UsuarioSenha->prepare("INSERT INTO pets ( nomep, especie, data_nascimento, raca, peso, sexop, porte) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
+    //         $preparo->execute([$nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte]);
+    //         return true;
+    //     } catch (PDOException $e) {
+    //         echo "Erro: " . $e->getMessage();
+    //         return false;
+    //     }
+    // }
 
     // Função para atualizar pet do cliente
     public function AtualizarPet($id_pet, $id_cliente, $nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte)
     {
         try {
-            $sql = "UPDATE pets SET 
+            $selec = "UPDATE pets SET 
                         id_cliente = :id_cliente, 
                         nomep = :nomep, 
                         especie = :especie, 
@@ -333,7 +329,7 @@ class Usuarios
                         porte = :porte 
                     WHERE id_pet = :id_pet";
 
-            $preparo = $this->UsuarioSenha->prepare($sql);
+            $preparo = $this->UsuarioSenha->prepare($selec);
             $preparo->bindParam(':id_pet', $id_pet, PDO::PARAM_INT);
             $preparo->bindParam(':id_cliente', $id_cliente, PDO::PARAM_INT);
             $preparo->bindParam(':nomep', $nomePet, PDO::PARAM_STR);
@@ -345,15 +341,148 @@ class Usuarios
             $preparo->bindParam(':porte', $porte, PDO::PARAM_STR);
 
             if ($preparo->execute()) {
-                echo "<script>alert('Pet atualizado com sucesso!');</script>";
+                echo '<p class="alert alert-danger">Pet atualizado com sucesso!!</p>';
                 return "Pet atualizado com sucesso!";
             } else {
-                echo "<script>alert('Erro ao atualizar pet.');</script>";
+                echo '<p class="alert alert-danger">Erro ao atualizar pet: </p>';
                 return "Erro ao atualizar pet.";
             }
         } catch (PDOException $e) {
-            echo "<script>alert('Erro ao deletar agendamento: " . $e->getMessage() . "');</script>";
+            echo '<p class="alert alert-danger">Erro ao atualizar pet: </p>';
             return "Erro ao atualizar pet: " . $e->getMessage();
+        }
+    }
+    public function alterePet($id_pet, $nomep, $data_nascimento, $raca, $peso, $sexop, $porte)
+    {
+        try {
+            $selec = "UPDATE pets SET 
+                        nomep = :nomep, 
+                        data_nascimento = :data_nascimento, 
+                        raca = :raca, 
+                        peso = :peso, 
+                        sexop = :sexop, 
+                        porte = :porte 
+                    WHERE id_pet = :id_pet";
+
+            $preparo = $this->UsuarioSenha->prepare($selec);
+            $preparo->bindParam(':id_pet', $id_pet, PDO::PARAM_INT);
+            $preparo->bindParam(':nomep', $nomep, PDO::PARAM_STR);
+            $preparo->bindParam(':data_nascimento', $data_nascimento, PDO::PARAM_STR);
+            $preparo->bindParam(':raca', $raca, PDO::PARAM_STR);
+            $preparo->bindParam(':peso', $peso, PDO::PARAM_STR);
+            $preparo->bindParam(':sexop', $sexop, PDO::PARAM_STR);
+            $preparo->bindParam(':porte', $porte, PDO::PARAM_STR);
+
+            if ($preparo->execute()) {
+                echo '<p class="alert alert-danger">Pet atualizado com sucesso!!</p>';
+                return "Pet atualizado com sucesso!";
+            } else {
+                echo '<p class="alert alert-danger">Erro ao atualizar pet: </p>';
+                return "Erro ao atualizar pet.";
+            }
+        } catch (PDOException $e) {
+            echo '<p class="alert alert-danger">Erro ao atualizar pet: </p>';
+            return "Erro ao atualizar pet: " . $e->getMessage();
+        }
+    }
+
+    // Método para excluir um pet
+    public function deletarPet($id_pet)
+    {
+        try {
+            $selec = "DELETE FROM pets WHERE id_pet = :id_pet";
+            $preparo = $this->UsuarioSenha->prepare($selec);
+            $preparo->bindParam(':id_pet', $id_pet, PDO::PARAM_INT);
+            if ($preparo->execute()) {
+                echo '<p class="alert alert-danger">Pet excluído com sucesso!! </p>';
+                return "Pet excluído com sucesso!";
+            } else {
+                echo '<p class="alert alert-danger">Erro ao excluir pet: </p>';
+                return "Erro ao excluir pet.";
+            }
+        } catch (PDOException $e) {
+            echo '<p class="alert alert-danger">Erro ao excluir pet: </p>';
+            return "Erro ao excluir pet: " . $e->getMessage();
+        }
+    }
+    // Lista todos os médicos com suas especializações
+    public function listarMedicos()
+    {
+        $selec = "SELECT m.id_medico, m.nome, m.crm, e.especializacao 
+                FROM medicos m
+                JOIN especializacao e ON m.especializacao = e.id_especializacao";
+        $preparo = $this->UsuarioSenha->prepare($selec);
+        $preparo->execute();
+        return $preparo->fetchAll(PDO::FETCH_ASSOC);
+    }
+    // Lista todas as  especializações
+    public function listarEspecializacoes()
+    {
+        $selec = "SELECT * FROM especializacao";
+        $preparo = $this->UsuarioSenha->prepare($selec);
+        $preparo->execute();
+        return $preparo->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Lista os horários de um médico específico
+    public function listarHorariosMedicos($id_medico)
+    {
+        $selec = "SELECT h.dia_semana, h.hora_inicio, h.hora_fim, h.disponivel 
+                FROM horarios_medicos h
+                WHERE h.id_medico = :id_medico";
+        $preparo = $this->UsuarioSenha->prepare($selec);
+        $preparo->bindParam(':id_medico', $id_medico, PDO::PARAM_INT);
+        $preparo->execute();
+        return $preparo->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // adiciona os horários de um médico
+    public function adicionarHorarioMedico($id_medico, $dia_semana, $hora_inicio, $hora_fim, $disponivel)
+    {
+        $selec = "INSERT INTO horarios_medicos (id_medico, dia_semana, hora_inicio, hora_fim, disponivel) 
+            VALUES (:id_medico, :dia_semana, :hora_inicio, :hora_fim, :disponivel)";
+        $preparo = $this->UsuarioSenha->prepare($selec);
+        $preparo->bindParam(':id_medico', $id_medico, PDO::PARAM_INT);
+        $preparo->bindParam(':dia_semana', $dia_semana, PDO::PARAM_STR);
+        $preparo->bindParam(':hora_inicio', $hora_inicio, PDO::PARAM_STR);
+        $preparo->bindParam(':hora_fim', $hora_fim, PDO::PARAM_STR);
+        $preparo->bindParam(':disponivel', $disponivel, PDO::PARAM_BOOL);
+        return $preparo->execute();
+    }
+
+    // Atualiza  informações de um médico pelo ID
+    public function atualizarMedico($id_medico, $nome, $crm, $especializacao)
+    {
+        $selec = "UPDATE medicos SET nome = :nome, crm = :crm, especializacao = :especializacao WHERE id_medico = :id_medico";
+        $preparo = $this->UsuarioSenha->prepare($selec);
+        $preparo->bindParam(':id_medico', $id_medico, PDO::PARAM_INT);
+        $preparo->bindParam(':nome', $nome, PDO::PARAM_STR);
+        $preparo->bindParam(':crm', $crm, PDO::PARAM_STR);
+        $preparo->bindParam(':especializacao', $especializacao, PDO::PARAM_INT);
+        return $preparo->execute();
+    }
+    public function deletarHorariosMedico($id_medico)
+    {
+        $selec = "DELETE FROM horarios_medicos WHERE id_medico = :id_medico";
+        $preparo = $this->UsuarioSenha->prepare($selec);
+        $preparo->bindParam(':id_medico', $id_medico, PDO::PARAM_INT);
+        return $preparo->execute();
+    }
+
+    public function deletarMedico($id_medico)
+    {
+        try {
+            // Excluir horários associados
+            $this->deletarHorariosMedico($id_medico);
+
+            // Excluir médico
+            $selec = "DELETE FROM medicos WHERE id_medico = :id_medico";
+            $preparo = $this->UsuarioSenha->prepare($selec);
+            $preparo->bindParam(':id_medico', $id_medico, PDO::PARAM_INT);
+            return $preparo->execute();
+        } catch (PDOException $e) {
+            echo "Erro ao deletar médico: " . $e->getMessage();
+            return false;
         }
     }
 }

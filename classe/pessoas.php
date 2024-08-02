@@ -31,9 +31,9 @@ class pessoas
     }
 
     // Função para formatar o sexo do pet
-    public static function formatarSexop($sexo)
+    public static function formatarSexop($sexop)
     {
-        switch ($sexo) {
+        switch ($sexop) {
             case 'M':
                 return 'Macho';
             case 'F':
@@ -64,6 +64,9 @@ class pessoas
         $data_nascimento = new DateTime($data_nascimento);
         $data_atual = new DateTime();
         $idade = $data_atual->diff($data_nascimento);
-        return $idade->y;
+        $anos = $idade->y;
+        $meses = $idade->m;
+        
+        return " {$anos} anos e {$meses} mês ";
     }
 }

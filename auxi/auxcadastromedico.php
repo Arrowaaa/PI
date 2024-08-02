@@ -1,47 +1,51 @@
 <?php
-$serve = "62.72.62.1";
-$banco = "u687609827_edilson";
-$nome = "u687609827_edilson";
-$senha = ">2Ana=]b";
+include 'config.php';
 
-$conn = new mysqli($serve, $banco, $nome, $senha);
+try {
+    $nome = $_POST['nome'];
+    $crm = $_POST['crm'];
+    $especializacao = $_POST['especializacao'];
+    $dia_semana = $_POST['dia_semana'];
+    $hora_inicio = $_POST['hora_inicio'];
+    $hora_fim = $_POST['hora_fim'];
+    $disponivel = isset($_POST['disponivel']) ? 1 : 0;
 
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+    $UsuarioSenha->beginTransaction();
 
-$nome = $_POST['nome'];
-$crm = $_POST['crm'];
-$especializacao = $_POST['especializacao'];
-$dia_semana = $_POST['dia_semana'];
-$hora_inicio = $_POST['hora_inicio'];
-$hora_fim = $_POST['hora_fim'];
-$disponivel = isset($_POST['disponivel']) ? 1 : 0;
+    $sql_medico = "INSERT INTO medicos (nome, crm, especializacao) VALUES (:nome, :crm, :especializacao)";
+    $stmt_medico = $UsuarioSenha->prepare($sql_medico);
+    $stmt_medico->bindParam(':nome', $nome);
+    $stmt_medico->bindParam(':crm', $crm);
+    $stmt_medico->bindParam(':especializacao', $especializacao);
 
-// Inserir o médico
-$sql_medico = "INSERT INTO medicos (nome, crm, especializacao) VALUES (?, ?, ?)";
-$stmt_medico = $conn->prepare($sql_medico);
-$stmt_medico->bind_param("ssi", $nome, $crm, $especializacao);
+    if ($stmt_medico->execute()) {
+        $id_medico = $UsuarioSenha->lastInsertId();
 
-if ($stmt_medico->execute()) {
-    $id_medico = $stmt_medico->insert_id;
+        // Inserir os horários do médico
+        $sql_horario = "INSERT INTO horarios_medicos (id_medico, dia_semana, hora_inicio, hora_fim, disponivel, especializacao) 
+                        VALUES (:id_medico, :dia_semana, :hora_inicio, :hora_fim, :disponivel, :especializacao)";
+        $stmt_horario = $UsuarioSenha->prepare($sql_horario);
+        $stmt_horario->bindParam(':id_medico', $id_medico);
+        $stmt_horario->bindParam(':dia_semana', $dia_semana);
+        $stmt_horario->bindParam(':hora_inicio', $hora_inicio);
+        $stmt_horario->bindParam(':hora_fim', $hora_fim);
+        $stmt_horario->bindParam(':disponivel', $disponivel);
+        $stmt_horario->bindParam(':especializacao', $especializacao);
 
-    // Inserir os horários do médico
-    $sql_horario = "INSERT INTO horarios_medicos (id_medico, dia_semana, hora_inicio, hora_fim, disponivel, especializacao) VALUES (?, ?, ?, ?, ?, ?)";
-    $stmt_horario = $conn->prepare($sql_horario);
-    $stmt_horario->bind_param("isssii", $id_medico, $dia_semana, $hora_inicio, $hora_fim, $disponivel, $especializacao);
-
-    if ($stmt_horario->execute()) {
-        echo "Médico e horário cadastrados com sucesso!";
+        if ($stmt_horario->execute()) {
+            $UsuarioSenha->commit();
+            echo '<div class="alert alert-success">Médico e horário cadastrados com sucesso!!</div>';
+            echo '<script>setTimeout(function() { window.location.href = "../perfil.php"; }, 1600);</script>';  
+        } else {
+            $UsuarioSenha->rollBack();
+            echo "Erro ao cadastrar horário: " . $stmt_horario->errorInfo()[2];
+        }
     } else {
-        echo "Erro ao cadastrar horário: " . $stmt_horario->error;
+        $UsuarioSenha->rollBack();
+        echo "Erro ao cadastrar médico: " . $stmt_medico->errorInfo()[2];
     }
-
-    $stmt_horario->close();
-} else {
-    echo "Erro ao cadastrar médico: " . $stmt_medico->error;
+} catch (PDOException $e) {
+    $UsuarioSenha->rollBack();
+    echo "Erro de conexão: " . $e->getMessage();
 }
-
-$stmt_medico->close();
-$conn->close();
 ?>

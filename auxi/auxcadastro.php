@@ -17,22 +17,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if ($resultado === "Usuário cadastrado com sucesso!!") {
                 echo '<div class="alert alert-success">Usuário cadastrado com sucesso!!</div>';
-                echo '<script>';
-                echo 'setTimeout(function() { window.location.href = "login.php"; }, 1600);';
-                echo '</script>';
+                echo '<script>setTimeout(function() { window.location.href = "login.php"; }, 1600);</script>';  
             } elseif ($resultado === "Usuário já existe") {
                 echo '<div class="alert alert-danger">Usuário já existe!!</div>';
-                echo '<script>';
-                echo 'setTimeout(function() { window.location.href = "criar-usuario.php?erro=usuario_existe"; }, 1600);';
-                echo '</script>';
+                echo '<script>setTimeout(function() { window.location.href = "criar-usuario.php?erro=usuario_existe"; }, 1600);</script>';
             } else {
                 echo '<div class="alert alert-danger">' . $resultado . '</div>';
             }
         } else {
             echo '<div class="alert alert-danger">As senhas não coincidem!!</div>';
-            echo '<script>';
-            echo 'setTimeout(function() { window.location.href = "criar-usuario.php?erro=senhas_nao_iguais"; }, 1600);';
-            echo '</script>';
+            echo '<script>setTimeout(function() { window.location.href = "criar-usuario.php?erro=senhas_nao_iguais"; }, 1600);</script>';
         }
     }
 }
