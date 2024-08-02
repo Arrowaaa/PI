@@ -153,7 +153,7 @@ $pessoas = new pessoas();
             <button id="baixo" onclick="toggleDropdown()">Opções ▼</button>
             <div id="oculto" class="bnt_oculto">
                 <p><a href="editaCadastro.php">Editar Informações</a></p>
-                <p><a href="Cadastro_pet.php">Cadastre Seu Pet</a></p>
+                <p><a href="cadastro_pet.php">Cadastre Seu Pet</a></p>
                 <p><a href="listarPet.php">Lista de Pets</a></p>
                 <?php if (isset($_SESSION['Nivel']) && $_SESSION['Nivel'] !== 'base') : ?>
                     <p><a href="produtosServicos.php">Tela de Serviços</a></p>
