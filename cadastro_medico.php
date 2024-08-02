@@ -1,5 +1,5 @@
 <?php
-$id_cliente = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
+session_start(); // Inicia a sessão
 
 require_once './auxi/config.php';
 
@@ -8,6 +8,9 @@ $sqlEspecializacao = "SELECT id_especializacao, especializacao FROM especializac
 $stmtEspecializacao = $UsuarioSenha->prepare($sqlEspecializacao);
 $stmtEspecializacao->execute();
 $especializacoes = $stmtEspecializacao->fetchAll(PDO::FETCH_ASSOC);
+
+// Obter id_cliente da sessão
+$id_cliente = isset($_SESSION['id_cliente']) ? $_SESSION['id_cliente'] : null;
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +32,7 @@ $especializacoes = $stmtEspecializacao->fetchAll(PDO::FETCH_ASSOC);
         <img src="assets/img/cachorros/meddog2.png" alt="cachorro medico 2" id="direita">
     </div>
     <div class="container">
-        <a href="<?= $id_cliente ? 'perfil.php?id_cliente=' . $id_cliente : 'javascript:history.back()'; ?>" id="botaoVoltar">
+        <a href="perfil.php" id="botaoVoltar">
             <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
         </a><br>
         <h1>Cadastro de Médicos</h1>
@@ -42,6 +45,7 @@ $especializacoes = $stmtEspecializacao->fetchAll(PDO::FETCH_ASSOC);
 
             <label for="especializacao">Especialização:</label>
             <select id="especializacao" name="especializacao" required>
+                <option value=""></option>
                 <?php
                 if (!empty($especializacoes)) {
                     foreach ($especializacoes as $especializacao) {

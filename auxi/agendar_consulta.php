@@ -1,12 +1,20 @@
 <?php
+
 require_once 'config.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recebe os dados do formulário
     $email = $_POST['email'] ?? '';
     $especializacao = $_POST['especializacao'] ?? '';
     $dataAgendamento = $_POST['DataAgendamento'] ?? '';
     $horaAgendamento = $_POST['HoraAgendamento'] ?? '';
+    $servico = $_POST['servico'] ?? '';
+
+    // Valida a data e hora
+    $validHorarios = ['09:00', '09:45', '10:30', '11:15', '12:00', '12:45', '13:30', '14:15', '15:00', '15:45', '16:30', '17:15'];
+    if (!in_array($horaAgendamento, $validHorarios)) {
+        die("Horário inválido. Por favor, selecione um horário válido.");
+    }
 
     // Prepara e executa a consulta para encontrar o id_cliente
     $sqlCliente = "SELECT id_cliente FROM clientes WHERE email = :email";
@@ -36,22 +44,34 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         ]);
 
         if ($stmtMedicos->rowCount() > 0) {
-            echo "<h3>Médicos Disponíveis:</h3>";
-            echo "<ul>";
-            while ($rowMedico = $stmtMedicos->fetch(PDO::FETCH_ASSOC)) {
-                echo "<li>" . $rowMedico['id_medico'] . " - " . $rowMedico['nome'] . "</li>";
-            }
-            echo "</ul>";
+            $rowMedico = $stmtMedicos->fetch(PDO::FETCH_ASSOC);
+            $id_medico = $rowMedico['id_medico'];
+
+        
+
+            // Insere o agendamento no banco de dados
+            $sqlAgendamento = "
+                INSERT INTO agendamentos (id_cliente, data_agendamento, hora_agendamento, id_medico, servico)
+                VALUES (:id_cliente, :dataAgendamento, :horaAgendamento, :id_medico, :servico)
+            ";
+            $stmtAgendamento = $UsuarioSenha->prepare($sqlAgendamento);
+            $stmtAgendamento->execute([
+                'id_cliente' => $id_cliente,
+                'dataAgendamento' => $dataAgendamento,
+                'horaAgendamento' => $horaAgendamento,
+                'id_medico' => $id_medico,
+                'servico' => $servico
+            ]);
+            echo '<p class="alert alert-success">Agendamento realizado com sucesso!</p>';
+            echo '<script>';
+            echo 'setTimeout(function() { window.location.href = "../perfil.php"; }, 1800);';
+            echo '</script>';
         } else {
-            echo "Nenhum médico disponível para a especialização, data e hora selecionadas.";
+            echo "Nenhum médico disponível para o horário selecionado.";
         }
     } else {
-        echo '<p class="alert alert-danger">Cliente não encontrado.</p>';
-        echo '<script>';
-        echo 'setTimeout(function() { window.location.href = "../agendamento.php"; }, 1600);';
-        echo '</script>';
+        echo "Cliente não encontrado.";
     }
 } else {
-
-    echo "Erro!.";
+    echo "Método de requisição inválido.";
 }

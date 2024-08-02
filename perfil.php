@@ -10,8 +10,9 @@ $pet = null;
 $nivel = 'base' || '';
 $agendamentos = [];
 
-if (isset($_GET['id_cliente'])) {
-    $id_cliente = $_GET['id_cliente'];
+// Verifica se o ID do cliente está na sessão
+if (isset($_SESSION['id_cliente'])) {
+    $id_cliente = $_SESSION['id_cliente'];
 
     try {
         // Conexão com o banco de dados
@@ -21,7 +22,6 @@ if (isset($_GET['id_cliente'])) {
         $preparo = $UsuarioSenha->prepare("SELECT * FROM clientes WHERE id_cliente = ?");
         $preparo->execute([$id_cliente]);
         $clientes = $preparo->fetch(PDO::FETCH_ASSOC);
-        $_SESSION['id_cliente'] = $id_cliente;
 
         // Verifica se o cliente foi encontrado
         if (!$clientes) {
@@ -51,18 +51,19 @@ if (isset($_GET['id_cliente'])) {
         $preparo->execute([$id_cliente]);
         $agendamentos = $preparo->fetchAll(PDO::FETCH_ASSOC);
 
-        // Define a foto do cliente com base no nível de acesso
         if ($nivel == 'base' || $nivel == '') {
             $foto_cliente = './assets/img/img_clientes/cachorro.png';
         } elseif ($nivel == 'adm') {
             $foto_cliente = './assets/img/img_clientes/mick.jpg';
         } else {
-            // Caso queira definir uma foto padrão para os demais cliente especificados
-            $foto_cliente = './assets/img/img_clientes/default.png';
+            $foto_cliente = './assets/img/img_clientes/cachorro.png';
         }
     } catch (PDOException $e) {
         echo 'Erro: ' . $e->getMessage();
     }
+} else {
+    header('Location: login.php');
+    exit();
 }
 
 $pessoas = new pessoas();
@@ -156,26 +157,32 @@ $pessoas = new pessoas();
         <div id="opcoes-container">
             <button id="baixo" onclick="toggleDropdown()">Opções ▼</button>
             <div id="oculto" class="bnt_oculto">
-                <p><a href="cadastro.php?id_cliente=<?= $_SESSION['id_cliente'] ?>">Editar Informações</a></p>
+                <p><a href="editaCadastro.php">Editar Informações</a></p>
+                <p><a href="Cadastro_pet.php">Cadastre Seu Pet</a></p>
                 <?php if (isset($_SESSION['Nivel']) && $_SESSION['Nivel'] !== 'base') : ?>
                     <p><a href="produtosServicos.php">Tela de Serviços</a></p>
-                    <p><a href="criar_usuario.php">Cadastrar ADM</a></p>
                     <p><a href="listarUser.php">Listar Usuários</a></p>
                     <p><a href="cadastro_medico.php">Sou Médico</a></p>
-                    <p><a href="horarios.php?id_cliente=<?= $_SESSION['id_cliente'] ?>">Horários dos Médicos</a></p>
+                    <p><a href="horarios.php">Horários dos Médicos</a></p>
                 <?php endif; ?>
-                <p><a href="agendamento.php?id_cliente=<?= $_SESSION['id_cliente'] ?>">Agendar Consulta</a></p>
-                <p><a href="listarAgenda.php?id_cliente=<?= $_SESSION['id_cliente'] ?>">Cancelar Consulta</a></p>
-                <p><a href="cadastro_pet.php?id_cliente=<?= $_SESSION['id_cliente'] ?>">Cadastrar Pet</a></p>
-                <p><a href="index.php">Sair</a></p>
+                <p><a href="agendamento.php">Agendar Consulta</a></p>
+                <p><a href="listarAgenda.php">Cancelar Consulta</a></p>
+                <p><a href="logout.php">Sair</a></p>
                 <form id="excluirContaForm" action="excluir_conta.php" method="post" style="text-align: center;">
                     <input type="hidden" name="id_cliente" value="<?= htmlspecialchars($clientes['id_cliente']) ?>">
-                    <button type="submit" class="btn btn-danger">Excluir Conta</button>
+                    <button type="submit" class="btn btn-danger">Desativar Conta</button>
                 </form>
             </div>
         </div>
-    </div>
         <script src="./assets/js/login.js"></script>
+        <script>
+            document.getElementById('excluirContaForm').addEventListener('submit', function(event) {
+                if (!confirm('Tem certeza de que deseja excluir sua conta? Esta ação não pode ser desfeita.')) {
+                    event.preventDefault();
+                }
+            });
+        </script>
+
     </div>
 </body>
 

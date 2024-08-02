@@ -1,17 +1,18 @@
 <?php
+session_start();
+
 $serve = "62.72.62.1";
 $banco = "u687609827_edilson";
 $nome = "u687609827_edilson";
 $senha = ">2Ana=]b";
 
 try {
-    // Criação da conexão PDO
     $conn = new PDO("mysql:host=$serve;dbname=$banco", $nome, $senha);
-    // Configuração do modo de erro
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    // Verificar se a ação é para buscar médicos
     if (isset($_POST['action']) && $_POST['action'] === 'fetch_medicos') {
-        $especializacaoId = $_POST['especializacao'];
+        $especializacaoId = filter_var($_POST['especializacao'], FILTER_SANITIZE_NUMBER_INT);
 
         $stmt = $conn->prepare("SELECT id_medico, nome FROM medicos WHERE especializacao = :especializacao");
         $stmt->execute(['especializacao' => $especializacaoId]);
@@ -25,31 +26,30 @@ try {
     $stmtEspecializacoes = $conn->query("SELECT * FROM especializacao");
     $especializacoes = $stmtEspecializacoes->fetchAll(PDO::FETCH_ASSOC);
 
-    // Consulta para carregar médicos
-    $stmtMedicos = $conn->query("SELECT * FROM medicos");
-    $medicos = $stmtMedicos->fetchAll(PDO::FETCH_ASSOC);
-
     // Consulta para carregar serviços
     $stmtServicos = $conn->query("SELECT * FROM servico");
     $servicos = $stmtServicos->fetchAll(PDO::FETCH_ASSOC);
-    
-     // Obter id_cliente da URL e buscar o email correspondente
-     $email = '';
-     if (isset($_GET['id_cliente'])) {
-         $id_cliente = $_GET['id_cliente'];
-         $stmtEmail = $conn->prepare("SELECT email FROM clientes WHERE id_cliente = :id_cliente");
-         $stmtEmail->execute(['id_cliente' => $id_cliente]);
-         $result = $stmtEmail->fetch(PDO::FETCH_ASSOC);
-         if ($result) {
-             $email = $result['email'];
-         }
-     }
+
+    // Obter id_cliente da sessão e buscar o email correspondente
+    $email = '';
+    if (isset($_SESSION['id_cliente'])) {
+        $id_cliente = filter_var($_SESSION['id_cliente'], FILTER_SANITIZE_NUMBER_INT);
+        $stmtEmail = $conn->prepare("SELECT email FROM clientes WHERE id_cliente = :id_cliente");
+        $stmtEmail->execute(['id_cliente' => $id_cliente]);
+        $result = $stmtEmail->fetch(PDO::FETCH_ASSOC);
+        if ($result) {
+            $email = htmlspecialchars($result['email']);
+        }
+    } else {
+        // Redirecionar para login se o id_cliente não estiver na sessão
+        header('Location: login.php');
+        exit;
+    }
 } catch (PDOException $e) {
     // Mensagem de erro
-    die("Erro de conexão: " . $e->getMessage());
+    die("Erro de conexão: " . htmlspecialchars($e->getMessage()));
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -70,30 +70,31 @@ try {
         <img src="assets/img/cachorros/cachorro.png" alt="Imagem 2" class="imagem-direita">
     </div>
     <div class="container">
-        <a href="<?= isset($id_alterar) ? 'perfil.php?id_cliente=' . $id_alterar : 'perfil.php?id_cliente=' . $id_cliente ?>" id="botaoVoltar">
+        <a href="perfil.php" id="botaoVoltar">
             <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
         </a>
         <h2>Agendamento</h2><br>
-        <form id="agendamentoForm" action="/auxi/agendar_consulta.php" method="post">
+        <form id="agendamentoForm" action="./auxi/agendar_consulta.php" method="post">
             <div class="input-group">
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" placeholder="exemplo@exemplo.com" value="<?= htmlspecialchars($email) ?>" required>
             </div>
             <div class="input">
-                <label for="servico">Selecione o Serviço:</label>   
+                <label for="servico">Selecione o Serviço:</label>
                 <select id="servico" name="servico" required>
                     <option value=""></option>
                     <?php foreach ($servicos as $servico) : ?>
-                        <option value="<?= $servico['id_servico'] ?>"><?= $servico['name'] ?></option>
+                        <option value="<?= htmlspecialchars($servico['id_servico']) ?>"><?= htmlspecialchars($servico['name']) ?></option>
                     <?php endforeach; ?>
                 </select>
             </div><br>
 
             <div class="input-group">
-                <label for="especializacao">Especialização:</label>   
+                <label for="especializacao">Especialização:</label>
                 <select id="especializacao" name="especializacao" required>
+                    <option value=""></option>
                     <?php foreach ($especializacoes as $especializacao) : ?>
-                        <option value="<?= $especializacao['id_especializacao'] ?>"><?= $especializacao['especializacao'] ?></option>
+                        <option value="<?= htmlspecialchars($especializacao['id_especializacao']) ?>"><?= htmlspecialchars($especializacao['especializacao']) ?></option>
                     <?php endforeach; ?>
                 </select>
             </div><br>
@@ -159,17 +160,16 @@ try {
                         data.forEach(medico => {
                             selectMedico.innerHTML += `<option value="${medico.id_medico}">${medico.nome}</option>`;
                         });
-                        selectMedico.required = true; // Adiciona o atributo required
+                        selectMedico.required = true;
                         selectMedicoGroup.style.display = 'block';
                     })
                     .catch(error => console.error('Erro:', error));
                 } else {
                     selectMedicoGroup.style.display = 'none';
-                    selectMedico.required = false; // Remove o atributo required
+                    selectMedico.required = false;
                 }
             });
         });
     </script>
 </body>
-
 </html>

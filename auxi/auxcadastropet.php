@@ -2,25 +2,46 @@
 require_once 'config.php'; 
 require_once '../classe/Usuarios.php';
 
-// Verifique se a variável $UsuarioSenha está definida
-if (!isset($UsuarioSenha)) {
-    die('Erro: Variável de conexão $UsuarioSenha não está definida.');
-}
+// Crie uma instância da classe Usuarios
+$usuario = new Usuarios();
 
-// Processar informações do pet
+// Obtenha os dados do formulário
 $id_cliente = $_POST['id_cliente'];
 $nomePet = $_POST['nomePet'];
-$especiePet = $_POST['especiePet'];
-$dataNascimento = $_POST['dataNascimento'];
-$racaPet = $_POST['racaPet'];
-$pesoPet = $_POST['pesoPet'];
-$sexoPet = $_POST['sexoPet'];
+$especiePet = $_POST['especie']; // Corrija para o nome do campo correto
+$dataNascimento = $_POST['data_nascimento'];
+$racaPet = $_POST['raca'];
+$pesoPet = $_POST['peso'];
+$sexoPet = $_POST['sexop'];
 $porte = $_POST['porte'];
 
-if ($usuario->CadastroPet($id_cliente, $nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte)) {
-    header('Location: ../perfil.php?id_cliente=' . $id_cliente);
+// Verifique se $especiePet é um ID válido
+if (!is_numeric($especiePet)) {
+    die('Erro: Espécie inválida.');
+}
+
+try {
+    // Tenta inserir o novo pet
+    $sql = "INSERT INTO pets (id_cliente, nomep, especie, data_nascimento, raca, peso, sexop, porte) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $UsuarioSenha->prepare($sql);
+    $stmt->execute([$id_cliente, $nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte]);
+    header('Location: ../perfil.php');
     exit;
-} else {
-    echo "Erro ao cadastrar o pet.";
+} catch (PDOException $e) {
+    // Se o insert falhar, tenta atualizar o pet
+    if ($e->getCode() === '23000') { // Erro de violação de chave estrangeira
+        try {
+            // Tenta atualizar o pet existente
+            $sql = "UPDATE pets SET id_cliente = ?, nomep = ?, especie = ?, data_nascimento = ?, raca = ?, peso = ?, sexop = ?, porte = ? WHERE id_cliente = ? AND nomep = ?";
+            $stmt = $UsuarioSenha->prepare($sql);
+            $stmt->execute([$id_cliente, $nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte, $id_cliente, $nomePet]);
+            header('Location: ../perfil.php');
+            exit;
+        } catch (PDOException $e) {
+            echo "Erro ao atualizar o pet: " . $e->getMessage();
+        }
+    } else {
+        echo "Erro ao cadastrar o pet: " . $e->getMessage();
+    }
 }
 ?>

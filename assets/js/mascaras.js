@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
         cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); 
         e.target.value = cpf;
     });
+
 });
 
 //função para mostra o icone do olhinho

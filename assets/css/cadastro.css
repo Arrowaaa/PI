@@ -4,13 +4,11 @@ body {
     font-family: "Croissant One", "serif";
     justify-content: left;
     align-items: left;
-    padding: 35px 0.20px;
     border: none;
     margin: 0;
     background-size: contain;
     background-position: left;
     background-repeat: no-repeat;
-
 }
 
 h2 {
@@ -20,21 +18,21 @@ h2 {
 #esquerda {
     position: fixed;
     top: 50%;
-    left: 0;
+    left: -5%;
     transform: translateY(-50%);
     width: 100%;
-    max-width: 600px;
+    max-width: 680px;
 }
 
 #direita {
     position: fixed;
-    top: 48%;
+    top: 45%;
     left: 60%;
     margin-top: 40px;
     margin-left: 60px;
     transform: translateY(-50%);
     width: 100%;
-    max-width: 600px;
+    max-width: 680px;
 }
 
 .container {

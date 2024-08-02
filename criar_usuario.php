@@ -1,13 +1,60 @@
 <?php
-$id_usuario = isset($_GET['id_usuario']) ? $_GET['id_usuario'] : null;
-$id_cliente = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
+session_start();
 
 require_once './classe/Usuarios.php';
+
 $usuario = new Usuarios();
 $dadosUsuario = [];
+$id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
+$id_cliente = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
 
-if (!empty($id_usuario)) {
+if ($id_usuario) {
     $dadosUsuario = $usuario->obterUsuarioPorId($id_usuario);
+}
+
+// Determinar a URL de redirecionamento do botão Voltar
+$voltarUrl = !empty($id_usuario) ? 'listarUser.php' : 'perfil.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['email'])) {
+        $email = $_POST['email'];
+        $nivel = isset($_POST['nivel']) ? $_POST['nivel'] : null;
+        $id_cliente = isset($_POST['id_cliente']) ? $_POST['id_cliente'] : null;
+
+        if (isset($_POST['id_cliente'])) {
+            // Atualizar usuário existente
+            $resultado = $usuario->EditarUsuarios($id_cliente, $email, $nivel);
+
+            if (!empty($resultado)) {
+                echo '<p class="alert alert-success">Cliente atualizado com sucesso!!!</p>';
+                echo $resultado;
+                // header('Location: perfil.php');
+                exit();
+            } else {
+                echo '<p class="alert alert-danger">Erro ao atualizar usuário.</p>';
+            }
+        } else {
+            // Criar um novo usuário
+            if ($password === $passwordConfirm) {
+                $resultado = $usuario->CadastroADM($email, $password, $passwordConfirm, $nivel);
+
+                if ($resultado === "ADM cadastrado com sucesso") {
+                    header('Location: login.php');
+                    exit();
+                } elseif ($resultado === "Usuário já existe") {
+                    echo '<p class="alert alert-warning">Usuário já existe!!</p>';
+                } else {
+                    echo '<p class="alert alert-danger">Erro ao tentar cadastrar: ' . $resultado . '</p>';
+                }
+            } else {
+                echo '<p class="alert alert-danger">Senhas não conferem!</p>';
+            }
+        }
+    
+    }
+    else{
+        echo '<p class="alert alert-danger">Erro!</p>';
+    }
 }
 ?>
 
@@ -17,7 +64,7 @@ if (!empty($id_usuario)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= isset($id_usuario) ? 'Editar Usuário' : 'Criar Usuário' ?></title>
+    <title>Usuário</title>
     <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -26,6 +73,7 @@ if (!empty($id_usuario)) {
         .nivel-oculto {
             display: none;
         }
+
         .nivel-visivel {
             display: block;
         }
@@ -34,13 +82,13 @@ if (!empty($id_usuario)) {
 
 <body>
     <div class="container">
-        <a href="<?= $id_cliente ? 'perfil.php?id_cliente=' . $id_cliente : 'javascript:history.back()'; ?>" id="botaoVoltar">
+        <a href="<?= $voltarUrl ?>" id="botaoVoltar">
             <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
         </a>
         <main class="form-signin w-100 m-auto">
             <form action="criar_usuario.php" method="POST">
-                <input type="hidden" name="id_para_alterar" value="<?= isset($dadosUsuario['id_usuario']) ? htmlspecialchars($dadosUsuario['id_usuario']) : '' ?>">
-                <h1><?= isset($id_usuario) ? 'Alterar Dados do Usuário ADM' : 'Crie Seu Usuário ADM' ?></h1><br>
+                <input type="hidden" name="id_cliente" value="<?= isset($dadosUsuario['id_cliente']) ? htmlspecialchars($dadosUsuario['id_cliente']) : '' ?>">
+                <h1><?= $id_usuario != "adm" ? 'Alterar Dados do Usuário ADM' : 'Crie Seu Usuário ADM' ?></h1><br>
 
                 <div class="input-group">
                     <label for="email">E-mail:</label>
@@ -48,23 +96,27 @@ if (!empty($id_usuario)) {
                 </div>
                 <div class="input-group">
                     <label for="senha">Senha:</label>
-                    <input type="password" id="senha" name="senha" value="" <?= isset($id_usuario) ? 'disabled' : '' ?> required>
+                    <input type="password" id="senha" name="senha" value="" <?= $id_usuario ? 'disabled' : '' ?> required>
                     <button type="button" id="mostrarSenha"></button>
                 </div>
 
                 <div class="input-group password-group">
                     <label for="confirmSenha">Confirme a Senha:</label>
-                    <input type="password" id="confirmSenha" name="confirmSenha" value="" <?= isset($id_usuario) ? 'disabled' : '' ?> required>
+                    <input type="password" id="confirmSenha" name="confirmSenha" value="" <?= $id_usuario ? 'disabled' : '' ?> required>
                     <button type="button" id="mostrarConfirmSenha"></button>
                 </div>
 
                 <div class="input-group nivel">
                     <label for="nivel">Nível:</label>
-                    <input type="text" id="nivel" name="nivel" value="<?= isset($dadosUsuario['nivel']) ? htmlspecialchars($dadosUsuario['nivel']) : '' ?>" required>
-                </div><br>
+                    <select id="nivel" name="nivel" required>
+                        <option value="base" <?= isset($dadosUsuario['nivel']) && $dadosUsuario['nivel'] == 'base' ? 'selected' : '' ?>>Base</option>
+                        <option value="adm" <?= isset($dadosUsuario['nivel']) && $dadosUsuario['nivel'] == 'adm' ? 'selected' : '' ?>>Adm</option>
+                    </select>
+                </div>
+                <br>
                 <div class="button-group">
                     <center>
-                        <button type="submit" class="button-link"><?= isset($id_usuario) ? 'Salvar Alterações' : 'Criar' ?> <span></span></button>
+                        <button type="submit" class="button-link"><?= $id_usuario ? 'Salvar Alterações' : 'Criar' ?> <span></span></button>
                     </center>
                     <br>
                 </div>
@@ -75,47 +127,3 @@ if (!empty($id_usuario)) {
 </body>
 
 </html>
-
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['confirmSenha'])) {
-        $email = $_POST['email'];
-        $password = $_POST['senha'];
-        $passwordConfirm = $_POST['confirmSenha'];
-        $nivel = isset($_POST['nivel']) ? $_POST['nivel'] : null; // Nível é opcional
-
-        if (isset($_POST['id_para_alterar']) && !empty($_POST['id_para_alterar'])) {
-            // Atualizar usuário existente
-            $id_para_alterar = $_POST['id_para_alterar'];
-            $resultado = $usuario->EditarUsuarios($id_para_alterar, $email, $nivel);
-
-            if ($resultado) {
-                header('Location: perfil.php?id_usuario=' . $id_para_alterar);
-                exit();
-            } else {
-                $erro = "Erro ao atualizar usuário.";
-            }
-        } else {
-            // Criar um novo usuário
-            if ($password === $passwordConfirm) {
-                $resultado = $usuario->CadastroADM($email, $password, $passwordConfirm, $nivel);
-
-                if ($resultado === "ADM cadastrado com sucesso") {
-                    header('Location: /login.php');
-                    exit();
-                } elseif ($resultado === "<br>ADM já existe") {
-                    header('Location: criar_usuario.php?erro=usuario_existe');
-                    exit();
-                } elseif ($resultado === "<br>Senhas não são iguais") {
-                    header('Location: criar_usuario.php?erro=senhas_nao_iguais');
-                    exit();
-                } else {
-                    echo $resultado;
-                }
-            } else {
-                echo "As senhas não coincidem.";
-            }
-        }
-    }
-}
-?>

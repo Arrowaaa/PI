@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($senha === $confirmSenha) {
         try {
-            global $UsuarioSenha; // Acessa a variável global
+            global $UsuarioSenha; 
 
             $select = "SELECT * FROM clientes WHERE email = :email AND cpf = :cpf";
             $parametro = $UsuarioSenha->prepare($select);
@@ -21,9 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($parametro->rowCount() > 0) {
                 $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
                 $update = "UPDATE clientes SET senha = :senha WHERE email = :email";
-                $parametro = $UsuarioSenha->prepare($update);
-                $parametro->bindParam(':senha', $senhaHash);
-                $parametro->bindParam(':email', $email);
+                $parametro1 = $UsuarioSenha->prepare($update);
+                $parametro1->bindParam(':senha', $senhaHash);
+                $parametro1->bindParam(':email', $email);
 
                 if ($parametro->execute()) {
                     echo "<script>alert('Sua senha foi redefinida'); window.location.href='login.php';</script>";
@@ -33,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             } else {
                 echo "<p>Usuário não encontrado.</p>";
+                print_r($_POST);
+                print_r($parametro);
             }
         } catch (PDOException $e) {
             echo "<p>Erro: " . $e->getMessage() . "</p>";
@@ -74,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="input-group">
                     <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
                     <script src="assets/js/mascaras.js"></script>
                 </div>
                 <div class="input-group password-group">

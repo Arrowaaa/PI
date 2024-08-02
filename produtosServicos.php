@@ -1,7 +1,7 @@
 <?php include './includes/header.php' ?>
 
 <div class="container my-5">
-    <h2 class="text-center">Nossos Serviços</h2><br>
+    <h2 class="text-center">Serviços Mais Vendidos</h2><br>
     <div class="row">
         <div class="col-md-4">
             <div class="card">

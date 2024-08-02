@@ -118,11 +118,5 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Foto enviada!');
         });
     }
-    
 });
 
-document.getElementById('excluirContaForm').addEventListener('submit', function (event) {
-    if (!confirm('Tem certeza de que deseja excluir sua conta? Esta ação não pode ser desfeita.')) {
-        event.preventDefault();
-    }
-});
