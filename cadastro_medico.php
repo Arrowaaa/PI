@@ -1,21 +1,15 @@
 <?php
-session_start(); // Inicia a sessão
-
+session_start(); 
 require_once './auxi/config.php';
-
-// Consulta para carregar especializações
 $sqlEspecializacao = "SELECT id_especializacao, especializacao FROM especializacao";
 $stmtEspecializacao = $UsuarioSenha->prepare($sqlEspecializacao);
 $stmtEspecializacao->execute();
 $especializacoes = $stmtEspecializacao->fetchAll(PDO::FETCH_ASSOC);
-
-// Obter id_cliente da sessão
 $id_cliente = isset($_SESSION['id_cliente']) ? $_SESSION['id_cliente'] : null;
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +30,7 @@ $id_cliente = isset($_SESSION['id_cliente']) ? $_SESSION['id_cliente'] : null;
             <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
         </a><br>
         <h1>Cadastro de Médicos</h1>
-        <form action="auxcadastromedico.php" method="post">
+        <form action="./auxi/auxcadastromedico.php" method="post">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required><br>
 

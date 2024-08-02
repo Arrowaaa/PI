@@ -9,21 +9,17 @@ $clientes = null;
 $pet = null;
 $nivel = 'base' || '';
 $agendamentos = [];
-
-// Verifica se o ID do cliente está na sessão
 if (isset($_SESSION['id_cliente'])) {
     $id_cliente = $_SESSION['id_cliente'];
 
     try {
         // Conexão com o banco de dados
         global $UsuarioSenha;
-
         // Busca informações do cliente
         $preparo = $UsuarioSenha->prepare("SELECT * FROM clientes WHERE id_cliente = ?");
         $preparo->execute([$id_cliente]);
         $clientes = $preparo->fetch(PDO::FETCH_ASSOC);
 
-        // Verifica se o cliente foi encontrado
         if (!$clientes) {
             header('Location: login.php');
             exit();
@@ -82,7 +78,6 @@ $pessoas = new pessoas();
     <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/perfil.css">
 </head>
-
 <body>
     <div class="imagens">
         <img src="assets/img/cachorros/4.png" alt="Imagem 2" class="imagem-direita">
@@ -129,7 +124,7 @@ $pessoas = new pessoas();
             <?php if ($pet && is_array($pet)) : ?>
                 <p>Nome do Pet: <?= htmlspecialchars(ucwords(strtolower($pet['nomep']))) ?></p>
                 <p>Espécie: <?= htmlspecialchars(ucwords(strtolower($pet['especie_nome']))) ?></p>
-                <p>Idade: <?= htmlspecialchars($pessoas->calcularIdade(ucwords(strtolower($pet['data_nascimento'])))) ?> anos</p>
+                <p>Idade: <?= htmlspecialchars($pessoas->calcularIdade(ucwords(strtolower($pet['data_nascimento'])))) ?></p>
                 <p>Raça: <?= htmlspecialchars(ucwords(strtolower($pet['raca']))) ?></p>
                 <p>Peso: <?= htmlspecialchars(pessoas::formatarPeso(ucwords(strtolower($pet['peso'])))) ?></p>
                 <p>Sexo: <?= htmlspecialchars(pessoas::formatarSexop(ucwords(strtolower($pet['sexop'])))) ?></p>
@@ -159,11 +154,13 @@ $pessoas = new pessoas();
             <div id="oculto" class="bnt_oculto">
                 <p><a href="editaCadastro.php">Editar Informações</a></p>
                 <p><a href="Cadastro_pet.php">Cadastre Seu Pet</a></p>
+                <p><a href="listarPet.php">Lista de Pets</a></p>
                 <?php if (isset($_SESSION['Nivel']) && $_SESSION['Nivel'] !== 'base') : ?>
                     <p><a href="produtosServicos.php">Tela de Serviços</a></p>
                     <p><a href="listarUser.php">Listar Usuários</a></p>
                     <p><a href="cadastro_medico.php">Sou Médico</a></p>
                     <p><a href="horarios.php">Horários dos Médicos</a></p>
+                    <p><a href="listarMedicos.php">Lista de Médicos</a></p>
                 <?php endif; ?>
                 <p><a href="agendamento.php">Agendar Consulta</a></p>
                 <p><a href="listarAgenda.php">Cancelar Consulta</a></p>

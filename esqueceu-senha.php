@@ -1,17 +1,15 @@
 <?php
-
 require_once './auxi/config.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    $confirmSenha = $_POST['confirmSenha'];
-    $cpf = $_POST['cpf'];
+    $email = trim($_POST['email']);
+    $senha = trim($_POST['senha']);
+    $confirmSenha = trim($_POST['confirmSenha']);
+    $cpf = trim($_POST['cpf']);
 
     if ($senha === $confirmSenha) {
         try {
             global $UsuarioSenha; 
-
             $select = "SELECT * FROM clientes WHERE email = :email AND cpf = :cpf";
             $parametro = $UsuarioSenha->prepare($select);
             $parametro->bindParam(':email', $email);
@@ -25,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $parametro1->bindParam(':senha', $senhaHash);
                 $parametro1->bindParam(':email', $email);
 
-                if ($parametro->execute()) {
+                if ($parametro1->execute()) {
                     echo "<script>alert('Sua senha foi redefinida'); window.location.href='login.php';</script>";
                     exit;
                 } else {
@@ -33,8 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             } else {
                 echo "<p>Usuário não encontrado.</p>";
-                print_r($_POST);
-                print_r($parametro);
             }
         } catch (PDOException $e) {
             echo "<p>Erro: " . $e->getMessage() . "</p>";

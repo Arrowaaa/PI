@@ -1,10 +1,8 @@
 <?php
 session_start();
-
 require_once './classe/Usuarios.php';
 $usuario = new Usuarios();
 
-// Verifica se o usuário está autenticado
 if (!isset($_SESSION['id_cliente'])) {
     header('Location: login.php');
     exit();
@@ -13,8 +11,6 @@ if (!isset($_SESSION['id_cliente'])) {
 $id_alterar = $_SESSION['id_cliente'];
 $dadosUsuario = [];
 $dadosPet = [];
-
-// Obtém os dados do usuário e do pet
 if (!empty($id_alterar)) {
     $dadosUsuario = $usuario->Usuarios($id_alterar);
     $dadosPet = $usuario->listarPet($id_alterar);
@@ -111,33 +107,6 @@ if (!empty($id_alterar)) {
                     <div class="input-group">
                         <label for="estado">Estado:</label>
                         <input type="text" id="estado" name="estado" value="<?= isset($dadosUsuario['estado']) ? htmlspecialchars($dadosUsuario['estado']) : '' ?>">
-                    </div>
-
-
-                    <div class="input-group">
-                        <label for="nomePet">Nome do Pet:</label>
-                        <input type="text" id="nomePet" name="nomePet" value="<?= isset($dadosPet['nome_pet']) ? htmlspecialchars($dadosPet['nome_pet']) : '' ?>">
-                    </div>
-                    <div class="input-group">
-                        <label for="especiePet">Espécie do Pet:</label>
-                        <input type="text" id="especiePet" name="especiePet" value="<?= isset($dadosPet['especie_pet']) ? htmlspecialchars($dadosPet['especie_pet']) : '' ?>">
-                    </div>
-                    <div class="input-group">
-                        <label for="sexoPet">Sexo do Pet:</label>
-                        <select id="sexoPet" name="sexoPet">
-                            <option value="" <?= (isset($dadosPet['sexo_pet']) && $dadosPet['sexo_pet'] == '') ? 'selected' : '' ?>></option>
-                            <option value="M" <?= (isset($dadosPet['sexo_pet']) && $dadosPet['sexo_pet'] == 'M') ? 'selected' : '' ?>>Macho</option>
-                            <option value="F" <?= (isset($dadosPet['sexo_pet']) && $dadosPet['sexo_pet'] == 'F') ? 'selected' : '' ?>>Fêmea</option>
-                            <option value="O" <?= (isset($dadosUsuario['sexo_pet']) && $dadosUsuario['sexo_pet'] == 'o') ? 'selected' : '' ?>>Outros</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label for="racaPet">Raça do Pet:</label>
-                        <input type="text" id="racaPet" name="racaPet" value="<?= isset($dadosPet['raca_pet']) ? htmlspecialchars($dadosPet['raca_pet']) : '' ?>">
-                    </div>
-                    <div class="input-group">
-                        <label for="pesoPet">Peso do Pet:</label>
-                        <input type="text" id="pesoPet" name="pesoPet" value="<?= isset($dadosPet['peso_pet']) ? htmlspecialchars($dadosPet['peso_pet']) : '' ?>">
                     </div>
                 <?php endif; ?>
                 <center>

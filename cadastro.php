@@ -9,6 +9,7 @@ if (!empty($id_alterar)) {
     $dadosUsuario = $usuario->Usuarios($id_alterar);
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

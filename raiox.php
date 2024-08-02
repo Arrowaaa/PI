@@ -7,18 +7,14 @@
     <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
     <title>Formulário de Raio-X</title>
     <style>
-        /* CSS para evitar quebras de página indesejadas */
         body {
             font-family: Arial, sans-serif;
         }
 
         #content {
             width: 210mm;
-            /* Largura do A4 */
             min-height: 297mm;
-            /* Altura mínima do A4 */
             padding: 10mm;
-            /* Padding para evitar quebras de conteúdo */
             margin: 0 auto;
         }
 
@@ -33,8 +29,6 @@
                 margin: 0;
                 box-shadow: none;
             }
-
-
         }
     </style>
 </head>
@@ -140,9 +134,7 @@
             const btnGenerate = document.querySelector("#generate-pdf");
             btnGenerate.addEventListener("click", () => {
                 const content = document.querySelector("#content");
-                const generate = document.querySelector("#generate-pdf"); // Substitua pelo seletor do seu elemento
-
-                // Adiciona a classe no-print ao elemento que você deseja excluir do PDF
+                const generate = document.querySelector("#generate-pdf");
                 generate.classList.add("no-print");
                 const options = {
                     margin: [10, 10, 10, 10],
@@ -160,26 +152,21 @@
                         orientation: "portrait"
                     }
                 };
-
                 setTimeout(() => {
                     html2pdf().set(options).from(content).toPdf().get('pdf').then(function(pdf) {
-                        // Adicionar imagem ao PDF
                         const imgElement = document.querySelector("#apresentar-imagem img");
                         if (imgElement) {
                             const imgData = imgElement.src;
-                            const imgWidth = 210; // Largura da página A4
+                            const imgWidth = 210; 
                             const imgHeight = imgElement.naturalHeight * imgWidth / imgElement.naturalWidth;
                             pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
                         }
-                        pdf.save();
+                        pdf.save(); 
                     }).catch(err => console.error(err)).finally(() => {
-                        // Remove a classe no-print do elemento após gerar o PDF
                         generate.classList.remove("no-print");
                     });
                 }, 300);
             });
-
-            // Adiciona a imagem ao div quando o arquivo é selecionado
             document.querySelector('#comprovante').addEventListener('change', function() {
                 const file = this.files[0];
                 if (file) {

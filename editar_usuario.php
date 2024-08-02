@@ -7,19 +7,15 @@ $usuario = new Usuarios();
 $dadosUsuario = [];
 $email = isset($_GET['email']) ? $_GET['email'] : null;
 
-// Verificar se o e-mail do cliente foi passado e obter os dados
 if ($email) {
-    $_SESSION['email'] = $email; // Defina a sessão email aqui
+    $_SESSION['email'] = $email; 
     $dadosUsuario = $usuario->obterUsuarioPorEmail($email);
-
-    // Se não há dados, redirecionar ou exibir erro
     if (!$dadosUsuario) {
         echo '<p class="alert alert-danger">Cliente não encontrado.</p>';
         exit();
     }
 }
 
-// Determinar a URL de redirecionamento do botão Voltar
 $voltarUrl = !empty($email) ? 'perfil.php?email=' . $email : 'listarUser.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -27,8 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($email) {
         $cpf = $_POST['cpf'];
         $nivel = isset($_POST['nivel']) ? $_POST['nivel'] : null;
-        // Atualizar informações do cliente
-        $resultado = $usuario->EditarUsuarios($email, $cpf, $nivel); // Adapte a chamada conforme sua função
+        $resultado = $usuario->EditarUsuarios($email, $cpf, $nivel); 
         if ($resultado) {
             echo '<p class="alert alert-success">Cliente atualizado com sucesso!!!</p>';
         } else {

@@ -13,15 +13,12 @@ try {
     // Verificar se a ação é para buscar médicos
     if (isset($_POST['action']) && $_POST['action'] === 'fetch_medicos') {
         $especializacaoId = filter_var($_POST['especializacao'], FILTER_SANITIZE_NUMBER_INT);
-
         $stmt = $conn->prepare("SELECT id_medico, nome FROM medicos WHERE especializacao = :especializacao");
         $stmt->execute(['especializacao' => $especializacaoId]);
         $medicos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         echo json_encode($medicos);
         exit;
     }
-
     // Consulta para carregar especializações
     $stmtEspecializacoes = $conn->query("SELECT * FROM especializacao");
     $especializacoes = $stmtEspecializacoes->fetchAll(PDO::FETCH_ASSOC);
@@ -41,12 +38,10 @@ try {
             $email = htmlspecialchars($result['email']);
         }
     } else {
-        // Redirecionar para login se o id_cliente não estiver na sessão
         header('Location: login.php');
         exit;
     }
 } catch (PDOException $e) {
-    // Mensagem de erro
     die("Erro de conexão: " . htmlspecialchars($e->getMessage()));
 }
 ?>
@@ -125,6 +120,7 @@ try {
                     <option value="15:45">15:45</option>
                     <option value="16:30">16:30</option>
                     <option value="17:15">17:15</option>
+                    <option value="18:00">18:00</option>
                 </select>
             </div><br>
 

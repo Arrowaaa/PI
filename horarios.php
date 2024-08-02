@@ -4,16 +4,12 @@ $id_cliente = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
 require_once './auxi/config.php';
 
 try {
-    // Buscar especializações
     $especializacoes = $UsuarioSenha->query("SELECT id_especializacao, especializacao FROM especializacao")->fetchAll(PDO::FETCH_ASSOC);
-
-    // Buscar dias da semana
     $diasSemana = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'];
 } catch (PDOException $e) {
     die("Erro de conexão: " . $e->getMessage());
 }
 
-// Processar formulário
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $medico = $_POST['medico'];
     $crm = $_POST['crm'];
@@ -23,10 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $horariofim = $_POST['horariofim'];
 
     try {
-        // Iniciar transação
         $UsuarioSenha->beginTransaction();
-
-        // Inserir dados do médico
         $stmtMedico = $UsuarioSenha->prepare("INSERT INTO medicos (nome, crm, especializacao) VALUES (:medico, :crm, :especializacao)");
         $stmtMedico->bindParam(':medico', $medico);
         $stmtMedico->bindParam(':crm', $crm);
@@ -44,12 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmtHorario->bindParam(':horariofim', $horariofim);
         $stmtHorario->bindParam(':especializacao', $especializacao);
         $stmtHorario->execute();
-
-        // Commit transação
         $UsuarioSenha->commit();
         echo "Horário salvo com sucesso!";
     } catch (PDOException $e) {
-        // Rollback em caso de erro
         $UsuarioSenha->rollBack();
         die("Erro ao salvar horário: " . $e->getMessage());
     }

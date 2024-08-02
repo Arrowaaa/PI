@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id_cliente = $_POST['id_cliente'];
         $resultado = $usuario->deletarUsuario($id_cliente);
         if ($resultado == 1) {
+            echo '<p class="alert alert-success">Usuário Deletado Com Sucesso!!!</p>';
             echo '<script>';
             echo 'setTimeout(function() { window.location.href = "listarUser.php?deletado=1"; }, 1600);';
             echo '</script>';

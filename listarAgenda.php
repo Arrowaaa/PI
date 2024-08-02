@@ -2,19 +2,15 @@
 session_start();
 include './classe/Usuarios.php';
 include './classe/pessoas.php';
-
 $usuario = new Usuarios();
 
 // Verifique se o formulário foi enviado para deletar um agendamento
 if (isset($_POST['delete']) && isset($_POST['id_agendamento'])) {
     $id_agendamento = $_POST['id_agendamento'];
-
-
     $resultado = $usuario->deletarAgendamento($id_agendamento);
-
-    // Redirecione com um parâmetro para indicar sucesso
     if ($resultado > 0) {
-        header('Location: listarAgenda.php');
+        echo '<p class="alert alert-success">Agendamento Deletado Com Sucesso!!!</p>';
+        echo '<script>setTimeout(function() { window.location.href = "listarAgenda.php"; }, 1800);</script>';
         exit();
     } else {
         echo "<p class='alert alert-danger'>Erro ao deletar agendamento ou agendamento não encontrado.</p>";
@@ -34,6 +30,7 @@ if ($id_cliente && is_numeric($id_cliente)) {
     $servicos = [];
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -74,6 +71,7 @@ if ($id_cliente && is_numeric($id_cliente)) {
         text-align: center;
         border-bottom: 5px solid #000000;
     }
+
     td {
         padding: 12px 0;
         text-align: center;
@@ -125,7 +123,6 @@ if ($id_cliente && is_numeric($id_cliente)) {
                     <tbody>
                         <?php if (!empty($agendamentos)) {
                             foreach ($agendamentos as $value) {
-                                // Obtenha o nome do serviço correspondente
                                 $servicoNome = pessoas::servico($value['servico']);
                         ?>
                                 <tr>

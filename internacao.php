@@ -145,11 +145,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js" integrity="sha512-MpDFIChbcXl2QgipQrt1VcPHMldRILetapBl5MPCA9Y8r7qvlwx1/Mc9hNTzY+kS5kX6PdoDq41ws1HiVNLdZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Função para exibir imagens pré-visualizadas
             function displayImage(inputId, previewId) {
                 const input = document.querySelector(inputId);
                 const preview = document.querySelector(previewId)
-
                 input.addEventListener('change', function() {
                     const file = this.files[0];
                     if (file) {
@@ -165,19 +163,12 @@
                     }
                 });
             }
-
-            // Adiciona visualização das imagens ao carregar
             displayImage('#historico_medico', '#apresentar-imagem-historico');
             displayImage('#medicacao_previa', '#apresentar-imagem-previa');
-
-            // Função para gerar o PDF
             document.querySelector('#generate-pdf').addEventListener('click', () => {
                 const content = document.querySelector("#content");
-                const generate = document.querySelector("#generate-pdf"); // Substitua pelo seletor do seu elemento
-
-                // Adiciona a classe no-print ao elemento que você deseja excluir do PDF
+                const generate = document.querySelector("#generate-pdf");
                 generate.classList.add("no-print");
-
                 const options = {
                     margin: [10, 10, 10, 10],
                     filename: "formulario.pdf",
@@ -192,9 +183,7 @@
                         orientation: "portrait"
                     }
                 };
-
                 html2pdf().set(options).from(content).toPdf().get('pdf').then(function(pdf) {
-                    // Adiciona imagens ao PDF
                     const images = [{
                             id: '#apresentar-imagem-historico',
                             x: 10,
@@ -206,16 +195,13 @@
                             y: 200
                         }
                     ];
-
                     images.forEach(imgInfo => {
                         const imgElement = document.querySelector(imgInfo.id + ' img');
                         if (imgElement) {
                             const imgData = imgElement.src;
-                            const imgWidth = 190; // Largura máxima da página A4 (210mm menos margens)
+                            const imgWidth = 190;
                             const imgHeight = imgElement.naturalHeight * imgWidth / imgElement.naturalWidth;
-
-                            // Ajusta a altura da imagem para que ela não ultrapasse a página
-                            const maxPageHeight = 297 - 20; // Altura da página A4 menos margens
+                            const maxPageHeight = 297 - 20; 
                             if (imgHeight > maxPageHeight) {
                                 const scale = maxPageHeight / imgHeight;
                                 imgWidth *= scale;
@@ -223,13 +209,11 @@
                             }
 
                             pdf.addImage(imgData, 'JPEG', imgInfo.x, imgInfo.y, imgWidth, imgHeight);
-                            imgInfo.y += imgHeight + 10; // Adiciona uma margem entre as imagens
+                            imgInfo.y += imgHeight + 10;
                         }
                     });
-
                     pdf.save();
                 }).catch(err => console.error(err)).finally(() => {
-                    // Remove a classe no-print do elemento após gerar o PDF
                     generate.classList.remove("no-print");
                 });
             }, 300);
@@ -243,15 +227,11 @@
     .no-print {
         display: none !important;
     }
-
     @media print {
-
         body,
         #content {
             margin: 0;
             box-shadow: none;
         }
-
-
     }
 </style>

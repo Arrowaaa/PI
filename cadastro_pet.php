@@ -1,16 +1,11 @@
 <?php
-session_start(); // Inicie a sessão para acessar variáveis de sessão
-
-require_once './classe/Usuarios.php'; // Inclua a definição da classe Usuarios
+session_start(); 
+require_once './classe/Usuarios.php'; 
 require_once './classe/pessoas.php';
-// Crie uma instância da classe Usuarios
 $usuario = new Usuarios();
 
-// Obtenha o id_cliente da sessão
 $id_cliente = isset($_SESSION['id_cliente']) ? $_SESSION['id_cliente'] : null;
 $dadosUsuario = [];
-
-// Verifique se $id_cliente está disponível e se $usuario não é null
 if ($id_cliente) {
     $dadosUsuario = $usuario->Usuarios($id_cliente);
 } else {
@@ -63,7 +58,6 @@ if ($id_cliente) {
                     <select id="especie" name="especie">
                         <option value="">Selecione uma espécie</option>
                         <?php
-                        // Conectar ao banco de dados e obter espécies
                         require_once './auxi/config.php';
                         $sql = "SELECT id_especie, nome FROM especies";
                         $stmt = $UsuarioSenha->prepare($sql);
@@ -99,7 +93,12 @@ if ($id_cliente) {
                 </div>
                 <div class="input-group">
                     <label for="porte">Porte do Pet:</label>
-                    <input type="text" id="porte" name="porte">
+                    <select id="porte" name="porte">
+                        <option value=""></option>
+                        <option value="pequeno">Pequeno</option>
+                        <option value="medio">Médio</option>
+                        <option value="grande">Grande</option>
+                    </select>
                 </div>
                 <center>
                     <button type="submit" class="button-link">Cadastrar<span></span></button>
@@ -108,4 +107,5 @@ if ($id_cliente) {
         </div>
     </div>
 </body>
+
 </html>
