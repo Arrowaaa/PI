@@ -20,11 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $estado = $_POST['estado'];
         $senha = isset($_POST['senha']) ? $_POST['senha'] : null;
 
-        // Atualiza o usuário
         $resultadoUsuario = $usuarios->AtualizarUsuario($id_cliente, $nome, $cpf, $telefone, $contato, $sexo, $cep, $cidade, $complemento, $numero_residencia, $estado, $senha);
 
         if ($resultadoUsuario === "Usuário atualizado com sucesso!") {
-            // Atualiza o pet se os dados do pet estiverem presentes
             if (isset($_POST['id_pet']) && !empty($_POST['id_pet'])) {
                 $id_pet = $_POST['id_pet'];
                 $nomep = $_POST['nomep'];

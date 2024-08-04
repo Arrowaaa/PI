@@ -6,7 +6,7 @@ $usuario = new Usuarios();
 
 
 $id_cliente = $_POST['id_cliente'];
-$nomePet = $_POST['nomePet'];
+$nomePet = $_POST['nomep'];
 $especiePet = $_POST['especie'];
 $dataNascimento = $_POST['data_nascimento'];
 $racaPet = $_POST['raca'];
