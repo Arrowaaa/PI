@@ -100,4 +100,18 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    var peso = document.getElementById('peso');
+    if (peso) {
+        peso.addEventListener('input', function (e) {
+            let value = parseFloat(e.target.value);
+            if (isNaN(value)) {
+                e.target.value = '';
+            } else {
+                if (value < 0) e.target.value = 0;
+                if (value > 99) e.target.value = 99;
+            }
+        });
+    }
+
 });

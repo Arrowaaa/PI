@@ -24,9 +24,7 @@ try {
     $stmt = $UsuarioSenha->prepare($sql);
     $stmt->execute([$id_cliente, $nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte]);
     echo "<script>alert('Pet Cadastrado Com Sucesso!!');</script>";
-    echo '<script>';
-    echo 'setTimeout(function() { window.location.href = "../perfil.php"; }, );';
-    echo '</script>';
+    echo '<script>setTimeout(function() { window.location.href = "../perfil.php"; },);</script>'; 
     exit;
 } catch (PDOException $e) {
     // Se o insert falhar, tenta atualizar o pet
@@ -37,9 +35,7 @@ try {
             $stmt = $UsuarioSenha->prepare($sql);
             $stmt->execute([$id_cliente, $nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte, $id_cliente, $nomePet]);
             echo "<script>alert('Pet Cadastrado Com Sucesso!!');</script>";
-            echo '<script>';
-            echo 'setTimeout(function() { window.location.href = "../perfil.php"; },);';
-            echo '</script>';
+            echo '<script>setTimeout(function() { window.location.href = "../perfil.php"; },);</script>';
             exit;
         } catch (PDOException $e) {
             echo "Erro ao atualizar o pet: " . $e->getMessage();
