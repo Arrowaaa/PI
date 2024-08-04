@@ -393,27 +393,15 @@ class Usuarios
         }
     }
     // Lista todos os médicos com suas especializações
-    public function listarMedicos() {
-        try {
-            $selec = "SELECT m.id_medico, m.nome, m.crm, e.especializacao 
-                      FROM medicos m
-                      JOIN especializacao e ON m.especializacao = e.id_especializacao";
-            $preparo = $this->UsuarioSenha->prepare($selec);
-            $preparo->execute();
-            $resultados = $preparo->fetchAll(PDO::FETCH_ASSOC);
-            
-            // Verificação de depuração
-            if (empty($resultados)) {
-                echo "Nenhum médico encontrado.";
-            } else {
-                echo "Médicos encontrados: <pre>" . print_r($resultados, true) . "</pre>";
-            }
-    
-            return $resultados;
-        } catch (PDOException $e) {
-            die("Erro ao listar médicos: " . $e->getMessage());
-        }
-    }    
+    public function listarMedicos()
+    {
+        $selec = "SELECT m.id_medico, m.nome, m.crm, e.especializacao 
+                FROM medicos m
+                JOIN especializacao e ON m.especializacao = e.id_especializacao";
+        $preparo = $this->UsuarioSenha->prepare($selec);
+        $preparo->execute();
+        return $preparo->fetchAll(PDO::FETCH_ASSOC);
+    }
     // Lista todas as  especializações
     public function listarEspecializacoes()
     {
