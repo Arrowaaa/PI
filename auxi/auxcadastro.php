@@ -16,17 +16,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $resultado = $usuarios->CadastroCliente($email, $cpf, $senha, $confirmSenha);
 
             if ($resultado === "Usuário cadastrado com sucesso!!") {
-                echo '<div class="alert alert-success">Usuário cadastrado com sucesso!!</div>';
-                echo '<script>setTimeout(function() { window.location.href = "login.php"; }, 1600);</script>';  
+                echo "<script>alert('Usuário cadastrado com sucesso!!');</script>";
+                echo '<script>setTimeout(function() { window.location.href = "login.php"; },);</script>';  
             } elseif ($resultado === "Usuário já existe") {
-                echo '<div class="alert alert-danger">Usuário já existe!!</div>';
-                echo '<script>setTimeout(function() { window.location.href = "criar-usuario.php?erro=usuario_existe"; }, 1600);</script>';
+                echo "<script>alert('Usuário já existe!!');</script>";
+                echo '<script>setTimeout(function() { window.location.href = "criar-usuario.php?erro=usuario_existe"; },);</script>';
             } else {
                 echo '<div class="alert alert-danger">' . $resultado . '</div>';
             }
         } else {
-            echo '<div class="alert alert-danger">As senhas não coincidem!!</div>';
-            echo '<script>setTimeout(function() { window.location.href = "criar-usuario.php?erro=senhas_nao_iguais"; }, 1600);</script>';
+            echo "<script>alert('As senhas não coincidem!!');</script>";
+            echo '<script>setTimeout(function() { window.location.href = "criar-usuario.php?erro=senhas_nao_iguais"; },);</script>';
         }
     }
 }

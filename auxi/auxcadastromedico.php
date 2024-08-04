@@ -34,8 +34,8 @@ try {
 
         if ($stmt_horario->execute()) {
             $UsuarioSenha->commit();
-            echo '<div class="alert alert-success">Médico e horário cadastrados com sucesso!!</div>';
-            echo '<script>setTimeout(function() { window.location.href = "../perfil.php"; }, 1600);</script>';  
+            echo "<script>alert('Médico e horário cadastrados com sucesso!!');</script>";
+            echo '<script>setTimeout(function() { window.location.href = "../perfil.php"; },);</script>';  
         } else {
             $UsuarioSenha->rollBack();
             echo "Erro ao cadastrar horário: " . $stmt_horario->errorInfo()[2];

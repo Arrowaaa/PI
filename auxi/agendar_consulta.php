@@ -57,14 +57,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 'id_medico' => $id_medico,
                 'servico' => $servico
             ]);
-            echo '<p class="alert alert-success">Agendamento realizado com sucesso!</p>';
-            echo '<script>setTimeout(function() { window.location.href = "../perfil.php"; }, 1800);</script>';
+            echo "<script>alert('Agendamento realizado com sucesso!');</script>";
+            echo '<script>setTimeout(function() { window.location.href = "../perfil.php"; },);</script>';
         } else {
-            echo "Nenhum médico disponível para o horário selecionado.";
+            echo "<script>alert('Nenhum médico disponível para o horário selecionado.');</script>";
         }
     } else {
-        echo "Cliente não encontrado.";
+        echo "<script>alert('Cliente não encontrado.');</script>";
     }
 } else {
-    echo "Método de requisição inválido.";
+    echo "<script>alert('Método de requisição inválido.');</script>";
 }

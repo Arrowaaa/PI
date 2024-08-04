@@ -23,9 +23,9 @@ try {
     $sql = "INSERT INTO pets (id_cliente, nomep, especie, data_nascimento, raca, peso, sexop, porte) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $UsuarioSenha->prepare($sql);
     $stmt->execute([$id_cliente, $nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte]);
-    echo '<p class="alert alert-danger">Pet Cadastrado Com Sucesso!!</p>';
+    echo "<script>alert('Pet Cadastrado Com Sucesso!!');</script>";
     echo '<script>';
-    echo 'setTimeout(function() { window.location.href = "../perfil.php"; }, 1600);';
+    echo 'setTimeout(function() { window.location.href = "../perfil.php"; }, );';
     echo '</script>';
     exit;
 } catch (PDOException $e) {
@@ -36,9 +36,9 @@ try {
             $sql = "UPDATE pets SET id_cliente = ?, nomep = ?, especie = ?, data_nascimento = ?, raca = ?, peso = ?, sexop = ?, porte = ? WHERE id_cliente = ? AND nomep = ?";
             $stmt = $UsuarioSenha->prepare($sql);
             $stmt->execute([$id_cliente, $nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte, $id_cliente, $nomePet]);
-            echo '<p class="alert alert-danger">Pet Cadastrado Com Sucesso!!</p>';
+            echo "<script>alert('Pet Cadastrado Com Sucesso!!');</script>";
             echo '<script>';
-            echo 'setTimeout(function() { window.location.href = "../perfil.php"; }, 1600);';
+            echo 'setTimeout(function() { window.location.href = "../perfil.php"; },);';
             echo '</script>';
             exit;
         } catch (PDOException $e) {

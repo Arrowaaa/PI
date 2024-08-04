@@ -119,9 +119,7 @@ class Usuarios
             $preparo->bindParam(':cpf', $cpf);
             $preparo->bindParam(':senha', $passwordHash);
             $preparo->execute();
-
-            echo '<p class="alert alert-success">Cliente cadastrado com sucesso!!!</p>';
-            echo '<script>setTimeout(function() { window.location.href = "../login.php"; }, 1800);</script>';
+            echo '<script>setTimeout(function() { window.location.href = "../login.php"; },);</script>';
         } catch (PDOException $erro) {
             echo "<script>alert('Erro ao tentar cadastrar: " . $erro->getMessage() . "');</script>";
             return "Erro ao tentar cadastrar: " . $erro->getMessage();
@@ -129,20 +127,19 @@ class Usuarios
     }
 
     // Função para editar Cliente/Usuario
-    public function EditarUsuarios($email, $cpf, $nivel)
+    public function EditarUsuarios($id_cliente, $nivel)
     {
         try {
             // Atualizando o nível do usuário na tabela clientes
-            $script = "UPDATE clientes SET cpf = :cpf, nivel = :nivel WHERE email = :email";
+            $script = "UPDATE clientes SET nivel = :nivel WHERE id_cliente = :id_cliente";
             $preparo = $this->UsuarioSenha->prepare($script);
-            $preparo->bindParam(':email', $email);
-            $preparo->bindParam(':cpf', $cpf);
             $preparo->bindParam(':nivel', $nivel);
+            $preparo->bindParam(':id_cliente', $id_cliente, PDO::PARAM_INT);
             $resultado = $preparo->execute();
             return $resultado;
         } catch (PDOException $erro) {
             echo "<script>alert('Erro ao atualizar usuário: " . $erro->getMessage() . "');</script>";
-            return "Erro ao atualizar usuário: " . $erro->getMessage();
+            return false; // Retorne false em caso de erro
         }
     }
 
@@ -186,20 +183,20 @@ class Usuarios
         }
     }
 
-    // Função para deletar um usuário
-    public function deletarUsuario($id_usuario)
+    // Função para desativa um cliente
+    public function desativarUsuario($id_cliente)
     {
         try {
-            $script = "DELETE FROM usuarios WHERE id_usuario = :id_usuario";
+            $script = "UPDATE clientes SET nivel = 'desativado' WHERE id_cliente = :id_cliente";
             $preparo = $this->UsuarioSenha->prepare($script);
             $preparo->execute([
-                ":id_usuario" => $id_usuario
+                ":id_cliente" => $id_cliente
             ]);
 
             return $preparo->rowCount();
         } catch (PDOException $erro) {
-            echo "<script>alert('Erro ao deletar usuário: " . $erro->getMessage() . "');</script>";
-            return "Erro ao deletar usuário: " . $erro->getMessage();
+            echo "<script>alert('Erro ao desativar usuário: " . $erro->getMessage() . "');</script>";
+            return "Erro ao desativar usuário: " . $erro->getMessage();
         }
     }
 
@@ -274,9 +271,7 @@ class Usuarios
             $preparo->execute();
 
             if ($preparo->rowCount() > 0) {
-                echo "<script>alert('Agendamento deletado com sucesso.');</script>";
             } else {
-                echo "<script>alert('Nenhum agendamento encontrado para deletar.');</script>";
             }
 
             return $preparo->rowCount(); // Retorna o número de linhas afetadas
@@ -341,14 +336,12 @@ class Usuarios
             $preparo->bindParam(':porte', $porte, PDO::PARAM_STR);
 
             if ($preparo->execute()) {
-                echo '<p class="alert alert-danger">Pet atualizado com sucesso!!</p>';
+
                 return "Pet atualizado com sucesso!";
             } else {
-                echo '<p class="alert alert-danger">Erro ao atualizar pet: </p>';
                 return "Erro ao atualizar pet.";
             }
         } catch (PDOException $e) {
-            echo '<p class="alert alert-danger">Erro ao atualizar pet: </p>';
             return "Erro ao atualizar pet: " . $e->getMessage();
         }
     }
@@ -374,14 +367,11 @@ class Usuarios
             $preparo->bindParam(':porte', $porte, PDO::PARAM_STR);
 
             if ($preparo->execute()) {
-                echo '<p class="alert alert-danger">Pet atualizado com sucesso!!</p>';
                 return "Pet atualizado com sucesso!";
             } else {
-                echo '<p class="alert alert-danger">Erro ao atualizar pet: </p>';
                 return "Erro ao atualizar pet.";
             }
         } catch (PDOException $e) {
-            echo '<p class="alert alert-danger">Erro ao atualizar pet: </p>';
             return "Erro ao atualizar pet: " . $e->getMessage();
         }
     }
@@ -394,14 +384,11 @@ class Usuarios
             $preparo = $this->UsuarioSenha->prepare($selec);
             $preparo->bindParam(':id_pet', $id_pet, PDO::PARAM_INT);
             if ($preparo->execute()) {
-                echo '<p class="alert alert-danger">Pet excluído com sucesso!! </p>';
                 return "Pet excluído com sucesso!";
             } else {
-                echo '<p class="alert alert-danger">Erro ao excluir pet: </p>';
                 return "Erro ao excluir pet.";
             }
         } catch (PDOException $e) {
-            echo '<p class="alert alert-danger">Erro ao excluir pet: </p>';
             return "Erro ao excluir pet: " . $e->getMessage();
         }
     }

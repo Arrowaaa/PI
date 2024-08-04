@@ -36,19 +36,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $porte = isset($_POST['porte']) ? $_POST['porte'] : null; 
 
                 $resultadoPet = $usuarios->AtualizarPet($id_pet, $id_cliente, $nomep, $especie, $data_nascimento, $raca, $peso, $sexop, $porte);
-                echo '<p class="alert alert-success">Cliente cadastrado com sucesso!!!</p>';
                 if ($resultadoPet === "Pet atualizado com sucesso!") {
-                    echo '<div class="alert alert-success">Usuário e Pet atualizados com sucesso!</div>';
+                    echo "<script>alert('Usuário e Pet atualizados com sucesso!!');</script>";
                     echo '<script>';
-                    echo 'setTimeout(function() { window.location.href = "../perfil.php"; }, 1600);';
+                    echo 'setTimeout(function() { window.location.href = "../perfil.php"; },);';
                     echo '</script>';
                 } else {
                     echo '<div class="alert alert-danger">' . $resultadoPet . '</div>';
                 }
             } else {
-                echo '<div class="alert alert-success">Usuário atualizado com sucesso!</div>';
+                echo "<script>alert('Cliente cadastrado com sucesso!!');</script>";
                 echo '<script>';
-                echo 'setTimeout(function() { window.location.href = "../perfil.php"; }, 1600);';
+                echo 'setTimeout(function() { window.location.href = "../perfil.php"; },);';
                 echo '</script>';
             }
         } else {
