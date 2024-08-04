@@ -20,13 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo '<script>setTimeout(function() { window.location.href = "login.php"; },);</script>';  
             } elseif ($resultado === "Usuário já existe") {
                 echo "<script>alert('Usuário já existe!!');</script>";
-                echo '<script>setTimeout(function() { window.location.href = "criar-usuario.php?erro=usuario_existe"; },);</script>';
+                echo '<script>setTimeout(function() { window.location.href = "../cadastro.php"; },);</script>';
             } else {
                 echo '<div class="alert alert-danger">' . $resultado . '</div>';
             }
         } else {
             echo "<script>alert('As senhas não coincidem!!');</script>";
-            echo '<script>setTimeout(function() { window.location.href = "criar-usuario.php?erro=senhas_nao_iguais"; },);</script>';
+            echo '<script>setTimeout(function() { window.location.href = "../cadastro.php"; },);</script>';
         }
     }
 }

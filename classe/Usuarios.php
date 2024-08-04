@@ -105,7 +105,6 @@ class Usuarios
             $resultado = $preparo->fetch();
 
             if ($resultado) {
-                echo "<script>alert('Usuário já existe!.');</script>";
                 return "Usuário já existe";
             }
 
