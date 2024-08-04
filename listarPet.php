@@ -193,7 +193,7 @@ $pets = $usuario->listarPet($id_cliente);
                                     </div>
                                     <div class="mb-3">
                                         <label for="data_nascimento" class="form-label">Data de Nascimento</label>
-                                        <input type="date" id="data_nascimento" name="data_nascimento" value="<?= htmlspecialchars($pet['data_nascimento']) ?>" class="form-control" min="1900-01-01" max="2024-08-03"required>
+                                        <input type="date" id="data_nascimento" name="data_nascimento" value="<?= htmlspecialchars($pet['data_nascimento']) ?>" class="form-control" min="2000-01-01" max="2024-08-03"required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="raca" class="form-label">Raça</label>

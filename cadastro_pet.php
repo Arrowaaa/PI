@@ -83,7 +83,7 @@ if ($id_cliente) {
                 </div>
                 <div class="input-group">
                     <label for="data_nascimento">Data de Nascimento:</label>
-                    <input type="date" id="data_nascimento" name="data_nascimento" min="1900-01-01" max="9999-12-31">
+                    <input type="date" id="data_nascimento" name="data_nascimento" min="2015-08-03" max="2024-08-05">
                 </div>
                 <div class="input-group">
                     <label for="raca">Raça do Pet:</label>
@@ -91,7 +91,7 @@ if ($id_cliente) {
                 </div>
                 <div class="input-group">
                     <label for="peso">Peso do Pet:</label>
-                    <input type="number" id="peso" name="peso" min="0" max="33" step="0.01">
+                    <input type="number" id="peso" name="peso" min="0" max="99" step="0.01">
                 </div>
                 <div class="input-group">
                     <label for="porte">Porte do Pet:</label>

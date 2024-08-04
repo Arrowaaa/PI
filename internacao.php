@@ -34,7 +34,7 @@
 
                 <div class="mb-3">
                     <label for="data_nascimento" class="form-label">Data de Nascimento:  </label>
-                    <input type="date" class="inputUser" id="data_nascimento" name="data_nascimento">
+                    <input type="date" class="inputUser" id="data_nascimento" name="data_nascimento" max="9999-12-31">
                 </div><br>
 
                 <div class="mb-3">
@@ -101,7 +101,7 @@
 
                 <div class="mb-3">
                     <label for="preferencia_data_hora" class="form-label">Preferência de Data e Hora:  </label>
-                    <input type="datetime-local" class="inputUser" id="preferencia_data_hora" name="preferencia_data_hora">
+                    <input type="datetime-local" class="inputUser" id="preferencia_data_hora" name="preferencia_data_hora" max="9999-12-31">
                 </div>
 
                 <div class="mb-3">

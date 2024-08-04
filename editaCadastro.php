@@ -94,11 +94,11 @@ if (!empty($id_alterar)) {
                     </div>
                     <div class="input-group">
                         <label for="complemento">Complemento:</label>
-                        <input type="text" id="complemento" name="complemento" value="<?= isset($dadosUsuario['complemento']) ? htmlspecialchars($dadosUsuario['complemento']) : '' ?>" minlength="8" maxlength="8">
+                        <input type="text" id="complemento" name="complemento" value="<?= isset($dadosUsuario['complemento']) ? htmlspecialchars($dadosUsuario['complemento']) : '' ?>" minlength="2" maxlength="8">
                     </div>
                     <div class="input-group">
                         <label for="numero_residencia">Número de residência:</label>
-                        <input type="text" id="numero_residencia" name="numero_residencia" value="<?= isset($dadosUsuario['numero_residencia']) ? htmlspecialchars($dadosUsuario['numero_residencia']) : '' ?>" minlength="3" maxlength="3">
+                        <input type="text" id="numero_residencia" name="numero_residencia" value="<?= isset($dadosUsuario['numero_residencia']) ? htmlspecialchars($dadosUsuario['numero_residencia']) : '' ?>" minlength="3" maxlength="8">
                     </div>
                     <div class="input-group">
                         <label for="estado">Estado:</label>

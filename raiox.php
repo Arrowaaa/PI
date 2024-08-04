@@ -59,7 +59,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="date">Data de Nascimento:  </label>
-                        <input type="date" class="inputUser">
+                        <input type="date" class="inputUser" max="9999-12-31">
                     </div>
                     <br>
                     <div class="mb-3">
