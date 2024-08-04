@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
         </a>
         <div class="login-box">
-            <h2>Horários de Trabalho</h2>
+            <h2> Cadastro Médico e Seu Horários de Trabalho</h2>
             <form id="horariosForm" action="#" method="POST">
                 <div class="input-group">
                     <label for="medico">Médico:</label>
