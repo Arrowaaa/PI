@@ -201,7 +201,7 @@ $pets = $usuario->listarPet($id_cliente);
                                     </div>
                                     <div class="mb-3">
                                         <label for="peso" class="form-label">Peso</label>
-                                        <input type="text" id="peso" name="peso" value="<?= htmlspecialchars($pet['peso']) ?>" class="form-control"  min="0" max="2" step="0.01" required>
+                                        <input type="text" id="peso" name="peso" value="<?= htmlspecialchars($pet['peso']) ?>" class="form-control"  min="1" max="99" step="0.01" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="porte" class="form-label">Porte</label>
