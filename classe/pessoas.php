@@ -27,7 +27,7 @@ class pessoas
     // Função para formatar o peso
     public static function formatarPeso($peso)
     {
-        return $peso . ' kg';
+        return rtrim(rtrim(number_format($peso, 2, ',', ''), '0'), ',') . ' kg';
     }
 
     // Função para formatar o sexo do pet
@@ -66,7 +66,7 @@ class pessoas
         $idade = $data_atual->diff($data_nascimento);
         $anos = $idade->y;
         $meses = $idade->m;
-        
+
         return " {$anos} anos e {$meses} mês ";
     }
 }

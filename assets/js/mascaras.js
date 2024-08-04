@@ -104,14 +104,24 @@ document.addEventListener("DOMContentLoaded", function () {
     var peso = document.getElementById('peso');
     if (peso) {
         peso.addEventListener('input', function (e) {
-            let value = parseFloat(e.target.value);
-            if (isNaN(value)) {
-                e.target.value = '';
+            let value = e.target.value;
+            let previousValue = e.target.dataset.previousValue || '';
+            let zeroCount = (value.match(/0/g) || []).length;
+            
+            if (zeroCount > 3) {
+                e.target.value = previousValue;
             } else {
-                if (value < 0) e.target.value = 0;
-                if (value > 99) e.target.value = 99;
+                let floatValue = parseFloat(value);
+                if (isNaN(floatValue)) {
+                    e.target.value = '';
+                } else {
+                    if (floatValue < 0) e.target.value = 0;
+                    if (floatValue > 99) e.target.value = 99;
+                }
+                e.target.dataset.previousValue = e.target.value;
             }
         });
     }
-
 });
+
+
