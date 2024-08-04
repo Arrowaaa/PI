@@ -63,6 +63,6 @@ if (!empty($id_alterar)) {
             </form>
         </div>
     </div>
-    <script src="./assets/js/senha.js"></script>
+    <script src="./assets/js/senhaToggle.js"></script>
 </body>
 </html>

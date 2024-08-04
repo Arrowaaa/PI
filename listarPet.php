@@ -16,13 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id_pet = $_POST['id_pet'];
         $resultado = $usuario->deletarPet($id_pet);
         if ($resultado) {
-            echo '<p class="alert alert-danger">Pet deletado com sucesso!!</p>';
-            echo '<script>';
-            echo 'setTimeout(function() { window.location.href = "listarpet.php"; }, 1600);';
-            echo '</script>';
+            echo "<script>alert('Pet deletado com sucesso!!');</script>";
+            echo '<script>setTimeout(function() { window.location.href = "listarPet.php"; },);</script>';
             exit();
         } else {
-            echo '<p class="alert alert-danger">Erro ao deletar pet.</p>';
+            echo "<script>alert('Erro ao deletar pet.');</script>";
             $erro = "Erro ao deletar pet.";
         }
     }
@@ -39,15 +37,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($id_pet, $nomep, $data_nascimento, $raca, $peso, $porte, $sexop)) {
             $resultado = $usuario->alterePet($id_pet, $nomep, $data_nascimento, $raca, $peso, $sexop, $porte);
             if ($resultado) {
-                echo '<p class="alert alert-danger">Pet atualizado com sucesso!!</p>';
-                echo '<script>setTimeout(function() { window.location.href = "listarpet.php"; }, 1600);</script>';
+                echo "<script>alert('Pet atualizado com sucesso!!');</script>";
+                echo '<script>setTimeout(function() { window.location.href = "listarPet.php"; },);</script>';
                 exit();
             } else {
-                echo '<p class="alert alert-danger">Erro ao atualizar pet!!</p>';
+                echo "<script>alert('Erro ao atualizar pet!!');</script>";
                 $erro = "Erro ao atualizar pet.";
             }
         } else {
-            echo '<p class="alert alert-danger">Todos os campos são obrigatórios.</p>';
+            echo "<script>alert('Todos os campos são obrigatórios.');</script>";
             $erro = "Todos os campos são obrigatórios.";
         }
     }
@@ -149,10 +147,8 @@ $pets = $usuario->listarPet($id_cliente);
         <a href="perfil.php" id="botaoVoltar">
             <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
         </a>
-        <?php if (isset($_GET['deletado']) && $_GET['deletado'] == 1) {
-            echo "<p class='alert alert-success'>Pet Deletado com Sucesso!!</p>";
+        <?php if (isset($_GET['deletado']) && $_GET['deletado'] == 1) {    
         } elseif (isset($_GET['atualizado']) && $_GET['atualizado'] == 1) {
-            echo "<p class='alert alert-success'>Pet Atualizado com Sucesso!!</p>";
         } elseif (isset($erro)) {
             echo "<p class='alert alert-danger'>$erro</p>";
         } ?>
@@ -193,19 +189,19 @@ $pets = $usuario->listarPet($id_cliente);
                                     <input type="hidden" name="id_pet" value="<?= htmlspecialchars($pet['id_pet']) ?>">
                                     <div class="mb-3">
                                         <label for="nomep" class="form-label">Nome</label>
-                                        <input type="text" id="nomep" name="nomep" value="<?= htmlspecialchars($pet['nomep']) ?>" class="form-control" required>
+                                        <input type="text" id="nomep" name="nomep" value="<?= htmlspecialchars($pet['nomep']) ?>" class="form-control" minlength="3" maxlength="20" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="data_nascimento" class="form-label">Data de Nascimento</label>
-                                        <input type="date" id="data_nascimento" name="data_nascimento" value="<?= htmlspecialchars($pet['data_nascimento']) ?>" class="form-control" required>
+                                        <input type="date" id="data_nascimento" name="data_nascimento" value="<?= htmlspecialchars($pet['data_nascimento']) ?>" class="form-control" min="1900-01-01" max="2024-08-03"required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="raca" class="form-label">Raça</label>
-                                        <input type="text" id="raca" name="raca" value="<?= htmlspecialchars($pet['raca']) ?>" class="form-control" required>
+                                        <input type="text" id="raca" name="raca" value="<?= htmlspecialchars($pet['raca']) ?>" class="form-control" minlength="3" maxlength="20"  required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="peso" class="form-label">Peso</label>
-                                        <input type="text" id="peso" name="peso" value="<?= htmlspecialchars($pet['peso']) ?>" class="form-control" required>
+                                        <input type="text" id="peso" name="peso" value="<?= htmlspecialchars($pet['peso']) ?>" class="form-control" maxlength="3" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="porte" class="form-label">Porte</label>

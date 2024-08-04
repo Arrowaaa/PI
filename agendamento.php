@@ -103,7 +103,7 @@ try {
 
             <div>
                 <label for="DataAgendamento">Data do Agendamento:</label>
-                <input type="date" id="DataAgendamento" name="DataAgendamento" required>
+                <input type="date" id="DataAgendamento" name="DataAgendamento" min="2024-08-03" max="9999-12-31" required>
             </div><br>
             <div>
                 <label for="HoraAgendamento">Hora do Agendamento:</label>

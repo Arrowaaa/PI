@@ -1,6 +1,6 @@
 <?php
-session_start(); 
-require_once './classe/Usuarios.php'; 
+session_start();
+require_once './classe/Usuarios.php';
 require_once './classe/pessoas.php';
 $usuario = new Usuarios();
 
@@ -15,6 +15,7 @@ if ($id_cliente) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +25,7 @@ if ($id_cliente) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/cadastro.css">
 </head>
+
 <body>
     <div class="imagens">
         <img src="assets/img/cachorros/3.png" id="esquerda" alt="Imagem 1" class="imagem-esquerda">
@@ -51,7 +53,7 @@ if ($id_cliente) {
 
                 <div class="input-group">
                     <label for="nomePet">Nome do Pet:</label>
-                    <input type="text" id="nomePet" name="nomePet">
+                    <input type="text" id="nomePet" name="nomePet" minlength="3" maxlength="20">
                 </div>
                 <div class="input-group">
                     <label for="especie">Espécie do Pet:</label>
@@ -81,11 +83,11 @@ if ($id_cliente) {
                 </div>
                 <div class="input-group">
                     <label for="data_nascimento">Data de Nascimento:</label>
-                    <input type="date" id="data_nascimento" name="data_nascimento">
+                    <input type="date" id="data_nascimento" name="data_nascimento" min="1900-01-01" max="9999-12-31">
                 </div>
                 <div class="input-group">
                     <label for="raca">Raça do Pet:</label>
-                    <input type="text" id="raca" name="raca">
+                    <input type="text" id="raca" name="raca" minlength="3" maxlength="20">
                 </div>
                 <div class="input-group">
                     <label for="peso">Peso do Pet:</label>
@@ -106,6 +108,19 @@ if ($id_cliente) {
             </form>
         </div>
     </div>
+    <script src="./assets/js/mascaras.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const racaInput = document.getElementById('raca');
+            if (racaInput) {
+                racaInput.addEventListener('input', function(e) {
+                    let raca = e.target.value;
+                    raca = raca.replace(/[^a-zA-Z\s]/g, '');
+                    e.target.value = raca;
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

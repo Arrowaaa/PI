@@ -9,11 +9,11 @@ if (isset($_POST['delete']) && isset($_POST['id_agendamento'])) {
     $id_agendamento = $_POST['id_agendamento'];
     $resultado = $usuario->deletarAgendamento($id_agendamento);
     if ($resultado > 0) {
-        echo '<p class="alert alert-success">Agendamento Deletado Com Sucesso!!!</p>';
+        echo "<script>alert('Agendamento deletado com sucesso.');</script>";
         echo '<script>setTimeout(function() { window.location.href = "listarAgenda.php"; }, 1800);</script>';
         exit();
     } else {
-        echo "<p class='alert alert-danger'>Erro ao deletar agendamento ou agendamento não encontrado.</p>";
+        echo "<script>alert('Erro ao deletar agendamento ou agendamento não encontrado.');</script>";
     }
 }
 

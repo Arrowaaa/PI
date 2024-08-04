@@ -49,8 +49,7 @@ if (!empty($id_alterar)) {
                 </div>
                 <div class="input-group">
                     <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" minlength="14" maxlength="14" value="<?= isset($dadosUsuario['cpf']) ? htmlspecialchars($dadosUsuario['cpf']) : '' ?>" required>
-                    <script src="assets/js/mascaras.js"></script>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" minlength="14" maxlength="14" value="<?= isset($dadosUsuario['cpf']) ? htmlspecialchars($dadosUsuario['cpf']) : '' ?>" minlength="14" maxlength="14" required>
                 </div>
                 <div class="input-group password-group">
                     <label for="senha">Senha:</label>
@@ -70,18 +69,16 @@ if (!empty($id_alterar)) {
                     </div>
                     <div class="input-group">
                         <label for="telefone">Telefone:</label>
-                        <input type="text" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" value="<?= isset($dadosUsuario['telefone']) ? htmlspecialchars($dadosUsuario['telefone']) : '' ?>">
-                        <script src="assets/js/mascaras.js"></script>
+                        <input type="text" id="telefone" name="telefone" placeholder="(00) 0 0000-0000" value="<?= isset($dadosUsuario['telefone']) ? htmlspecialchars($dadosUsuario['telefone']) : '' ?>" minlength="15" maxlength="15">
                     </div>
                     <div class="input-group">
                         <label for="contato">Outro contato:</label>
-                        <input type="text" id="contato" name="contato" placeholder="(00) 0 0000-0000" value="<?= isset($dadosUsuario['contato']) ? htmlspecialchars($dadosUsuario['contato']) : '' ?>">
-                        <script src="assets/js/mascaras.js"></script>
+                        <input type="text" id="contato" name="contato" placeholder="(00) 0 0000-0000" value="<?= isset($dadosUsuario['contato']) ? htmlspecialchars($dadosUsuario['contato']) : '' ?>" minlength="15" maxlength="15">
                     </div>
                     <div class="input-group">
                         <label for="sexo">Sexo do Tutor:</label>
                         <select id="sexo" name="sexo">
-                            <option value="" <?= (isset($dadosUsuario['sexo']) && $dadosUsuario['sexo'] == '') ? 'selected' : '' ?>></option>
+                            <option value=""></option>
                             <option value="M" <?= (isset($dadosUsuario['sexo']) && $dadosUsuario['sexo'] == 'M') ? 'selected' : '' ?>>Masculino</option>
                             <option value="F" <?= (isset($dadosUsuario['sexo']) && $dadosUsuario['sexo'] == 'F') ? 'selected' : '' ?>>Feminino</option>
                             <option value="O" <?= (isset($dadosUsuario['sexo']) && $dadosUsuario['sexo'] == '0') ? 'selected' : '' ?>>Outros</option>
@@ -89,8 +86,7 @@ if (!empty($id_alterar)) {
                     </div>
                     <div class="input-group">
                         <label for="CEP">CEP:</label>
-                        <input type="text" id="CEP" name="CEP" value="<?= isset($dadosUsuario['CEP']) ? htmlspecialchars($dadosUsuario['CEP']) : '' ?>" minlength="9">
-                        <script src="assets/js/mascaras.js"></script>
+                        <input type="text" id="CEP" name="CEP" value="<?= isset($dadosUsuario['CEP']) ? htmlspecialchars($dadosUsuario['CEP']) : '' ?>" minlength="10" maxlength="10">
                     </div>
                     <div class="input-group">
                         <label for="cidade">Cidade:</label>
@@ -98,15 +94,44 @@ if (!empty($id_alterar)) {
                     </div>
                     <div class="input-group">
                         <label for="complemento">Complemento:</label>
-                        <input type="text" id="complemento" name="complemento" value="<?= isset($dadosUsuario['complemento']) ? htmlspecialchars($dadosUsuario['complemento']) : '' ?>">
+                        <input type="text" id="complemento" name="complemento" value="<?= isset($dadosUsuario['complemento']) ? htmlspecialchars($dadosUsuario['complemento']) : '' ?>" minlength="8" maxlength="8">
                     </div>
                     <div class="input-group">
                         <label for="numero_residencia">Número de residência:</label>
-                        <input type="text" id="numero_residencia" name="numero_residencia" value="<?= isset($dadosUsuario['numero_residencia']) ? htmlspecialchars($dadosUsuario['numero_residencia']) : '' ?>">
+                        <input type="text" id="numero_residencia" name="numero_residencia" value="<?= isset($dadosUsuario['numero_residencia']) ? htmlspecialchars($dadosUsuario['numero_residencia']) : '' ?>" minlength="3" maxlength="3">
                     </div>
                     <div class="input-group">
                         <label for="estado">Estado:</label>
-                        <input type="text" id="estado" name="estado" value="<?= isset($dadosUsuario['estado']) ? htmlspecialchars($dadosUsuario['estado']) : '' ?>">
+                        <select id="estado" name="estado">
+                            <option value="">Selecione o estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
                     </div>
                 <?php endif; ?>
                 <center>
@@ -115,7 +140,8 @@ if (!empty($id_alterar)) {
             </form>
         </div>
     </div>
-    <script src="./assets/js/senha.js"></script>
+    <script src="./assets/js/mascaras.js"></script>
+    <script src="./assets/js/senhaToggle.js"></script>
 </body>
 
 </html>

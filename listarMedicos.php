@@ -8,10 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id_medico = $_POST['id_medico'];
         $resultado = $usuario->deletarMedico($id_medico);
         if ($resultado) {
-            echo '<p class="alert alert-success">Médico Deletado Com Sucesso!!!</p>';
-            echo '<script>';
-            echo 'setTimeout(function() { window.location.href = "listarMedicos.php?deletado=1"; }, 1600);';
-            echo '</script>';
+            echo "<script>alert('Médico Deletado Com Sucesso!!');</script>";
+            echo '<script>setTimeout(function() { window.location.href = "listarMedicos.php"; },);</script>';
             exit();
         } else {
             $erro = "Erro ao deletar médico.";
@@ -24,10 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $especializacao = $_POST['especializacao'];
         $resultado = $usuario->atualizarMedico($id_medico, $nome, $crm, $especializacao);
         if ($resultado) {
-            echo '<p class="alert alert-success">Médico Atualizado Com Sucesso!!!</p>';
-            echo '<script>';
-            echo 'setTimeout(function() { window.location.href = "listarMedicos.php?atualizado=1"; }, 1600);';
-            echo '</script>';
+            echo "<script>alert('Médico Atualizado Com Sucesso!!');</script>";
+            echo '<script>setTimeout(function() { window.location.href = "listarMedicos.php"; },);</script>';
             exit();
         } else {
             $erro = "Erro ao atualizar médico.";
