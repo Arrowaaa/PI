@@ -52,8 +52,8 @@ if ($id_cliente) {
                 </div>
 
                 <div class="input-group">
-                    <label for="nomePet">Nome do Pet:</label>
-                    <input type="text" id="nomePet" name="nomePet" minlength="3" maxlength="20">
+                    <label for="nomep">Nome do Pet:</label>
+                    <input type="text" id="nomep" name="nomep" minlength="3" maxlength="20">
                 </div>
                 <div class="input-group">
                     <label for="especie">Espécie do Pet:</label>
@@ -91,7 +91,7 @@ if ($id_cliente) {
                 </div>
                 <div class="input-group">
                     <label for="peso">Peso do Pet:</label>
-                    <input type="number" id="peso" name="peso" maxlength="3">
+                    <input type="number" id="peso" name="peso" min="0" max="2" step="0.01">
                 </div>
                 <div class="input-group">
                     <label for="porte">Porte do Pet:</label>

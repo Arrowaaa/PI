@@ -37,14 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $disponivel = isset($_POST['disponivel']) ? 1 : 0;
         $resultado = $usuario->adicionarHorarioMedico($id_medico, $dia_semana, $hora_inicio, $hora_fim, $disponivel);
         if ($resultado) {
-            echo '<script>';
-            echo 'setTimeout(function() { window.location.href = "listarMedicos.php?horario_adicionado=1"; }, 1600);';
-            echo '</script>';
+            echo "<script>alert('Horario do Médico Atualizado Com Sucesso!!');</script>";
+            echo '<script>setTimeout(function() { window.location.href = "listarMedicos.php"; },);</script>'; 
             exit();
         } else {
             $erro = "Erro ao adicionar horário.";
         }
     }
+
 }
 $medicos = $usuario->listarMedicos();
 $especializacoes = $usuario->listarEspecializacoes();

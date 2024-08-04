@@ -158,11 +158,11 @@ $pessoas = new pessoas();
                 <p><a href="cadastro_pet.php">Cadastre Seu Pet</a></p>
                 <p><a href="listarPet.php">Lista de Pets</a></p>
                 <?php if (isset($_SESSION['Nivel']) && $_SESSION['Nivel'] !== 'base') : ?>
-                    <p><a href="servicos.php">Tela de Serviços</a></p>
                     <p><a href="listarUser.php">Listar Usuários</a></p>
+                    <p><a href="listarMedicos.php">Lista de Médicos</a></p>
+                    <p><a href="servicos.php">Tela de Serviços</a></p>
                     <p><a href="cadastro_medico.php">Sou Médico</a></p>
                     <p><a href="horarios.php">Horários dos Médicos</a></p>
-                    <p><a href="listarMedicos.php">Lista de Médicos</a></p>
                 <?php endif; ?>
                 <p><a href="agendamento.php">Agendar Consulta</a></p>
                 <p><a href="listarAgenda.php">Cancelar Consulta</a></p>
