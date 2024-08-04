@@ -123,12 +123,12 @@ $especializacoes = $usuario->listarEspecializacoes();
         }
     </style>
     <script>
-        function toggleEdit(id_medico) {
+        function clickEdit(id_medico) {
             document.querySelector(`#edit-${id_medico}`).classList.toggle('hidden');
             document.querySelector(`#view-${id_medico}`).classList.toggle('hidden');
         }
 
-        function toggleAddHorario(id_medico) {
+        function clickAddHorario(id_medico) {
             document.querySelector(`#add-horario-${id_medico}`).classList.toggle('hidden');
         }
     </script>
@@ -177,7 +177,7 @@ $especializacoes = $usuario->listarEspecializacoes();
                                             (<?= $horario['disponivel'] ? 'Disponível' : 'Indisponível' ?>)
                                         </div>
                                     <?php } ?>
-                                    <button class="button yellow" onclick="toggleAddHorario(<?= htmlspecialchars($medico['id_medico']) ?>)">Adicionar Horário</button>
+                                    <button class="button yellow" onclick="clickAddHorario(<?= htmlspecialchars($medico['id_medico']) ?>)">Adicionar Horário</button>
                                     <form action="listarMedicos.php" method="POST" class="hidden" id="add-horario-<?= htmlspecialchars($medico['id_medico']) ?>">
                                         <input type="hidden" name="id_medico" value="<?= htmlspecialchars($medico['id_medico']) ?>">
                                         <select name="dia_semana" required>
@@ -196,7 +196,7 @@ $especializacoes = $usuario->listarEspecializacoes();
                                     </form>
                                 </td>
                                 <td>
-                                    <button class="button yellow" onclick="toggleEdit(<?= htmlspecialchars($medico['id_medico']) ?>)">Editar</button>
+                                    <button class="button yellow" onclick="clickEdit(<?= htmlspecialchars($medico['id_medico']) ?>)">Editar</button>
                                     <form action="listarMedicos.php" method="POST" class="hidden" id="edit-<?= htmlspecialchars($medico['id_medico']) ?>">
                                         <input type="hidden" name="id_medico" value="<?= htmlspecialchars($medico['id_medico']) ?>">
                                         <input type="text" name="nome" value=" <?= htmlspecialchars($medico['nome']) ?>" minlength="3" maxlength="30" required>

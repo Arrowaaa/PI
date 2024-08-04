@@ -136,7 +136,7 @@ $pets = $usuario->listarPet($id_cliente);
         }
     </style>
     <script>
-        function toggleEdit(id_pet) {
+        function clickEdit(id_pet) {
             document.querySelector(`#edit-${id_pet}`).classList.toggle('hidden');
             document.querySelector(`#view-${id_pet}`).classList.toggle('hidden');
         }
@@ -148,7 +148,7 @@ $pets = $usuario->listarPet($id_cliente);
         <a href="perfil.php" id="botaoVoltar">
             <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
         </a>
-        <?php if (isset($_GET['deletado']) && $_GET['deletado'] == 1) {    
+        <?php if (isset($_GET['deletado']) && $_GET['deletado'] == 1) {
         } elseif (isset($_GET['atualizado']) && $_GET['atualizado'] == 1) {
         } elseif (isset($erro)) {
             echo "<p class='alert alert-danger'>$erro</p>";
@@ -174,10 +174,10 @@ $pets = $usuario->listarPet($id_cliente);
                             <td><?= htmlspecialchars($pet['data_nascimento']) ?></td>
                             <td><?= htmlspecialchars(pessoas::formatarSexop($pet['sexop'])) ?></td>
                             <td><?= htmlspecialchars($pet['raca']) ?></td>
-                            <td><?= htmlspecialchars($pet['peso']) ?></td>
+                            <td><?= htmlspecialchars(pessoas::formatarPeso($pet['peso'])) ?></td>
                             <td><?= htmlspecialchars($pet['porte']) ?></td>
                             <td>
-                                <button class="button yellow" onclick="toggleEdit(<?= htmlspecialchars($pet['id_pet']) ?>)">Editar</button>
+                                <button class="button yellow" onclick="clickEdit(<?= htmlspecialchars($pet['id_pet']) ?>)">Editar</button>
                                 <form method="POST" action="" style="display: inline;">
                                     <input type="hidden" name="id_pet" value="<?= htmlspecialchars($pet['id_pet']) ?>">
                                     <button type="submit" name="delete" class="button red">Excluir</button>
@@ -194,15 +194,15 @@ $pets = $usuario->listarPet($id_cliente);
                                     </div>
                                     <div class="mb-3">
                                         <label for="data_nascimento" class="form-label">Data de Nascimento</label>
-                                        <input type="date" id="data_nascimento" name="data_nascimento" value="<?= htmlspecialchars($pet['data_nascimento']) ?>" class="form-control" min="2000-01-01" max="2024-08-03"required>
+                                        <input type="date" id="data_nascimento" name="data_nascimento" value="<?= htmlspecialchars($pet['data_nascimento']) ?>" class="form-control" min="2000-01-01" max="2024-08-03" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="raca" class="form-label">Raça</label>
-                                        <input type="text" id="raca" name="raca" value="<?= htmlspecialchars($pet['raca']) ?>" class="form-control" minlength="3" maxlength="20"  required>
+                                        <input type="text" id="raca" name="raca" value="<?= htmlspecialchars($pet['raca']) ?>" class="form-control" minlength="3" maxlength="20" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="peso" class="form-label">Peso</label>
-                                        <input type="text" id="peso" name="peso" value="<?= htmlspecialchars($pet['peso']) ?>" class="form-control"  min="1" max="99" step="0.01" required>
+                                        <input type="number" id="peso" name="peso" value="<?= htmlspecialchars($pet['peso']) ?>" class="form-control" min="1" max="99" step="0.01" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="porte" class="form-label">Porte</label>
@@ -229,6 +229,35 @@ $pets = $usuario->listarPet($id_cliente);
             </table>
         </div>
     </div>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    var peso = document.getElementById('peso');
+    if (peso) {
+        peso.addEventListener('input', function(e) {
+            let value = e.target.value;
+            let previousValue = e.target.dataset.previousValue || '';
+
+            // Contar o número de zeros no valor
+            let zeroCount = (value.match(/0/g) || []).length;
+
+            // Permitir apenas 3 zeros
+            if (zeroCount > 3) {
+                e.target.value = previousValue;
+            } else {
+                let floatValue = parseFloat(value);
+                if (isNaN(floatValue)) {
+                    e.target.value = '';
+                } else {
+                    if (floatValue < 0) e.target.value = 0;
+                    if (floatValue > 99) e.target.value = 99;
+                }
+                e.target.dataset.previousValue = e.target.value;
+            }
+        });
+    }
+});
+</script>
+
     <script src="./assets/js/mascaras.js"></script>
 </body>
 
