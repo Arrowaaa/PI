@@ -43,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     echo '<div class="alert alert-danger">' . $resultadoPet . '</div>';
                 }
             } else {
-                echo "<script>alert('Cliente cadastrado com sucesso!!');</script>";
                 echo '<script>setTimeout(function() { window.location.href = "../perfil.php"; },);</script>';
             }
         } else {
