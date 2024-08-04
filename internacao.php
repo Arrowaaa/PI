@@ -9,23 +9,23 @@
 
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome:  </label>
-                    <input type="text" class="inputUser" id="nome" name="nome" minlength="3" maxlength="30">
+                    <input type="text" class="inputUser" id="nome" name="nome" maxlength="30">
                 </div>
 
                 <div class="mb-3">
                     <label for="cpf" class="form-label">CPF:  </label>
-                    <input type="text" class="inputUser" id="cpf" name="cpf" minlength="14" maxlength="14">
+                    <input type="text" class="inputUser" id="cpf" name="cpf" maxlength="14">
                 </div>
 
                 <div class="mb-3">
                     <label for="telefone" class="form-label">Telefone:  </label>
-                    <input type="number" class="inputUser" id="telefone" name="numerotelefonico" minlength="9" maxlength="14">
+                    <input type="number" class="inputUser" id="telefone" name="numerotelefonico" maxlength="14">
                     <script src="assets/js/mascaras.js"></script>
                 </div>
 
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail:  </label>
-                    <input type="email" class="inputUser" id="email" name="email" minlength="15" maxlength="30">
+                    <input type="email" class="inputUser" id="email" name="email"  maxlength="30">
                 </div>
 
                 <div class="mb-3">
@@ -42,22 +42,22 @@
 
                 <div class="mb-3">
                     <label for="endereco" class="form-label">Endereço:  </label>
-                    <input type="text" class="inputUser" id="endereco" name="endereco" minlength="6" maxlength="30">
+                    <input type="text" class="inputUser" id="endereco" name="endereco" maxlength="30">
                 </div>
 
                 <div class="mb-3">
                     <label for="pet_nome" class="form-label">Nome do Pet:  </label>
-                    <input type="text" class="inputUser" id="pet_nome" name="pet_nome" minlength="2" maxlength="14">
+                    <input type="text" class="inputUser" id="pet_nome" name="pet_nome"  maxlength="14">
                 </div>
 
                 <div class="mb-3">
                     <label for="pet_especie" class="form-label">Espécie do Pet:  </label>
-                    <input type="text" class="inputUser" id="pet_especie" name="pet_especie" minlength="3" maxlength="30">
+                    <input type="text" class="inputUser" id="pet_especie" name="pet_especie" maxlength="20">
                 </div>
 
                 <div class="mb-3">
                     <label for="pet_raca" class="form-label">Raça do Pet:  </label>
-                    <input type="text" class="inputUser" id="pet_raca" name="pet_raca" minlength="3" maxlength="30">
+                    <input type="text" class="inputUser" id="pet_raca" name="pet_raca" maxlength="20">
                 </div>
 
                 <div class="mb-3">
