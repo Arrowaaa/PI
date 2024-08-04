@@ -45,7 +45,8 @@
                         </figcaption>
                     </figure>
                 </div>
-
+            </div>
+            <div class="row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <figure class="text-center">
                         <img src="assets/img/triagem.png" alt="Imagem da sala de triagem" class="foto-produto">
@@ -63,7 +64,8 @@
                         </figcaption>
                     </figure>
                 </div>
-
+            </div>
+            <div class="row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <figure class="text-center">
                         <img src="assets/img/lab.png" alt="Imagem da sala do laboratório" class="foto-produto">
@@ -80,6 +82,8 @@
                         </figcaption>
                     </figure>
                 </div>
+            </div>
+            <div class="row justify-content-center">
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <figure class="text-center">
                         <img src="assets/img/internacao.png" alt="Imagem da sala de internação" class="foto-produto">

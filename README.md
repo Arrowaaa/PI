@@ -46,7 +46,7 @@ Estamos aqui para cuidar dos seus animais de estimação como se fossem nossos p
 
 ## Resumo inicial:
 
-Inicialmente, sentia-me incapaz de desenvolver um site completo, devido à minha limitada compreensão e habilidades sobre o assunto. No entanto, com os conhecimentos adquiridos em sala de aula, passei a me desafiar para superar meus objetivos e o trauma de acreditar que não seria tão capaz.
+Inicialmente, senti-me incapaz de desenvolver um site completo, devido à minha limitada compreensão e habilidades sobre o assunto. No entanto, com os conhecimentos adquiridos em sala de aula, passei a me desafiar para superar meus objetivos e o trauma de acreditar que não seria tão capaz.
 
 ## Inicio do projeto:
 

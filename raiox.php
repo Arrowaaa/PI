@@ -42,20 +42,17 @@
                     <h2>Preencha Seus Dados Do Raio-X</h2>
                     <br>
                     <div class="mb-3">
-                        <label for="nome" class="form-label" id="nome">Nome:  </label>
-                        <input type="text" class="inputUser" id="nome" name="nome" maxlength="30">
-                        
+                        <label for="nome" class="form-label">Nome  </label>
+                        <input type="text" class="inputUser" id="nome" name="nome" maxlength="14">
                     </div>
                     <div class="mb-3">
                         <label for="cpf" class="form-label">CPF:  </label>
                         <input type="text" class="inputUser" id="cpf" name="cpf" maxlength="14">
-                        
                     </div>
                     <div class="mb-3">
                         <label for="telefone" class="form-label">Telefone:</label>
-                        <input type="number" class="inputUser" id="telefone" name="telefone">
+                        <input type="text" class="inputUser" id="telefone" name="telefone">
                     </div>
-
                     <div class="mb-3">
                         <label for="email" class="form-label">E-mail:  </label>
                         <input type="email" class="inputUser" id="email" name="email" maxlength="30">
@@ -73,23 +70,23 @@
                     </div>
                     <div class="mb-3">
                         <label for="endereco" class="form-label">Endereço:  </label>
-                        <input type="text" class="inputUser" id="endereco" name="endereco"  maxlength="30">
+                        <input type="text" class="inputUser" id="endereco" name="endereco" maxlength="30">
                     </div>
                     <div class="mb-3">
-                        <label for="pet_nome" class="form-label">Nome do Pet:  </label>
-                        <input type="text" class="inputUser" id="pet_nome" name="pet_nome"  maxlength="14">
+                        <label for="nomep" class="form-label">Nome do Pet  </label>
+                        <input type="text" class="inputUser" id="nomep" name="nomep" maxlength="14">
                     </div>
                     <div class="mb-3">
                         <label for="pet_especie" class="form-label">Espécie do Pet:  </label>
-                        <input type="text" class="inputUser" id="pet_especie" name="pet_especie"  maxlength="30">
+                        <input type="text" class="inputUser" id="pet_especie" name="pet_especie" maxlength="19">
                     </div>
                     <div class="mb-3">
                         <label for="pet_raca" class="form-label">Raça do Pet:  </label>
-                        <input type="text" class="inputUser" id="pet_raca" name="pet_raca"  maxlength="30">
+                        <input type="text" class="inputUser" id="pet_raca" name="pet_raca" maxlength="19">
                     </div>
                     <div class="mb-3">
                         <label for="pet_idade">Idade do Pet:  </label>
-                        <input type="number" class="inputUser" id="pet_idade" name="pet_idade">
+                        <input type="text" class="inputUser" id="pet_idade" name="pet_idade" maxlength="2" pattern="[0-3]">
                     </div>
                     <br>
                     <div class="mb-3">
@@ -157,11 +154,11 @@
                         const imgElement = document.querySelector("#apresentar-imagem img");
                         if (imgElement) {
                             const imgData = imgElement.src;
-                            const imgWidth = 210; 
+                            const imgWidth = 210;
                             const imgHeight = imgElement.naturalHeight * imgWidth / imgElement.naturalWidth;
                             pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
                         }
-                        pdf.save(); 
+                        pdf.save();
                     }).catch(err => console.error(err)).finally(() => {
                         generate.classList.remove("no-print");
                     });
@@ -183,6 +180,7 @@
             });
         });
     </script>
+    <script src="./assets/js/mascaras.js"></script>
 
 </body>
 

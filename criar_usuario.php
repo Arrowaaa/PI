@@ -1,4 +1,4 @@
-<?php
+<?php  //teste se utilize essa pagina ou não.
 session_start();
 
 require_once './classe/Usuarios.php';

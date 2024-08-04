@@ -37,24 +37,21 @@ if (!empty($id_alterar)) {
                 <div class="input-group">
                     <label for="email">E-mail:</label>
                     <input type="email" id="email" name="email" value="<?= isset($dadosUsuario['email']) ? htmlspecialchars($dadosUsuario['email']) : '' ?>" <?= isset($id_alterar) ? 'readonly' : '' ?> required>
-                    <script src="assets/js/mascaras.js"></script>
                 </div>
                 <div class="input-group">
                     <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" minlength="14" maxlength="14" value="<?= isset($dadosUsuario['cpf']) ? htmlspecialchars($dadosUsuario['cpf']) : '' ?>" required>
-                    <script src="assets/js/mascaras.js"></script>
+                    <input class="cpf" id="cpf" type="text" name="cpf" placeholder="000.000.000-00"  minlength="14" maxlength="14" required="" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
                 </div>
                 <div class="input-group password-group">
                     <label for="senha">Senha:</label>
                     <input type="password" id="senha" name="senha" value="" minlength="6" maxlength="8" required>
                     <button type="button" id="mostrarSenha"></button>
-                    <script src="assets/js/mascaras.js"></script>
+                    
                 </div>
                 <div class="input-group password-group">
                     <label for="confirmSenha">Confirme a Senha:</label>
                     <input type="password" id="confirmSenha" name="confirmSenha" value="" minlength="6" maxlength="8" required>
                     <button type="button" id="mostrarConfirmSenha"></button>
-                    <script src="assets/js/mascaras.js"></script>
                 </div>
     
                 <center>
@@ -63,6 +60,7 @@ if (!empty($id_alterar)) {
             </form>
         </div>
     </div>
+    <script src="./assets/js/mascaras.js" ></script>
     <script src="./assets/js/senhaToggle.js"></script>
 </body>
 </html>

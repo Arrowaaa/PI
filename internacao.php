@@ -18,14 +18,18 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="telefone" class="form-label">Telefone:  </label>
-                    <input type="number" class="inputUser" id="telefone" name="numerotelefonico" maxlength="14">
-                    <script src="assets/js/mascaras.js"></script>
+                    <label for="telefone" class="form-label">Telefone:</label>
+                    <input type="text" class="inputUser" id="telefone" name="telefone">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="contato" class="form-label">Contato:</label>
+                    <input type="text" class="inputUser" id="contato" name="contato">
                 </div>
 
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail:  </label>
-                    <input type="email" class="inputUser" id="email" name="email"  maxlength="30">
+                    <input type="email" class="inputUser" id="email" name="email" maxlength="30">
                 </div>
 
                 <div class="mb-3">
@@ -46,8 +50,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="pet_nome" class="form-label">Nome do Pet:  </label>
-                    <input type="text" class="inputUser" id="pet_nome" name="pet_nome"  maxlength="14">
+                    <label for="nomep" class="form-label">Nome do Pet  </label>
+                    <input type="text" class="inputUser" id="nomep" name="nomep" maxlength="14">
                 </div>
 
                 <div class="mb-3">
@@ -61,8 +65,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="pet_idade" class="form-label">Idade do Pet:  </label>
-                    <input type="number" class="inputUser" id="pet_idade" name="pet_idade">
+                    <label for="pet_idade">Idade do Pet:  </label>
+                    <input type="text" class="inputUser" id="pet_idade" name="pet_idade" maxlength="2" pattern="[0-3]">
                 </div><br>
 
                 <div class="mb-3">
@@ -92,13 +96,7 @@
                     <label for="alergias" class="form-label">Alergias:  </label>
                     <input type="radio" name="alergias">  Sim  </input>
                     <input type="radio" name="alergias">  Não  </input>
-                    <textarea type="text" class="inputUser" id="alergias" name="alergias" cols="30" rows="1">Qual Medicação?</textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label for="contato_emergencia" class="form-label">Contato de Emergência:  </label>
-                    <input type="number" class="inputUser" id="contato_emergencia" name="contato_emergencia">
-                    <script src="assets/js/mascaras.js"></script>
+                    <textarea type="text" class="inputUser" id="alergias" name="alergias" cols="30" rows="1" placeholder="A Que ele tem Alergias?" style="color:black;" ;></textarea>
                 </div><br>
 
                 <div class="mb-3">
@@ -201,7 +199,7 @@
                             const imgData = imgElement.src;
                             const imgWidth = 190;
                             const imgHeight = imgElement.naturalHeight * imgWidth / imgElement.naturalWidth;
-                            const maxPageHeight = 297 - 20; 
+                            const maxPageHeight = 297 - 20;
                             if (imgHeight > maxPageHeight) {
                                 const scale = maxPageHeight / imgHeight;
                                 imgWidth *= scale;
@@ -219,15 +217,22 @@
             }, 300);
         });
     </script>
+    <script src="./assets/js/mascaras.js"></script>
 </main>
 <br>
 <?php include './includes/footer.php'; ?>
 
 <style>
+    ::placeholder {
+        color: rgba(0, 0, 0, 0.6);
+    }
+
     .no-print {
         display: none !important;
     }
+
     @media print {
+
         body,
         #content {
             margin: 0;

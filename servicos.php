@@ -24,35 +24,34 @@
             <div class="row">
                 <div class="col-lg-4 col-md-2 col-sm-12">
                     <figure>
-                    <a href="produtosServicos.php">
-                        <img src="assets/img/exames.png" alt="Imagem de exames no pet" class="foto-produto">
-                    </a>
-                    </figure>
-                </div>
-
-                <div class="col-lg-4 col-md-2 col-sm-12">
-                    <figure>
-                    <a href="produtosServicos.php">
-                        <img src="assets/img/cirurgia.png" alt="Imagem de uma sala de cirurgia" class="foto-produto">
-                    </a>
-                    </figure>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-lg-4 col-md-2 col-sm-12">
-                    <figure>
                         <a href="produtosServicos.php">
-                            <img src="assets/img/castracao.png" alt="Imagem de uma castração" class="foto-produto">
+                            <img src="assets/img/exames.png" alt="Imagem de exames no pet" class="foto-produto">
                         </a>
                     </figure>
                 </div>
 
                 <div class="col-lg-4 col-md-2 col-sm-12">
                     <figure>
-                    <a href="produtosServicos.php">
-                        <img src="assets/img/vacina.png" alt="Vacinação" class="foto-produto">
-                    </a>
+                        <a href="produtosServicos.php">
+                            <img src="assets/img/cirurgia.png" alt="Imagem de uma sala de cirurgia" class="foto-produto">
+                        </a>
+                    </figure>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-2 col-sm-12">
+                    <figure>
+                        <a href="produtosServicos.php">
+                            <img src="assets/img/vacina.png" alt="Vacinação" class="foto-produto">
+                        </a>
+                    </figure>
+                </div>
+                
+                <div class="col-lg-4 col-md-2 col-sm-12">
+                    <figure>
+                        <a href="produtosServicos.php">
+                            <img src="assets/img/aplicacao.png" alt="Aplicação de medicamento" class="foto-produto">
+                        </a>
                     </figure>
                 </div>
             </div>
@@ -60,35 +59,16 @@
             <div class="row">
                 <div class="col-lg-4 col-md-2 col-sm-12">
                     <figure>
-                    <a href="produtosServicos.php">
-                        <img src="assets/img/aplicacao.png" alt="Aplicação de medicamento" class="foto-produto">
-                    </a>
+                        <a href="produtosServicos.php">
+                            <img src="assets/img/emergencia.png" alt="Emergência 24h" class="foto-produto">
+                        </a>
                     </figure>
                 </div>
-
                 <div class="col-lg-4 col-md-2 col-sm-12">
                     <figure>
-                    <a href="produtosServicos.php">
-                        <img src="assets/img/emergencia.png" alt="Emergência 24h" class="foto-produto">
-                    </a>
-                    </figure>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-2 col-sm-12">
-                    <figure>
-                    <a href="produtosServicos.php">
-                        <img src="assets/img/raioX.png" alt="Exames de imagem- Raio-X" class="foto-produto">
-                    </a>
-                    </figure>
-                </div>
-
-
-                <div class="col-lg-4 col-md-2 col-sm-12">
-                    <figure>
-                    <a href="produtosServicos.php">
-                        <img src="assets/img/animaisS.png" alt="Exames em animais silvestres" class="foto-produto">
-                    </a>
+                        <a href="produtosServicos.php">
+                            <img src="assets/img/raioX.png" alt="Exames de imagem- Raio-X" class="foto-produto">
+                        </a>
                     </figure>
                 </div>
             </div>
