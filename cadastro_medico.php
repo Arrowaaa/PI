@@ -81,6 +81,7 @@ $id_cliente = isset($_SESSION['id_cliente']) ? $_SESSION['id_cliente'] : null;
             </div>
         </form>
     </div>
+    <script src="./assets/js/mascaras.js" ></script>
 </body>
 
 </html>
