@@ -142,7 +142,7 @@ $pessoas = new pessoas();
                     <p>Data do Agendamento: <?= htmlspecialchars($agendamento['data_agendamento']) ?></p>
                     <p>Hora do Agendamento: <?= htmlspecialchars($agendamento['hora_agendamento']) ?></p>
                     <p>Especialização: <?= htmlspecialchars($agendamento['especializacao_nome']) ?></p>
-                    <p>Médico: <?= htmlspecialchars($agendamento['medico_nome']) ?> (CRM: <?= htmlspecialchars($agendamento['crm']) ?>)</p>
+                    <p>Médico: Dr. <?= htmlspecialchars($agendamento['medico_nome']) ?> (CRM: <?= htmlspecialchars($agendamento['crm']) ?>)</p>
                     <hr><hr>
                     <?php endforeach; ?>
                 

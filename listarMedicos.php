@@ -167,7 +167,7 @@ $especializacoes = $usuario->listarEspecializacoes();
                         ?>
                             <tr>
                                 <th scope="row"><?= htmlspecialchars($medico['id_medico']) ?></th>
-                                <td id="view-<?= htmlspecialchars($medico['id_medico']) ?>"><?= htmlspecialchars($medico['nome']) ?></td>
+                                <td id="view-<?= htmlspecialchars($medico['id_medico']) ?>">Dr. <?= htmlspecialchars($medico['nome']) ?></td>
                                 <td id="view-crm-<?= htmlspecialchars($medico['id_medico']) ?>"><?= htmlspecialchars($medico['crm']) ?></td>
                                 <td id="view-especializacao-<?= htmlspecialchars($medico['id_medico']) ?>"><?= htmlspecialchars($medico['especializacao']) ?></td>
                                 <td>
@@ -199,8 +199,8 @@ $especializacoes = $usuario->listarEspecializacoes();
                                     <button class="button yellow" onclick="toggleEdit(<?= htmlspecialchars($medico['id_medico']) ?>)">Editar</button>
                                     <form action="listarMedicos.php" method="POST" class="hidden" id="edit-<?= htmlspecialchars($medico['id_medico']) ?>">
                                         <input type="hidden" name="id_medico" value="<?= htmlspecialchars($medico['id_medico']) ?>">
-                                        <input type="text" name="nome" value="<?= htmlspecialchars($medico['nome']) ?>" required>
-                                        <input type="text" name="crm" value="<?= htmlspecialchars($medico['crm']) ?>" required>
+                                        <input type="text" name="nome" value=" <?= htmlspecialchars($medico['nome']) ?>" minlength="3" maxlength="30" required>
+                                        <input type="text" name="crm" value="<?= htmlspecialchars($medico['crm']) ?>" minlength="6" maxlength="8" required>
                                         <select name="especializacao" required>
                                             <?php foreach ($especializacoes as $especializacao) { ?>
                                                 <option value="<?= htmlspecialchars($especializacao['id_especializacao']) ?>" <?= $medico['especializacao'] == $especializacao['id_especializacao'] ? 'selected' : '' ?>>

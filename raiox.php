@@ -43,7 +43,7 @@
                     <br>
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome  </label>
-                        <input type="text" class="inputUser" id="nome" name="nome" maxlength="14">
+                        <input type="text" class="inputUser" id="nome" name="nome" maxlength="30">
                     </div>
                     <div class="mb-3">
                         <label for="cpf" class="form-label">CPF:  </label>

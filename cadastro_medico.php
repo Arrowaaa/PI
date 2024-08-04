@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 require_once './auxi/config.php';
 $sqlEspecializacao = "SELECT id_especializacao, especializacao FROM especializacao";
 $stmtEspecializacao = $UsuarioSenha->prepare($sqlEspecializacao);
@@ -10,6 +10,7 @@ $id_cliente = isset($_SESSION['id_cliente']) ? $_SESSION['id_cliente'] : null;
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,10 +33,10 @@ $id_cliente = isset($_SESSION['id_cliente']) ? $_SESSION['id_cliente'] : null;
         <h1>Cadastro de Médicos</h1>
         <form action="./auxi/auxcadastromedico.php" method="post">
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required><br>
+            <input type="text" id="nome" name="nome" minlength="3" maxlength="40" required><br>
 
             <label for="crm">CRM:</label>
-            <input type="text" id="crm" name="crm" required><br>
+            <input type="text" id="crm" name="crm" minlength="6" maxlength="8"><br>
 
             <label for="especializacao">Especialização:</label>
             <select id="especializacao" name="especializacao" required>
@@ -62,13 +63,36 @@ $id_cliente = isset($_SESSION['id_cliente']) ? $_SESSION['id_cliente'] : null;
                 <option value="Sábado">Sábado</option>
                 <option value="Domingo">Domingo</option>
             </select><br>
-
-            <label for="hora_inicio">Hora de Início:</label>
-            <input type="time" id="hora_inicio" name="hora_inicio" required><br>
-
-            <label for="hora_fim">Hora de Fim:</label>
-            <input type="time" id="hora_fim" name="hora_fim" required><br>
-
+            <div>
+                <label for="hora_inicio">Horário de Início::</label>
+                <select id="hora_inicio" name="hora_inicio" required>
+                    <option value=""></option>
+                    <option value="06:15">06:15</option>
+                    <option value="07:00">07:00</option>
+                    <option value="07:45">07:45</option>
+                    <option value="08:30">08:30</option>
+                    <option value="09:15">09:15</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:45">10:45</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:15">12:15</option>
+                </select>
+            </div>
+            <div class="group">
+                <label for="horariofim">Horário de Fim:</label>  
+                <select id="hora_fim" name="hora_fim" required>
+                    <option value="13:15">13:15</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:45">14:45</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:15">16:15</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:45">17:45</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:15">19:15</option>
+                    <option value="20:00">20:00</option>
+                </select>
+            </div>
             <label for="disponivel">Disponível:</label>
             <div class="check">
                 <input type="checkbox" id="disponivel" name="disponivel" value="1" checked>
@@ -81,7 +105,7 @@ $id_cliente = isset($_SESSION['id_cliente']) ? $_SESSION['id_cliente'] : null;
             </div>
         </form>
     </div>
-    <script src="./assets/js/mascaras.js" ></script>
+    <script src="./assets/js/mascaras.js"></script>
 </body>
 
 </html>

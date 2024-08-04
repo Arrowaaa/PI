@@ -11,7 +11,7 @@ try {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $medico = $_POST['medico'];
+    $medico = $_POST['nome'];
     $crm = $_POST['crm'];
     $especializacao = $_POST['especializacao'];
     $diasemana = $_POST['diasemana'];
@@ -38,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmtHorario->bindParam(':especializacao', $especializacao);
         $stmtHorario->execute();
         $UsuarioSenha->commit();
-        echo "Horário salvo com sucesso!";
+        echo "<script>alert('Horário salvo com sucesso!');</script>";
+        echo '<script>setTimeout(function() { window.location.href = "perfil.php"; },);</script>';
     } catch (PDOException $e) {
         $UsuarioSenha->rollBack();
         die("Erro ao salvar horário: " . $e->getMessage());
@@ -65,15 +66,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
         </a>
         <div class="login-box">
-            <h2> Cadastro Médico e seu Horário de Trabalho</h2><br>
+            <h2>Cadastro Médico e seu Horário de Trabalho</h2><br>
             <form id="horariosForm" action="#" method="POST">
                 <div class="input-group">
-                    <label for="medico">Médico:</label>
-                    <input type="text" id="medico" name="medico" required>
+                    <label for="nome">Médico:</label>
+                    <input type="text" id="nome" name="nome" minlength="3" maxlength="40" required>
                 </div>
                 <div class="input-group">
                     <label for="crm">CRM:</label>
-                    <input type="text" id="crm" name="crm" required>
+                    <input type="text" id="crm" name="crm" minlength="6" maxlength="8" required>
                 </div><br>
                 <div class="input-group">
                     <label for="especializacao">Especialização:</label>  
@@ -93,13 +94,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <?php endforeach; ?>
                     </select>
                 </div><br>
-                <div class="group">
-                    <label for="horarioinicio">Horário de Início:</label>  
-                    <input type="time" id="horarioinicio" name="horarioinicio" required>
+                <div>
+                    <label for="horarioinicio">Horário de Início::</label>
+                    <select id="horarioinicio" name="horarioinicio" required>
+                        <option value=""></option>
+                        <option value="06:15">06:15</option>
+                        <option value="07:00">07:00</option>
+                        <option value="07:45">07:45</option>
+                        <option value="08:30">08:30</option>
+                        <option value="09:15">09:15</option>
+                        <option value="10:00">10:00</option>
+                        <option value="10:45">10:45</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:15">12:15</option>
+                    </select>
                 </div><br>
                 <div class="group">
                     <label for="horariofim">Horário de Fim:</label>  
-                    <input type="time" id="horariofim" name="horariofim" required>
+                    <select id="horariofim" name="horariofim" required>
+                        <option value="13:15">13:15</option>
+                        <option value="14:00">14:00</option>
+                        <option value="14:45">14:45</option>
+                        <option value="15:30">15:30</option>
+                        <option value="16:15">16:15</option>
+                        <option value="17:00">17:00</option>
+                        <option value="17:45">17:45</option>
+                        <option value="18:30">18:30</option>
+                        <option value="19:15">19:15</option>
+                        <option value="20:00">20:00</option>
+                    </select>
                 </div><br>
                 <center>
                     <button type="submit" class="button-link">Salvar Horário<span></span></button>
@@ -107,7 +130,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </div>
-    <script src="assets/js/mascaras.js"></script>
+    <script src="./assets/js/mascaras.js"></script>
+    <script src="./assets/js/mascaras.js"></script>
 </body>
 
 </html>

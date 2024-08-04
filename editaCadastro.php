@@ -65,7 +65,7 @@ if (!empty($id_alterar)) {
 
                     <div class="input-group">
                         <label for="nome">Nome do Tutor:</label>
-                        <input type="text" id="nome" name="nome" value="<?= isset($dadosUsuario['nome']) ? htmlspecialchars($dadosUsuario['nome']) : '' ?>" required>
+                        <input type="text" id="nome" name="nome" value="<?= isset($dadosUsuario['nome']) ? htmlspecialchars($dadosUsuario['nome']) : '' ?>" minlength="3" maxlength="40" required>
                     </div>
                     <div class="input-group">
                         <label for="telefone">Telefone:</label>
