@@ -91,7 +91,7 @@ if ($id_cliente) {
                 </div>
                 <div class="input-group">
                     <label for="peso">Peso do Pet:</label>
-                    <input type="number" id="peso" name="peso" min="0" max="99" step="0.01">
+                    <input type="number" id="peso" name="peso" min="1" max="99" step="0.01">
                 </div>
                 <div class="input-group">
                     <label for="porte">Porte do Pet:</label>
