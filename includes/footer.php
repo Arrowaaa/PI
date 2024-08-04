@@ -44,12 +44,9 @@
             </div>
         </div>
         <br>
-        <div class="footer  text-center">
-            <p>&copy; 2024 Clínica Veterinária. Todos os direitos reservados.</p>
-        </div>
-
         <div class="footer-bottom">
             <div>
+            <p>&copy; 2024 Clínica Veterinária. Todos os direitos reservados.</p>
                 &copy; 2024. Este site foi desenvolvido por Edilson Carlos da turma TI21 - SENAC AMERICANA. <br> Não
                 reservamos os
                 direitos e valores apresentados, são meramente ilustrativos para fins educacionais.

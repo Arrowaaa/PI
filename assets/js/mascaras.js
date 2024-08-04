@@ -4,9 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
         telefoneInput.addEventListener('input', function (e) {
             var telefone = e.target.value;
             telefone = telefone.replace(/\D/g, '');
-            telefone = telefone.replace(/^(\d{2})(\d)/g, '($1) $2');
-            telefone = telefone.replace(/(\d)(\d{4})$/, '$1-$2');
-            e.target.value = telefone;
+            if (telefone.length <= 11) {
+                telefone = telefone.replace(/^(\d{2})(\d)/g, '($1) $2');
+                telefone = telefone.replace(/(\d)(\d{4})$/, '$1-$2');
+                e.target.value = telefone;
+            } else {
+                e.target.value = e.target.value.slice(0, -1);
+            }
         });
     }
 
@@ -15,9 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
         contatoInput.addEventListener('input', function (e) {
             var contato = e.target.value;
             contato = contato.replace(/\D/g, '');
-            contato = contato.replace(/^(\d{2})(\d)/g, '($1) $2');
-            contato = contato.replace(/(\d)(\d{4})$/, '$1-$2');
-            e.target.value = contato;
+            if (contato.length <= 11) {
+                contato = contato.replace(/^(\d{2})(\d)/g, '($1) $2');
+                contato = contato.replace(/(\d)(\d{4})$/, '$1-$2');
+                e.target.value = contato;
+            } else {
+                e.target.value = e.target.value.slice(0, -1);
+            }
         });
     }
 
@@ -35,20 +43,22 @@ document.addEventListener("DOMContentLoaded", function () {
     if (cidadeInput) {
         cidadeInput.addEventListener('input', function (e) {
             var cidade = e.target.value;
-            cidade = cidade.replace(/[^a-zA-Z\s~]/gç, '');
+            cidade = cidade.replace(/[^a-zA-Z\s]/g, '');
             e.target.value = cidade;
         });
     }
-    var cpfInput = document.getElementById('cpf');
 
-    cpfInput.addEventListener('input', function (e) {
-        var cpf = e.target.value;
-        cpf = cpf.replace(/\D/g, '');
-        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-        cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-        e.target.value = cpf;
-    });
+    var cpfInput = document.querySelector("#cpf");
+    if (cpfInput) {
+        cpfInput.addEventListener('input', function (e) {
+            var cpf = e.target.value;
+            cpf = cpf.replace(/\D/g, '');
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            e.target.value = cpf;
+        });
+    }
 
     var nomeTutorInput = document.getElementById('nome');
     if (nomeTutorInput) {
@@ -58,54 +68,16 @@ document.addEventListener("DOMContentLoaded", function () {
             e.target.value = nome;
         });
     }
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    var nomeTutorInput = document.getElementById('nome');
-
-    nomeTutorInput.addEventListener('input', function (e) {
-        var nome = e.target.value;
-        nome = nome.replace(/[^a-zA-Z\sç]/g, '');
-        e.target.value = nome;
-    });
-});
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     var medicoInput = document.getElementById('medico');
-
-//     medicoInput.addEventListener('input', function(e) {
-//         var medico = e.target.value;
-//         medico = medico.replace(/[^a-zA-Z\sç]/g, ''); 
-//         e.target.value = medico;
-//     });
-// });
-
-document.addEventListener("DOMContentLoaded", function () {
     var nomePetInput = document.getElementById('nomep');
-
-    nomePetInput.addEventListener('input', function (e) {
-        var nome = e.target.value;
-        nome = nome.replace(/[^a-zA-Z\sç]/g, '');
-        e.target.value = nome;
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    const cpfInput = document.getElementById('cpf');
-
-    if (cpfInput) {
-        cpfInput.addEventListener('input', function (e) {
-            let cpf = e.target.value;
-            cpf = cpf.replace(/\D/g, '');
-            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-            e.target.value = cpf;
+    if (nomePetInput) {
+        nomePetInput.addEventListener('input', function (e) {
+            var nomep = e.target.value;
+            nomep = nomep.replace(/[^a-zA-Z\sç]/g, '');
+            e.target.value = nomep;
         });
     }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
     const racaInput = document.getElementById('raca');
     if (racaInput) {
         racaInput.addEventListener('input', function (e) {
@@ -114,31 +86,18 @@ document.addEventListener('DOMContentLoaded', function () {
             e.target.value = raca;
         });
     }
+
+    // Validação do e-mail
+    var emailInput = document.getElementById('email');
+    if (emailInput) {
+        emailInput.addEventListener('input', function (e) {
+            var email = e.target.value;
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                emailInput.setCustomValidity("Por favor, insira um e-mail válido.");
+            } else {
+                emailInput.setCustomValidity("");
+            }
+        });
+    }
 });
-
-
-
-//função para mostra o icone do olhinho
-
-document.addEventListener('DOMContentLoaded', function () {
-    const togglePassword = document.querySelector('#mostrarSenha');
-    const password = document.querySelector('#senha');
-
-    togglePassword.addEventListener('click', function () {
-        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-        password.setAttribute('type', type);
-        this.classList.toggle('oculto');
-    });
-
-    const toggleConfirmPassword = document.querySelector('#mostrarConfirmSenha');
-    const confirmPassword = document.querySelector('#confirmSenha');
-
-    toggleConfirmPassword.addEventListener('click', function () {
-        const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-        confirmPassword.setAttribute('type', type);
-        this.classList.toggle('oculto');
-    });
-});
-
-
-

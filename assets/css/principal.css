@@ -104,6 +104,10 @@ h1 {
     color: #000000;
     font-size: 130%; 
 }
+#titulo:hover {
+    color: #ffffff;
+    font-size: 130%; 
+}
 
 .menu .selecionado,
 .menu li a:hover {

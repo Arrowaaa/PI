@@ -160,10 +160,10 @@ figcaption {
 }
 
 figcaption h4 {
-    margin: 0;
-    font-size: 26px;
-    width: 100%;
+    margin: 10px;
+    margin-left: 22%;
+    font-size: 200%;
+    width: 200%;
     display: flex;
-    justify-content: flex-end;
-
+    justify-content: space-around;
 }

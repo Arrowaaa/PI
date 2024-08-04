@@ -36,9 +36,9 @@
                 </nav>
             </header>
         </section>
-        <header class=" text-center">
-            <h1>Clínica Veterinária</h1>
+        <!-- <header class=" text-center">
+            <h2 style="color: white;" >Clínica Veterinária</h2>
             <p>Cuidados e amor para o seu pet</p>
-        </header>
+        </header> -->
     </main>
     <hr>
