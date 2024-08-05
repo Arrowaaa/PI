@@ -4,11 +4,6 @@ include './auxi/config.php';
 include './classe/Usuarios.php';
 
 
-if (!isset($_SESSION['id_cliente']) || !isset($_SESSION['nivel']) || $_SESSION['nivel'] != 'adm') {
-    header("Location: login.php");
-    exit();
-}
-
 $usuario = new Usuarios();
 $consultas = [];
 

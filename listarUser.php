@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id_cliente']) || !isset($_SESSION['nivel']) || $_SESSION['nivel'] != 'adm') {
-    header("Location: login.php"); 
-    exit();
-}
-
 require_once './classe/Usuarios.php';
 
 $usuario = new Usuarios();

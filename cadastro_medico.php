@@ -1,233 +1,115 @@
 <?php
-session_start();
-require_once './classe/Usuarios.php';
-include './auxi/config.php';
+session_start(); 
 
-// Verifica se o usuário está logado e é um administrador
-if (!isset($_SESSION['id_cliente']) || !isset($_SESSION['nivel']) || $_SESSION['nivel'] != 'adm') {
-    header("Location: login.php"); // Redireciona para a página de login
-    exit(); // Termina a execução do script
+require_once './auxi/config.php';
+
+if (!isset($_SESSION['id_cliente'])) {
+    header('Location: login.php');
+    exit();
 }
 
-$usuario = new Usuarios();
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['delete'])) {
-        $id_medico = $_POST['id_medico'];
-        $resultado = $usuario->deletarMedico($id_medico);
-        if ($resultado) {
-            echo "<script>alert('Médico Deletado Com Sucesso!!');</script>";
-            echo '<script>setTimeout(function() { window.location.href = "listarMedicos.php"; },);</script>';
-            exit();
-        } else {
-            $erro = "Erro ao deletar médico.";
-        }
-    }
-    if (isset($_POST['update'])) {
-        $id_medico = $_POST['id_medico'];
-        $nome = $_POST['nome'];
-        $crm = $_POST['crm'];
-        $especializacao = $_POST['especializacao'];
-        $resultado = $usuario->atualizarMedico($id_medico, $nome, $crm, $especializacao);
-        if ($resultado) {
-            echo "<script>alert('Médico Atualizado Com Sucesso!!');</script>";
-            echo '<script>setTimeout(function() { window.location.href = "listarMedicos.php"; },);</script>';
-            exit();
-        } else {
-            $erro = "Erro ao atualizar médico.";
-        }
-    }
-    if (isset($_POST['add_horario'])) {
-        $id_medico = $_POST['id_medico'];
-        $dia_semana = $_POST['dia_semana'];
-        $hora_inicio = $_POST['hora_inicio'];
-        $hora_fim = $_POST['hora_fim'];
-        $disponivel = isset($_POST['disponivel']) ? 1 : 0;
-        $resultado = $usuario->adicionarHorarioMedico($id_medico, $dia_semana, $hora_inicio, $hora_fim, $disponivel);
-        if ($resultado) {
-            echo "<script>alert('Horario do Médico Atualizado Com Sucesso!!');</script>";
-            echo '<script>setTimeout(function() { window.location.href = "listarMedicos.php"; },);</script>'; 
-            exit();
-        } else {
-            $erro = "Erro ao adicionar horário.";
-        }
-    }
-}
-
-$medicos = $usuario->listarMedicos();
-$especializacoes = $usuario->listarEspecializacoes();
+// Prepare a consulta para especializações
+$sqlEspecializacao = "SELECT id_especializacao, especializacao FROM especializacao";
+$stmtEspecializacao = $UsuarioSenha->prepare($sqlEspecializacao);
+$stmtEspecializacao->execute();
+$especializacoes = $stmtEspecializacao->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Médicos</title>
+    <title>Cadastro de Médicos</title>
     <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            background-color: #9c6131 !important;
-        }
-        .container {
-            margin-top: 2%;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: whitesmoke;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 90%;
-            max-width: 1200px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th,
-        td {
-            padding: 12px 5px;
-            text-align: center;
-            border-bottom: 1px solid #000000;
-        }
-        th {
-            background-color: #f4f4f4;
-            color: #000000;
-            padding: 20px;
-        }
-        .button {
-            border: none;
-            padding: 12px 12px;
-            cursor: pointer;
-            font-size: 14px;
-            border-radius: 4px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .button.yellow {
-            background-color: yellowgreen;
-            color: black;
-        }
-        .button.yellow:hover {
-            background-color: black;
-            color: yellow;
-        }
-        .button.red {
-            background-color: red;
-            color: white;
-        }
-        .button.red:hover {
-            background-color: black;
-            color: red;
-        }
-        .hidden {
-            display: none;
-        }
-        .editable {
-            display: none;
-        }
-    </style>
-    <script>
-        function clickEdit(id_medico) {
-            document.querySelector(`#edit-${id_medico}`).classList.toggle('hidden');
-            document.querySelector(`#view-${id_medico}`).classList.toggle('hidden');
-        }
-
-        function clickAddHorario(id_medico) {
-            document.querySelector(`#add-horario-${id_medico}`).classList.toggle('hidden');
-        }
-    </script>
+    <link rel="stylesheet" href="assets/css/medico.css">
 </head>
 <body>
-    <div class="container">
-        <main class="form-table w-10 m-auto">
-            <a href="perfil.php" id="botaoVoltar">
-                <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
-            </a>
-            <?php if (isset($_GET['deletado']) && $_GET['deletado'] == 1) {
-                echo "<p class='alert alert-success'>Médico Deletado com Sucesso!!</p>";
-            } elseif (isset($_GET['atualizado']) && $_GET['atualizado'] == 1) {
-                echo "<p class='alert alert-success'>Médico Atualizado com Sucesso!!</p>";
-            } elseif (isset($_GET['horario_adicionado']) && $_GET['horario_adicionado'] == 1) {
-                echo "<p class='alert alert-success'>Horário Adicionado com Sucesso!!</p>";
-            } elseif (isset($erro)) {
-                echo "<p class='alert alert-danger'>$erro</p>";
-            } ?>
-            <h1 class="h3 mb-3 fw-normal text-align: center;">Lista de Médicos</h1>
-            <div style="display: flex; justify-content: center; text-align: center;">
-                <table class="table table-striped table-light table-sm">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID Médico</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">CRM</th>
-                            <th scope="col">Especialização</th>
-                            <th scope="col">Horários</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($medicos as $medico) {
-                            $horarios = $usuario->listarHorariosMedicos($medico['id_medico']);
-                        ?>
-                            <tr>
-                                <th scope="row"><?= htmlspecialchars($medico['id_medico']) ?></th>
-                                <td id="view-<?= htmlspecialchars($medico['id_medico']) ?>">Dr. <?= htmlspecialchars($medico['nome']) ?></td>
-                                <td id="view-crm-<?= htmlspecialchars($medico['id_medico']) ?>"><?= htmlspecialchars($medico['crm']) ?></td>
-                                <td id="view-especializacao-<?= htmlspecialchars($medico['id_medico']) ?>"><?= htmlspecialchars($medico['especializacao']) ?></td>
-                                <td>
-                                    <?php foreach ($horarios as $horario) { ?>
-                                        <div>
-                                            <?= htmlspecialchars($horario['dia_semana']) ?>: <?= htmlspecialchars($horario['hora_inicio']) ?> - <?= htmlspecialchars($horario['hora_fim']) ?>
-                                            (<?= $horario['disponivel'] ? 'Disponível' : 'Indisponível' ?>)
-                                        </div>
-                                    <?php } ?>
-                                    <button class="button yellow" onclick="clickAddHorario(<?= htmlspecialchars($medico['id_medico']) ?>)">Adicionar Horário</button>
-                                    <form action="listarMedicos.php" method="POST" class="hidden" id="add-horario-<?= htmlspecialchars($medico['id_medico']) ?>">
-                                        <input type="hidden" name="id_medico" value="<?= htmlspecialchars($medico['id_medico']) ?>">
-                                        <select name="dia_semana" required>
-                                            <option value="Segunda">Segunda</option>
-                                            <option value="Terça">Terça</option>
-                                            <option value="Quarta">Quarta</option>
-                                            <option value="Quinta">Quinta</option>
-                                            <option value="Sexta">Sexta</option>
-                                            <option value="Sábado">Sábado</option>
-                                            <option value="Domingo">Domingo</option>
-                                        </select>
-                                        <input type="time" name="hora_inicio" required>
-                                        <input type="time" name="hora_fim" required>
-                                        <input type="checkbox" name="disponivel" checked> Disponível
-                                        <button type="submit" name="add_horario" class="button yellow">Salvar Horário</button>
-                                    </form>
-                                </td>
-                                <td>
-                                    <button class="button yellow" onclick="clickEdit(<?= htmlspecialchars($medico['id_medico']) ?>)">Editar</button>
-                                    <form action="listarMedicos.php" method="POST" class="hidden" id="edit-<?= htmlspecialchars($medico['id_medico']) ?>">
-                                        <input type="hidden" name="id_medico" value="<?= htmlspecialchars($medico['id_medico']) ?>">
-                                        <input type="text" name="nome" value=" <?= htmlspecialchars($medico['nome']) ?>" minlength="3" maxlength="30" required>
-                                        <input type="text" name="crm" value="<?= htmlspecialchars($medico['crm']) ?>" minlength="6" maxlength="8" required>
-                                        <select name="especializacao" required>
-                                            <?php foreach ($especializacoes as $especializacao) { ?>
-                                                <option value="<?= htmlspecialchars($especializacao['id_especializacao']) ?>" <?= $medico['especializacao'] == $especializacao['id_especializacao'] ? 'selected' : '' ?>>
-                                                    <?= htmlspecialchars($especializacao['especializacao']) ?>
-                                                </option>
-                                            <?php } ?>
-                                        </select>
-                                        <button type="submit" name="update" class="button yellow">Salvar Alterações</button>
-                                    </form>
-                                    <form action="listarMedicos.php" method="POST" style="display:inline;">
-                                        <input type="hidden" name="id_medico" value="<?= htmlspecialchars($medico['id_medico']) ?>">
-                                        <button type="submit" name="delete" class="button red">Deletar</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </main>
+    <div class="imagens">
+        <img src="assets/img/cachorros/meddog3.png" alt="cachorro medico" id="esquerda">
+        <img src="assets/img/cachorros/meddog2.png" alt="cachorro medico 2" id="direita">
     </div>
+    <div class="container">
+        <a href="perfil.php" id="botaoVoltar">
+            <i class="bi bi-x-circle-fill" style="font-size: 2rem;"></i>
+        </a><br>
+        <h1>Cadastro de Médicos</h1>
+        <form action="./auxi/auxcadastromedico.php" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" minlength="3" maxlength="40" required><br>
+
+            <label for="crm">CRM:</label>
+            <input type="text" id="crm" name="crm" minlength="6" maxlength="8"><br>
+
+            <label for="especializacao">Especialização:</label>
+            <select id="especializacao" name="especializacao" required>
+                <option value=""></option>
+                <?php
+                if (!empty($especializacoes)) {
+                    foreach ($especializacoes as $especializacao) {
+                        echo "<option value='" . htmlspecialchars($especializacao['id_especializacao']) . "'>" . htmlspecialchars($especializacao['especializacao']) . "</option>";
+                    }
+                } else {
+                    echo "<option value=''>Nenhuma especialização encontrada</option>";
+                }
+                ?>
+            </select><br>
+
+            <label for="dia_semana">Dia da Semana:</label>
+            <select id="dia_semana" name="dia_semana" required>
+                <option value="">Selecione...</option>
+                <option value="Segunda">Segunda</option>
+                <option value="Terça">Terça</option>
+                <option value="Quarta">Quarta</option>
+                <option value="Quinta">Quinta</option>
+                <option value="Sexta">Sexta</option>
+                <option value="Sábado">Sábado</option>
+                <option value="Domingo">Domingo</option>
+            </select><br>
+            <div>
+                <label for="hora_inicio">Horário de Início:</label>
+                <select id="hora_inicio" name="hora_inicio" required>
+                    <option value=""></option>
+                    <option value="06:15">06:15</option>
+                    <option value="07:00">07:00</option>
+                    <option value="07:45">07:45</option>
+                    <option value="08:30">08:30</option>
+                    <option value="09:15">09:15</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:45">10:45</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:15">12:15</option>
+                </select>
+            </div>
+            <div class="group">
+                <label for="hora_fim">Horário de Fim:</label>
+                <select id="hora_fim" name="hora_fim" required>
+                    <option value="13:15">13:15</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:45">14:45</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:15">16:15</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:45">17:45</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:15">19:15</option>
+                    <option value="20:00">20:00</option>
+                </select>
+            </div>
+            <label for="disponivel">Disponível:</label>
+            <div class="check">
+                <input type="checkbox" id="disponivel" name="disponivel" value="1" checked>
+            </div>
+            <br>
+            <div class="button-group">
+                <center>
+                    <button type="submit" class="button-link">Cadastrar<span></span></button>
+                </center>
+            </div>
+        </form>
+    </div>
+    <script src="./assets/js/mascaras.js"></script>
 </body>
 </html>
