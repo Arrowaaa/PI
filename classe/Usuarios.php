@@ -118,6 +118,7 @@ class Usuarios
             $preparo->bindParam(':cpf', $cpf);
             $preparo->bindParam(':senha', $passwordHash);
             $preparo->execute();
+            echo "<script>alert('Usuário cadastrado com sucesso!!');</script>";
             echo '<script>setTimeout(function() { window.location.href = "../login.php"; },);</script>';
         } catch (PDOException $erro) {
             echo "<script>alert('Erro ao tentar cadastrar: " . $erro->getMessage() . "');</script>";
@@ -295,18 +296,35 @@ class Usuarios
         }
     }
 
-    // Função para cadastrar pets do cliente
-    // public function CadastroPet($nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte)
-    // {
-    //     try {
-    //         $preparo = $this->UsuarioSenha->prepare("INSERT INTO pets ( nomep, especie, data_nascimento, raca, peso, sexop, porte) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
-    //         $preparo->execute([$nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte]);
-    //         return true;
-    //     } catch (PDOException $e) {
-    //         echo "Erro: " . $e->getMessage();
-    //         return false;
-    //     }
-    // }
+    // Função para lista as consultas marcada do cliente para a especialização selecionada
+    public function listarConsultasPorEspecializacao($especializacaoId) {
+        global $UsuarioSenha; // Certifique-se de que esta variável global está configurada corretamente
+    
+        try {
+            // Consulta para buscar agendamentos com detalhes
+            $sql = "
+                SELECT 
+                    a.id_agendamento, 
+                    a.data_agendamento, 
+                    a.hora_agendamento, 
+                    c.nome AS nome_cliente, 
+                    s.name AS nome_servico
+                FROM agendamentos a
+                JOIN clientes c ON a.id_cliente = c.id_cliente
+                JOIN servico s ON a.servico = s.id_servico
+                JOIN medicos m ON a.id_medico = m.id_medico
+                WHERE m.especializacao = :especializacao
+            ";
+    
+            $stmt = $UsuarioSenha->prepare($sql);
+            $stmt->execute(['especializacao' => $especializacaoId]);
+    
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        } catch (PDOException $e) {
+            die("Erro de consulta: " . htmlspecialchars($e->getMessage()));
+        }
+    }    
 
     // Função para atualizar pet do cliente
     public function AtualizarPet($id_pet, $id_cliente, $nomePet, $especiePet, $dataNascimento, $racaPet, $pesoPet, $sexoPet, $porte)

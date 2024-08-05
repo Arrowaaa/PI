@@ -14,10 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($senha === $confirmSenha) {
             $resultado = $usuarios->CadastroCliente($email, $cpf, $senha, $confirmSenha);
-
             if ($resultado === "Usuário cadastrado com sucesso!!") {
                 echo "<script>alert('Usuário cadastrado com sucesso!!');</script>";
-                echo '<script>setTimeout(function() { window.location.href = "login.php"; },);</script>';  
+                echo '<script>setTimeout(function() { window.location.href = "login.php"; },2000);</script>';  
             } elseif ($resultado === "Usuário já existe") {
                 echo "<script>alert('Usuário já existe!!');</script>";
                 echo '<script>setTimeout(function() { window.location.href = "../cadastro.php"; },);</script>';
