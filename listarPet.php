@@ -215,8 +215,8 @@ $pets = $usuario->listarPet($id_cliente);
                                     <div class="mb-3">
                                         <label for="sexop" class="form-label">Sexo</label>
                                         <select name="sexop" id="sexop">
-                                            <option value="M" <?= $pet['sexop'] == 'M' ? 'selected' : '' ?>>Masculino</option>
-                                            <option value="F" <?= $pet['sexop'] == 'F' ? 'selected' : '' ?>>Feminino</option>
+                                            <option value="M" <?= $pet['sexop'] == 'M' ? 'selected' : '' ?>>Macho</option>
+                                            <option value="F" <?= $pet['sexop'] == 'F' ? 'selected' : '' ?>>Fêmea</option>
                                             <option value="O" <?= $pet['sexop'] == 'O' ? 'selected' : '' ?>>Outro</option>
                                         </select>
                                     </div>
