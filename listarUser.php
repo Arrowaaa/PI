@@ -1,10 +1,12 @@
 <?php
 session_start();
 
-// Inclui a classe Usuarios
-require_once './classe/Usuarios.php';
+if (!isset($_SESSION['id_cliente']) || !isset($_SESSION['nivel']) || $_SESSION['nivel'] != 'adm') {
+    header("Location: login.php"); 
+    exit();
+}
 
-$id_cliente = isset($_SESSION['id_cliente']) ? $_SESSION['id_cliente'] : null;
+require_once './classe/Usuarios.php';
 
 $usuario = new Usuarios();
 $dados = $usuario->listarUsuarios();
@@ -36,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

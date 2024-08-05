@@ -1,42 +1,44 @@
 <?php
 session_start();
-
-$serve = "62.72.62.1";
-$banco = "u687609827_edilson";
-$nome = "u687609827_edilson";
-$senha = ">2Ana=]b";
+include './auxi/config.php'; 
 
 try {
-    $conn = new PDO("mysql:host=$serve;dbname=$banco", $nome, $senha);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     // Verificar se a ação é para buscar médicos
     if (isset($_POST['action']) && $_POST['action'] === 'fetch_medicos') {
         $especializacaoId = filter_var($_POST['especializacao'], FILTER_SANITIZE_NUMBER_INT);
-        $stmt = $conn->prepare("SELECT id_medico, nome FROM medicos WHERE especializacao = :especializacao");
+        $stmt = $UsuarioSenha->prepare("SELECT id_medico, nome FROM medicos WHERE especializacao = :especializacao");
         $stmt->execute(['especializacao' => $especializacaoId]);
         $medicos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($medicos);
         exit;
     }
+
     // Consulta para carregar especializações
-    $stmtEspecializacoes = $conn->query("SELECT * FROM especializacao");
+    $stmtEspecializacoes = $UsuarioSenha->query("SELECT * FROM especializacao");
     $especializacoes = $stmtEspecializacoes->fetchAll(PDO::FETCH_ASSOC);
 
     // Consulta para carregar serviços
-    $stmtServicos = $conn->query("SELECT * FROM servico");
+    $stmtServicos = $UsuarioSenha->query("SELECT * FROM servico");
     $servicos = $stmtServicos->fetchAll(PDO::FETCH_ASSOC);
 
-    // Obter id_cliente da sessão e buscar o email correspondente
+    // Obter id_cliente da sessão e buscar o email e os pets correspondentes
     $email = '';
+    $pets = [];
     if (isset($_SESSION['id_cliente'])) {
         $id_cliente = filter_var($_SESSION['id_cliente'], FILTER_SANITIZE_NUMBER_INT);
-        $stmtEmail = $conn->prepare("SELECT email FROM clientes WHERE id_cliente = :id_cliente");
+        
+        // Buscar email do cliente
+        $stmtEmail = $UsuarioSenha->prepare("SELECT email FROM clientes WHERE id_cliente = :id_cliente");
         $stmtEmail->execute(['id_cliente' => $id_cliente]);
         $result = $stmtEmail->fetch(PDO::FETCH_ASSOC);
         if ($result) {
             $email = htmlspecialchars($result['email']);
         }
+
+        // Buscar pets do cliente
+        $stmtPets = $UsuarioSenha->prepare("SELECT id_pet, nomep FROM pets WHERE id_cliente = :id_cliente");
+        $stmtPets->execute(['id_cliente' => $id_cliente]);
+        $pets = $stmtPets->fetchAll(PDO::FETCH_ASSOC);
     } else {
         header('Location: login.php');
         exit;
@@ -98,6 +100,15 @@ try {
                 <label for="selectMedico">Escolha o Médico:</label>
                 <select id="selectMedico" name="selectMedico">
                     <option value="">Selecione o Médico</option>
+                </select>
+            </div><br>
+            <div class="input-group" id="selectpet">
+                <label for="selectpet">Escolha o Pet:</label>
+                <select id="selectpet" name="selectpet" required>
+                    <option value="">Selecione o Pet</option>
+                    <?php foreach ($pets as $pet) : ?>
+                        <option value="<?= htmlspecialchars($pet['id_pet']) ?>"><?= htmlspecialchars($pet['nomep']) ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div><br>
 

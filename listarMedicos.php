@@ -1,6 +1,12 @@
 <?php
 session_start();
 require_once './classe/Usuarios.php';
+
+if (!isset($_SESSION['id_cliente']) || !isset($_SESSION['nivel']) || $_SESSION['nivel'] != 'adm') {
+    header("Location: login.php"); 
+    exit();
+}
+
 $usuario = new Usuarios();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -44,11 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $erro = "Erro ao adicionar horário.";
         }
     }
-
 }
+
 $medicos = $usuario->listarMedicos();
 $especializacoes = $usuario->listarEspecializacoes();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 

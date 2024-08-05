@@ -31,10 +31,16 @@ if (isset($_SESSION['id_cliente'])) {
             $_SESSION['Nivel'] = $nivel;
         }
 
-        // Consulta para obter informações do pet associado ao cliente
-        $preparo = $UsuarioSenha->prepare("SELECT pets.*, especies.nome AS especie_nome FROM pets JOIN especies ON pets.especie = especies.id_especie WHERE pets.id_cliente = ?");
+        // Consulta para obter informações dos pets associados ao cliente
+        $preparo = $UsuarioSenha->prepare("
+        SELECT pets.*, especies.nome AS especie_nome 
+        FROM pets 
+        JOIN especies ON pets.especie = especies.id_especie 
+        WHERE pets.id_cliente = ?
+        ");
         $preparo->execute([$id_cliente]);
-        $pet = $preparo->fetch(PDO::FETCH_ASSOC);
+        $pets = $preparo->fetchAll(PDO::FETCH_ASSOC);
+
 
         // Consulta para obter os agendamentos do cliente, incluindo especialização e médico
         $preparo = $UsuarioSenha->prepare("
@@ -78,6 +84,7 @@ $pessoas = new pessoas();
     <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/perfil.css">
 </head>
+
 <body>
     <div class="imagens">
         <img src="assets/img/cachorros/4.png" alt="Imagem 2" class="imagem-direita">
@@ -121,14 +128,19 @@ $pessoas = new pessoas();
         <h2 style="text-align: center;">Dados do Pet</h2><br>
         <div id="petInfo" class="content" style="text-align: left;">
             <h3>Informações do Pet:</h3><br>
-            <?php if ($pet && is_array($pet)) : ?>
-                <p>Nome do Pet: <?= htmlspecialchars(ucwords(strtolower($pet['nomep']))) ?></p>
-                <p>Espécie: <?= htmlspecialchars(ucwords(strtolower($pet['especie_nome']))) ?></p>
-                <p>Idade: <?= htmlspecialchars($pessoas->calcularIdade(ucwords(strtolower($pet['data_nascimento'])))) ?></p>
-                <p>Raça: <?= htmlspecialchars(ucwords(strtolower($pet['raca']))) ?></p>
-                <p>Peso: <?= htmlspecialchars(pessoas::formatarPeso(ucwords(strtolower($pet['peso'])))) ?></p>
-                <p>Sexo: <?= htmlspecialchars(pessoas::formatarSexop(ucwords(strtolower($pet['sexop'])))) ?></p>
-                <p>Porte: <?= htmlspecialchars(ucwords(strtolower($pet['porte']))) ?></p>
+            <?php if (!empty($pets)) : ?>
+                <?php foreach ($pets as $pet) : ?>
+                    <div class="pet-item">
+                        <p>Nome do Pet: <?= htmlspecialchars(ucwords(strtolower($pet['nomep']))) ?></p>
+                        <p>Espécie: <?= htmlspecialchars(ucwords(strtolower($pet['especie_nome']))) ?></p>
+                        <p>Idade: <?= htmlspecialchars($pessoas->calcularIdade(ucwords(strtolower($pet['data_nascimento'])))) ?></p>
+                        <p>Raça: <?= htmlspecialchars(ucwords(strtolower($pet['raca']))) ?></p>
+                        <p>Peso: <?= htmlspecialchars(pessoas::formatarPeso(ucwords(strtolower($pet['peso'])))) ?></p>
+                        <p>Sexo: <?= htmlspecialchars(pessoas::formatarSexop(ucwords(strtolower($pet['sexop'])))) ?></p>
+                        <p>Porte: <?= htmlspecialchars(ucwords(strtolower($pet['porte']))) ?></p>
+                        <hr><hr>
+                    </div>
+                <?php endforeach; ?>
             <?php else : ?>
                 <p>Não há informações disponíveis sobre o pet.</p>
             <?php endif; ?>
@@ -139,13 +151,15 @@ $pessoas = new pessoas();
             <h3>Informações dos Agendamentos:</h3><br>
             <?php if (!empty($agendamentos)) : ?>
                 <?php foreach ($agendamentos as $agendamento) : ?>
+                    <p>Pet: <?= htmlspecialchars(ucwords(strtolower($pet['nomep']))) ?></p>
                     <p>Data do Agendamento: <?= htmlspecialchars($agendamento['data_agendamento']) ?></p>
                     <p>Hora do Agendamento: <?= htmlspecialchars($agendamento['hora_agendamento']) ?></p>
                     <p>Especialização: <?= htmlspecialchars($agendamento['especializacao_nome']) ?></p>
                     <p>Médico: Dr. <?= htmlspecialchars($agendamento['medico_nome']) ?> (CRM: <?= htmlspecialchars($agendamento['crm']) ?>)</p>
-                    <hr><hr>
-                    <?php endforeach; ?>
-                
+                    <hr>
+                    <hr>
+                <?php endforeach; ?>
+
             <?php else : ?>
                 <p>Não há agendamentos disponíveis.</p>
             <?php endif; ?>
@@ -162,10 +176,10 @@ $pessoas = new pessoas();
                     <p><a href="listarMedicos.php">Lista de Médicos</a></p>
                     <p><a href="servicos.php">Tela de Serviços</a></p>
                     <p><a href="cadastro_medico.php">Sou Médico</a></p>
-                    <p><a href="horarios.php">Horários dos Médicos</a></p>
+                    <p><a href="listarConsultas.php">Lista de Agendamento</a></p>
                 <?php endif; ?>
                 <p><a href="agendamento.php">Agendar Consulta</a></p>
-                <p><a href="listarAgenda.php">Cancelar Consulta</a></p>
+                <p><a href="listarAgenda.php">Lista de Consulta</a></p>
                 <p><a href="logout.php">Sair</a></p>
                 <form id="excluirContaForm" action="excluir_conta.php" method="post" style="text-align: center;">
                     <input type="hidden" name="id_cliente" value="<?= htmlspecialchars($clientes['id_cliente']) ?>">
