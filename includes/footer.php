@@ -46,10 +46,10 @@
         <br>
         <div class="footer-bottom">
             <div>
-            <p>&copy; 2024 Clínica Veterinária. Todos os direitos reservados.</p>
-                &copy; 2024. Este site foi desenvolvido por Edilson Carlos da turma TI21 - SENAC AMERICANA. <br> Não
+            <p>&copy; Clínica Veterinária. Todos os direitos reservados.</p>
+                &copy; 2024. Este site foi desenvolvido por Edilson Ackles da turma TI21 - SENAC AMERICANA. <br> Não
                 reservamos os
-                direitos e valores apresentados, são meramente ilustrativos para fins educacionais.
+                direitos e valores apresentados, são meramente ilustrativos para fins educacionais 
             </div>
         </div>
     </main>
