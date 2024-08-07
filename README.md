@@ -5,7 +5,7 @@ Criação de uma clínica veterinária
 
 https://www.figma.com/design/53qqvZdZGWXRIxUT0QQeLt/Clinica-VET?node-id=0-1&t=ycKmmJonXfArUrom-0
 
-## Link da prototipagem
+## Link do Site Online
 
 https://ventqui.paulowh.com/
 
