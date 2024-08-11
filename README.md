@@ -88,5 +88,7 @@ Com base no conteúdo abordado e transmitido em aula, bem como a revisão de arq
 
 ## Conclusão e Apresentação:
 
+Ao longo deste projeto, pude vivenciar um verdadeiro processo de aprendizado e superação. Inicialmente, a insegurança em relação às minhas habilidades técnicas me impediu de acreditar que seria capaz de desenvolver um site completo. No entanto, a prática e o apoio recebido em sala de aula foram fundamentais para que eu pudesse enfrentar esses desafios e progredir.
+Em suma, este projeto não apenas me proporcionou habilidades técnicas, mas também fortaleceu minha confiança em minha capacidade de aprender e superar desafios. Estou animado para apresentar o resultado do meu trabalho e ansioso para continuar evoluindo no campo da programação e desenvolvimento web. A jornada está apenas começando!
 
 
