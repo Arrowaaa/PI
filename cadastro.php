@@ -1,6 +1,6 @@
 <?php
 require_once './classe/Usuarios.php';
-$usuario = new Usuarios();
+$usuario = new Usuarios($UsuarioSenha);
 $id_alterar = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
 $dadosUsuario = [];
 $dadosPet = [];

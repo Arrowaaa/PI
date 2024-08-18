@@ -1,7 +1,6 @@
 <?php
 session_start();
 include './auxi/config.php'; 
-
 try {
     // Verificar se a ação é para buscar médicos
     if (isset($_POST['action']) && $_POST['action'] === 'fetch_medicos') {

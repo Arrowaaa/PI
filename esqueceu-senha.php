@@ -1,5 +1,5 @@
 <?php
-require_once './auxi/config.php';
+include './auxi/config.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = trim($_POST['email']);

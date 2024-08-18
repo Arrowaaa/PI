@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once './classe/Usuarios.php';
-require_once './classe/pessoas.php';
-$usuario = new Usuarios();
+include './classe/pessoas.php';
+$usuario = new Usuarios($UsuarioSenha);
 
 $id_cliente = isset($_SESSION['id_cliente']) ? $_SESSION['id_cliente'] : null;
 $dadosUsuario = [];
@@ -60,7 +60,7 @@ if ($id_cliente) {
                     <select id="especie" name="especie">
                         <option value="">Selecione uma espécie</option>
                         <?php
-                        require_once './auxi/config.php';
+                        include './auxi/config.php'; 
                         $sql = "SELECT id_especie, nome FROM especies";
                         $stmt = $UsuarioSenha->prepare($sql);
                         $stmt->execute();

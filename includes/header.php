@@ -1,3 +1,43 @@
+<?php
+session_start();
+
+include './auxi/config.php'; 
+require_once './classe/Usuarios.php';
+
+if (isset($_SESSION['id_cliente'])) {
+    $id_cliente = $_SESSION['id_cliente'];
+
+    try {
+        global $UsuarioSenha;
+
+        // Busca as informações do cliente
+        $preparo = $UsuarioSenha->prepare("SELECT * FROM clientes WHERE id_cliente = ?");
+        $preparo->execute([$id_cliente]);
+        $cliente = $preparo->fetch(PDO::FETCH_ASSOC);
+
+        // Verifica se o cliente foi encontrado
+        if (!$cliente) {
+            header('Location: login.php');
+            exit();
+        }
+
+        // Define a foto de perfil com base no nível do cliente
+        if (isset($cliente['nivel'])) {
+            $_SESSION['Nivel'] = $cliente['nivel'];
+            if ($_SESSION['Nivel'] == 'adm') {
+                $_SESSION['fotoPerfilLogado'] = './assets/img/img_clientes/mick.jpg';
+            } else {
+                $_SESSION['fotoPerfilLogado'] = './assets/img/img_clientes/cachorro.png';
+            }
+        }
+    } catch (PDOException $e) {
+        echo 'Erro: ' . $e->getMessage();
+    }
+} else {
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -31,14 +71,22 @@
                         </li>
                         <li> <a href="servicos.php">Serviços</a></li>
                         <li> <a href="sobre.php">Sobre</a></li>
-                        <li class="icon"><a href="login.php"><i class="bi bi-person"> Login</i></a></li>
+                        <?php
+                        if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] !== "") {
+                        ?>
+                            <li>
+                                <img class="rounded-circle" height="20" src="<?php echo $_SESSION['fotoPerfilLogado']; ?>" alt="Foto de Perfil">
+                                <?php echo $_SESSION["usuario"]; ?>
+                            </li>
+                        <?php
+                        } else { ?>
+                            <li class="icon"><a href="login.php"><i class="bi bi-person"> Login</i></a></li>
+                        <?php
+                        }
+                        ?>
                     </ul>
                 </nav>
             </header>
         </section>
-        <!-- <header class=" text-center">
-            <h2 style="color: white;" >Clínica Veterinária</h2>
-            <p>Cuidados e amor para o seu pet</p>
-        </header> -->
     </main>
     <hr>

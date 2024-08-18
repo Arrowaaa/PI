@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once './auxi/config.php';
+include './auxi/config.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_cliente'])) {
     $id_cliente = $_POST['id_cliente'];

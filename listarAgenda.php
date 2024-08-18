@@ -1,8 +1,8 @@
 <?php
 session_start();
-include './classe/Usuarios.php';
-include './classe/pessoas.php';
-$usuario = new Usuarios();
+require_once  './classe/Usuarios.php';
+require_once  './classe/pessoas.php';
+$usuario = new Usuarios($UsuarioSenha);
 
 // Verifique se o formulário foi enviado para deletar um agendamento
 if (isset($_POST['delete']) && isset($_POST['id_agendamento'])) {

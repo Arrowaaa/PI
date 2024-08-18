@@ -1,15 +1,15 @@
 <?php
 session_start();
-require_once './auxi/config.php';
+include './auxi/config.php'; 
 require_once './classe/Usuarios.php';
-require_once './classe/pessoas.php';
+include './classe/pessoas.php';
 
 if (!isset($_SESSION['id_cliente'])) {
     header('Location: login.php');
     exit;
 }
 $id_cliente = $_SESSION['id_cliente'];
-$usuario = new Usuarios();
+$usuario = new Usuarios($UsuarioSenha);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['delete'])) {

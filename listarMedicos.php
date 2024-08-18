@@ -2,7 +2,7 @@
 session_start();
 require_once './classe/Usuarios.php';
 
-$usuario = new Usuarios();
+$usuario = new Usuarios($UsuarioSenha);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['delete'])) {

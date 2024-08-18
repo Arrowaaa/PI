@@ -1,7 +1,7 @@
 <?php
 session_start(); 
 
-require_once './auxi/config.php';
+include './auxi/config.php'; 
 
 if (!isset($_SESSION['id_cliente'])) {
     header('Location: login.php');

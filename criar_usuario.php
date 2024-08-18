@@ -3,7 +3,7 @@ session_start();
 
 require_once './classe/Usuarios.php';
 
-$usuario = new Usuarios();
+$usuario = new Usuarios($UsuarioSenha);
 $dadosUsuario = [];
 $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
 $id_cliente = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
@@ -12,7 +12,6 @@ if ($id_usuario) {
     $dadosUsuario = $usuario->obterUsuarioPorId($id_usuario);
 }
 
-// Determinar a URL de redirecionamento do botão Voltar
 $voltarUrl = !empty($id_usuario) ? 'listarUser.php' : 'perfil.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

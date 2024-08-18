@@ -3,7 +3,7 @@ session_start();
 
 require_once './classe/Usuarios.php';
 
-$usuario = new Usuarios();
+$usuario = new Usuarios($UsuarioSenha);
 $dados = $usuario->listarUsuarios();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

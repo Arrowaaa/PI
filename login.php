@@ -1,8 +1,8 @@
 <?php
-session_start(); // Certifique-se de iniciar a sessão
+session_start(); 
 
-include './classe/Usuarios.php';
-require_once './auxi/config.php';
+require_once  './classe/Usuarios.php';
+include './auxi/config.php';
 
 $message = '';
 

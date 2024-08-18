@@ -1,7 +1,7 @@
 <?php
 $id_cliente = isset($_GET['id_cliente']) ? $_GET['id_cliente'] : null;
 
-require_once './auxi/config.php';
+include './auxi/config.php'; 
 
 try {
     $especializacoes = $UsuarioSenha->query("SELECT id_especializacao, especializacao FROM especializacao")->fetchAll(PDO::FETCH_ASSOC);

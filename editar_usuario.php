@@ -3,7 +3,7 @@ session_start();
 
 require_once './classe/Usuarios.php';
 
-$usuario = new Usuarios();
+$usuario = new Usuarios($UsuarioSenha);
 $dadosUsuario = [];
 $email = isset($_GET['email']) ? $_GET['email'] : null;
 

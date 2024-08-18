@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once './classe/Usuarios.php';
-$usuario = new Usuarios();
+$usuario = new Usuarios($UsuarioSenha);
 
 if (!isset($_SESSION['id_cliente'])) {
     header('Location: login.php');

@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-require_once './auxi/config.php';
+include './auxi/config.php'; 
 require_once './classe/Usuarios.php';
-require_once './classe/pessoas.php';
+include './classe/pessoas.php';
 
 $clientes = null;
-$pet = null;
+$pets = []; // Inicialize como array vazio
 $nivel = 'base' || '';
 $agendamentos = [];
 if (isset($_SESSION['id_cliente'])) {
@@ -40,7 +40,6 @@ if (isset($_SESSION['id_cliente'])) {
         ");
         $preparo->execute([$id_cliente]);
         $pets = $preparo->fetchAll(PDO::FETCH_ASSOC);
-
 
         // Consulta para obter os agendamentos do cliente, incluindo especialização e médico
         $preparo = $UsuarioSenha->prepare("
@@ -151,7 +150,19 @@ $pessoas = new pessoas();
             <h3>Informações dos Agendamentos:</h3><br>
             <?php if (!empty($agendamentos)) : ?>
                 <?php foreach ($agendamentos as $agendamento) : ?>
-                    <p>Pet: <?= htmlspecialchars(ucwords(strtolower($pet['nomep']))) ?></p>
+                    <?php
+                        // Verifica se o pet do agendamento está na lista de pets do cliente
+                        $petNome = '';
+                        foreach ($pets as $petItem) {
+                            if ($petItem['id_cliente'] == $agendamento['id_cliente']) {
+                                $petNome = htmlspecialchars(ucwords(strtolower($petItem['nomep'])));
+                                break;
+                            }
+                        }
+                    ?>
+                    <?php if ($petNome) : ?>
+                        <p>Pet: <?= $petNome ?></p>
+                    <?php endif; ?>
                     <p>Data do Agendamento: <?= htmlspecialchars($agendamento['data_agendamento']) ?></p>
                     <p>Hora do Agendamento: <?= htmlspecialchars($agendamento['hora_agendamento']) ?></p>
                     <p>Especialização: <?= htmlspecialchars($agendamento['especializacao_nome']) ?></p>
@@ -159,7 +170,6 @@ $pessoas = new pessoas();
                     <hr>
                     <hr>
                 <?php endforeach; ?>
-
             <?php else : ?>
                 <p>Não há agendamentos disponíveis.</p>
             <?php endif; ?>
@@ -195,7 +205,6 @@ $pessoas = new pessoas();
                 }
             });
         </script>
-
     </div>
 </body>
 

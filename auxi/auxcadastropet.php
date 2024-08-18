@@ -2,7 +2,7 @@
 require_once 'config.php';
 require_once '../classe/Usuarios.php';
 
-$usuario = new Usuarios();
+$usuario = new Usuarios($UsuarioSenha);
 
 
 $id_cliente = $_POST['id_cliente'];

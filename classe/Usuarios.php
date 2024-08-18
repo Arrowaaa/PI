@@ -1,22 +1,14 @@
 <?php
+include './auxi/config.php'; 
 class Usuarios
 {
-    private $host = '62.72.62.1';
-    private $dbname = 'u687609827_edilson';
-    private $username = 'u687609827_edilson';
-    private $passwordbd = '>2Ana=]b';
     private $UsuarioSenha;
 
-    public function __construct()
+    public function __construct($UsuarioSenha)
     {
-        try {
-            // Inicializa a conexão PDO
-            $this->UsuarioSenha = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->username, $this->passwordbd);
-            $this->UsuarioSenha->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            die("Erro de conexão: " . $e->getMessage());
-        }
+        $this->UsuarioSenha = $UsuarioSenha;
     }
+
     // Função para obter informação do usuario pelo id
     public function obterUsuarioPorId($id_cliente)
     {

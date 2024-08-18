@@ -1,10 +1,11 @@
 <?php
 session_start();
-include './auxi/config.php';
-include './classe/Usuarios.php';
+include './auxi/config.php';  
+require_once './classe/Usuarios.php';  
+include './classe/pessoas.php';
 
 
-$usuario = new Usuarios();
+$usuario = new Usuarios($UsuarioSenha); 
 $consultas = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['especializacao'])) {
