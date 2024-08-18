@@ -1,43 +1,3 @@
-<?php
-session_start();
-
-include './auxi/config.php'; 
-require_once './classe/Usuarios.php';
-
-if (isset($_SESSION['id_cliente'])) {
-    $id_cliente = $_SESSION['id_cliente'];
-
-    try {
-        global $UsuarioSenha;
-        
-        // Busca as informações do cliente
-        $preparo = $UsuarioSenha->prepare("SELECT * FROM clientes WHERE id_cliente = ?");
-        $preparo->execute([$id_cliente]);
-        $cliente = $preparo->fetch(PDO::FETCH_ASSOC);
-
-        // Verifica se o cliente foi encontrado
-        if (!$cliente) {
-            header('Location: login.php');
-            exit();
-        }
-
-        // Define a foto de perfil com base no nível do cliente
-        if (isset($cliente['nivel'])) {
-            $_SESSION['Nivel'] = $cliente['nivel'];
-            if ($_SESSION['Nivel'] == 'adm') {
-                $_SESSION['fotoPerfilLogado'] = './assets/img/img_clientes/mick.jpg';
-            } else {
-                $_SESSION['fotoPerfilLogado'] = './assets/img/img_clientes/cachorro.png';
-            }
-        }
-    } catch (PDOException $e) {
-        echo 'Erro: ' . $e->getMessage();
-    }
-} else {
-    header('Location: login.php');
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -153,19 +113,21 @@ if (isset($_SESSION['id_cliente'])) {
                             <?php
                             if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] !== "") {
                             ?>
-                                <li>
-                                    <img class="rounded-circle" height="20" src="<?php echo $_SESSION['fotoPerfilLogado']; ?>" alt="Foto de Perfil">
-                                    <?php echo $_SESSION["usuario"]; ?>
-                                </li>
+                                <img class="rounded-circle" height="20" src="img/<?php echo $_SESSION['fotoPerfilLogado']; ?>">  
+
                             <?php
+                                echo $_SESSION["usuario"];
                             } else { ?>
+
                                 <li class="icon"><a href="login.php"><i class="bi bi-person"> Login</i></a></li>
+
                             <?php
                             }
                             ?>
                         </ul>
                     </nav>
                 </header>
+                <br><br>
                 <main>
                     <h1>Ven't Qui</h1>
                 </main>
@@ -173,5 +135,5 @@ if (isset($_SESSION['id_cliente'])) {
         </section>
     </main>
     <?php include './includes/footer.php' ?>
-</body>
+
 </html>
